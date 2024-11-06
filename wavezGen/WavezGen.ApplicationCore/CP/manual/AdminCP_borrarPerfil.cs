@@ -18,26 +18,23 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class AdminCP : GenericBasicCP
 {
-public void BorrarPerfil (string p_oid, int perfil_OID)
+public void BorrarPerfil (string p_oid, string perfil_OID)
 {
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Admin_borrarPerfil) ENABLED START*/
 
         AdminCEN adminCEN = null;
-
+        UsuarioCEN usuarioCEN = null;
 
 
         try
         {
                 CPSession.SessionInitializeTransaction ();
                 adminCEN = new  AdminCEN (CPSession.UnitRepo.AdminRepository);
+                usuarioCEN = new UsuarioCEN(CPSession.UnitRepo.UsuarioRepository);
 
+                UsuarioEN usuarioABorrar = usuarioCEN.DameUsuarioPorOID(perfil_OID);
 
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method BorrarPerfil() not yet implemented.");
-
-
+                usuarioCEN.Eliminar(usuarioABorrar.Usuario);
 
                 CPSession.Commit ();
         }
