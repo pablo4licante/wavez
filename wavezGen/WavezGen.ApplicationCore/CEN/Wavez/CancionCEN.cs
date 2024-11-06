@@ -30,7 +30,7 @@ public ICancionRepository get_ICancionRepository ()
         return this._ICancionRepository;
 }
 
-public int Nuevo (string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, Nullable<DateTime> p_any, string p_fotoPortada, string p_autor, int p_numReproducciones)
+public int Nuevo (string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, string p_fotoPortada, string p_autor, int p_numReproducciones)
 {
         CancionEN cancionEN = null;
         int oid;
@@ -41,7 +41,7 @@ public int Nuevo (string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.Gen
 
         cancionEN.Genero = p_genero;
 
-        cancionEN.Any = p_any;
+        cancionEN.Any = DateTime.Today;
 
         cancionEN.FotoPortada = p_fotoPortada;
 

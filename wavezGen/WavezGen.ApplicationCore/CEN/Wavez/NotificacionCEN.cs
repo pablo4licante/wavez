@@ -30,7 +30,7 @@ public INotificacionRepository get_INotificacionRepository ()
         return this._INotificacionRepository;
 }
 
-public int Nuevo (string p_foto, string p_mensaje, Nullable<DateTime> p_fecha)
+public int Nuevo (string p_foto, string p_mensaje)
 {
         NotificacionEN notificacionEN = null;
         int oid;
@@ -41,11 +41,11 @@ public int Nuevo (string p_foto, string p_mensaje, Nullable<DateTime> p_fecha)
 
         notificacionEN.Mensaje = p_mensaje;
 
-        notificacionEN.Fecha = p_fecha;
+        notificacionEN.Fecha = DateTime.Today; // TODO CHECK
 
 
 
-        oid = _INotificacionRepository.Nuevo (notificacionEN);
+            oid = _INotificacionRepository.Nuevo (notificacionEN);
         return oid;
 }
 
