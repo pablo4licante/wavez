@@ -5949,19 +5949,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alicante\\.nuget\\packages\\": {}
+    "C:\\Users\\leyre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\InitializeDB\\InitializeDB.csproj",
+      "projectUniqueName": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\InitializeDB\\InitializeDB.csproj",
       "projectName": "InitializeDB",
-      "projectPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\InitializeDB\\InitializeDB.csproj",
-      "packagesPath": "C:\\Users\\alicante\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\InitializeDB\\obj\\",
+      "projectPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\InitializeDB\\InitializeDB.csproj",
+      "packagesPath": "C:\\Users\\leyre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\InitializeDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\alicante\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\leyre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5976,11 +5976,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
-              "projectPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj"
+            "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
+              "projectPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj"
             },
-            "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj": {
-              "projectPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj"
+            "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj": {
+              "projectPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj"
             }
           }
         }
@@ -6025,7 +6025,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
