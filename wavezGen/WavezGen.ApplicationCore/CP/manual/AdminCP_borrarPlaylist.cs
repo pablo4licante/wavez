@@ -23,24 +23,20 @@ public void BorrarPlaylist (string p_oid, int playlist_OID)
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Admin_borrarPlaylist) ENABLED START*/
 
         AdminCEN adminCEN = null;
-
+        PlaylistCEN playlistCEN = null;
 
 
         try
         {
                 CPSession.SessionInitializeTransaction ();
                 adminCEN = new  AdminCEN (CPSession.UnitRepo.AdminRepository);
+                playlistCEN = new PlaylistCEN(CPSession.UnitRepo.PlaylistRepository);
 
-
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method BorrarPlaylist() not yet implemented.");
-
-
+                PlaylistEN playlist = playlistCEN.DamePlaylistPorOID(playlist_OID);
+                playlistCEN.Eliminar(playlist.Id);
 
                 CPSession.Commit ();
-        }
+            }
         catch (Exception ex)
         {
                 CPSession.RollBack ();
