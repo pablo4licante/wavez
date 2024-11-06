@@ -23,21 +23,16 @@ public void BorrarComentario (string p_oid, int comentario_OID)
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Admin_borrarComentario) ENABLED START*/
 
         AdminCEN adminCEN = null;
-
+            ComentarioCEN comentarioCEN = null;
 
 
         try
         {
                 CPSession.SessionInitializeTransaction ();
                 adminCEN = new  AdminCEN (CPSession.UnitRepo.AdminRepository);
-
-
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method BorrarComentario() not yet implemented.");
-
-
+                comentarioCEN = new ComentarioCEN(CPSession.UnitRepo.ComentarioRepository);
+                ComentarioEN comentario = comentarioCEN.DameComentarioPorOID(comentario_OID);
+                comentarioCEN.Eliminar(comentario.Id);
 
                 CPSession.Commit ();
         }

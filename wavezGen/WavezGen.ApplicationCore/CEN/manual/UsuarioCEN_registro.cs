@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using WavezGen.ApplicationCore.Exceptions;
 using WavezGen.ApplicationCore.EN.Wavez;
 using WavezGen.ApplicationCore.IRepository.Wavez;
+using System.Reflection.Metadata;
 
 
 /*PROTECTED REGION ID(usingWavezGen.ApplicationCore.CEN.Wavez_Usuario_registro) ENABLED START*/
@@ -15,15 +16,20 @@ namespace WavezGen.ApplicationCore.CEN.Wavez
 {
 public partial class UsuarioCEN
 {
-public void Registro (string p_oid)
+public void Registro (string p_oid, string nombre, string email, string password, string fotoPerfil)
 {
-        /*PROTECTED REGION ID(WavezGen.ApplicationCore.CEN.Wavez_Usuario_registro) ENABLED START*/
+            /*PROTECTED REGION ID(WavezGen.ApplicationCore.CEN.Wavez_Usuario_registro) ENABLED START*/
 
-        // Write here your custom code...
+            // Write here your custom code...
 
-        throw new NotImplementedException ("Method Registro() not yet implemented.");
 
-        /*PROTECTED REGION END*/
-}
+            // TODO
+            UsuarioEN usuario = new UsuarioEN(p_oid, nombre, password, email, fotoPerfil,
+                null, null, null, null, null, null, null, null, null, null);
+
+            _IUsuarioRepository.Nuevo(usuario);
+
+            /*PROTECTED REGION END*/
+        }
 }
 }

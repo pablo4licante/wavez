@@ -31,8 +31,6 @@ public void ReproducirCancion (int p_oid)
             cancion.NumReproducciones++;
             _ICancionRepository.Modificar(cancion);
 
-            throw new NotImplementedException ("Method ReproducirCancion() not yet implemented.");
-
         /*PROTECTED REGION END*/
 }
 }
