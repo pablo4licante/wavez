@@ -21,9 +21,15 @@ public void Notificar (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method Notificar() not yet implemented.");
+        // TODO PREGUNTAR
 
-        /*PROTECTED REGION END*/
-}
+        NotificacionEN notificacion = DameNotificacionPorOID(p_oid);
+        foreach (UsuarioEN usuario in notificacion.UsuariosReceptores)
+        {
+            usuario.RecibeNotificacion.Add(notificacion);
+        }
+
+            /*PROTECTED REGION END*/
+        }
 }
 }
