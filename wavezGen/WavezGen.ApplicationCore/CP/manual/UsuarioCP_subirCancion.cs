@@ -18,29 +18,23 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class UsuarioCP : GenericBasicCP
 {
-public void SubirCancion (string p_oid)
-{
+        public void SubirCancion(int p_oid, string p_titulo_cancion, GenerosEnum p_genero_cancion, Nullable<DateTime> p_any_cancion, string p_foto_cancion, string p_nif_cliente)
+        {
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Usuario_subirCancion) ENABLED START*/
 
-        UsuarioCEN usuarioCEN = null;
+        CancionCEN cancionCEN = null;
 
 
 
-        try
+            try
         {
-                CPSession.SessionInitializeTransaction ();
-                usuarioCEN = new  UsuarioCEN (CPSession.UnitRepo.UsuarioRepository);
+                CPSession.SessionInitializeTransaction();
+                cancionCEN = new CancionCEN(CPSession.UnitRepo.CancionRepository);
 
+                int idCancion = cancionCEN.Nuevo(p_titulo_cancion, p_genero_cancion, p_any_cancion, p_foto_cancion, p_nif_cliente, 0);
 
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method SubirCancion() not yet implemented.");
-
-
-
-                CPSession.Commit ();
-        }
+                CPSession.Commit();
+            }
         catch (Exception ex)
         {
                 CPSession.RollBack ();
