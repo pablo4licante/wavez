@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WavezGen.Infraestructure"
+		                   namespace="WavezGen.Infraestructure.EN.Wavez">
+		    
+		    
+			
+				<class name="ComentarioNH" table="Comentario"> 
+						<id name="Id" column="id"/> 
+			
+					
+					<property name="Texto" type="string"> 
+						<column name="texto"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Cancion" class="WavezGen.Infraestructure.EN.Wavez.CancionNH" >	
+								<column name="FK_titulo_idCancion"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Usuario" class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH" >	
+								<column name="FK_nombre_idUsuario_0"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ComentarioNHReadAllHQL">from ComentarioNH</query>
+		  <query name="ComentarioNHdameComentariosFiltradoHQL"><![CDATA[FROM ComentarioNH]]></query>
+		</hibernate-mapping>
+	

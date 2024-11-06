@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WavezGen.Infraestructure"
+		                   namespace="WavezGen.Infraestructure.EN.Wavez">
+		    
+		    
+			
+				<class name="ColaReprodNH" table="ColaReprod"> 
+						<id name="Id" column="id"/> 
+			
+					
+			
+			
+		  			
+						<bag name="Cancion" table="[cancion_colaReprod]" inverse="true" >
+							<key>
+								
+									<column name="FK_id_idColaReprod"/> 
+							</key>
+      						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.CancionNH">
+									<column name="FK_titulo_idCancion"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+		  			
+					
+							<many-to-one name="Usuario" class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH" >
+								<column name="FK_nombre_idUsuario"/> 
+        					</many-to-one>
+					 
+						
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ColaReprodNHReadAllHQL">from ColaReprodNH</query>
+		</hibernate-mapping>
+	

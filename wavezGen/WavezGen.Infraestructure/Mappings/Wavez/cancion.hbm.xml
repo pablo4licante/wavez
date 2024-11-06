@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WavezGen.Infraestructure"
+		                   namespace="WavezGen.Infraestructure.EN.Wavez">
+		    
+		    
+			
+				<class name="CancionNH" table="Cancion"> 
+						<id name="Id" column="titulo"/> 
+			
+					
+					<property name="Titulo" type="string"> 
+						<column name="titulo"  not-null="true"/>
+					</property>
+					<property name="Genero" > 
+						<column name="genero"  not-null="true"/>
+					</property>
+					<property name="Any" type="date"> 
+						<column name="any"  not-null="true"/>
+					</property>
+					<property name="FotoPortada" type="string"> 
+						<column name="fotoPortada"  not-null="true"/>
+					</property>
+					<property name="NumReptroducciones" type="integer"> 
+						<column name="numReptroducciones"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Comunidad" table="[cancion_comunidad]"  >
+							<key>
+								
+									<column name="FK_titulo_idCancion"/> 
+							</key>
+      						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.ComunidadNH">
+									<column name="FK_tag_idComunidad"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Notificacion" >
+							<key>
+							
+								
+								<column name="FK_titulo_idCancion_0"/>
+					      	</key>
+							<one-to-many class="WavezGen.Infraestructure.EN.Wavez.NotificacionNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="ColaReprod" table="[cancion_colaReprod]"  >
+							<key>
+								
+									<column name="FK_titulo_idCancion"/> 
+							</key>
+      						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.ColaReprodNH">
+									<column name="FK_id_idColaReprod"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Comentario" >
+							<key>
+							
+								
+								<column name="FK_titulo_idCancion"/>
+					      	</key>
+							<one-to-many class="WavezGen.Infraestructure.EN.Wavez.ComentarioNH"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Autor" class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH" >	
+								<column name="FK_nombre_idUsuario_0"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Playlist" table="[cancion_playlist]"  >
+							<key>
+								
+									<column name="FK_titulo_idCancion"/> 
+							</key>
+      						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.PlaylistNH">
+									<column name="FK_id_idPlaylist"/> 
+      						</many-to-many>
+    					</bag>
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CancionNHReadAllHQL">from CancionNH</query>
+		  <query name="CancionNHdameCancionesPorNombreHQL"><![CDATA[SELECT cancion FROM CancionNH as cancion WHERE cancion.Titulo LIKE :nombre
+]]></query>
+		</hibernate-mapping>
+	
