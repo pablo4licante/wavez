@@ -6,7 +6,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InitializeDB", "InitializeD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WavezGen.Infraestructure", "WavezGen.Infraestructure\WavezGen.Infraestructure.csproj", "{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WavezGen.ApplicationCore", "WavezGen.ApplicationCore\WavezGen.ApplicationCore.csproj", "{4AE3F759-FB14-4286-ADAF-055438FF0832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WavezGen.ApplicationCore", "WavezGen.ApplicationCore\WavezGen.ApplicationCore.csproj", "{3201D049-1892-4324-8D74-ECA70FE85A05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,15 +22,12 @@ Global
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4AE3F759-FB14-4286-ADAF-055438FF0832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4AE3F759-FB14-4286-ADAF-055438FF0832}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4AE3F759-FB14-4286-ADAF-055438FF0832}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4AE3F759-FB14-4286-ADAF-055438FF0832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3201D049-1892-4324-8D74-ECA70FE85A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3201D049-1892-4324-8D74-ECA70FE85A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3201D049-1892-4324-8D74-ECA70FE85A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3201D049-1892-4324-8D74-ECA70FE85A05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D197703A-DFA3-4E16-978B-8BF3D8D13BEB}
 	EndGlobalSection
 EndGlobal
