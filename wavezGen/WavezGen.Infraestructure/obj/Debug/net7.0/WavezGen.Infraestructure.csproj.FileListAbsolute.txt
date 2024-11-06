@@ -1,0 +1,17 @@
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.csproj.AssemblyReference.cache
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.AssemblyInfoInputs.cache
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.AssemblyInfo.cs
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.csproj.CoreCompileInputs.cache
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.sourcelink.json
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\hibernate.cfg.xml
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.Infraestructure.deps.json
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.Infraestructure.dll
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.Infraestructure.pdb
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.ApplicationCore.dll
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.ApplicationCore.pdb
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.1F22405B.Up2Date
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.dll
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\refint\WavezGen.Infraestructure.dll
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.pdb
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\ref\WavezGen.Infraestructure.dll

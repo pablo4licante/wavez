@@ -83,9 +83,9 @@ private System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.Playl
 
 
 /**
- *	Atributo numReptroducciones
+ *	Atributo numReproducciones
  */
-private int numReptroducciones;
+private int numReproducciones;
 
 
 
@@ -165,8 +165,8 @@ public virtual System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wave
 
 
 
-public virtual int NumReptroducciones {
-        get { return numReptroducciones; } set { numReptroducciones = value;  }
+public virtual int NumReproducciones {
+        get { return numReproducciones; } set { numReproducciones = value;  }
 }
 
 
@@ -191,20 +191,20 @@ public CancionEN()
 
 
 
-public CancionEN(int id, string titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum genero, Nullable<DateTime> any, string fotoPortada, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComunidadEN> comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> notificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN> colaReprod, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> comentario, WavezGen.ApplicationCore.EN.Wavez.UsuarioEN autor, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlist, int numReptroducciones, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuarioCompatidor
+public CancionEN(int id, string titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum genero, Nullable<DateTime> any, string fotoPortada, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComunidadEN> comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> notificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN> colaReprod, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> comentario, WavezGen.ApplicationCore.EN.Wavez.UsuarioEN autor, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlist, int numReproducciones, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuarioCompatidor
                  )
 {
-        this.init (Id, titulo, genero, any, fotoPortada, comunidad, notificacion, colaReprod, comentario, autor, playlist, numReptroducciones, usuarioCompatidor);
+        this.init (Id, titulo, genero, any, fotoPortada, comunidad, notificacion, colaReprod, comentario, autor, playlist, numReproducciones, usuarioCompatidor);
 }
 
 
 public CancionEN(CancionEN cancion)
 {
-        this.init (cancion.Id, cancion.Titulo, cancion.Genero, cancion.Any, cancion.FotoPortada, cancion.Comunidad, cancion.Notificacion, cancion.ColaReprod, cancion.Comentario, cancion.Autor, cancion.Playlist, cancion.NumReptroducciones, cancion.UsuarioCompatidor);
+        this.init (cancion.Id, cancion.Titulo, cancion.Genero, cancion.Any, cancion.FotoPortada, cancion.Comunidad, cancion.Notificacion, cancion.ColaReprod, cancion.Comentario, cancion.Autor, cancion.Playlist, cancion.NumReproducciones, cancion.UsuarioCompatidor);
 }
 
 private void init (int id
-                   , string titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum genero, Nullable<DateTime> any, string fotoPortada, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComunidadEN> comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> notificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN> colaReprod, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> comentario, WavezGen.ApplicationCore.EN.Wavez.UsuarioEN autor, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlist, int numReptroducciones, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuarioCompatidor)
+                   , string titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum genero, Nullable<DateTime> any, string fotoPortada, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComunidadEN> comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> notificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN> colaReprod, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> comentario, WavezGen.ApplicationCore.EN.Wavez.UsuarioEN autor, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlist, int numReproducciones, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuarioCompatidor)
 {
         this.Id = id;
 
@@ -229,7 +229,7 @@ private void init (int id
 
         this.Playlist = playlist;
 
-        this.NumReptroducciones = numReptroducciones;
+        this.NumReproducciones = numReproducciones;
 
         this.UsuarioCompatidor = usuarioCompatidor;
 }

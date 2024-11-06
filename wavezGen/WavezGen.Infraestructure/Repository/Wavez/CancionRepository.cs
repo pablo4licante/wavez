@@ -115,7 +115,7 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
 
 
 
-                        cancionNH.NumReptroducciones = cancion.NumReptroducciones;
+                        cancionNH.NumReproducciones = cancion.NumReproducciones;
 
 
                         session.Update (cancionNH);
@@ -198,7 +198,7 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
                         cancionNH.FotoPortada = cancion.FotoPortada;
 
 
-                        cancionNH.NumReptroducciones = cancion.NumReptroducciones;
+                        cancionNH.NumReproducciones = cancion.NumReproducciones;
 
                         session.Update (cancionNH);
                         SessionCommit ();
@@ -304,8 +304,7 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
                 try
                 {
                         SessionInitializeTransaction ();
-                        //String sql = @"FROM CancionNH self where SELECT cancion FROM CancionNH as cancion WHERE cancion.Titulo LIKE :nombre
-                        ";
+                        //String sql = @"FROM CancionNH self where SELECT cancion FROM CancionNH as cancion WHERE cancion.Titulo LIKE :";
 	                                        //IQuery query = session.CreateQuery(sql);
 	                                        IQuery query = (IQuery)session.GetNamedQuery("CancionNHdameCancionesPorNombreHQL                                             ");
 	                                                query.SetParameter("nombre ",nombre);

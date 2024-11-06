@@ -30,7 +30,7 @@ public ICancionRepository get_ICancionRepository ()
         return this._ICancionRepository;
 }
 
-public int Nuevo (int p_id, string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, Nullable<DateTime> p_any, string p_fotoPortada, string p_autor, int p_numReptroducciones, System.Collections.Generic.IList<string> p_usuarioCompatidor)
+public int Nuevo (int p_id, string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, Nullable<DateTime> p_any, string p_fotoPortada, string p_autor, int p_numReproducciones, System.Collections.Generic.IList<string> p_usuarioCompatidor)
 {
         CancionEN cancionEN = null;
         int oid;
@@ -55,7 +55,7 @@ public int Nuevo (int p_id, string p_titulo, WavezGen.ApplicationCore.Enumerated
                 cancionEN.Autor.Usuario = p_autor;
         }
 
-        cancionEN.NumReptroducciones = p_numReptroducciones;
+        cancionEN.NumReproducciones = p_numReproducciones;
 
 
         cancionEN.UsuarioCompatidor = new System.Collections.Generic.List<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN>();
@@ -77,7 +77,7 @@ public int Nuevo (int p_id, string p_titulo, WavezGen.ApplicationCore.Enumerated
         return oid;
 }
 
-public void Modificar (int p_Cancion_OID, string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, Nullable<DateTime> p_any, string p_fotoPortada, int p_numReptroducciones)
+public void Modificar (int p_Cancion_OID, string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, Nullable<DateTime> p_any, string p_fotoPortada, int p_numReproducciones)
 {
         CancionEN cancionEN = null;
 
@@ -88,7 +88,7 @@ public void Modificar (int p_Cancion_OID, string p_titulo, WavezGen.ApplicationC
         cancionEN.Genero = p_genero;
         cancionEN.Any = p_any;
         cancionEN.FotoPortada = p_fotoPortada;
-        cancionEN.NumReptroducciones = p_numReptroducciones;
+        cancionEN.NumReproducciones = p_numReproducciones;
         //Call to CancionRepository
 
         _ICancionRepository.Modificar (cancionEN);

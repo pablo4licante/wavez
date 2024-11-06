@@ -21,8 +21,8 @@
 					<property name="FotoPortada" type="string"> 
 						<column name="fotoPortada"  not-null="true"/>
 					</property>
-					<property name="NumReptroducciones" type="integer"> 
-						<column name="numReptroducciones"  not-null="true"/>
+					<property name="NumReproducciones" type="integer"> 
+						<column name="numReproducciones"  not-null="true"/>
 					</property>
 			
 			
