@@ -19,7 +19,6 @@ System.Collections.Generic.IList<ComentarioEN> ReadAllDefault (int first, int si
 
 
 
-
 int Nuevo (ComentarioEN comentario);
 
 void Modificar (ComentarioEN comentario);

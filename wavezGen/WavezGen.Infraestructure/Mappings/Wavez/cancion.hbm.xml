@@ -92,6 +92,18 @@
       						</many-to-many>
     					</bag>
 			
+			
+		  			
+						<bag name="UsuarioCompatidor" table="[cancion_usuario]"  >
+							<key>
+								
+									<column name="FK_titulo_idCancionCompartida"/> 
+							</key>
+      						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH">
+									<column name="FK_nombre_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+					
 					
 					
 					

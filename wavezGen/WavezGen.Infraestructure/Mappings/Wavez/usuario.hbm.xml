@@ -111,6 +111,17 @@
 							   <one-to-one name="ColaReprod" class="WavezGen.Infraestructure.EN.Wavez.ColaReprodNH" property-ref="Usuario" />							
 					 
 						
+			
+		  			
+						<bag name="CancionCompartida" table="[cancion_usuario]" inverse="true" >
+							<key>
+								
+									<column name="FK_nombre_idUsuario"/> 
+							</key>
+      						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.CancionNH">
+									<column name="FK_titulo_idCancionCompartida"/> 
+      						</many-to-many>
+    					</bag>
 					
 					
 					
@@ -131,6 +142,7 @@
 									<column name="FK_nombre_idUsuario_1"/> 
       						</many-to-many>
     					</bag>		
+					
 					
 					
 					

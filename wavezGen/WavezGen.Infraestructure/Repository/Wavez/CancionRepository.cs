@@ -117,6 +117,7 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
 
                         cancionNH.NumReptroducciones = cancion.NumReptroducciones;
 
+
                         session.Update (cancionNH);
                         SessionCommit ();
                 }
@@ -150,6 +151,12 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
 
                                 cancionNH.Autor.PublicaCancion
                                 .Add (cancionNH);
+                        }
+                        if (cancion.UsuarioCompatidor != null) {
+                                for (int i = 0; i < cancion.UsuarioCompatidor.Count; i++) {
+                                        cancion.UsuarioCompatidor [i] = (WavezGen.ApplicationCore.EN.Wavez.UsuarioEN)session.Load (typeof(WavezGen.ApplicationCore.EN.Wavez.UsuarioEN), cancion.UsuarioCompatidor [i].Usuario);
+                                        cancion.UsuarioCompatidor [i].CancionCompartida.Add (cancionNH);
+                                }
                         }
 
                         session.Save (cancionNH);

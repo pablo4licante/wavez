@@ -22,8 +22,7 @@ System.Collections.Generic.IList<PlaylistEN> ReadAllDefault (int first, int size
 
 
 
-
-void EliminarCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs);
+void QuitarCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs);
 
 void AddCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs);
 

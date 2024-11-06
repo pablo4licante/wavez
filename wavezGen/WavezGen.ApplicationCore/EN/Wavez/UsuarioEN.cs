@@ -103,6 +103,13 @@ private WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN colaReprod;
 
 
 
+/**
+ *	Atributo cancionCompartida
+ */
+private System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> cancionCompartida;
+
+
+
 
 
 
@@ -190,6 +197,12 @@ public virtual WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN ColaReprod {
 
 
 
+public virtual System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> CancionCompartida {
+        get { return cancionCompartida; } set { cancionCompartida = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
@@ -202,24 +215,25 @@ public UsuarioEN()
         usuarioSeguidos = new System.Collections.Generic.List<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN>();
         playlistCreada = new System.Collections.Generic.List<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN>();
         playlistGuardada = new System.Collections.Generic.List<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN>();
+        cancionCompartida = new System.Collections.Generic.List<WavezGen.ApplicationCore.EN.Wavez.CancionEN>();
 }
 
 
 
-public UsuarioEN(string usuario, string nombre, String contrasenya, string email, string fotoPerfil, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComunidadEN> comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> recibeNotificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> mandaNotificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> comentario, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> publicaCancion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuarioSeguidos, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlistCreada, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlistGuardada, WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN colaReprod
+public UsuarioEN(string usuario, string nombre, String contrasenya, string email, string fotoPerfil, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComunidadEN> comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> recibeNotificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> mandaNotificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> comentario, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> publicaCancion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuarioSeguidos, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlistCreada, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlistGuardada, WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN colaReprod, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> cancionCompartida
                  )
 {
-        this.init (Usuario, nombre, contrasenya, email, fotoPerfil, comunidad, recibeNotificacion, mandaNotificacion, comentario, publicaCancion, usuarioSeguidos, playlistCreada, playlistGuardada, colaReprod);
+        this.init (Usuario, nombre, contrasenya, email, fotoPerfil, comunidad, recibeNotificacion, mandaNotificacion, comentario, publicaCancion, usuarioSeguidos, playlistCreada, playlistGuardada, colaReprod, cancionCompartida);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (usuario.Usuario, usuario.Nombre, usuario.Contrasenya, usuario.Email, usuario.FotoPerfil, usuario.Comunidad, usuario.RecibeNotificacion, usuario.MandaNotificacion, usuario.Comentario, usuario.PublicaCancion, usuario.UsuarioSeguidos, usuario.PlaylistCreada, usuario.PlaylistGuardada, usuario.ColaReprod);
+        this.init (usuario.Usuario, usuario.Nombre, usuario.Contrasenya, usuario.Email, usuario.FotoPerfil, usuario.Comunidad, usuario.RecibeNotificacion, usuario.MandaNotificacion, usuario.Comentario, usuario.PublicaCancion, usuario.UsuarioSeguidos, usuario.PlaylistCreada, usuario.PlaylistGuardada, usuario.ColaReprod, usuario.CancionCompartida);
 }
 
 private void init (string usuario
-                   , string nombre, String contrasenya, string email, string fotoPerfil, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComunidadEN> comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> recibeNotificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> mandaNotificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> comentario, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> publicaCancion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuarioSeguidos, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlistCreada, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlistGuardada, WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN colaReprod)
+                   , string nombre, String contrasenya, string email, string fotoPerfil, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComunidadEN> comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> recibeNotificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> mandaNotificacion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> comentario, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> publicaCancion, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuarioSeguidos, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlistCreada, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> playlistGuardada, WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN colaReprod, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> cancionCompartida)
 {
         this.Usuario = usuario;
 
@@ -249,6 +263,8 @@ private void init (string usuario
         this.PlaylistGuardada = playlistGuardada;
 
         this.ColaReprod = colaReprod;
+
+        this.CancionCompartida = cancionCompartida;
 }
 
 public override bool Equals (object obj)

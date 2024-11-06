@@ -125,7 +125,7 @@ public void ModifyDefault (PlaylistEN playlist)
 }
 
 
-public void EliminarCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
+public void QuitarCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
 {
         try
         {
