@@ -18,7 +18,7 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class AdminCP : GenericBasicCP
 {
-public void BorrarComentario (string p_oid)
+public void BorrarComentario (string p_oid, int comentario_OID)
 {
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Admin_borrarComentario) ENABLED START*/
 

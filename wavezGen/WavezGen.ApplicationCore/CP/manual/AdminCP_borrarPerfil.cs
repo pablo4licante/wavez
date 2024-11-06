@@ -18,7 +18,7 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class AdminCP : GenericBasicCP
 {
-public void BorrarPerfil (string p_oid)
+public void BorrarPerfil (string p_oid, int perfil_OID)
 {
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Admin_borrarPerfil) ENABLED START*/
 

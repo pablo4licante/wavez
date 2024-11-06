@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WavezGen.ApplicationCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fdc97ba144743d3ae150472df8815afa2a8208d6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2f78d3ae12ff5b67ae7abf9007e8e50d37f44e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("WavezGen.ApplicationCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WavezGen.ApplicationCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

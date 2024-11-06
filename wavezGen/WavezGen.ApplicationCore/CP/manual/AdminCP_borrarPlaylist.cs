@@ -18,7 +18,7 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class AdminCP : GenericBasicCP
 {
-public void BorrarPlaylist (string p_oid)
+public void BorrarPlaylist (string p_oid, int playlist_OID)
 {
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Admin_borrarPlaylist) ENABLED START*/
 

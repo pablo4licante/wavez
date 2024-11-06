@@ -18,26 +18,23 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class AdminCP : GenericBasicCP
 {
-public void BorrarCancion (string p_oid)
+public void BorrarCancion (string p_oid, int cancion_OID)
 {
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Admin_borrarCancion) ENABLED START*/
 
         AdminCEN adminCEN = null;
+        CancionCEN cancionCEN = null;
 
 
 
-        try
+            try
         {
                 CPSession.SessionInitializeTransaction ();
                 adminCEN = new  AdminCEN (CPSession.UnitRepo.AdminRepository);
+                cancionCEN = new CancionCEN(CPSession.UnitRepo.CancionRepository);
 
-
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method BorrarCancion() not yet implemented.");
-
-
+                CancionEN cancion = cancionCEN.DameCancionPorOID(cancion_OID);
+                cancionCEN.Eliminar(cancion.Id);
 
                 CPSession.Commit ();
         }
