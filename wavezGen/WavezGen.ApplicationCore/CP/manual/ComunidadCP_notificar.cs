@@ -23,21 +23,23 @@ public void Notificar (WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_o
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Comunidad_notificar) ENABLED START*/
 
         ComunidadCEN comunidadCEN = null;
+            NotificacionCEN notificacionCEN = null;
 
 
-
-        try
+            // TODO preguntar por esto
+            try
         {
                 CPSession.SessionInitializeTransaction ();
                 comunidadCEN = new  ComunidadCEN (CPSession.UnitRepo.ComunidadRepository);
+                notificacionCEN = new NotificacionCEN(CPSession.UnitRepo.NotificacionRepository);
 
+                ComunidadEN comunidad = comunidadCEN.DameComunidadPorOID(p_oid);
+                NotificacionEN notificacion = notificacionCEN.DameNotificacionPorOID(p_Notificacion);
 
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method Notificar() not yet implemented.");
-
-
+                foreach (UsuarioEN usuario in comunidad.Usuario)
+                {
+                    usuario.RecibeNotificacion.Add(notificacion);
+                }
 
                 CPSession.Commit ();
         }
