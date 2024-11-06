@@ -30,6 +30,12 @@ public IPlaylistRepository get_IPlaylistRepository ()
         return this._IPlaylistRepository;
 }
 
+public void EliminarCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
+{
+        //Call to PlaylistRepository
+
+        _IPlaylistRepository.EliminarCancion (p_Playlist_OID, p_cancion_OIDs);
+}
 public void AddCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
 {
         //Call to PlaylistRepository

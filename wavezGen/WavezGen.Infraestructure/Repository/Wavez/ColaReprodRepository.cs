@@ -117,6 +117,44 @@ public void ModifyDefault (ColaReprodEN colaReprod)
 }
 
 
+public void EliminarCancion (int p_ColaReprod_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                WavezGen.ApplicationCore.EN.Wavez.ColaReprodEN colaReprodEN = null;
+                colaReprodEN = (ColaReprodEN)session.Load (typeof(ColaReprodNH), p_ColaReprod_OID);
+
+                WavezGen.ApplicationCore.EN.Wavez.CancionEN cancionENAux = null;
+                if (colaReprodEN.Cancion != null) {
+                        foreach (int item in p_cancion_OIDs) {
+                                cancionENAux = (WavezGen.ApplicationCore.EN.Wavez.CancionEN)session.Load (typeof(WavezGen.Infraestructure.EN.Wavez.CancionNH), item);
+                                if (colaReprodEN.Cancion.Contains (cancionENAux) == true) {
+                                        colaReprodEN.Cancion.Remove (cancionENAux);
+                                        cancionENAux.ColaReprod.Remove (colaReprodEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_cancion_OIDs you are trying to unrelationer, doesn't exist in ColaReprodEN");
+                        }
+                }
+
+                session.Update (colaReprodEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in ColaReprodRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 public int Nuevo (ColaReprodEN colaReprod)
 {
         ColaReprodNH colaReprodNH = new ColaReprodNH (colaReprod);

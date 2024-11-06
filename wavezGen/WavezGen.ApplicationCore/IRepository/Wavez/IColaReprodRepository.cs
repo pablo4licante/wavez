@@ -18,6 +18,7 @@ System.Collections.Generic.IList<ColaReprodEN> ReadAllDefault (int first, int si
 
 
 
+void EliminarCancion (int p_ColaReprod_OID, System.Collections.Generic.IList<int> p_cancion_OIDs);
 
 
 int Nuevo (ColaReprodEN colaReprod);

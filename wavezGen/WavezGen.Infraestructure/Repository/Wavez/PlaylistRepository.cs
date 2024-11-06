@@ -125,6 +125,44 @@ public void ModifyDefault (PlaylistEN playlist)
 }
 
 
+public void EliminarCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                WavezGen.ApplicationCore.EN.Wavez.PlaylistEN playlistEN = null;
+                playlistEN = (PlaylistEN)session.Load (typeof(PlaylistNH), p_Playlist_OID);
+
+                WavezGen.ApplicationCore.EN.Wavez.CancionEN cancionENAux = null;
+                if (playlistEN.Cancion != null) {
+                        foreach (int item in p_cancion_OIDs) {
+                                cancionENAux = (WavezGen.ApplicationCore.EN.Wavez.CancionEN)session.Load (typeof(WavezGen.Infraestructure.EN.Wavez.CancionNH), item);
+                                if (playlistEN.Cancion.Contains (cancionENAux) == true) {
+                                        playlistEN.Cancion.Remove (cancionENAux);
+                                        cancionENAux.Playlist.Remove (playlistEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_cancion_OIDs you are trying to unrelationer, doesn't exist in PlaylistEN");
+                        }
+                }
+
+                session.Update (playlistEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in PlaylistRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 public void AddCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
 {
         WavezGen.ApplicationCore.EN.Wavez.PlaylistEN playlistEN = null;

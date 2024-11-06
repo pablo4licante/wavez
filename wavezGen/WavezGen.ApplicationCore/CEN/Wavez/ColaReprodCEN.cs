@@ -30,6 +30,12 @@ public IColaReprodRepository get_IColaReprodRepository ()
         return this._IColaReprodRepository;
 }
 
+public void EliminarCancion (int p_ColaReprod_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
+{
+        //Call to ColaReprodRepository
+
+        _IColaReprodRepository.EliminarCancion (p_ColaReprod_OID, p_cancion_OIDs);
+}
 public int Nuevo (int p_id, string p_usuario)
 {
         ColaReprodEN colaReprodEN = null;
