@@ -15,7 +15,7 @@ namespace WavezGen.ApplicationCore.CEN.Wavez
 {
 public partial class UsuarioCEN
 {
-public void Registro (string p_oid)
+public void Registro (string p_oid, string nombre, string password, string email, string fotoPerfil)
 {
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CEN.Wavez_Usuario_registro) ENABLED START*/
 
