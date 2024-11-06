@@ -6,7 +6,10 @@
 		    
 			
 				<class name="ComentarioNH" table="Comentario"> 
-						<id name="Id" column="id"/> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Texto" type="string"> 
@@ -35,6 +38,6 @@
 		 </class>	
 		  
 		  <query name="ComentarioNHReadAllHQL">from ComentarioNH</query>
-		  <query name="ComentarioNHdameComentariosFiltradoHQL"><![CDATA[FROM ComentarioNH]]></query>
+		  <query name="ComentarioNHdameComentariosDeCancionHQL"><![CDATA[SELECT comentario FROM ComentarioNH as comentario inner join comentario.Cancion as cancion WHERE cancion.Id  :cancion_OID]]></query>
 		</hibernate-mapping>
 	

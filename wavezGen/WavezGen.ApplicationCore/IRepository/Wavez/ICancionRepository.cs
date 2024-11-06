@@ -21,7 +21,6 @@ System.Collections.Generic.IList<CancionEN> ReadAllDefault (int first, int size)
 
 
 
-
 int Nuevo (CancionEN cancion);
 
 void Modificar (CancionEN cancion);

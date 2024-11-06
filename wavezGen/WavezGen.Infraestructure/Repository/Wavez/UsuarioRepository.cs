@@ -137,6 +137,81 @@ public void ModifyDefault (UsuarioEN usuario)
 }
 
 
+public void Seguir (string p_Usuario_OID, System.Collections.Generic.IList<string> p_usuarioSeguidos_OIDs)
+{
+        WavezGen.ApplicationCore.EN.Wavez.UsuarioEN usuarioEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioNH), p_Usuario_OID);
+                WavezGen.ApplicationCore.EN.Wavez.UsuarioEN usuarioSeguidosENAux = null;
+                if (usuarioEN.UsuarioSeguidos == null) {
+                        usuarioEN.UsuarioSeguidos = new System.Collections.Generic.List<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN>();
+                }
+
+                foreach (string item in p_usuarioSeguidos_OIDs) {
+                        usuarioSeguidosENAux = new WavezGen.ApplicationCore.EN.Wavez.UsuarioEN ();
+                        usuarioSeguidosENAux = (WavezGen.ApplicationCore.EN.Wavez.UsuarioEN)session.Load (typeof(WavezGen.Infraestructure.EN.Wavez.UsuarioNH), item);
+
+                        usuarioEN.UsuarioSeguidos.Add (usuarioSeguidosENAux);
+                }
+
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void DejarDeSeguir (string p_Usuario_OID, System.Collections.Generic.IList<string> p_usuarioSeguidos_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                WavezGen.ApplicationCore.EN.Wavez.UsuarioEN usuarioEN = null;
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioNH), p_Usuario_OID);
+
+                WavezGen.ApplicationCore.EN.Wavez.UsuarioEN usuarioSeguidosENAux = null;
+                if (usuarioEN.UsuarioSeguidos != null) {
+                        foreach (string item in p_usuarioSeguidos_OIDs) {
+                                usuarioSeguidosENAux = (WavezGen.ApplicationCore.EN.Wavez.UsuarioEN)session.Load (typeof(WavezGen.Infraestructure.EN.Wavez.UsuarioNH), item);
+                                if (usuarioEN.UsuarioSeguidos.Contains (usuarioSeguidosENAux) == true) {
+                                        usuarioEN.UsuarioSeguidos.Remove (usuarioSeguidosENAux);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_usuarioSeguidos_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
+                        }
+                }
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 public string Nuevo (UsuarioEN usuario)
 {
         UsuarioNH usuarioNH = new UsuarioNH (usuario);
@@ -464,6 +539,64 @@ public void DesasignarPlaylist (string p_Usuario_OID, System.Collections.Generic
         {
                 SessionClose ();
         }
+}
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisCanciones ()
+{
+        System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioNH self where SELECT cancion FROM UsuarioNH as usuario inner join usuario.PublicaCancion as cancion WHERE cancion.Autor = usuario.Usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioNHdameMisCancionesHQL");
+
+                result = query.List<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisPlaylists ()
+{
+        System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioNH self where SELECT playlist FROM UsuarioNH as usuario inner join usuario.PlaylistCreada as playlist WHERE playlist.UsuarioCreador = usuario.Usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioNHdameMisPlaylistsHQL");
+
+                result = query.List<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

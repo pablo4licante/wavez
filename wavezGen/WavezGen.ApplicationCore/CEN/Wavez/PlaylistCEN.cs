@@ -42,15 +42,13 @@ public void AddCancion (int p_Playlist_OID, System.Collections.Generic.IList<int
 
         _IPlaylistRepository.AddCancion (p_Playlist_OID, p_cancion_OIDs);
 }
-public int Nuevo (int p_id, string p_titulo, string p_portada, string p_usuarioCreador)
+public int Nuevo (string p_titulo, string p_portada, string p_usuarioCreador)
 {
         PlaylistEN playlistEN = null;
         int oid;
 
         //Initialized PlaylistEN
         playlistEN = new PlaylistEN ();
-        playlistEN.Id = p_id;
-
         playlistEN.Titulo = p_titulo;
 
         playlistEN.Portada = p_portada;
@@ -108,18 +106,6 @@ public System.Collections.Generic.IList<PlaylistEN> DameTodasLasPlaylist (int fi
 public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> DamePlaylistsPorNombre (string nombre)
 {
         return _IPlaylistRepository.DamePlaylistsPorNombre (nombre);
-}
-public void AsignarUsuario (int p_Playlist_OID, System.Collections.Generic.IList<string> p_usuario_OIDs)
-{
-        //Call to PlaylistRepository
-
-        _IPlaylistRepository.AsignarUsuario (p_Playlist_OID, p_usuario_OIDs);
-}
-public void DesasignarUsuario (int p_Playlist_OID, System.Collections.Generic.IList<string> p_usuario_OIDs)
-{
-        //Call to PlaylistRepository
-
-        _IPlaylistRepository.DesasignarUsuario (p_Playlist_OID, p_usuario_OIDs);
 }
 }
 }

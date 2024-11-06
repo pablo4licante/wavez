@@ -30,15 +30,13 @@ public IComentarioRepository get_IComentarioRepository ()
         return this._IComentarioRepository;
 }
 
-public int Nuevo (int p_id, string p_texto, int p_cancion, string p_usuario)
+public int Nuevo (string p_texto, int p_cancion, string p_usuario)
 {
         ComentarioEN comentarioEN = null;
         int oid;
 
         //Initialized ComentarioEN
         comentarioEN = new ComentarioEN ();
-        comentarioEN.Id = p_id;
-
         comentarioEN.Texto = p_texto;
 
 
@@ -98,9 +96,9 @@ public System.Collections.Generic.IList<ComentarioEN> DameTodosLosComentarios (i
         list = _IComentarioRepository.DameTodosLosComentarios (first, size);
         return list;
 }
-public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> DameComentariosFiltrado ()
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> DameComentariosDeCancion (int ? cancion_OID)
 {
-        return _IComentarioRepository.DameComentariosFiltrado ();
+        return _IComentarioRepository.DameComentariosDeCancion (cancion_OID);
 }
 }
 }

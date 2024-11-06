@@ -30,15 +30,13 @@ public IColaReprodRepository get_IColaReprodRepository ()
         return this._IColaReprodRepository;
 }
 
-public int Nuevo (int p_id, string p_usuario)
+public int Nuevo (string p_usuario)
 {
         ColaReprodEN colaReprodEN = null;
         int oid;
 
         //Initialized ColaReprodEN
         colaReprodEN = new ColaReprodEN ();
-        colaReprodEN.Id = p_id;
-
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false

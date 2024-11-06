@@ -33,10 +33,5 @@ ComunidadEN DameComunidadPorOID (WavezGen.ApplicationCore.Enumerated.Wavez.Gener
 
 
 System.Collections.Generic.IList<ComunidadEN> DameTodasLasComunidades (int first, int size);
-
-
-void AsignarUsuario (WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_Comunidad_OID, System.Collections.Generic.IList<string> p_usuario_OIDs);
-
-void DesasignarUsuario (WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_Comunidad_OID, System.Collections.Generic.IList<string> p_usuario_OIDs);
 }
 }

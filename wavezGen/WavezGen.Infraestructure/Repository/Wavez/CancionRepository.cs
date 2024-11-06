@@ -152,12 +152,6 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
                                 cancionNH.Autor.PublicaCancion
                                 .Add (cancionNH);
                         }
-                        if (cancion.UsuarioCompatidor != null) {
-                                for (int i = 0; i < cancion.UsuarioCompatidor.Count; i++) {
-                                        cancion.UsuarioCompatidor [i] = (WavezGen.ApplicationCore.EN.Wavez.UsuarioEN)session.Load (typeof(WavezGen.ApplicationCore.EN.Wavez.UsuarioEN), cancion.UsuarioCompatidor [i].Usuario);
-                                        cancion.UsuarioCompatidor [i].CancionCompartida.Add (cancionNH);
-                                }
-                        }
 
                         session.Save (cancionNH);
                         SessionCommit ();
@@ -304,7 +298,8 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
                 try
                 {
                         SessionInitializeTransaction ();
-                        //String sql = @"FROM CancionNH self where SELECT cancion FROM CancionNH as cancion WHERE cancion.Titulo LIKE :";
+                        //String sql = @"FROM CancionNH self where SELECT cancion FROM CancionNH as cancion WHERE cancion.Titulo LIKE :nombre
+                        ";
 	                                        //IQuery query = session.CreateQuery(sql);
 	                                        IQuery query = (IQuery)session.GetNamedQuery("CancionNHdameCancionesPorNombreHQL                                             ");
 	                                                query.SetParameter("nombre ",nombre);

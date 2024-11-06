@@ -30,15 +30,13 @@ public INotificacionRepository get_INotificacionRepository ()
         return this._INotificacionRepository;
 }
 
-public int Nuevo (int p_id, string p_foto, string p_mensaje, Nullable<DateTime> p_fecha)
+public int Nuevo (string p_foto, string p_mensaje, Nullable<DateTime> p_fecha)
 {
         NotificacionEN notificacionEN = null;
         int oid;
 
         //Initialized NotificacionEN
         notificacionEN = new NotificacionEN ();
-        notificacionEN.Id = p_id;
-
         notificacionEN.Foto = p_foto;
 
         notificacionEN.Mensaje = p_mensaje;

@@ -31,6 +31,18 @@ public IUsuarioRepository get_IUsuarioRepository ()
         return this._IUsuarioRepository;
 }
 
+public void Seguir (string p_Usuario_OID, System.Collections.Generic.IList<string> p_usuarioSeguidos_OIDs)
+{
+        //Call to UsuarioRepository
+
+        _IUsuarioRepository.Seguir (p_Usuario_OID, p_usuarioSeguidos_OIDs);
+}
+public void DejarDeSeguir (string p_Usuario_OID, System.Collections.Generic.IList<string> p_usuarioSeguidos_OIDs)
+{
+        //Call to UsuarioRepository
+
+        _IUsuarioRepository.DejarDeSeguir (p_Usuario_OID, p_usuarioSeguidos_OIDs);
+}
 public string Login (string p_Usuario_OID, string p_pass)
 {
         string result = null;
@@ -130,6 +142,14 @@ public void DesasignarPlaylist (string p_Usuario_OID, System.Collections.Generic
         //Call to UsuarioRepository
 
         _IUsuarioRepository.DesasignarPlaylist (p_Usuario_OID, p_playlistGuardada_OIDs);
+}
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisCanciones ()
+{
+        return _IUsuarioRepository.DameMisCanciones ();
+}
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisPlaylists ()
+{
+        return _IUsuarioRepository.DameMisPlaylists ();
 }
 
 

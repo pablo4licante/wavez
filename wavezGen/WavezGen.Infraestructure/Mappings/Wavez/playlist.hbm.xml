@@ -6,7 +6,10 @@
 		    
 			
 				<class name="PlaylistNH" table="Playlist"> 
-						<id name="Id" column="id"/> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Titulo" type="string"> 

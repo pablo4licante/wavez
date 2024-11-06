@@ -18,7 +18,6 @@ System.Collections.Generic.IList<ComentarioEN> ReadAllDefault (int first, int si
 
 
 
-
 int Nuevo (ComentarioEN comentario);
 
 void Modificar (ComentarioEN comentario);
@@ -35,6 +34,6 @@ ComentarioEN DameComentarioPorOID (int id
 System.Collections.Generic.IList<ComentarioEN> DameTodosLosComentarios (int first, int size);
 
 
-System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> DameComentariosFiltrado ();
+System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> DameComentariosDeCancion (int ? cancion_OID);
 }
 }

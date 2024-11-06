@@ -6,7 +6,10 @@
 		    
 			
 				<class name="CancionNH" table="Cancion"> 
-						<id name="Id" column="titulo"/> 
+				  	
+						<id name="Id" column="titulo" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 					<property name="Titulo" type="string"> 

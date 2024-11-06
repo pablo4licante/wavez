@@ -20,14 +20,14 @@ System.Collections.Generic.IList<UsuarioEN> ReadAllDefault (int first, int size)
 
 
 
+void Seguir (string p_Usuario_OID, System.Collections.Generic.IList<string> p_usuarioSeguidos_OIDs);
 
+void DejarDeSeguir (string p_Usuario_OID, System.Collections.Generic.IList<string> p_usuarioSeguidos_OIDs);
 
 
 
 
 string Nuevo (UsuarioEN usuario);
-
-
 
 void Modificar (UsuarioEN usuario);
 
@@ -53,5 +53,10 @@ void DesasignarComunidad (string p_Usuario_OID, System.Collections.Generic.IList
 void AsignarPlaylist (string p_Usuario_OID, System.Collections.Generic.IList<int> p_playlistGuardada_OIDs);
 
 void DesasignarPlaylist (string p_Usuario_OID, System.Collections.Generic.IList<int> p_playlistGuardada_OIDs);
+
+System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisCanciones ();
+
+
+System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisPlaylists ();
 }
 }

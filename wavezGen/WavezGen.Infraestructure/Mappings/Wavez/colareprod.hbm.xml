@@ -6,7 +6,10 @@
 		    
 			
 				<class name="ColaReprodNH" table="ColaReprod"> 
-						<id name="Id" column="id"/> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
 			

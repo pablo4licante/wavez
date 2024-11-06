@@ -79,17 +79,5 @@ public System.Collections.Generic.IList<ComunidadEN> DameTodasLasComunidades (in
         list = _IComunidadRepository.DameTodasLasComunidades (first, size);
         return list;
 }
-public void AsignarUsuario (WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_Comunidad_OID, System.Collections.Generic.IList<string> p_usuario_OIDs)
-{
-        //Call to ComunidadRepository
-
-        _IComunidadRepository.AsignarUsuario (p_Comunidad_OID, p_usuario_OIDs);
-}
-public void DesasignarUsuario (WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_Comunidad_OID, System.Collections.Generic.IList<string> p_usuario_OIDs)
-{
-        //Call to ComunidadRepository
-
-        _IComunidadRepository.DesasignarUsuario (p_Comunidad_OID, p_usuario_OIDs);
-}
 }
 }

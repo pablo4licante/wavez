@@ -271,15 +271,16 @@ public System.Collections.Generic.IList<ComentarioEN> DameTodosLosComentarios (i
         return result;
 }
 
-public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> DameComentariosFiltrado ()
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> DameComentariosDeCancion (int ? cancion_OID)
 {
         System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ComentarioNH self where FROM ComentarioNH";
+                //String sql = @"FROM ComentarioNH self where SELECT comentario FROM ComentarioNH as comentario inner join comentario.Cancion as cancion WHERE cancion.Id  :cancion_OID";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("ComentarioNHdameComentariosFiltradoHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("ComentarioNHdameComentariosDeCancionHQL");
+                query.SetParameter ("cancion_OID", cancion_OID);
 
                 result = query.List<WavezGen.ApplicationCore.EN.Wavez.ComentarioEN>();
                 SessionCommit ();

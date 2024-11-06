@@ -151,5 +151,7 @@
 		  
 		  <query name="UsuarioNHReadAllHQL">from UsuarioNH</query>
 		  <query name="UsuarioNHdameUsuariosPorNombreHQL"><![CDATA[SELECT usuario FROM UsuarioNH as usuario WHERE usuario.Nombre LIKE :nombre]]></query>
+		  <query name="UsuarioNHdameMisCancionesHQL"><![CDATA[SELECT cancion FROM UsuarioNH as usuario inner join usuario.PublicaCancion as cancion WHERE cancion.Autor = usuario.Usuario]]></query>
+		  <query name="UsuarioNHdameMisPlaylistsHQL"><![CDATA[SELECT playlist FROM UsuarioNH as usuario inner join usuario.PlaylistCreada as playlist WHERE playlist.UsuarioCreador = usuario.Usuario]]></query>
 		</hibernate-mapping>
 	
