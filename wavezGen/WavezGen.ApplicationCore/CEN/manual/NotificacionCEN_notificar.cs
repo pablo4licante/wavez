@@ -23,13 +23,13 @@ public void Notificar (int p_oid)
 
         // TODO PREGUNTAR
 
-        NotificacionEN notificacion = DameNotificacionPorOID(p_oid);
-        foreach (UsuarioEN usuario in notificacion.UsuariosReceptores)
-        {
-            usuario.RecibeNotificacion.Add(notificacion);
+        NotificacionEN notificacion = DameNotificacionPorOID (p_oid);
+
+        foreach (UsuarioEN usuario in notificacion.UsuariosReceptores) {
+                usuario.RecibeNotificacion.Add (notificacion);
         }
 
-            /*PROTECTED REGION END*/
-        }
+        /*PROTECTED REGION END*/
+}
 }
 }

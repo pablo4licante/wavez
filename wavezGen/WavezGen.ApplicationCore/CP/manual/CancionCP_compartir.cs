@@ -18,49 +18,47 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class CancionCP : GenericBasicCP
 {
-        public void Compartir(int p_oid, string publicador_oid)
+public void Compartir (int p_oid, string publicador_oid)
+{
+        /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Cancion_compartir) ENABLED START*/
+
+        CancionCEN cancionCEN = null;
+        NotificacionCEN notificacionCEN = null;
+        UsuarioCEN usuarioCEN = null;
+
+        try
         {
-            /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Cancion_compartir) ENABLED START*/
+                CPSession.SessionInitializeTransaction ();
+                cancionCEN = new CancionCEN (CPSession.UnitRepo.CancionRepository);
+                notificacionCEN = new NotificacionCEN (CPSession.UnitRepo.NotificacionRepository);
+                usuarioCEN = new UsuarioCEN (CPSession.UnitRepo.UsuarioRepository);
 
-            CancionCEN cancionCEN = null;
-            NotificacionCEN notificacionCEN = null;
-            UsuarioCEN usuarioCEN = null;
-
-            try
-            {
-                CPSession.SessionInitializeTransaction();
-                cancionCEN = new CancionCEN(CPSession.UnitRepo.CancionRepository);
-                notificacionCEN = new NotificacionCEN(CPSession.UnitRepo.NotificacionRepository);
-                usuarioCEN = new UsuarioCEN(CPSession.UnitRepo.UsuarioRepository);
-
-                CancionEN cancionCompartida = cancionCEN.DameCancionPorOID(p_oid);
-                UsuarioEN usuarioPublicador = usuarioCEN.DameUsuarioPorOID(publicador_oid);
+                CancionEN cancionCompartida = cancionCEN.DameCancionPorOID (p_oid);
+                UsuarioEN usuarioPublicador = usuarioCEN.DameUsuarioPorOID (publicador_oid);
 
 
-                if (cancionCompartida != null && usuarioPublicador != null)
-                {
-                    // Crear la notificacion
-                    string mensaje = $"{usuarioPublicador.Nombre} ha compartido la cancion {cancionCompartida.Titulo}.";
-                    notificacionCEN.Nuevo(cancionCompartida.FotoPortada, mensaje, DateTime.Today);
+                if (cancionCompartida != null && usuarioPublicador != null) {
+                        // Crear la notificacion
+                        string mensaje = "{usuarioPublicador.Nombre} ha compartido la cancion {cancionCompartida.Titulo}.";
+                        notificacionCEN.Nuevo (cancionCompartida.FotoPortada, mensaje, DateTime.Today);
                 }
-                else
-                {
-                    throw new Exception("No se ha podido compartir la cancion.");
+                else{
+                        throw new Exception ("No se ha podido compartir la cancion.");
                 }
-                CPSession.Commit();
-            }
-            catch (Exception ex)
-            {
-                CPSession.RollBack();
-                throw ex;
-            }
-            finally
-            {
-                CPSession.SessionClose();
-            }
-
-
-            /*PROTECTED REGION END*/
+                CPSession.Commit ();
         }
-    }
+        catch (Exception ex)
+        {
+                CPSession.RollBack ();
+                throw ex;
+        }
+        finally
+        {
+                CPSession.SessionClose ();
+        }
+
+
+        /*PROTECTED REGION END*/
+}
+}
 }

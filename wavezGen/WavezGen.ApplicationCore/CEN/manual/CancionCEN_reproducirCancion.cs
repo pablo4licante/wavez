@@ -17,19 +17,19 @@ public partial class CancionCEN
 {
 public void ReproducirCancion (int p_oid)
 {
-            /*PROTECTED REGION ID(WavezGen.ApplicationCore.CEN.Wavez_Cancion_reproducirCancion) ENABLED START*/
+        /*PROTECTED REGION ID(WavezGen.ApplicationCore.CEN.Wavez_Cancion_reproducirCancion) ENABLED START*/
 
-            // Write here your custom code...
+        // Write here your custom code...
 
 
-            CancionEN cancion = _ICancionRepository.DameCancionPorOID(p_oid);
-            if (cancion == null)
-            {
-                throw new ModelException("Cancion no encontrada");
-            }
+        CancionEN cancion = _ICancionRepository.DameCancionPorOID (p_oid);
 
-            cancion.NumReproducciones++;
-            _ICancionRepository.Modificar(cancion);
+        if (cancion == null) {
+                throw new ModelException ("Cancion no encontrada");
+        }
+
+        cancion.NumReproducciones++;
+        _ICancionRepository.Modificar (cancion);
 
         /*PROTECTED REGION END*/
 }

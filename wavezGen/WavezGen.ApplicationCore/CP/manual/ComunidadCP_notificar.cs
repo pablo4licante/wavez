@@ -10,28 +10,34 @@ using WavezGen.ApplicationCore.CEN.Wavez;
 
 
 
-/*PROTECTED REGION ID(usingWavezGen.ApplicationCore.CP.Wavez_Usuario_subirCancion) ENABLED START*/
+/*PROTECTED REGION ID(usingWavezGen.ApplicationCore.CP.Wavez_Comunidad_notificar) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
 namespace WavezGen.ApplicationCore.CP.Wavez
 {
-public partial class UsuarioCP : GenericBasicCP
+public partial class ComunidadCP : GenericBasicCP
 {
-public void SubirCancion (string p_oid, string p_titulo_cancion, Enumerated.Wavez.GenerosEnum p_genero_cancion, Nullable<DateTime> p_any_cancion, string p_foto_cancion, string p_nif_cliente)
+public void Notificar (WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_oid, int p_Notificacion)
 {
-        /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Usuario_subirCancion) ENABLED START*/
+        /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Comunidad_notificar) ENABLED START*/
 
-        CancionCEN cancionCEN = null;
+        ComunidadCEN comunidadCEN = null;
 
 
 
         try
         {
                 CPSession.SessionInitializeTransaction ();
-                cancionCEN = new CancionCEN (CPSession.UnitRepo.CancionRepository);
+                comunidadCEN = new  ComunidadCEN (CPSession.UnitRepo.ComunidadRepository);
 
-                int idCancion = cancionCEN.Nuevo (p_titulo_cancion, p_genero_cancion, p_any_cancion, p_foto_cancion, p_nif_cliente, 0);
+
+
+                // Write here your custom transaction ...
+
+                throw new NotImplementedException ("Method Notificar() not yet implemented.");
+
+
 
                 CPSession.Commit ();
         }

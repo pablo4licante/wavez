@@ -30,13 +30,13 @@ public void BorrarPlaylist (string p_oid, int playlist_OID)
         {
                 CPSession.SessionInitializeTransaction ();
                 adminCEN = new  AdminCEN (CPSession.UnitRepo.AdminRepository);
-                playlistCEN = new PlaylistCEN(CPSession.UnitRepo.PlaylistRepository);
+                playlistCEN = new PlaylistCEN (CPSession.UnitRepo.PlaylistRepository);
 
-                PlaylistEN playlist = playlistCEN.DamePlaylistPorOID(playlist_OID);
-                playlistCEN.Eliminar(playlist.Id);
+                PlaylistEN playlist = playlistCEN.DamePlaylistPorOID (playlist_OID);
+                playlistCEN.Eliminar (playlist.Id);
 
                 CPSession.Commit ();
-            }
+        }
         catch (Exception ex)
         {
                 CPSession.RollBack ();

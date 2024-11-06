@@ -30,11 +30,11 @@ public void BorrarPerfil (string p_oid, string perfil_OID)
         {
                 CPSession.SessionInitializeTransaction ();
                 adminCEN = new  AdminCEN (CPSession.UnitRepo.AdminRepository);
-                usuarioCEN = new UsuarioCEN(CPSession.UnitRepo.UsuarioRepository);
+                usuarioCEN = new UsuarioCEN (CPSession.UnitRepo.UsuarioRepository);
 
-                UsuarioEN usuarioABorrar = usuarioCEN.DameUsuarioPorOID(perfil_OID);
+                UsuarioEN usuarioABorrar = usuarioCEN.DameUsuarioPorOID (perfil_OID);
 
-                usuarioCEN.Eliminar(usuarioABorrar.Usuario);
+                usuarioCEN.Eliminar (usuarioABorrar.Usuario);
 
                 CPSession.Commit ();
         }

@@ -27,23 +27,22 @@ public void VaciarCola (int p_oid)
 
 
 
-            try
+        try
         {
-
-                // Write here your custom transaction 
+                // Write here your custom transaction
 
                 CPSession.SessionInitializeTransaction ();
                 colaReprodCEN = new  ColaReprodCEN (CPSession.UnitRepo.ColaReprodRepository);
                 cancionCEN = new CancionCEN (CPSession.UnitRepo.CancionRepository);
 
-                ColaReprodEN colaReprod = colaReprodCEN.DameColaPorOID(p_oid);
-                
+                ColaReprodEN colaReprod = colaReprodCEN.DameColaPorOID (p_oid);
+
                 IList<int> p_OIDs_canciones = new List<int>();
 
-                foreach (CancionEN cancion in colaReprod.Cancion) { 
-                    p_OIDs_canciones.Add(cancion.Id);
+                foreach (CancionEN cancion in colaReprod.Cancion) {
+                        p_OIDs_canciones.Add (cancion.Id);
                 }
-                colaReprodCEN.QuitarCancion(p_oid, p_OIDs_canciones);
+                colaReprodCEN.QuitarCancion (p_oid, p_OIDs_canciones);
 
 
                 CPSession.Commit ();

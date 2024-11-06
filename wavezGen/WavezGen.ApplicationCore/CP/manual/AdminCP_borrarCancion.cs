@@ -27,14 +27,14 @@ public void BorrarCancion (string p_oid, int cancion_OID)
 
 
 
-            try
+        try
         {
                 CPSession.SessionInitializeTransaction ();
                 adminCEN = new  AdminCEN (CPSession.UnitRepo.AdminRepository);
-                cancionCEN = new CancionCEN(CPSession.UnitRepo.CancionRepository);
+                cancionCEN = new CancionCEN (CPSession.UnitRepo.CancionRepository);
 
-                CancionEN cancion = cancionCEN.DameCancionPorOID(cancion_OID);
-                cancionCEN.Eliminar(cancion.Id);
+                CancionEN cancion = cancionCEN.DameCancionPorOID (cancion_OID);
+                cancionCEN.Eliminar (cancion.Id);
 
                 CPSession.Commit ();
         }
