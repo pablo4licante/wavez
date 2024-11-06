@@ -1,0 +1,114 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.infraestructure\\repository\\wavez\\cancionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|solutionrelative:wavezgen.infraestructure\\repository\\wavez\\cancionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE3F759-FB14-4286-ADAF-055438FF0832}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\utils\\util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE3F759-FB14-4286-ADAF-055438FF0832}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\utils\\util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE3F759-FB14-4286-ADAF-055438FF0832}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\enumerated\\wavez\\generosenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE3F759-FB14-4286-ADAF-055438FF0832}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\enumerated\\wavez\\generosenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE3F759-FB14-4286-ADAF-055438FF0832}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\cen\\manual\\cancioncen_descargar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE3F759-FB14-4286-ADAF-055438FF0832}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\cen\\manual\\cancioncen_descargar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CancionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "RelativeToolTip": "WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "ViewState": "AgIAABYBAAAAAAAAAAAmwC8BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:41:32.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Util.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\Utils\\Util.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\Utils\\Util.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\Utils\\Util.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\Utils\\Util.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:41:28.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GenerosEnum.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\Enumerated\\Wavez\\GenerosEnum.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\Enumerated\\Wavez\\GenerosEnum.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\Enumerated\\Wavez\\GenerosEnum.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\Enumerated\\Wavez\\GenerosEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:40:54.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CancionCEN_descargar.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\manual\\CancionCEN_descargar.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CEN\\manual\\CancionCEN_descargar.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\manual\\CancionCEN_descargar.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\CEN\\manual\\CancionCEN_descargar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:39:33.808Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 294,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

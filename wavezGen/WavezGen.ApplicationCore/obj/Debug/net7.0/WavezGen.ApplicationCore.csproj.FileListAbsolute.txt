@@ -1,0 +1,13 @@
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.AssemblyInfo.cs
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.sourcelink.json
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\bin\Debug\net7.0\WavezGen.ApplicationCore.deps.json
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\bin\Debug\net7.0\WavezGen.ApplicationCore.dll
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\bin\Debug\net7.0\WavezGen.ApplicationCore.pdb
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.dll
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\refint\WavezGen.ApplicationCore.dll
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.pdb
+C:\Users\alicante\Desktop\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\ref\WavezGen.ApplicationCore.dll
