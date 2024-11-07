@@ -29,13 +29,36 @@ public void ReproducirPlaylist (int p_oid, string p_Usuario)
         try
         {
                 CPSession.SessionInitializeTransaction ();
+
                 playlistCEN = new  PlaylistCEN (CPSession.UnitRepo.PlaylistRepository);
+                usuarioCEN = new UsuarioCEN(CPSession.UnitRepo.UsuarioRepository);
+                cancionCEN = new CancionCEN(CPSession.UnitRepo.UsuarioRepository);
+                colaReprodCEN = new ColaReprodCEN(CPSession.UnitRepo.UsuarioRepository);
+
+                PlaylistEN playlist = playlistCEN.DamePlaylistPorOID(p_oid);
+                UsuarioEN usuario = usuarioCEN.DameUsuarioPorOID(p_Usuario);
+
+                if (usuario.ColaReprod)  //si ya hay cola
+                {
+                
+                ColaReprodEN colaReprod = usuario.ColaReprod;  //se coge la cola del usuario
+                colaReprodCEN.VaciarCola();              ///y se vacia
+                }
+                else
+                {
+                ColaReprodEN colaReprod =  ColaReprodCEN.Nuevo(p_Usuario);
+                }
 
 
+                IList<int> p_OIDs_canciones = new List<int>();
 
-                // Write here your custom transaction ...
+                foreach (CancionEN cancion in playlist.Cancion)
+                {
+                p_OIDs_canciones.Add(cancion.Id);
+                }
+                colaReprodCEN.AgregarCancion(usuario.ColaReprod.Id, p_OIDs_canciones);
 
-                throw new NotImplementedException ("Method ReproducirPlaylist() not yet implemented.");
+                //
 
 
 
