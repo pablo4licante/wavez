@@ -39,19 +39,19 @@
 									<column name="FK_id_idNotificacion"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH">
-									<column name="FK_nombre_idUsuario_0"/> 
+									<column name="FK_usuario_idUsuario_0"/> 
       						</many-to-many>
     					</bag>
 			
 		  			
 						<many-to-one name="UsuarioPublicador" class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH" >	
-								<column name="FK_nombre_idUsuario_1"/> 
+								<column name="FK_usuario_idUsuario_1"/> 
 						</many-to-one>
 											 					
 			
 		  			
 						<many-to-one name="ContieneCancion" class="WavezGen.Infraestructure.EN.Wavez.CancionNH" >	
-								<column name="FK_titulo_idCancion_0"/> 
+								<column name="FK_id_idCancion_0"/> 
 						</many-to-one>
 											 					
 			
@@ -74,6 +74,6 @@
 		 </class>	
 		  
 		  <query name="NotificacionNHReadAllHQL">from NotificacionNH</query>
-		  <query name="NotificacionNHdameNotificacionDeHoyHQL"><![CDATA[SELECT notificacion FROM NotificacionNH as notificacion WHERE notificacion.fecha = current_date;]]></query>
+		  <query name="NotificacionNHdameNotificacionDeHoyHQL"><![CDATA[SELECT notificacion FROM NotificacionNH as notificacion WHERE notificacion.Fecha = current_date;]]></query>
 		</hibernate-mapping>
 	

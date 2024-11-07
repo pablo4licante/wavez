@@ -40,7 +40,7 @@ public void Compartir (int p_oid, string publicador_oid)
                 if (cancionCompartida != null && usuarioPublicador != null) {
                         // Crear la notificacion
                         string mensaje = usuarioPublicador.Nombre + " ha compartido la cancion " + cancionCompartida.Titulo;
-                        notificacionCEN.Nuevo (cancionCompartida.FotoPortada, mensaje);
+                        notificacionCEN.Nuevo (cancionCompartida.FotoPortada, mensaje, DateTime.Today);
                 }
                 else{
                         throw new Exception ("No se ha podido compartir la cancion.");

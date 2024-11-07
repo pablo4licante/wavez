@@ -21,13 +21,13 @@
 			
 		  			
 						<many-to-one name="Cancion" class="WavezGen.Infraestructure.EN.Wavez.CancionNH" >	
-								<column name="FK_titulo_idCancion"/> 
+								<column name="FK_id_idCancion"/> 
 						</many-to-one>
 											 					
 			
 		  			
 						<many-to-one name="Usuario" class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH" >	
-								<column name="FK_nombre_idUsuario_0"/> 
+								<column name="FK_usuario_idUsuario_0"/> 
 						</many-to-one>
 											 					
 					
@@ -38,6 +38,6 @@
 		 </class>	
 		  
 		  <query name="ComentarioNHReadAllHQL">from ComentarioNH</query>
-		  <query name="ComentarioNHdameComentariosDeCancionHQL"><![CDATA[SELECT comentario FROM ComentarioNH as comentario inner join comentario.Cancion as cancion WHERE cancion.Id  :cancion_OID]]></query>
+		  <query name="ComentarioNHdameComentariosDeCancionHQL"><![CDATA[SELECT comentario FROM CancionNH as cancion inner join cancion.Comentario as comentario WHERE comentario.Id.Cancion =  cancion.Id]]></query>
 		</hibernate-mapping>
 	

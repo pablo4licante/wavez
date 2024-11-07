@@ -21,7 +21,7 @@
 									<column name="FK_id_idColaReprod"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.CancionNH">
-									<column name="FK_titulo_idCancion"/> 
+									<column name="FK_id_idCancion"/> 
       						</many-to-many>
     					</bag>
 			
@@ -29,7 +29,7 @@
 		  			
 					
 							<many-to-one name="Usuario" class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH" >
-								<column name="FK_nombre_idUsuario"/> 
+								<column name="FK_usuario_idUsuario"/> 
         					</many-to-one>
 					 
 						

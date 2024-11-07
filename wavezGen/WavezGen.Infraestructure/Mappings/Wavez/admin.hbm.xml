@@ -9,7 +9,7 @@
 <joined-subclass name="AdminNH" extends="WavezGen.Infraestructure.EN.Wavez.UsuarioNH" table="Admin"> 
 	<key>
     	
-				<column name="nombre"/>
+				<column name="usuario"/>
 		
     	
    	</key>

@@ -7,7 +7,7 @@
 			
 				<class name="CancionNH" table="Cancion"> 
 				  	
-						<id name="Id" column="titulo" type="integer"> 
+						<id name="Id" column="id" type="integer"> 
 							<generator class="hilo"/>
 						</id>
 			
@@ -38,7 +38,7 @@
 						<bag name="Comunidad" table="[cancion_comunidad]"  >
 							<key>
 								
-									<column name="FK_titulo_idCancion"/> 
+									<column name="FK_id_idCancion"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.ComunidadNH">
 									<column name="FK_tag_idComunidad"/> 
@@ -50,7 +50,7 @@
 							<key>
 							
 								
-								<column name="FK_titulo_idCancion_0"/>
+								<column name="FK_id_idCancion_0"/>
 					      	</key>
 							<one-to-many class="WavezGen.Infraestructure.EN.Wavez.NotificacionNH"/>
 					    </bag>
@@ -60,7 +60,7 @@
 						<bag name="ColaReprod" table="[cancion_colaReprod]"  >
 							<key>
 								
-									<column name="FK_titulo_idCancion"/> 
+									<column name="FK_id_idCancion"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.ColaReprodNH">
 									<column name="FK_id_idColaReprod"/> 
@@ -72,7 +72,7 @@
 							<key>
 							
 								
-								<column name="FK_titulo_idCancion"/>
+								<column name="FK_id_idCancion"/>
 					      	</key>
 							<one-to-many class="WavezGen.Infraestructure.EN.Wavez.ComentarioNH"/>
 					    </bag>
@@ -80,7 +80,7 @@
 			
 		  			
 						<many-to-one name="Autor" class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH" >	
-								<column name="FK_nombre_idUsuario_0"/> 
+								<column name="FK_usuario_idUsuario_0"/> 
 						</many-to-one>
 											 					
 			
@@ -88,7 +88,7 @@
 						<bag name="Playlist" table="[cancion_playlist]"  >
 							<key>
 								
-									<column name="FK_titulo_idCancion"/> 
+									<column name="FK_id_idCancion"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.PlaylistNH">
 									<column name="FK_id_idPlaylist"/> 
@@ -100,10 +100,10 @@
 						<bag name="UsuarioCompatidor" table="[cancion_usuario]"  >
 							<key>
 								
-									<column name="FK_titulo_idCancionCompartida"/> 
+									<column name="FK_id_idCancionCompartida"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH">
-									<column name="FK_nombre_idUsuario"/> 
+									<column name="FK_usuario_idUsuario"/> 
       						</many-to-many>
     					</bag>
 					

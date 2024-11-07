@@ -23,22 +23,21 @@ public void Notificar (WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_o
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Comunidad_notificar) ENABLED START*/
 
         ComunidadCEN comunidadCEN = null;
-            NotificacionCEN notificacionCEN = null;
+        NotificacionCEN notificacionCEN = null;
 
 
-            // TODO preguntar por esto
-            try
+        // TODO preguntar por esto
+        try
         {
                 CPSession.SessionInitializeTransaction ();
                 comunidadCEN = new  ComunidadCEN (CPSession.UnitRepo.ComunidadRepository);
-                notificacionCEN = new NotificacionCEN(CPSession.UnitRepo.NotificacionRepository);
+                notificacionCEN = new NotificacionCEN (CPSession.UnitRepo.NotificacionRepository);
 
-                ComunidadEN comunidad = comunidadCEN.DameComunidadPorOID(p_oid);
-                NotificacionEN notificacion = notificacionCEN.DameNotificacionPorOID(p_Notificacion);
+                ComunidadEN comunidad = comunidadCEN.DameComunidadPorOID (p_oid);
+                NotificacionEN notificacion = notificacionCEN.DameNotificacionPorOID (p_Notificacion);
 
-                foreach (UsuarioEN usuario in comunidad.Usuario)
-                {
-                    usuario.RecibeNotificacion.Add(notificacion);
+                foreach (UsuarioEN usuario in comunidad.Usuario) {
+                        usuario.RecibeNotificacion.Add (notificacion);
                 }
 
                 CPSession.Commit ();

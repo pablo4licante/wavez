@@ -346,7 +346,7 @@ public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.Notifi
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM NotificacionNH self where SELECT notificacion FROM NotificacionNH as notificacion WHERE notificacion.fecha = current_date;";
+                //String sql = @"FROM NotificacionNH self where SELECT notificacion FROM NotificacionNH as notificacion WHERE notificacion.Fecha = current_date;";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("NotificacionNHdameNotificacionDeHoyHQL");
 

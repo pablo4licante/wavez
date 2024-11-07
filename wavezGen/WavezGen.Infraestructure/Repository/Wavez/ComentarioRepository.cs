@@ -277,7 +277,7 @@ public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.Coment
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ComentarioNH self where SELECT comentario FROM ComentarioNH as comentario inner join comentario.Cancion as cancion WHERE cancion.Id  :cancion_OID";
+                //String sql = @"FROM ComentarioNH self where SELECT comentario FROM CancionNH as cancion inner join cancion.Comentario as comentario WHERE comentario.Id.Cancion =  cancion.Id";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ComentarioNHdameComentariosDeCancionHQL");
                 query.SetParameter ("cancion_OID", cancion_OID);

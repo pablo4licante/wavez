@@ -6,7 +6,7 @@
 		    
 			
 				<class name="UsuarioNH" table="Usuario"> 
-						<id name="Usuario" column="nombre"/> 
+						<id name="Usuario" column="usuario"/> 
 			
 					
 					<property name="Nombre" type="string"> 
@@ -32,7 +32,7 @@
 						<bag name="Comunidad" table="[usuario_comunidad]"  >
 							<key>
 								
-									<column name="FK_nombre_idUsuario"/> 
+									<column name="FK_usuario_idUsuario"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.ComunidadNH">
 									<column name="FK_tag_idComunidad"/> 
@@ -43,7 +43,7 @@
 						<bag name="RecibeNotificacion" table="[usuario_0_notificacion]"  >
 							<key>
 								
-									<column name="FK_nombre_idUsuario_0"/> 
+									<column name="FK_usuario_idUsuario_0"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.NotificacionNH">
 									<column name="FK_id_idNotificacion"/> 
@@ -55,7 +55,7 @@
 							<key>
 							
 								
-								<column name="FK_nombre_idUsuario_1"/>
+								<column name="FK_usuario_idUsuario_1"/>
 					      	</key>
 							<one-to-many class="WavezGen.Infraestructure.EN.Wavez.NotificacionNH"/>
 					    </bag>
@@ -66,7 +66,7 @@
 							<key>
 							
 								
-								<column name="FK_nombre_idUsuario_0"/>
+								<column name="FK_usuario_idUsuario_0"/>
 					      	</key>
 							<one-to-many class="WavezGen.Infraestructure.EN.Wavez.ComentarioNH"/>
 					    </bag>
@@ -77,7 +77,7 @@
 							<key>
 							
 								
-								<column name="FK_nombre_idUsuario_0"/>
+								<column name="FK_usuario_idUsuario_0"/>
 					      	</key>
 							<one-to-many class="WavezGen.Infraestructure.EN.Wavez.CancionNH"/>
 					    </bag>
@@ -89,7 +89,7 @@
 							<key>
 							
 								
-								<column name="FK_nombre_idUsuario"/>
+								<column name="FK_usuario_idUsuario"/>
 					      	</key>
 							<one-to-many class="WavezGen.Infraestructure.EN.Wavez.PlaylistNH"/>
 					    </bag>
@@ -99,7 +99,7 @@
 						<bag name="PlaylistGuardada" table="[usuario_0_playlist]"  >
 							<key>
 								
-									<column name="FK_nombre_idUsuario"/> 
+									<column name="FK_usuario_idUsuario"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.PlaylistNH">
 									<column name="FK_id_idPlaylist"/> 
@@ -116,10 +116,10 @@
 						<bag name="CancionCompartida" table="[cancion_usuario]" inverse="true" >
 							<key>
 								
-									<column name="FK_nombre_idUsuario"/> 
+									<column name="FK_usuario_idUsuario"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.CancionNH">
-									<column name="FK_titulo_idCancionCompartida"/> 
+									<column name="FK_id_idCancionCompartida"/> 
       						</many-to-many>
     					</bag>
 					
@@ -136,10 +136,10 @@
 					
 						<bag name="UsuarioSeguidos" table="[usuario_0_usuario_1]" >
 							<key>
-									<column name="FK_nombre_idUsuario_0"/> 
+									<column name="FK_usuario_idUsuario_0"/> 
 							</key>
       						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH">
-									<column name="FK_nombre_idUsuario_1"/> 
+									<column name="FK_usuario_idUsuario_1"/> 
       						</many-to-many>
     					</bag>		
 					
