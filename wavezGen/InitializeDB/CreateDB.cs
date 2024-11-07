@@ -77,42 +77,65 @@ public static void Create (string databaseArg, string userArg, string passArg)
         }
 }
 
-public static void InitializeData ()
-{
-        try
+        public static void InitializeData()
         {
-                // Initialising  CENs
-                UsuarioRepository usuariorepository = new UsuarioRepository ();
-                UsuarioCEN usuariocen = new UsuarioCEN (usuariorepository);
-                AdminRepository adminrepository = new AdminRepository ();
-                AdminCEN admincen = new AdminCEN (adminrepository);
-                ComunidadRepository comunidadrepository = new ComunidadRepository ();
-                ComunidadCEN comunidadcen = new ComunidadCEN (comunidadrepository);
-                ColaReprodRepository colareprodrepository = new ColaReprodRepository ();
-                ColaReprodCEN colareprodcen = new ColaReprodCEN (colareprodrepository);
-                CancionRepository cancionrepository = new CancionRepository ();
-                CancionCEN cancioncen = new CancionCEN (cancionrepository);
-                PlaylistRepository playlistrepository = new PlaylistRepository ();
-                PlaylistCEN playlistcen = new PlaylistCEN (playlistrepository);
-                ComentarioRepository comentariorepository = new ComentarioRepository ();
-                ComentarioCEN comentariocen = new ComentarioCEN (comentariorepository);
-                NotificacionRepository notificacionrepository = new NotificacionRepository ();
-                NotificacionCEN notificacioncen = new NotificacionCEN (notificacionrepository);
-
-
-
+            try
+            {
                 /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
+                // Create repositories
+                UsuarioRepository usuarioRepository = new UsuarioRepository();
+                PlaylistRepository playlistRepository = new PlaylistRepository();
+                ColaReprodRepository colaReprodRepository = new ColaReprodRepository();
+                CancionRepository cancionRepository = new CancionRepository();
 
-                // You must write the initialisation of the entities inside the PROTECTED comments.
-                // IMPORTANT:please do not delete them.
+                // Create CENs
+                UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
+                PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepository);
+                ColaReprodCEN colaReprodCEN = new ColaReprodCEN(colaReprodRepository);
+                CancionCEN cancionCEN = new CancionCEN(cancionRepository);
 
+                // Create users
+                string user1 = usuarioCEN.Nuevo("user1", "User One", "password1", "user1@example.com", "foto1");
+                string user2 = usuarioCEN.Nuevo("user2", "User Two", "password2", "user2@example.com", "foto2");
+                Console.WriteLine("Users created: " + user1 + ", " + user2);
+
+                // Create playlists
+                int playlist1 = playlistCEN.Nuevo("Playlist One", "portada1", user1);
+                int playlist2 = playlistCEN.Nuevo("Playlist Two", "portada2", user2);
+                Console.WriteLine("Playlists created: " + playlist1 + ", " + playlist2);
+
+                // Create colaReprod
+                int colaReprod1 = colaReprodCEN.Nuevo(user1);
+                int colaReprod2 = colaReprodCEN.Nuevo(user2);
+                Console.WriteLine("ColaReprod created: " + colaReprod1 + ", " + colaReprod2);
+
+                // Create canciones
+                int cancion1 = cancionCEN.Nuevo("Cancion One", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Rock, DateTime.Now, "fotoPortada1", user1, 0);
+                int cancion2 = cancionCEN.Nuevo("Cancion Two", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Pop, DateTime.Now, "fotoPortada2", user2, 0);
+                Console.WriteLine("Canciones created: " + cancion1 + ", " + cancion2);
+
+                // Add canciones to playlists
+                playlistCEN.AddCancion(playlist1, new List<int> { cancion1 });
+                playlistCEN.AddCancion(playlist2, new List<int> { cancion2 });
+                Console.WriteLine("Canciones added to playlists");
+
+                // Add canciones to colaReprod
+                colaReprodCEN.AgregarCancion(colaReprod1, new List<int> { cancion1 });
+                colaReprodCEN.AgregarCancion(colaReprod2, new List<int> { cancion2 });
+                Console.WriteLine("Canciones added to colaReprod");
+
+
+                // Reproduce canciones
+                cancionCEN.ReproducirCancion(cancion1);
+                cancionCEN.ReproducirCancion(cancion2);
+                Console.WriteLine("Canciones reproduced");
                 /*PROTECTED REGION END*/
-        }
-        catch (Exception ex)
-        {
-                System.Console.WriteLine (ex.InnerException);
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.InnerException);
                 throw;
+            }
         }
-}
 }
 }

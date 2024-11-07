@@ -32,13 +32,6 @@ public void ReproducirPlaylist (int p_oid, string p_Usuario)
                 playlistCEN = new  PlaylistCEN (CPSession.UnitRepo.PlaylistRepository);
 
 
-
-                // Write here your custom transaction ...
-
-                throw new NotImplementedException ("Method ReproducirPlaylist() not yet implemented.");
-
-
-
                 CPSession.Commit ();
         }
         catch (Exception ex)
