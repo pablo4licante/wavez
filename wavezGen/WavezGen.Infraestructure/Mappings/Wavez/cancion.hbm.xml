@@ -18,8 +18,8 @@
 					<property name="Genero" > 
 						<column name="genero"  not-null="true"/>
 					</property>
-					<property name="Any" type="date"> 
-						<column name="any"  not-null="true"/>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
 					</property>
 					<property name="FotoPortada" type="string"> 
 						<column name="fotoPortada"  not-null="true"/>

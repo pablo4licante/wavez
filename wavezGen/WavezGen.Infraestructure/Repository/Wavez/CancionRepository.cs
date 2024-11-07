@@ -103,7 +103,7 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
                         cancionNH.Genero = cancion.Genero;
 
 
-                        cancionNH.Any = cancion.Any;
+                        cancionNH.Fecha = cancion.Fecha;
 
 
                         cancionNH.FotoPortada = cancion.FotoPortada;
@@ -186,7 +186,7 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
                         cancionNH.Genero = cancion.Genero;
 
 
-                        cancionNH.Any = cancion.Any;
+                        cancionNH.Fecha = cancion.Fecha;
 
 
                         cancionNH.FotoPortada = cancion.FotoPortada;
@@ -298,8 +298,7 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
                 try
                 {
                         SessionInitializeTransaction ();
-                        //String sql = @"FROM CancionNH self where SELECT cancion FROM CancionNH as cancion WHERE cancion.Titulo LIKE :nombre
-                        ";
+                        //String sql = @"FROM CancionNH self where SELECT cancion FROM CancionNH as cancion WHERE cancion.Titulo LIKE :";
 	                                        //IQuery query = session.CreateQuery(sql);
 	                                        IQuery query = (IQuery)session.GetNamedQuery("CancionNHdameCancionesPorNombreHQL                                             ");
 	                                                query.SetParameter("nombre ",nombre);
