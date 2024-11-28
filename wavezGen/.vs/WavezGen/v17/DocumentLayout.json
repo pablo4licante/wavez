@@ -3,16 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{541E032E-0C95-4860-B78F-387A9AF0397D}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{541E032E-0C95-4860-B78F-387A9AF0397D}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.infraestructure\\mappings\\wavez\\cancion.hbm.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|solutionrelative:wavezgen.infraestructure\\mappings\\wavez\\cancion.hbm.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{541E032E-0C95-4860-B78F-387A9AF0397D}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{541E032E-0C95-4860-B78F-387A9AF0397D}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.infraestructure\\mappings\\wavez\\playlist.hbm.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|solutionrelative:wavezgen.infraestructure\\mappings\\wavez\\playlist.hbm.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{541E032E-0C95-4860-B78F-387A9AF0397D}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\cancion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{541E032E-0C95-4860-B78F-387A9AF0397D}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\cancion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.infraestructure\\repository\\wavez\\cancionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|solutionrelative:wavezgen.infraestructure\\repository\\wavez\\cancionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\cp\\manual\\usuariocp_subircancion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\cp\\manual\\usuariocp_subircancion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\cp\\manual\\playlistcp_reproducirplaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\cp\\manual\\playlistcp_reproducirplaylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\cp\\manual\\cancioncp_compartir.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\cp\\manual\\cancioncp_compartir.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\cp\\manual\\admincp_borrarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\cp\\manual\\admincp_borrarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\cen\\manual\\usuariocen_registro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\cen\\manual\\usuariocen_registro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\en\\wavez\\usuarioen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\en\\wavez\\usuarioen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.applicationcore\\cen\\wavez\\comunidadcen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\cen\\wavez\\comunidadcen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{707DAD7F-5632-4AD7-860E-73A181C52EE2}|InitializeDB\\InitializeDB.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\initializedb\\createdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{707DAD7F-5632-4AD7-860E-73A181C52EE2}|InitializeDB\\InitializeDB.csproj|solutionrelative:initializedb\\createdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\wavezgen.infraestructure\\mappings\\wavez\\usuario.hbm.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}|WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj|solutionrelative:wavezgen.infraestructure\\mappings\\wavez\\usuario.hbm.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,40 +67,157 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "WebWavez\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "WebWavez\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAC0AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-28T09:10:48.577Z",
+              "Title": "cancion.hbm.xml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
+              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
+              "RelativeToolTip": "WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
+              "ViewState": "AgIAAAQAAAAAAAAAAADgvxIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-11-07T11:34:39.44Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebWavez\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "WebWavez\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-28T09:10:26.264Z",
+              "Title": "playlist.hbm.xml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\playlist.hbm.xml",
+              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Mappings\\Wavez\\playlist.hbm.xml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\playlist.hbm.xml",
+              "RelativeToolTip": "WavezGen.Infraestructure\\Mappings\\Wavez\\playlist.hbm.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-11-07T11:33:36.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "usuario.hbm.xml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
+              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
+              "RelativeToolTip": "WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-11-07T11:32:32.359Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Cancion\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebWavez\\Views\\Cancion\\Index.cshtml",
-              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Cancion\\Index.cshtml",
-              "RelativeToolTip": "WebWavez\\Views\\Cancion\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-21T12:12:39.268Z",
+              "Title": "CancionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "RelativeToolTip": "WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "ViewState": "AgIAAB4BAAAAAAAAAAAYwCMBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T11:31:05.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsuarioCP_subirCancion.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CP\\manual\\UsuarioCP_subirCancion.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CP\\manual\\UsuarioCP_subirCancion.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CP\\manual\\UsuarioCP_subirCancion.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\CP\\manual\\UsuarioCP_subirCancion.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T11:30:35.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlaylistCP_reproducirPlaylist.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CP\\manual\\PlaylistCP_reproducirPlaylist.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CP\\manual\\PlaylistCP_reproducirPlaylist.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CP\\manual\\PlaylistCP_reproducirPlaylist.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\CP\\manual\\PlaylistCP_reproducirPlaylist.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwDcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T11:30:12.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CancionCP_compartir.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CP\\manual\\CancionCP_compartir.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CP\\manual\\CancionCP_compartir.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CP\\manual\\CancionCP_compartir.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\CP\\manual\\CancionCP_compartir.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwCsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T11:29:54.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminCP_borrarPerfil.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CP\\manual\\AdminCP_borrarPerfil.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CP\\manual\\AdminCP_borrarPerfil.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CP\\manual\\AdminCP_borrarPerfil.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\CP\\manual\\AdminCP_borrarPerfil.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA5wCIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T11:28:47.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsuarioCEN_registro.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\manual\\UsuarioCEN_registro.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CEN\\manual\\UsuarioCEN_registro.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\manual\\UsuarioCEN_registro.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\CEN\\manual\\UsuarioCEN_registro.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T11:27:03.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UsuarioEN.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\EN\\Wavez\\UsuarioEN.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\EN\\Wavez\\UsuarioEN.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\EN\\Wavez\\UsuarioEN.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\EN\\Wavez\\UsuarioEN.cs",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAvwOMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T11:26:28.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ComunidadCEN.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\Wavez\\ComunidadCEN.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CEN\\Wavez\\ComunidadCEN.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\Wavez\\ComunidadCEN.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\CEN\\Wavez\\ComunidadCEN.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T11:26:14.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CreateDB.cs",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\InitializeDB\\CreateDB.cs",
+              "RelativeDocumentMoniker": "InitializeDB\\CreateDB.cs",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\InitializeDB\\CreateDB.cs",
+              "RelativeToolTip": "InitializeDB\\CreateDB.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAgwJQAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T10:39:46.458Z",
               "EditorCaption": ""
             }
           ]

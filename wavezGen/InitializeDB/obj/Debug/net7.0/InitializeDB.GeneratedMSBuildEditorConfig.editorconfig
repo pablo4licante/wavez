@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = InitializeDB
-build_property.ProjectDir = C:\Users\alicante\Desktop\wavez\wavezGen\InitializeDB\
+build_property.ProjectDir = c:\Users\alicante\Desktop\wavez\wavezGen\InitializeDB\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

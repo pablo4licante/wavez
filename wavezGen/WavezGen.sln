@@ -8,8 +8,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WavezGen.Infraestructure", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WavezGen.ApplicationCore", "WavezGen.ApplicationCore\WavezGen.ApplicationCore.csproj", "{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebWavez", "WebWavez\WebWavez.csproj", "{541E032E-0C95-4860-B78F-387A9AF0397D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,15 +26,8 @@ Global
 		{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{541E032E-0C95-4860-B78F-387A9AF0397D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{541E032E-0C95-4860-B78F-387A9AF0397D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{541E032E-0C95-4860-B78F-387A9AF0397D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{541E032E-0C95-4860-B78F-387A9AF0397D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {008AD2EA-4E04-4249-A19E-0D08B9A75B9E}
 	EndGlobalSection
 EndGlobal
