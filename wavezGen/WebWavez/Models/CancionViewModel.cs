@@ -27,5 +27,8 @@ namespace WebWavez.Models
 
         public string Autor { get; set; }
 
+        [Required(ErrorMessage = "Debe indicar un nombre para la cancion")]
+        public string Url { get; set; }
+
     }
 }

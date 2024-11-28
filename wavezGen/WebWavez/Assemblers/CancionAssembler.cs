@@ -19,6 +19,7 @@ namespace WebWavez.Assemblers
             }
             cvm.numReproducciones = cancion.NumReproducciones;
             cvm.Autor = cancion.Autor.Nombre;
+            cvm.Url = cancion.Url;
             return cvm;
         }
 
