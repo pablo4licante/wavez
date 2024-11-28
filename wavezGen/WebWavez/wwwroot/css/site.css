@@ -20,3 +20,30 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.card {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 20rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card img {
+      width: 100%;
+      height: auto;
+      display: block;
+}
+
+.estanteria-canciones {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction:row;
+  gap: 20px;
+  justify-content:center;
+}
