@@ -31,6 +31,64 @@ namespace WebWavez.Controllers
             return View(listaCanciones);
         }
 
+        public IActionResult ResultadoBusqueda(string query)
+        {
+            SessionInitialize();
+            CancionRepository cancionRepository = new CancionRepository(session);
+            CancionCEN cancionCEN = new CancionCEN(cancionRepository);
+
+            PlaylistRepository playlistrepository = new PlaylistRepository ();
+            PlaylistCEN playlistCEN = new PlaylistCEN (playlistrepository);
+
+            UsuarioRepository usuariorepository = new UsuarioRepository ();
+            UsuarioCEN usuarioCEN = new UsuarioCEN (usuariorepository);
+
+            IList<CancionEN> listaCanciones = new List<CancionEN>();
+            IList<PlaylistEN> listaPlaylists = new List<PlaylistEN>();
+            IList<UsuarioEN> listaUsuarios = new List<UsuarioEN>();
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                listaCanciones = cancionCEN.DameCancionesPorNombre(query);
+                listaPlaylists = playlistCEN.DamePlaylistsPorNombre(query);
+                listaUsuarios = usuarioCEN.DameUsuariosPorNombre(query);
+            }
+            else
+            {
+                listaCanciones = cancionCEN.DameTodasLasCanciones(0, -1);
+                listaPlaylists = playlistCEN.DameTodasLasPlaylist(0, -1);
+                listaUsuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
+            }
+            if(listaCanciones == null || listaCanciones.Count == 0)
+            {
+                listaCanciones = new List<CancionEN>();
+            }
+            if(listaPlaylists == null || listaPlaylists.Count == 0)
+            {
+                listaPlaylists = new List<PlaylistEN>();
+            }
+            if(listaUsuarios == null || listaUsuarios.Count == 0)
+            {
+                listaUsuarios = new List<UsuarioEN>();
+            }
+
+            IEnumerable<CancionViewModel> listaCancionesViewModel = new CancionAssembler().ConvertirListENToListViewModel(listaCanciones);
+            IEnumerable<PlaylistViewModel> listaPlaylistsViewModel = new PlaylistAssembler().ConvertirListENToListViewModel(listaPlaylists); // Asumiendo que existe un PlaylistAssembler
+            IEnumerable<UsuarioViewModel> listaUsuariosViewModel = new UsuarioAssembler().ConvertirListENToListViewModel(listaUsuarios); // Asumiendo que existe un UsuarioAssembler
+
+            SessionClose();
+
+            var resultadoBusqueda = new ResultadoBusquedaViewModel
+            {
+                Canciones = listaCancionesViewModel,
+                Playlists = listaPlaylistsViewModel,
+                Usuarios = listaUsuariosViewModel
+            };
+
+            return View(resultadoBusqueda);
+        }
+
+
         public IActionResult Privacy()
         {
             return View();

@@ -18,7 +18,12 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class PlaylistCP : GenericBasicCP
 {
-public void ReproducirPlaylist (int p_oid, string p_Usuario)
+        public static IList<PlaylistEN> DamePlaylistsPorNombre(string query)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ReproducirPlaylist (int p_oid, string p_Usuario)
 {
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Playlist_reproducirPlaylist) ENABLED START*/
 
