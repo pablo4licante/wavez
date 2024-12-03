@@ -130,8 +130,8 @@ public static void InitializeData ()
                 Console.WriteLine ("ColaReprod created: " + colaReprod1 + ", " + colaReprod2);
 
                 // Create canciones
-                int cancion1 = cancionCEN.Nuevo ("Cancion One", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Rock, DateTime.Now, "fotoPortada1", user1, 0);
-                int cancion2 = cancionCEN.Nuevo ("Cancion Two", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Pop, DateTime.Now, "fotoPortada2", user2, 0);
+                int cancion1 = cancionCEN.Nuevo ("Cancion One", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Rock, DateTime.Now, "https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid", user1, 0, "https://voluntariosacd.infinityfreeapp.com/audio.mp3");
+                int cancion2 = cancionCEN.Nuevo ("Cancion Two", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Pop, DateTime.Now, "https://images.pexels.com/photos/2746823/pexels-photo-2746823.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", user2, 0, "https://voluntariosacd.infinityfreeapp.com/audio.mp3");
                 Console.WriteLine ("Canciones created: " + cancion1 + ", " + cancion2);
 
                 // Add canciones to playlists

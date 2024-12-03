@@ -30,7 +30,7 @@ public ICancionRepository get_ICancionRepository ()
         return this._ICancionRepository;
 }
 
-public int Nuevo (string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, Nullable<DateTime> p_fecha, string p_fotoPortada, string p_autor, int p_numReproducciones)
+public int Nuevo (string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, Nullable<DateTime> p_fecha, string p_fotoPortada, string p_autor, int p_numReproducciones, string p_url)
 {
         CancionEN cancionEN = null;
         int oid;
@@ -55,13 +55,15 @@ public int Nuevo (string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.Gen
 
         cancionEN.NumReproducciones = p_numReproducciones;
 
+        cancionEN.Url = p_url;
+
 
 
         oid = _ICancionRepository.Nuevo (cancionEN);
         return oid;
 }
 
-public void Modificar (int p_Cancion_OID, string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, Nullable<DateTime> p_fecha, string p_fotoPortada, int p_numReproducciones)
+public void Modificar (int p_Cancion_OID, string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, Nullable<DateTime> p_fecha, string p_fotoPortada, int p_numReproducciones, string p_url)
 {
         CancionEN cancionEN = null;
 
@@ -73,6 +75,7 @@ public void Modificar (int p_Cancion_OID, string p_titulo, WavezGen.ApplicationC
         cancionEN.Fecha = p_fecha;
         cancionEN.FotoPortada = p_fotoPortada;
         cancionEN.NumReproducciones = p_numReproducciones;
+        cancionEN.Url = p_url;
         //Call to CancionRepository
 
         _ICancionRepository.Modificar (cancionEN);

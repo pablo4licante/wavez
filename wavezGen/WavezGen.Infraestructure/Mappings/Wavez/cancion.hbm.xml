@@ -27,6 +27,9 @@
 					<property name="NumReproducciones" type="integer"> 
 						<column name="numReproducciones"  not-null="true"/>
 					</property>
+					<property name="Url" type="string"> 
+						<column name="url"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -106,6 +109,8 @@
 									<column name="FK_usuario_idUsuario"/> 
       						</many-to-many>
     					</bag>
+			
+					
 					
 					
 					

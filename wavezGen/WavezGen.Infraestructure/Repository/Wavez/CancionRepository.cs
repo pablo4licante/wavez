@@ -118,6 +118,9 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
                         cancionNH.NumReproducciones = cancion.NumReproducciones;
 
 
+
+                        cancionNH.Url = cancion.Url;
+
                         session.Update (cancionNH);
                         SessionCommit ();
                 }
@@ -193,6 +196,9 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
 
 
                         cancionNH.NumReproducciones = cancion.NumReproducciones;
+
+
+                        cancionNH.Url = cancion.Url;
 
                         session.Update (cancionNH);
                         SessionCommit ();

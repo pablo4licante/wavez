@@ -18,39 +18,37 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class UsuarioCP : GenericBasicCP
 {
-        public void SubirCancion(string p_oid)
+public void SubirCancion (string p_oid, string URL)
+{
+        /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Usuario_subirCancion) ENABLED START*/
+
+        CancionCEN cancionCEN = null;
+
+        try
         {
-            /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Usuario_subirCancion) ENABLED START*/
-
-            CancionCEN cancionCEN = null;
-
-            try
-            {
-                CPSession.SessionInitializeTransaction();
-                cancionCEN = new CancionCEN(CPSession.UnitRepo.CancionRepository);
-                //public int Nuevo (string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero, string p_fotoPortada, string p_autor, int p_numReproducciones)
-
+                CPSession.SessionInitializeTransaction ();
+                cancionCEN = new CancionCEN (CPSession.UnitRepo.CancionRepository);
                 string p_titulo_cancion = "default_title"; // Replace with actual value
                 WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum p_genero_cancion = WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Pop; // Replace with actual value
                 DateTime p_fecha_cancion = DateTime.Now; // Replace with actual value
                 string p_foto_cancion = "default_photo"; // Replace with actual value
                 string p_nif_cliente = "default_nif"; // Replace with actual value
 
-                int idCancion = cancionCEN.Nuevo(p_titulo_cancion, p_genero_cancion, p_fecha_cancion, p_foto_cancion, p_nif_cliente, 0);
+                int idCancion = cancionCEN.Nuevo(p_titulo_cancion, p_genero_cancion, p_fecha_cancion, p_foto_cancion, p_nif_cliente, 0, URL);
 
-                CPSession.Commit();
-            }
-            catch (Exception)
-            {
-                CPSession.RollBack();
-                throw;
-            }
-            finally
-            {
-                CPSession.SessionClose();
-            }
-
-            /*PROTECTED REGION END*/
+                CPSession.Commit ();
         }
+        catch (Exception ex)
+        {
+                CPSession.RollBack ();
+                throw;
+        }
+        finally
+        {
+                CPSession.SessionClose ();
+        }
+
+        /*PROTECTED REGION END*/
+}
 }
 }

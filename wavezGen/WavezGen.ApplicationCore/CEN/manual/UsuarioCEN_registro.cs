@@ -16,19 +16,19 @@ namespace WavezGen.ApplicationCore.CEN.Wavez
 public partial class UsuarioCEN
 {
         public void Registro(string p_oid, string nombre, string password, string email, string fotoPerfil)
-        {
-            /*PROTECTED REGION ID(WavezGen.ApplicationCore.CEN.Wavez_Usuario_registro) ENABLED START*/
+{
+        /*PROTECTED REGION ID(WavezGen.ApplicationCore.CEN.Wavez_Usuario_registro) ENABLED START*/
 
-            // Write here your custom code...
+        // Write here your custom code...
 
 
-            // TODO
+        // TODO
             UsuarioEN usuario = new UsuarioEN(p_oid, nombre, password, email, fotoPerfil,
-                    null, null, null, null, null, null, null, null, null, null);
+                null, null, null, null, null, null, null, null, null, null);
 
             _IUsuarioRepository.Nuevo(usuario);
 
-            /*PROTECTED REGION END*/
-        }
+        /*PROTECTED REGION END*/
+}
 }
 }

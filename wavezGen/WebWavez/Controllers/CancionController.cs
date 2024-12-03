@@ -45,7 +45,7 @@ namespace WebWavez.Controllers
             {
                 CancionRepository cancionRepository = new CancionRepository();
                 CancionCEN cancionCEN = new CancionCEN(cancionRepository);
-                cancionCEN.Nuevo(cvm.Titulo, cvm.Genero, cvm.Fecha, cvm.FotoPortada, cvm.Autor, cvm.numReproducciones);
+                cancionCEN.Nuevo(cvm.Titulo, cvm.Genero, cvm.Fecha, cvm.FotoPortada, cvm.Autor, cvm.numReproducciones, cvm.Url);
                 return RedirectToAction(nameof(Index));
             }
             catch
