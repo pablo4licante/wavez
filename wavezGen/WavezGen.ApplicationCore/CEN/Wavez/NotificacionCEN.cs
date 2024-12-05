@@ -30,7 +30,7 @@ public INotificacionRepository get_INotificacionRepository ()
         return this._INotificacionRepository;
 }
 
-public int Nuevo (string p_foto, string p_mensaje, UsuarioEN usuarioPublicador, int idReferencia, int comunidad, Nullable<DateTime> p_fecha, IList<UsuarioEN> usuariosReceptores)
+public int Nuevo (string p_foto, string p_mensaje, Nullable<DateTime> p_fecha, string p_tipoContenido, UsuarioEN usuarioPublicador, IList<UsuarioEN> usuariosReceptores, CancionEN cancionCompartida, PlaylistEN playlistCompartida)
 {
         NotificacionEN notificacionEN = null;
         int oid;
@@ -40,15 +40,25 @@ public int Nuevo (string p_foto, string p_mensaje, UsuarioEN usuarioPublicador, 
         notificacionEN.Foto = p_foto;
         notificacionEN.Mensaje = p_mensaje;
         notificacionEN.Fecha = p_fecha;
+        notificacionEN.TipoContenido = p_tipoContenido;
+        if(cancionCompartida != null)
+        {
+            notificacionEN.ContieneCancion = cancionCompartida;
+        } 
+        else if (playlistCompartida != null)
+        {
+            notificacionEN.ContienePlaylist = playlistCompartida;
+        }
         notificacionEN.UsuarioPublicador = usuarioPublicador;
+        notificacionEN.UsuariosReceptores = usuariosReceptores;
 
 
 
-        oid = _INotificacionRepository.Nuevo (notificacionEN);
+            oid = _INotificacionRepository.Nuevo (notificacionEN);
         return oid;
 }
 
-public void Modificar (int p_Notificacion_OID, string p_foto, string p_mensaje, Nullable<DateTime> p_fecha)
+public void Modificar (int p_Notificacion_OID, string p_foto, string p_mensaje, Nullable<DateTime> p_fecha, string p_tipoContenido)
 {
         NotificacionEN notificacionEN = null;
 
@@ -58,6 +68,7 @@ public void Modificar (int p_Notificacion_OID, string p_foto, string p_mensaje, 
         notificacionEN.Foto = p_foto;
         notificacionEN.Mensaje = p_mensaje;
         notificacionEN.Fecha = p_fecha;
+        notificacionEN.TipoContenido = p_tipoContenido;
         //Call to NotificacionRepository
 
         _INotificacionRepository.Modificar (notificacionEN);
@@ -100,6 +111,24 @@ public void AsignarUsuariosReceptores (int p_Notificacion_OID, System.Collection
 public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> DameNotificacionDeHoy ()
 {
         return _INotificacionRepository.DameNotificacionDeHoy ();
+}
+public void AsignarCancion (int p_Notificacion_OID, int p_contieneCancion_OID)
+{
+        //Call to NotificacionRepository
+
+        _INotificacionRepository.AsignarCancion (p_Notificacion_OID, p_contieneCancion_OID);
+}
+public void AsignarPlaylist (int p_Notificacion_OID, int p_contienePlaylist_OID)
+{
+        //Call to NotificacionRepository
+
+        _INotificacionRepository.AsignarPlaylist (p_Notificacion_OID, p_contienePlaylist_OID);
+}
+public void AsignarUsuarioPublicador (int p_Notificacion_OID, string p_usuarioPublicador_OID)
+{
+        //Call to NotificacionRepository
+
+        _INotificacionRepository.AsignarUsuarioPublicador (p_Notificacion_OID, p_usuarioPublicador_OID);
 }
 }
 }

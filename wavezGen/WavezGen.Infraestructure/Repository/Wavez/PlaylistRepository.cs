@@ -348,29 +348,35 @@ public System.Collections.Generic.IList<PlaylistEN> DameTodasLasPlaylist (int fi
         return result;
 }
 
-public System.Collections.Generic.IList<PlaylistEN> DamePlaylistsPorNombre(string nombre)
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> DamePlaylistsPorNombre (string nombre)
 {
-    System.Collections.Generic.IList<PlaylistEN> result;
-    try
-    {
-        SessionInitializeTransaction();
-        result = session.CreateCriteria(typeof(PlaylistNH))
-                        .Add(Restrictions.Like("Titulo", nombre, MatchMode.Anywhere))
-                        .List<PlaylistEN>();
-        SessionCommit();
-    }
-    catch (Exception ex)
-    {
-        SessionRollBack();
-        if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
-            throw;
-        else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException("Error in PlaylistRepository.", ex);
-    }
-    finally
-    {
-        SessionClose();
-    }
-    return result;
+        System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PlaylistNH self where SELECT playlist FROM PlaylistNH as playlist WHERE playlist.Titulo LIKE :nombre";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PlaylistNHdamePlaylistsPorNombreHQL");
+                query.SetParameter ("nombre", nombre);
+
+                result = query.List<WavezGen.ApplicationCore.EN.Wavez.PlaylistEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in PlaylistRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

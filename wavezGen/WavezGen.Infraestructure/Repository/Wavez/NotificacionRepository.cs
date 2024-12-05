@@ -110,6 +110,9 @@ public void ModifyDefault (NotificacionEN notificacion)
 
                 notificacionNH.Fecha = notificacion.Fecha;
 
+
+                notificacionNH.TipoContenido = notificacion.TipoContenido;
+
                 session.Update (notificacionNH);
                 SessionCommit ();
         }
@@ -171,6 +174,9 @@ public void Modificar (NotificacionEN notificacion)
 
 
                 notificacionNH.Fecha = notificacion.Fecha;
+
+
+                notificacionNH.TipoContenido = notificacion.TipoContenido;
 
                 session.Update (notificacionNH);
                 SessionCommit ();
@@ -368,6 +374,98 @@ public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.Notifi
         }
 
         return result;
+}
+public void AsignarCancion (int p_Notificacion_OID, int p_contieneCancion_OID)
+{
+        WavezGen.ApplicationCore.EN.Wavez.NotificacionEN notificacionEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                notificacionEN = (NotificacionEN)session.Load (typeof(NotificacionNH), p_Notificacion_OID);
+                notificacionEN.ContieneCancion = (WavezGen.ApplicationCore.EN.Wavez.CancionEN)session.Load (typeof(WavezGen.Infraestructure.EN.Wavez.CancionNH), p_contieneCancion_OID);
+
+                notificacionEN.ContieneCancion.Notificacion.Add (notificacionEN);
+
+
+
+                session.Update (notificacionEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in NotificacionRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void AsignarPlaylist (int p_Notificacion_OID, int p_contienePlaylist_OID)
+{
+        WavezGen.ApplicationCore.EN.Wavez.NotificacionEN notificacionEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                notificacionEN = (NotificacionEN)session.Load (typeof(NotificacionNH), p_Notificacion_OID);
+                notificacionEN.ContienePlaylist = (WavezGen.ApplicationCore.EN.Wavez.PlaylistEN)session.Load (typeof(WavezGen.Infraestructure.EN.Wavez.PlaylistNH), p_contienePlaylist_OID);
+
+                notificacionEN.ContienePlaylist.Notificacion.Add (notificacionEN);
+
+
+
+                session.Update (notificacionEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in NotificacionRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void AsignarUsuarioPublicador (int p_Notificacion_OID, string p_usuarioPublicador_OID)
+{
+        WavezGen.ApplicationCore.EN.Wavez.NotificacionEN notificacionEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                notificacionEN = (NotificacionEN)session.Load (typeof(NotificacionNH), p_Notificacion_OID);
+                notificacionEN.UsuarioPublicador = (WavezGen.ApplicationCore.EN.Wavez.UsuarioEN)session.Load (typeof(WavezGen.Infraestructure.EN.Wavez.UsuarioNH), p_usuarioPublicador_OID);
+
+                notificacionEN.UsuarioPublicador.MandaNotificacion.Add (notificacionEN);
+
+
+
+                session.Update (notificacionEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in NotificacionRepository.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

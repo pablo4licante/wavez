@@ -31,7 +31,7 @@ namespace WebWavez.Models
         [Required(ErrorMessage = "El tipo de contenido debe ser cancion o playlist")]
         public string TipoContenido { get; set; }
 
-        [Required(ErrorMessage = "Incluye al menos un id de playlist o cancion al que hacer referencia")]
-        public int idReferencia { get; set; }
+        public CancionEN CancionCompartida { get; set; }
+        public PlaylistEN PlaylistCompartida { get; set; }
     }
 }
