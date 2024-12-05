@@ -1,5 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
+@using Microsoft.AspNetCore.Http
+
+@{
+    UsuarioViewModel usuario = Context.Session.Get<UsuarioViewModel>("usuario");
+    string nombre = "";
+    if (usuario != null)
+    {
+        nombre = usuario.Usuario;
+    }
+}
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +19,21 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebWavez.styles.css" asp-append-version="true" />
+
+    
+    @* @if ( usuario == null )  //no funciona porque login usa el mismo layout
+    {
+        <script type="text/javascript">
+            var url = "@Url.Action("Login", "Usuario")";
+            location.href = url; 
+        </script>
+    } *@
+
 </head>
+
 <body>
     <header>
+        <h1>Bienvenido @nombre</h1>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebWavez</a>
@@ -30,6 +54,15 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Registro">Registro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil">Perfil</a>
                         </li>
 
                     </ul>
