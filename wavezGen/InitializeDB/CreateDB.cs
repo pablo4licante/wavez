@@ -149,6 +149,17 @@ public static void InitializeData ()
                 cancionCEN.ReproducirCancion (cancion1);
                 cancionCEN.ReproducirCancion (cancion2);
                 Console.WriteLine ("Canciones reproduced");
+
+                int notificacion1 = notificacioncen.Nuevo(
+                    "https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid",
+                    "New song added",
+                    usuarioCEN.DameUsuarioPorOID(user1),
+                    cancion1, 
+                    0, 
+                    DateTime.Now,
+                    new List<UsuarioEN>()
+                );
+
                 /*PROTECTED REGION END*/
         }
         catch (Exception ex)

@@ -36,11 +36,19 @@ public void Compartir (int p_oid, string publicador_oid)
                 CancionEN cancionCompartida = cancionCEN.DameCancionPorOID (p_oid);
                 UsuarioEN usuarioPublicador = usuarioCEN.DameUsuarioPorOID (publicador_oid);
 
-
+                // TODO parece que solo pueda compartirse asi una cancion queda checkear una vez vaya esto para compartir playlist o cancion dependiendo de donde venga.
                 if (cancionCompartida != null && usuarioPublicador != null) {
                         // Crear la notificacion
                         string mensaje = usuarioPublicador.Nombre + " ha compartido la cancion " + cancionCompartida.Titulo;
-                        notificacionCEN.Nuevo (cancionCompartida.FotoPortada, mensaje, DateTime.Today);
+                        int idReferencia = cancionCompartida.Id;
+                        IList<UsuarioEN> listaUsuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
+                        IList<UsuarioEN> listaSeguidores = new List<UsuarioEN>();
+                        foreach (UsuarioEN usuario in listaUsuarios)
+                        {
+                        if (usuario.UsuarioSeguidos.Contains(usuarioPublicador))
+                            listaSeguidores.Add(usuario);
+                        }
+                    notificacionCEN.Nuevo(cancionCompartida.FotoPortada, mensaje, usuarioPublicador, idReferencia, (int)cancionCompartida.Genero, DateTime.Today, listaSeguidores);
                 }
                 else{
                         throw new Exception ("No se ha podido compartir la cancion.");

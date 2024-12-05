@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebWavez.Models.NotificacionViewModel>
+
+@{
+    ViewData["Title"] = "Wavez | Notificaciones";
+}
+
+<h1>Notificaciones</h1>
+
+<p>
+    <a asp-action="Create">Nueva Notificacion</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mensaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comunidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoContenido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idReferencia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mensaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comunidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoContenido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idReferencia)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
