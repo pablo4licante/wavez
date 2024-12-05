@@ -11,16 +11,24 @@
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\assemblers\\usuarioassembler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\assemblers\\usuarioassembler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\wavezgen.applicationcore\\irepository\\wavez\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\irepository\\wavez\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\wavezgen.applicationcore\\cen\\manual\\usuariocen_registro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\cen\\manual\\usuariocen_registro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -34,11 +42,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 209,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAYwCkAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T11:40:21.505Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,14 +69,14 @@
               "RelativeDocumentMoniker": "InitializeDB\\CreateDB.cs",
               "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\InitializeDB\\CreateDB.cs",
               "RelativeToolTip": "InitializeDB\\CreateDB.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAHUAAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAYwHUAAABxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T11:17:44.157Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Program.cs",
               "RelativeDocumentMoniker": "WebWavez\\Program.cs",
@@ -74,9 +95,22 @@
               "RelativeDocumentMoniker": "WebWavez\\Assemblers\\UsuarioAssembler.cs",
               "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Assemblers\\UsuarioAssembler.cs",
               "RelativeToolTip": "WebWavez\\Assemblers\\UsuarioAssembler.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T10:59:03.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Models\\UsuarioViewModel.cs",
+              "RelativeDocumentMoniker": "WebWavez\\Models\\UsuarioViewModel.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Models\\UsuarioViewModel.cs",
+              "RelativeToolTip": "WebWavez\\Models\\UsuarioViewModel.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAA4wCoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T10:46:57.766Z",
               "EditorCaption": ""
             },
             {
@@ -87,27 +121,27 @@
               "RelativeDocumentMoniker": "WebWavez\\Controllers\\UsuarioController.cs",
               "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Controllers\\UsuarioController.cs",
               "RelativeToolTip": "WebWavez\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCMAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAgwEsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T10:55:47.7Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsuarioViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Models\\UsuarioViewModel.cs",
-              "RelativeDocumentMoniker": "WebWavez\\Models\\UsuarioViewModel.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Models\\UsuarioViewModel.cs",
-              "RelativeToolTip": "WebWavez\\Models\\UsuarioViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "UsuarioCEN_registro.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\manual\\UsuarioCEN_registro.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CEN\\manual\\UsuarioCEN_registro.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\manual\\UsuarioCEN_registro.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\CEN\\manual\\UsuarioCEN_registro.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T10:46:57.766Z",
+              "WhenOpened": "2024-12-05T11:31:07.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "WebWavez\\Views\\Shared\\_Layout.cshtml",
@@ -115,8 +149,7 @@
               "RelativeToolTip": "WebWavez\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T08:07:37.041Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T08:07:37.041Z"
             }
           ]
         },
