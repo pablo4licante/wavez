@@ -25,22 +25,58 @@
         <button type="submit">Buscar</button>
     </form>
     
-    <div class="estanteria-canciones">
-        @foreach (var item in Model)
-        {
-            <div class="card">
-                <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-                    <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
-                    <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
-                    <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
-                    <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+    <div class="categorias">
+        <h2>Últimas novedades</h2>
+        <div class="estanteria-canciones">
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                        <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
+                        <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
+                        <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                        <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+                    </div>
                 </div>
-            </div>
-            
-        }
+            }
         </div>
+
+        <h2>Más populares</h2>
+        <div class="estanteria-canciones">
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                        <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
+                        <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
+                        <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                        <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <h2>Tus favoritas</h2>
+        <div class="estanteria-canciones">
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                        <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
+                        <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
+                        <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                        <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
 
 
