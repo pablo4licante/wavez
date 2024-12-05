@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WavezGen.ApplicationCore.CEN.Wavez;
 using WavezGen.ApplicationCore.EN.Wavez;
 using WavezGen.Infraestructure.Repository.Wavez;

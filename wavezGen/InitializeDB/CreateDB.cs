@@ -150,15 +150,10 @@ public static void InitializeData ()
                 cancionCEN.ReproducirCancion (cancion2);
                 Console.WriteLine ("Canciones reproduced");
 
-                int notificacion1 = notificacioncen.Nuevo(
-                    "https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid",
-                    "New song added",
-                    usuarioCEN.DameUsuarioPorOID(user1),
-                    cancion1, 
-                    0, 
-                    DateTime.Now,
-                    new List<UsuarioEN>()
-                );
+                CancionEN cancion_para_noti = cancionCEN.DameCancionPorOID(cancion1);
+                UsuarioEN usuario_para_noti = usuarioCEN.DameUsuarioPorOID(user1);
+                IList<UsuarioEN> lista_usuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
+                int notificacion1 = notificacioncen.Nuevo(cancion_para_noti.FotoPortada, "DE LA DB", DateTime.Now, "cancion", usuario_para_noti, lista_usuarios, cancion_para_noti, null);
 
                 /*PROTECTED REGION END*/
         }

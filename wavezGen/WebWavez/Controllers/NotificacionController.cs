@@ -8,7 +8,7 @@ using WebWavez.Models;
 
 namespace WebWavez.Controllers
 {
-    public class NootificacionController : BasicController
+    public class NotificacionController : BasicController
     {
         // GET: NotificacionController
         public ActionResult Index()
@@ -45,7 +45,7 @@ namespace WebWavez.Controllers
             {
                 NotificacionRepository notificacionRepository = new NotificacionRepository();
                 NotificacionCEN notificacionCEN = new NotificacionCEN(notificacionRepository);
-                notificacionCEN.Nuevo(nvm.Foto, nvm.Mensaje, nvm.UsuarioPublicador, nvm.idReferencia, nvm.Comunidad, nvm.Fecha, nvm.UsuariosReceptores);
+                notificacionCEN.Nuevo(nvm.Foto, nvm.Mensaje, nvm.Fecha, nvm.TipoContenido, nvm.UsuarioPublicador, nvm.UsuariosReceptores, nvm.CancionCompartida, nvm.PlaylistCompartida);
                 return RedirectToAction(nameof(Index));
             }
             catch

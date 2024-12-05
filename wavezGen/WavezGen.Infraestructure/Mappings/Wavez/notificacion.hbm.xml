@@ -21,6 +21,9 @@
 					<property name="Fecha" type="date"> 
 						<column name="fecha"  not-null="true"/>
 					</property>
+					<property name="TipoContenido" type="string"> 
+						<column name="tipoContenido"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -61,6 +64,8 @@
 						</many-to-one>
 											 					
 			
+			
+					
 					
 					
 					

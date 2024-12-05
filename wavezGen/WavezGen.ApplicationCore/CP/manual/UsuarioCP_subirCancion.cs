@@ -34,7 +34,7 @@ public void SubirCancion (string p_oid, string URL)
                 string p_foto_cancion = "default_photo"; // Replace with actual value
                 string p_nif_cliente = "default_nif"; // Replace with actual value
 
-                int idCancion = cancionCEN.Nuevo(p_titulo_cancion, p_genero_cancion, p_fecha_cancion, p_foto_cancion, p_nif_cliente, 0, URL);
+                int idCancion = cancionCEN.Nuevo (p_titulo_cancion, p_genero_cancion, p_fecha_cancion, p_foto_cancion, p_nif_cliente, 0, URL);
 
                 CPSession.Commit ();
         }

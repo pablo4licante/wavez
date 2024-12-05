@@ -49,20 +49,3 @@ C:\onedrive\OneDrive - UNIVERSIDAD ALICANTE\DSM\2024\Practicas\Workspace\wavez-1
 C:\onedrive\OneDrive - UNIVERSIDAD ALICANTE\DSM\2024\Practicas\Workspace\wavez-1\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\refint\WavezGen.Infraestructure.dll
 C:\onedrive\OneDrive - UNIVERSIDAD ALICANTE\DSM\2024\Practicas\Workspace\wavez-1\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.pdb
 C:\onedrive\OneDrive - UNIVERSIDAD ALICANTE\DSM\2024\Practicas\Workspace\wavez-1\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\ref\WavezGen.Infraestructure.dll
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\hibernate.cfg.xml
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.Infraestructure.deps.json
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.Infraestructure.dll
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.Infraestructure.pdb
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.ApplicationCore.dll
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\bin\Debug\net7.0\WavezGen.ApplicationCore.pdb
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.csproj.AssemblyReference.cache
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.AssemblyInfoInputs.cache
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.AssemblyInfo.cs
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.csproj.CoreCompileInputs.cache
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.sourcelink.json
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.1F22405B.Up2Date
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.dll
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\refint\WavezGen.Infraestructure.dll
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\WavezGen.Infraestructure.pdb
-C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.Infraestructure\obj\Debug\net7.0\ref\WavezGen.Infraestructure.dll

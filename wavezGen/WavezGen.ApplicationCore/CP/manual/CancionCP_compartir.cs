@@ -18,13 +18,14 @@ namespace WavezGen.ApplicationCore.CP.Wavez
 {
 public partial class CancionCP : GenericBasicCP
 {
-public void Compartir (int p_oid, string publicador_oid)
+public void Compartir (int p_oid, string publicador_oid, string tipoContenido)
 {
         /*PROTECTED REGION ID(WavezGen.ApplicationCore.CP.Wavez_Cancion_compartir) ENABLED START*/
 
         CancionCEN cancionCEN = null;
         NotificacionCEN notificacionCEN = null;
         UsuarioCEN usuarioCEN = null;
+        PlaylistCEN playlistCEN = null;
 
         try
         {
@@ -32,25 +33,49 @@ public void Compartir (int p_oid, string publicador_oid)
                 cancionCEN = new CancionCEN (CPSession.UnitRepo.CancionRepository);
                 notificacionCEN = new NotificacionCEN (CPSession.UnitRepo.NotificacionRepository);
                 usuarioCEN = new UsuarioCEN (CPSession.UnitRepo.UsuarioRepository);
+                playlistCEN = new PlaylistCEN(CPSession.UnitRepo.PlaylistRepository);
 
-                CancionEN cancionCompartida = cancionCEN.DameCancionPorOID (p_oid);
+                CancionEN cancionCompartida = null;
+                PlaylistEN playlistCompartida = null;
+
+                if (tipoContenido == "cancion")
+                {
+                    cancionCompartida = cancionCEN.DameCancionPorOID(p_oid);
+
+                } else if (tipoContenido == "playlist")
+                {
+                    playlistCompartida = playlistCEN.DamePlaylistPorOID(p_oid);
+                }
+
                 UsuarioEN usuarioPublicador = usuarioCEN.DameUsuarioPorOID (publicador_oid);
 
-                // TODO parece que solo pueda compartirse asi una cancion queda checkear una vez vaya esto para compartir playlist o cancion dependiendo de donde venga.
+
                 if (cancionCompartida != null && usuarioPublicador != null) {
                         // Crear la notificacion
                         string mensaje = usuarioPublicador.Nombre + " ha compartido la cancion " + cancionCompartida.Titulo;
-                        int idReferencia = cancionCompartida.Id;
+                        IList<UsuarioEN> listaUsuarios = usuarioCEN.DameTodosLosUsuarios (0, -1);
+                        IList<UsuarioEN> listaSeguidores = new List<UsuarioEN>();
+                        foreach (UsuarioEN usuario in listaUsuarios) {
+                                if (usuario.UsuarioSeguidos.Contains (usuarioPublicador))
+                                        listaSeguidores.Add (usuario);
+                        }
+                        notificacionCEN.Nuevo(cancionCompartida.FotoPortada, mensaje, DateTime.Today, tipoContenido, usuarioPublicador, listaSeguidores, cancionCompartida, playlistCompartida);
+                
+                } else if (playlistCompartida != null && usuarioPublicador != null)
+                {
+                    // Crear la notificacion
+                    string mensaje = usuarioPublicador.Nombre + " ha compartido la playlist " + playlistCompartida.Titulo;
                         IList<UsuarioEN> listaUsuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
                         IList<UsuarioEN> listaSeguidores = new List<UsuarioEN>();
                         foreach (UsuarioEN usuario in listaUsuarios)
                         {
-                        if (usuario.UsuarioSeguidos.Contains(usuarioPublicador))
-                            listaSeguidores.Add(usuario);
+                            if (usuario.UsuarioSeguidos.Contains(usuarioPublicador))
+                                listaSeguidores.Add(usuario);
                         }
-                    notificacionCEN.Nuevo(cancionCompartida.FotoPortada, mensaje, usuarioPublicador, idReferencia, (int)cancionCompartida.Genero, DateTime.Today, listaSeguidores);
+                        notificacionCEN.Nuevo(playlistCompartida.Portada, mensaje, DateTime.Today, tipoContenido, usuarioPublicador, listaSeguidores, cancionCompartida, playlistCompartida);
                 }
-                else{
+                else
+                {
                         throw new Exception ("No se ha podido compartir la cancion.");
                 }
                 CPSession.Commit ();

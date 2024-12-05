@@ -10,14 +10,20 @@ namespace WebWavez.Assemblers
             NotificacionViewModel nvm = new NotificacionViewModel();
             nvm.UsuarioPublicador = notificacion.UsuarioPublicador;
 
-            nvm.Comunidad = (int)notificacion.Comunidad.Genero; // TODO Check si funciona el cast
             nvm.Fecha = (DateTime)notificacion.Fecha;
             nvm.Id = notificacion.Id;
             nvm.Mensaje = notificacion.Mensaje;
-            nvm.TipoContenido = notificacion.ContieneCancion != null ? "cancion" : "playlist";
-            nvm.idReferencia = notificacion.ContieneCancion != null ? notificacion.ContieneCancion.Id : notificacion.ContienePlaylist.Id;
+            nvm.TipoContenido = notificacion.TipoContenido;
             nvm.Foto = notificacion.Foto;
+            nvm.UsuarioPublicador = notificacion.UsuarioPublicador;
             nvm.UsuariosReceptores = notificacion.UsuariosReceptores;
+            if(notificacion.TipoContenido == "cancion")
+            {
+                nvm.CancionCompartida = notificacion.ContieneCancion;
+            } else if (notificacion.TipoContenido == "playlist")
+            {
+                nvm.PlaylistCompartida = notificacion.ContienePlaylist;
+            }
 
             return nvm;
         }

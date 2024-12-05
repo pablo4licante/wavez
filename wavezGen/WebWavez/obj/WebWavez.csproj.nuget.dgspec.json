@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj": {}
+    "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj": {}
   },
   "projects": {
-    "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
+    "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
+        "projectUniqueName": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
         "projectName": "WavezGen.ApplicationCore",
-        "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
-        "packagesPath": "C:\\Users\\saran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\obj\\",
+        "projectPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
+        "packagesPath": "C:\\Users\\alicante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\saran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alicante\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,21 +66,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj": {
+    "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj",
+        "projectUniqueName": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj",
         "projectName": "WavezGen.Infraestructure",
-        "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj",
-        "packagesPath": "C:\\Users\\saran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\obj\\",
+        "projectPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj",
+        "packagesPath": "C:\\Users\\alicante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\saran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alicante\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,15 +88,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
-                "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj"
+              "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
+                "projectPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj"
               }
             }
           }
@@ -150,21 +148,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj": {
+    "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj",
+        "projectUniqueName": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj",
         "projectName": "WebWavez",
-        "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj",
-        "packagesPath": "C:\\Users\\saran\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\obj\\",
+        "projectPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj",
+        "packagesPath": "C:\\Users\\alicante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\saran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alicante\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -172,18 +170,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
-                "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj"
+              "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
+                "projectPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj"
               },
-              "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj": {
-                "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj"
+              "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj": {
+                "projectPath": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj"
               }
             }
           }
@@ -231,7 +228,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

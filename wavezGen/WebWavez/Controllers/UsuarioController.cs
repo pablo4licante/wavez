@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WavezGen.ApplicationCore.CEN.Wavez;
 using WavezGen.ApplicationCore.EN.Wavez;
@@ -11,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WavezGen.ApplicationCore.CP.Wavez;
 
 namespace WebWavez.Controllers
 {
@@ -70,8 +68,8 @@ namespace WebWavez.Controllers
                 //hacer el registro
                 try
                 {
-                    //usuCEN.Registro(registro.Usuario, registro.Nombre, registro.Password, registro.Email, registro.FotoPerfil);
-                    usuCEN.Nuevo(registro.Usuario, registro.Nombre, registro.Password, registro.Email, registro.FotoPerfil);
+                    //cancionCEN.Nuevo(cvm.Titulo, cvm.Genero, cvm.Fecha, cvm.FotoPortada, cvm.Autor, cvm.numReproducciones);
+                    usuCEN.Registro(registro.Usuario, registro.Nombre, registro.Password, registro.Email, registro.FotoPerfil);
                     return RedirectToAction("Index", "Home");
                 }
                 catch
