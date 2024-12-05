@@ -31,7 +31,7 @@ namespace WebWavez.Controllers
             return View(listaCanciones);
         }
 
-        public IActionResult ResultadoBusqueda(string query)
+        public IActionResult ResultadoBusqueda(string query, string[] filter)
         {
             SessionInitialize();
             CancionRepository cancionRepository = new CancionRepository(session);
@@ -49,32 +49,60 @@ namespace WebWavez.Controllers
 
             if (!string.IsNullOrWhiteSpace(query))
             {
-                listaCanciones = cancionCEN.DameCancionesPorNombre(query);
-                listaPlaylists = playlistCEN.DamePlaylistsPorNombre(query);
-                listaUsuarios = usuarioCEN.DameUsuariosPorNombre(query);
+                if (filter.Contains("canciones"))
+                {
+                    listaCanciones = cancionCEN.DameCancionesPorNombre(query);
+                }
+                if (filter.Contains("playlists"))
+                {
+                    listaPlaylists = playlistCEN.DamePlaylistsPorNombre(query);
+                }
+                if (filter.Contains("usuarios"))
+                {
+                    listaUsuarios = usuarioCEN.DameUsuariosPorNombre(query);
+                }
             }
             else
             {
-                listaCanciones = cancionCEN.DameTodasLasCanciones(0, -1);
-                listaPlaylists = playlistCEN.DameTodasLasPlaylist(0, -1);
-                listaUsuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
+                if (filter.Contains("canciones"))
+                {
+                    listaCanciones = cancionCEN.DameTodasLasCanciones(0, -1);
+                }
+                if (filter.Contains("playlists"))
+                {
+                    listaPlaylists = playlistCEN.DameTodasLasPlaylist(0, -1);
+                }
+                if (filter.Contains("usuarios"))
+                {
+                    listaUsuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
+                }
             }
-            if(listaCanciones == null || listaCanciones.Count == 0)
+
+            if (filter.Contains("canciones"))
             {
-                listaCanciones = new List<CancionEN>();
+                if(listaCanciones == null || listaCanciones.Count == 0)
+                {
+                    listaCanciones = new List<CancionEN>();
+                }
             }
-            if(listaPlaylists == null || listaPlaylists.Count == 0)
+            if (filter.Contains("playlists")) 
             {
-                listaPlaylists = new List<PlaylistEN>();
+                if(listaPlaylists == null || listaPlaylists.Count == 0)
+                {
+                    listaPlaylists = new List<PlaylistEN>();
+                }
             }
-            if(listaUsuarios == null || listaUsuarios.Count == 0)
+            if (filter.Contains("usuarios"))
             {
-                listaUsuarios = new List<UsuarioEN>();
+                if(listaUsuarios == null || listaUsuarios.Count == 0)
+                {
+                    listaUsuarios = new List<UsuarioEN>();
+                }
             }
 
             IEnumerable<CancionViewModel> listaCancionesViewModel = new CancionAssembler().ConvertirListENToListViewModel(listaCanciones);
-            IEnumerable<PlaylistViewModel> listaPlaylistsViewModel = new PlaylistAssembler().ConvertirListENToListViewModel(listaPlaylists); // Asumiendo que existe un PlaylistAssembler
-            IEnumerable<UsuarioViewModel> listaUsuariosViewModel = new UsuarioAssembler().ConvertirListENToListViewModel(listaUsuarios); // Asumiendo que existe un UsuarioAssembler
+            IEnumerable<PlaylistViewModel> listaPlaylistsViewModel = new PlaylistAssembler().ConvertirListENToListViewModel(listaPlaylists);
+            IEnumerable<UsuarioViewModel> listaUsuariosViewModel = new UsuarioAssembler().ConvertirListENToListViewModel(listaUsuarios);
 
             SessionClose();
 
@@ -82,7 +110,8 @@ namespace WebWavez.Controllers
             {
                 Canciones = listaCancionesViewModel,
                 Playlists = listaPlaylistsViewModel,
-                Usuarios = listaUsuariosViewModel
+                Usuarios = listaUsuariosViewModel,
+                Filtros = filter
             };
 
             return View(resultadoBusqueda);
