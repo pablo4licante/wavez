@@ -6,11 +6,13 @@ namespace WebWavez.Assemblers
     public class UsuarioAssembler
     {
 
-        public UsuarioViewModel CovertirENToViewModel(UsuarioEN usuario)
+        public UsuarioViewModel ConvertirENToViewModel(UsuarioEN usuario)
         {
             UsuarioViewModel uvm = new UsuarioViewModel();
             uvm.Usuario = usuario.Usuario;
             uvm.Nombre = usuario.Nombre;
+            uvm.Password = usuario.Contrasenya;
+            uvm.Email = usuario.Email;
             uvm.FotoPerfil = usuario.FotoPerfil;
             return uvm;
         }
@@ -20,7 +22,7 @@ namespace WebWavez.Assemblers
             IList<UsuarioViewModel> uvms = new List<UsuarioViewModel>();
             foreach (UsuarioEN usuario in usuarios)
             {
-                uvms.Add(CovertirENToViewModel(usuario));
+                uvms.Add(ConvertirENToViewModel(usuario));
             }
             return uvms.ToList();
         }
