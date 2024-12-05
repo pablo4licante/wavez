@@ -8,21 +8,29 @@ namespace WebWavez.Assemblers
         public NotificacionViewModel ConvertirENToViewModel(NotificacionEN notificacion)
         {
             NotificacionViewModel nvm = new NotificacionViewModel();
-            nvm.UsuarioPublicador = notificacion.UsuarioPublicador;
+            nvm.UsuarioPublicador = notificacion.UsuarioPublicador.Usuario;
 
             nvm.Fecha = (DateTime)notificacion.Fecha;
             nvm.Id = notificacion.Id;
             nvm.Mensaje = notificacion.Mensaje;
             nvm.TipoContenido = notificacion.TipoContenido;
             nvm.Foto = notificacion.Foto;
-            nvm.UsuarioPublicador = notificacion.UsuarioPublicador;
-            nvm.UsuariosReceptores = notificacion.UsuariosReceptores;
+            nvm.UsuarioPublicador = notificacion.UsuarioPublicador.Usuario;
+            
+            IList<string> usuarios_receptores = new List<string>();
+
+            foreach (UsuarioEN usuario in notificacion.UsuariosReceptores)
+            {
+                usuarios_receptores.Add(usuario.Usuario);
+            }
+            nvm.UsuariosReceptores = usuarios_receptores;
+            
             if(notificacion.TipoContenido == "cancion")
             {
-                nvm.CancionCompartida = notificacion.ContieneCancion;
+                nvm.CancionCompartida = notificacion.ContieneCancion.Id;
             } else if (notificacion.TipoContenido == "playlist")
             {
-                nvm.PlaylistCompartida = notificacion.ContienePlaylist;
+                nvm.PlaylistCompartida = notificacion.ContienePlaylist.Id;
             }
 
             return nvm;

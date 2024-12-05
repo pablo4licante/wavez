@@ -27,6 +27,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.TipoContenido)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CancionCompartida);
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaylistCompartida);
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioPublicador);
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuariosReceptores);
+            </th>
+
         </tr>
     </thead>
     <tbody>
@@ -47,6 +60,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TipoContenido)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CancionCompartida)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlaylistCompartida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuarioPublicador)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuariosReceptores)
+                </td>
+
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id=item.Id }) |
