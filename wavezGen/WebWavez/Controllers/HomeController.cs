@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WavezGen.ApplicationCore.CEN.Wavez;
 using WavezGen.ApplicationCore.EN.Wavez;
+using WavezGen.ApplicationCore.Enumerated.Wavez;
 using WavezGen.Infraestructure.Repository.Wavez;
 using WebWavez.Assemblers;
 using WebWavez.Models;
+using System.Linq;
 
 namespace WebWavez.Controllers
 {
@@ -27,11 +29,16 @@ namespace WebWavez.Controllers
             IEnumerable<CancionViewModel> listaCanciones = new CancionAssembler().ConvertirListENToListViewModel(listaENs);
             SessionClose();
 
+            var viewModel = new ResultadoBusquedaViewModel
+            {
+                Canciones = listaCanciones,
+                Generos = Enum.GetValues(typeof(GenerosEnum)).Cast<GenerosEnum>().Select(g => g.ToString())
+            };
 
             return View(listaCanciones);
         }
 
-        public IActionResult ResultadoBusqueda(string query, string[] filter)
+        public IActionResult ResultadoBusqueda(string query, string[] filter, GenerosEnum? genre)
         {
             SessionInitialize();
             CancionRepository cancionRepository = new CancionRepository(session);
@@ -47,7 +54,11 @@ namespace WebWavez.Controllers
             IList<PlaylistEN> listaPlaylists = new List<PlaylistEN>();
             IList<UsuarioEN> listaUsuarios = new List<UsuarioEN>();
 
-            if (!string.IsNullOrWhiteSpace(query))
+            if (genre.HasValue)
+            {
+                listaCanciones = cancionCEN.DameTodasLasCanciones(0, -1).Where(c => c.Genero == genre.Value).ToList();
+            }
+            else if (!string.IsNullOrWhiteSpace(query))
             {
                 if (filter.Contains("canciones"))
                 {
@@ -111,7 +122,8 @@ namespace WebWavez.Controllers
                 Canciones = listaCancionesViewModel,
                 Playlists = listaPlaylistsViewModel,
                 Usuarios = listaUsuariosViewModel,
-                Filtros = filter
+                Filtros = filter,
+                Generos = Enum.GetValues(typeof(GenerosEnum)).Cast<GenerosEnum>().Select(g => g.ToString())
             };
 
             return View(resultadoBusqueda);

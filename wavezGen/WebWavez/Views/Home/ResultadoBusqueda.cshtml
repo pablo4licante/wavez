@@ -5,18 +5,30 @@
 }
 
 <div class="text-center">
-    <form asp-action="ResultadoBusqueda" method="get">
+    <h1 class="display-4">Búsqueda</h1>
+
+    <form asp-action="ResultadoBusqueda" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
         <input type="text" name="query" placeholder="Buscar..." value="@Context.Request.Query["query"]"/>
         <div>
             <input type="checkbox" name="filter" value="canciones" @(Model.Filtros.Contains("canciones") ? "checked" : "") /> Canciones
             <input type="checkbox" name="filter" value="playlists" @(Model.Filtros.Contains("playlists") ? "checked" : "") /> Playlists
             <input type="checkbox" name="filter" value="usuarios" @(Model.Filtros.Contains("usuarios") ? "checked" : "") /> Usuarios
         </div>
+        <div>
+            <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
+                <option value="">Seleccione un género</option>
+                @foreach (var genre in Model.Generos)
+                {
+                    <option value="@genre">@genre</option>
+                }
+            </select>
+        </div>
         <button type="submit">Buscar</button>
     </form>
-    <h1 class="display-4">Resultados de Búsqueda</h1>
 
     <div class="resultados">
+        <h2>Resultados de: @Context.Request.Query["query"]</h2>
+
         <!-- Mostrar canciones -->
         @if (Model.Filtros.Contains("canciones"))
         {
@@ -30,8 +42,8 @@
                 {
                     @foreach (var item in Model.Canciones)
                     {
-                        <div class="card" style="margin: 10px; display: inline-block;">
-                            <img class="card-img-top" src="@Url.Content("~/images/" + item.FotoPortada)" style="width:200px; height:200px" alt="Card image cap">
+                        <div class="card">
+                            <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
                                 <p class="card-text"><strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
@@ -58,8 +70,8 @@
                 {
                     @foreach (var item in Model.Playlists)
                     {
-                        <div class="card" style="margin: 10px; display: inline-block;">
-                            <img class="card-img-top" src="@Url.Content("~/images/" + item.FotoPortada)" style="width:200px; height:200px" alt="Card image cap">
+                        <div class="card">
+                            <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
                             </div>
@@ -95,3 +107,22 @@
     </div>
 </div>
 
+@section Scripts {
+    <script>
+        function toggleFilters(select) {
+            var filters = document.querySelectorAll('input[name="filter"]');
+            if (select.value) {
+                filters.forEach(function(filter) {
+                    if (filter.value !== "canciones") {
+                        filter.checked = false;
+                        filter.disabled = true;
+                    }
+                });
+            } else {
+                filters.forEach(function(filter) {
+                    filter.disabled = false;
+                });
+            }
+        }
+    </script>
+}

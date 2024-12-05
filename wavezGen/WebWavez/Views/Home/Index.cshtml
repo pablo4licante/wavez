@@ -4,16 +4,27 @@
 }
 
 <div class="text-center">
-    <form asp-action="ResultadoBusqueda" method="get">
+    <h1 class="display-4">Wavez</h1>
+
+    <form asp-action="ResultadoBusqueda" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
         <input type="text" name="query" placeholder="Buscar..." />
         <div>
             <input type="checkbox" name="filter" value="canciones" checked /> Canciones
             <input type="checkbox" name="filter" value="playlists" checked /> Playlists
             <input type="checkbox" name="filter" value="usuarios" checked /> Usuarios
         </div>
+        <div>
+            <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
+                <option value="">Seleccione un género</option>
+                @foreach (var genre in Model.Select(c => c.Genero).Distinct())
+                {
+                    <option value="@genre">@genre</option>
+                }
+            </select>
+        </div>
         <button type="submit">Buscar</button>
-    </form>    
-    <h1 class="display-4">Wavez</h1>
+    </form>
+    
     <div class="estanteria-canciones">
         @foreach (var item in Model)
         {
@@ -31,3 +42,24 @@
         }
         </div>
 </div>
+
+
+@section Scripts {
+    <script>
+        function toggleFilters(select) {
+            var filters = document.querySelectorAll('input[name="filter"]');
+            if (select.value) {
+                filters.forEach(function(filter) {
+                    if (filter.value !== "canciones") {
+                        filter.checked = false;
+                        filter.disabled = true;
+                    }
+                });
+            } else {
+                filters.forEach(function(filter) {
+                    filter.disabled = false;
+                });
+            }
+        }
+    </script>
+}
