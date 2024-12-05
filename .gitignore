@@ -1,5 +1,5 @@
 /.github
-/WavezGen/.vs
+/WavezGen/.vs/WavezGen
 /WavezGen/InitializeDB
 /WavezGen/WavezGen.ApplicationCore/bin
 /WavezGen/WavezGen.ApplicationCore/obj
