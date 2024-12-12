@@ -1,0 +1,64 @@
+﻿
+@model PerfilViewModel
+
+@{
+    ViewData["Title"] = "Wavez | Perfil de usuario";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Perfil</h1>
+
+    <div class="resultados">
+
+        <!-- Mostrar canciones -->
+
+        <h3>Canciones</h3>
+        <div class="estanteria-canciones">
+            @if (!Model.Canciones.Any())
+            {
+                <p>No hay canciones que coincidan con tu búsqueda.</p>
+            }
+            else
+            {
+                @foreach (var item in Model.Canciones)
+                {
+                    <div class="card">
+                        <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                            <p class="card-text"><strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
+                            <p class="card-text"><strong>Autor:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
+                            <p class="card-text"><strong>Fecha de Lanzamiento:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                            <p class="card-text"><strong>Reproducciones:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <!-- Mostrar playlists -->
+ 
+        <h3>Playlists</h3>
+        <div class="estanteria-playlists">
+            @if (!Model.Playlists.Any())
+            {
+                <p>No hay playlists que coincidan con tu búsqueda.</p>
+            }
+            else
+            {
+                @foreach (var item in Model.Playlists)
+                {
+                    <div class="card">
+                        <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        
+
+    </div>
+</div>

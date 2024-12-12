@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="WavezGen.Infraestructure"
+		                   namespace="WavezGen.Infraestructure.EN.Wavez">
+		    
+		    
+			
+				<class name="ComunidadNH" table="Comunidad"> 
+						<id name="Genero" column="tag"/> 
+			
+					
+			
+			
+			
+		  			
+						<bag name="Usuario" table="[usuario_comunidad]" inverse="true" >
+							<key>
+								
+									<column name="FK_tag_idComunidad"/> 
+							</key>
+      						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.UsuarioNH">
+									<column name="FK_usuario_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Cancion" table="[cancion_comunidad]" inverse="true" >
+							<key>
+								
+									<column name="FK_tag_idComunidad"/> 
+							</key>
+      						<many-to-many class="WavezGen.Infraestructure.EN.Wavez.CancionNH">
+									<column name="FK_id_idCancion"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Notificacion" >
+							<key>
+							
+								
+								<column name="FK_tag_idComunidad"/>
+					      	</key>
+							<one-to-many class="WavezGen.Infraestructure.EN.Wavez.NotificacionNH"/>
+					    </bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ComunidadNHReadAllHQL">from ComunidadNH</query>
+		</hibernate-mapping>
+	
