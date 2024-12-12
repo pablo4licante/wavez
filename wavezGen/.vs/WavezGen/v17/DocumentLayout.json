@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\",
+  "WorkspaceRootPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\onedrive\\onedrive - universidad alicante\\dsm\\2024\\practicas\\workspace\\wavez-1\\wavez\\wavezgen\\webwavez\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\onedrive\\onedrive - universidad alicante\\dsm\\2024\\practicas\\workspace\\wavez-1\\wavez\\wavezgen\\webwavez\\controllers\\notificacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\controllers\\notificacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\controllers\\notificacioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\onedrive\\onedrive - universidad alicante\\dsm\\2024\\practicas\\workspace\\wavez-1\\wavez\\wavezgen\\webwavez\\controllers\\playlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\controllers\\playlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\controllers\\playlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\onedrive\\onedrive - universidad alicante\\dsm\\2024\\practicas\\workspace\\wavez-1\\wavez\\wavezgen\\webwavez\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -45,18 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\models\\usuarioviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\wavezgen.applicationcore\\cen\\wavez\\cancioncen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\cen\\wavez\\cancioncen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\wavezgen.applicationcore\\irepository\\wavez\\icancionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0FA0FA58-DE6F-4929-AAB1-29A42FF40ECE}|WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj|solutionrelative:wavezgen.applicationcore\\irepository\\wavez\\icancionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{707DAD7F-5632-4AD7-860E-73A181C52EE2}|InitializeDB\\InitializeDB.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\initializedb\\createdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{707DAD7F-5632-4AD7-860E-73A181C52EE2}|InitializeDB\\InitializeDB.csproj|solutionrelative:initializedb\\createdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -75,11 +63,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "CancionCEN.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\Wavez\\CancionCEN.cs",
-              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CEN\\Wavez\\CancionCEN.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\Wavez\\CancionCEN.cs",
-              "RelativeToolTip": "WavezGen.ApplicationCore\\CEN\\Wavez\\CancionCEN.cs",
+              "Title": "CancionRepository.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "RelativeToolTip": "WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
               "ViewState": "AgIAAGMAAAAAAAAAAAAIwG8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T20:50:28.758Z"
@@ -87,24 +75,24 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "WebWavez\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "WebWavez\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAkwHYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Views\\Notificacion\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Notificacion\\Index.cshtml",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Views\\Notificacion\\Index.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Notificacion\\Index.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAEcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-05T10:55:47.7Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UsuarioRepository.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\UsuarioRepository.cs",
-              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Repository\\Wavez\\UsuarioRepository.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\UsuarioRepository.cs",
-              "RelativeToolTip": "WavezGen.Infraestructure\\Repository\\Wavez\\UsuarioRepository.cs",
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "WebWavez\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "WebWavez\\Controllers\\UsuarioController.cs",
               "ViewState": "AgIAABsCAAAAAAAAAAAAACECAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T12:33:21.053Z"
@@ -112,23 +100,23 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "UsuarioViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Models\\UsuarioViewModel.cs",
-              "RelativeDocumentMoniker": "WebWavez\\Models\\UsuarioViewModel.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Models\\UsuarioViewModel.cs",
-              "RelativeToolTip": "WebWavez\\Models\\UsuarioViewModel.cs",
+              "Title": "cancion.hbm.xml",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
+              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
+              "RelativeToolTip": "WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
               "ViewState": "AgIAAEQAAAAAAAAAAAAAACoAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
               "WhenOpened": "2024-12-05T10:46:57.766Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UsuarioCEN.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\Wavez\\UsuarioCEN.cs",
-              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CEN\\Wavez\\UsuarioCEN.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\Wavez\\UsuarioCEN.cs",
-              "RelativeToolTip": "WavezGen.ApplicationCore\\CEN\\Wavez\\UsuarioCEN.cs",
+              "Title": "PlaylistController.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Controllers\\PlaylistController.cs",
+              "RelativeDocumentMoniker": "WebWavez\\Controllers\\PlaylistController.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Controllers\\PlaylistController.cs",
+              "RelativeToolTip": "WebWavez\\Controllers\\PlaylistController.cs",
               "ViewState": "AgIAAIUAAAAAAAAAAIA/wJMAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T12:18:57.653Z"
@@ -136,11 +124,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "CancionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
-              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
-              "RelativeToolTip": "WavezGen.Infraestructure\\Repository\\Wavez\\CancionRepository.cs",
+              "Title": "UsuarioCEN.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\Wavez\\UsuarioCEN.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\CEN\\Wavez\\UsuarioCEN.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\CEN\\Wavez\\UsuarioCEN.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\CEN\\Wavez\\UsuarioCEN.cs",
               "ViewState": "AgIAAEwBAAAAAAAAAAAMwFwBAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T21:00:33.899Z"
@@ -148,11 +136,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IUsuarioRepository.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
-              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
-              "RelativeToolTip": "WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
+              "Title": "NotificacionController.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Controllers\\NotificacionController.cs",
+              "RelativeDocumentMoniker": "WebWavez\\Controllers\\NotificacionController.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Controllers\\NotificacionController.cs",
+              "RelativeToolTip": "WebWavez\\Controllers\\NotificacionController.cs",
               "ViewState": "AgIAACkAAAAAAAAAAIA3wDMAAABrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T11:40:21.505Z"
@@ -160,47 +148,47 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "cancion.hbm.xml",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
-              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
-              "RelativeToolTip": "WavezGen.Infraestructure\\Mappings\\Wavez\\cancion.hbm.xml",
+              "Title": "IUsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
+              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
+              "RelativeToolTip": "WavezGen.ApplicationCore\\IRepository\\Wavez\\IUsuarioRepository.cs",
               "ViewState": "AgIAAHgAAAAAAAAAAAAAAIMAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T21:34:44.417Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "usuario.hbm.xml",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
-              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
-              "RelativeToolTip": "WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Repository\\Wavez\\UsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Repository\\Wavez\\UsuarioRepository.cs",
+              "RelativeToolTip": "WavezGen.Infraestructure\\Repository\\Wavez\\UsuarioRepository.cs",
               "ViewState": "AgIAAIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T22:12:52.626Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ICancionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\IRepository\\Wavez\\ICancionRepository.cs",
-              "RelativeDocumentMoniker": "WavezGen.ApplicationCore\\IRepository\\Wavez\\ICancionRepository.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\IRepository\\Wavez\\ICancionRepository.cs",
-              "RelativeToolTip": "WavezGen.ApplicationCore\\IRepository\\Wavez\\ICancionRepository.cs",
+              "Title": "usuario.hbm.xml",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
+              "RelativeDocumentMoniker": "WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
+              "RelativeToolTip": "WavezGen.Infraestructure\\Mappings\\Wavez\\usuario.hbm.xml",
               "ViewState": "AgIAABsAAAAAAAAAAAAowCkAAABlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
               "WhenOpened": "2024-12-05T20:50:56.134Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "CreateDB.cs",
-              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\InitializeDB\\CreateDB.cs",
-              "RelativeDocumentMoniker": "InitializeDB\\CreateDB.cs",
-              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\InitializeDB\\CreateDB.cs",
-              "RelativeToolTip": "InitializeDB\\CreateDB.cs",
+              "Title": "UsuarioViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Models\\UsuarioViewModel.cs",
+              "RelativeDocumentMoniker": "WebWavez\\Models\\UsuarioViewModel.cs",
+              "ToolTip": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\Models\\UsuarioViewModel.cs",
+              "RelativeToolTip": "WebWavez\\Models\\UsuarioViewModel.cs",
               "ViewState": "AgIAAGwAAAAAAAAAAAAYwHYAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T21:38:25.856Z"
