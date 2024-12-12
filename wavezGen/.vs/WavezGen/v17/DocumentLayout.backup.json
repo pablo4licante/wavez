@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\",
+  "WorkspaceRootPath": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\saran\\source\\repos\\wavez\\wavezgen\\webwavez\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 209,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,8 +82,7 @@
               "RelativeToolTip": "WebWavez\\Controllers\\UsuarioController.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAAkwHYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T10:55:47.7Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T08:12:40.209Z"
             },
             {
               "$type": "Document",

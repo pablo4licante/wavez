@@ -380,7 +380,6 @@ public System.Collections.Generic.IList<UsuarioEN> DameUsuariosPorNombre(string 
     }
     return result;
 }
-
 public void AsignarComunidad (string p_Usuario_OID, System.Collections.Generic.IList<WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum> p_comunidad_OIDs)
 {
         WavezGen.ApplicationCore.EN.Wavez.UsuarioEN usuarioEN = null;

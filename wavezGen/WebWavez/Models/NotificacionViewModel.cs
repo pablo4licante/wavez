@@ -21,17 +21,17 @@ namespace WebWavez.Models
         public DateTime Fecha { get; set; }
 
         [Required(ErrorMessage = "El id del usuario publicador es obligatorio.")]
-        public UsuarioEN UsuarioPublicador { get; set; }
+        public string UsuarioPublicador { get; set; }
 
         [Required(ErrorMessage = "Los usuarios receptores son obligatorios.")]
-        public IList<UsuarioEN> UsuariosReceptores { get; set; }
+        public IList<string> UsuariosReceptores { get; set; }
 
         public int Comunidad { get; set; }
 
         [Required(ErrorMessage = "El tipo de contenido debe ser cancion o playlist")]
         public string TipoContenido { get; set; }
 
-        [Required(ErrorMessage = "Incluye al menos un id de playlist o cancion al que hacer referencia")]
-        public int idReferencia { get; set; }
+        public int CancionCompartida { get; set; }
+        public int PlaylistCompartida { get; set; }
     }
 }

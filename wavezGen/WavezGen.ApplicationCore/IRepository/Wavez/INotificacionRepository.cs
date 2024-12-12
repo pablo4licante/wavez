@@ -40,5 +40,12 @@ void AsignarComunidad (int p_Notificacion_OID, WavezGen.ApplicationCore.Enumerat
 void AsignarUsuariosReceptores (int p_Notificacion_OID, System.Collections.Generic.IList<string> p_usuariosReceptores_OIDs);
 
 System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.NotificacionEN> DameNotificacionDeHoy ();
+
+
+void AsignarCancion (int p_Notificacion_OID, int p_contieneCancion_OID);
+
+void AsignarPlaylist (int p_Notificacion_OID, int p_contienePlaylist_OID);
+
+void AsignarUsuarioPublicador (int p_Notificacion_OID, string p_usuarioPublicador_OID);
 }
 }

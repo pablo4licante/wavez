@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using WavezGen.ApplicationCore.CEN.Wavez;
 using WavezGen.ApplicationCore.EN.Wavez;
 using WavezGen.Infraestructure.Repository.Wavez;
@@ -8,7 +8,7 @@ using WebWavez.Models;
 
 namespace WebWavez.Controllers
 {
-    public class NootificacionController : BasicController
+    public class NotificacionController : BasicController
     {
         // GET: NotificacionController
         public ActionResult Index()
@@ -16,9 +16,14 @@ namespace WebWavez.Controllers
             SessionInitialize();
             NotificacionRepository notificacionRepository = new NotificacionRepository(session);
             NotificacionCEN notificacionCEN = new NotificacionCEN(notificacionRepository);
-            IList<NotificacionEN> listaENs = notificacionCEN.DameTodasLasNotificaciones(0, -1);
 
+            IList<NotificacionEN> listaENs = notificacionCEN.DameTodasLasNotificaciones(0, -1);
             IEnumerable<NotificacionViewModel> listaNotificaciones = new NotificacionAssembler().ConvertirListENToListViewModel(listaENs);
+            
+            var usuario = HttpContext.Session.Get<UsuarioViewModel>("usuario");
+
+            //listaNotificaciones = listaNotificaciones.Where(n => n.UsuariosReceptores.Contains(usuario.Usuario));
+
             SessionClose();
 
             return View(listaNotificaciones);
@@ -45,7 +50,23 @@ namespace WebWavez.Controllers
             {
                 NotificacionRepository notificacionRepository = new NotificacionRepository();
                 NotificacionCEN notificacionCEN = new NotificacionCEN(notificacionRepository);
-                notificacionCEN.Nuevo(nvm.Foto, nvm.Mensaje, nvm.UsuarioPublicador, nvm.idReferencia, nvm.Comunidad, nvm.Fecha, nvm.UsuariosReceptores);
+                UsuarioRepository usuarioRepository = new UsuarioRepository();
+                UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
+                PlaylistRepository playlistRepository = new PlaylistRepository();
+                PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepository);
+                CancionRepository cancionRepository = new CancionRepository();
+                CancionCEN cancionCEN = new CancionCEN(cancionRepository);
+                UsuarioEN UsuarioPublicador = usuarioCEN.DameUsuarioPorOID(nvm.UsuarioPublicador);
+                IList<UsuarioEN> UsuariosReceptores = new List<UsuarioEN>();
+                foreach (string usuario in nvm.UsuariosReceptores)
+                {
+                    UsuariosReceptores.Add(usuarioCEN.DameUsuarioPorOID(usuario));
+                }
+
+                CancionEN CancionCompartida = cancionCEN.DameCancionPorOID(nvm.CancionCompartida);
+                PlaylistEN PlaylistCompartida = playlistCEN.DamePlaylistPorOID(nvm.PlaylistCompartida);
+ 
+                notificacionCEN.Nuevo(nvm.Foto, nvm.Mensaje, nvm.Fecha, nvm.TipoContenido, UsuarioPublicador, UsuariosReceptores, CancionCompartida, PlaylistCompartida);
                 return RedirectToAction(nameof(Index));
             }
             catch

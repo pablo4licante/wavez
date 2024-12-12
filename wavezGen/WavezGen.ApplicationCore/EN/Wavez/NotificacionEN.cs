@@ -68,6 +68,13 @@ private Nullable<DateTime> fecha;
 
 
 
+/**
+ *	Atributo tipoContenido
+ */
+private string tipoContenido;
+
+
+
 
 
 
@@ -125,6 +132,12 @@ public virtual Nullable<DateTime> Fecha {
 
 
 
+public virtual string TipoContenido {
+        get { return tipoContenido; } set { tipoContenido = value;  }
+}
+
+
+
 
 
 public NotificacionEN()
@@ -134,20 +147,20 @@ public NotificacionEN()
 
 
 
-public NotificacionEN(int id, string foto, string mensaje, WavezGen.ApplicationCore.EN.Wavez.ComunidadEN comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuariosReceptores, WavezGen.ApplicationCore.EN.Wavez.UsuarioEN usuarioPublicador, WavezGen.ApplicationCore.EN.Wavez.CancionEN contieneCancion, WavezGen.ApplicationCore.EN.Wavez.PlaylistEN contienePlaylist, Nullable<DateTime> fecha
+public NotificacionEN(int id, string foto, string mensaje, WavezGen.ApplicationCore.EN.Wavez.ComunidadEN comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuariosReceptores, WavezGen.ApplicationCore.EN.Wavez.UsuarioEN usuarioPublicador, WavezGen.ApplicationCore.EN.Wavez.CancionEN contieneCancion, WavezGen.ApplicationCore.EN.Wavez.PlaylistEN contienePlaylist, Nullable<DateTime> fecha, string tipoContenido
                       )
 {
-        this.init (Id, foto, mensaje, comunidad, usuariosReceptores, usuarioPublicador, contieneCancion, contienePlaylist, fecha);
+        this.init (Id, foto, mensaje, comunidad, usuariosReceptores, usuarioPublicador, contieneCancion, contienePlaylist, fecha, tipoContenido);
 }
 
 
 public NotificacionEN(NotificacionEN notificacion)
 {
-        this.init (notificacion.Id, notificacion.Foto, notificacion.Mensaje, notificacion.Comunidad, notificacion.UsuariosReceptores, notificacion.UsuarioPublicador, notificacion.ContieneCancion, notificacion.ContienePlaylist, notificacion.Fecha);
+        this.init (notificacion.Id, notificacion.Foto, notificacion.Mensaje, notificacion.Comunidad, notificacion.UsuariosReceptores, notificacion.UsuarioPublicador, notificacion.ContieneCancion, notificacion.ContienePlaylist, notificacion.Fecha, notificacion.TipoContenido);
 }
 
 private void init (int id
-                   , string foto, string mensaje, WavezGen.ApplicationCore.EN.Wavez.ComunidadEN comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuariosReceptores, WavezGen.ApplicationCore.EN.Wavez.UsuarioEN usuarioPublicador, WavezGen.ApplicationCore.EN.Wavez.CancionEN contieneCancion, WavezGen.ApplicationCore.EN.Wavez.PlaylistEN contienePlaylist, Nullable<DateTime> fecha)
+                   , string foto, string mensaje, WavezGen.ApplicationCore.EN.Wavez.ComunidadEN comunidad, System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> usuariosReceptores, WavezGen.ApplicationCore.EN.Wavez.UsuarioEN usuarioPublicador, WavezGen.ApplicationCore.EN.Wavez.CancionEN contieneCancion, WavezGen.ApplicationCore.EN.Wavez.PlaylistEN contienePlaylist, Nullable<DateTime> fecha, string tipoContenido)
 {
         this.Id = id;
 
@@ -167,6 +180,8 @@ private void init (int id
         this.ContienePlaylist = contienePlaylist;
 
         this.Fecha = fecha;
+
+        this.TipoContenido = tipoContenido;
 }
 
 public override bool Equals (object obj)

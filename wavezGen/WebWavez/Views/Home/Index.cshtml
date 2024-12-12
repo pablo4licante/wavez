@@ -4,25 +4,98 @@
 }
 
 <div class="text-center">
-    <form asp-action="ResultadoBusqueda" method="get">
-        <input type="text" name="query" placeholder="Buscar..." />
-        <button type="submit">Buscar</button>
-    </form>    
     <h1 class="display-4">Wavez</h1>
-    <div class="estanteria-canciones">
-        @foreach (var item in Model)
-        {
-            <div class="card">
-                <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-                    <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
-                    <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
-                    <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
-                    <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
-                </div>
-            </div>
-            
-        }
+
+    <form asp-action="ResultadoBusqueda" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <input type="text" name="query" placeholder="Buscar..." />
+        <div>
+            <input type="checkbox" name="filter" value="canciones" checked /> Canciones
+            <input type="checkbox" name="filter" value="playlists" checked /> Playlists
+            <input type="checkbox" name="filter" value="usuarios" checked /> Usuarios
         </div>
+        <div>
+            <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
+                <option value="">Seleccione un género</option>
+                @foreach (var genre in Model.Select(c => c.Genero).Distinct())
+                {
+                    <option value="@genre">@genre</option>
+                }
+            </select>
+        </div>
+        <button type="submit">Buscar</button>
+    </form>
+    
+    <div class="categorias">
+        <h2>Últimas novedades</h2>
+        <div class="estanteria-canciones">
+            @foreach (var item in Model.OrderByDescending(c => c.Fecha))
+            {
+                <div class="card">
+                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                        <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
+                        <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
+                        <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                        <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <h2>Más populares</h2>
+        <div class="estanteria-canciones">
+            @foreach (var item in Model.OrderByDescending(c => c.numReproducciones))
+            {
+                <div class="card">
+                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                        <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
+                        <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
+                        <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                        <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <h2>Tus favoritas</h2>
+        <div class="estanteria-canciones">
+            @foreach (var item in Model.OrderByDescending(c => c.numReproducciones))
+            {
+                <div class="card">
+                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                        <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
+                        <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
+                        <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                        <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
+
+
+@section Scripts {
+    <script>
+        function toggleFilters(select) {
+            var filters = document.querySelectorAll('input[name="filter"]');
+            if (select.value) {
+                filters.forEach(function(filter) {
+                    if (filter.value !== "canciones") {
+                        filter.checked = false;
+                        filter.disabled = true;
+                    }
+                });
+            } else {
+                filters.forEach(function(filter) {
+                    filter.disabled = false;
+                });
+            }
+        }
+    </script>
+}

@@ -29,6 +29,6 @@ namespace WebWavez.Models
 
         [Required(ErrorMessage = "Debe indicar un nombre para la cancion")]
         public string Url { get; set; }
-
+        public IEnumerable<string> Generos { get; set; }
     }
 }
