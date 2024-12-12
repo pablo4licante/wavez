@@ -324,7 +324,40 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
                 }
 
         return result;
-        }	
-			
- }
-}
+        }
+
+        public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> DameCancionesPorUsuario(string cancion_autor)
+        {
+            System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> result;
+            try
+            {
+                SessionInitializeTransaction();
+                //String sql = @"FROM CancionNH self where SELECT cancion FROM CancionNH as cancion inner join cancion.Autor as usuario WHERE cancion.Autor  : cancion_autor ";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery("CancionNHdameCancionesPorUsuarioHQL ");
+                query.SetParameter("cancion_autor ", cancion_autor);
+
+                result = query.List<WavezGen.ApplicationCore.EN.Wavez.CancionEN>();
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                    throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException("Error in CancionRepository.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return result;
+        }
+
+
+    }
+		}

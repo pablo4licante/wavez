@@ -28,7 +28,7 @@
     <div class="categorias">
         <h2>Últimas novedades</h2>
         <div class="estanteria-canciones">
-            @foreach (var item in Model)
+            @foreach (var item in Model.OrderByDescending(c => c.Fecha))
             {
                 <div class="card">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
@@ -45,7 +45,7 @@
 
         <h2>Más populares</h2>
         <div class="estanteria-canciones">
-            @foreach (var item in Model)
+            @foreach (var item in Model.OrderByDescending(c => c.numReproducciones))
             {
                 <div class="card">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
@@ -62,7 +62,7 @@
 
         <h2>Tus favoritas</h2>
         <div class="estanteria-canciones">
-            @foreach (var item in Model)
+            @foreach (var item in Model.OrderByDescending(c => c.numReproducciones))
             {
                 <div class="card">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">

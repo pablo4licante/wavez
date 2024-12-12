@@ -97,64 +97,29 @@ namespace WebWavez.Controllers
             UsuarioRepository usuRepo = new UsuarioRepository(session);
             UsuarioCEN usuCEN = new UsuarioCEN(usuRepo);
 
+            CancionRepository cancionRepo = new CancionRepository(session);
+            CancionCEN cancionCEN = new CancionCEN(cancionRepo);
+
             //coger el usuario de la session
             UsuarioViewModel usuarioVM = HttpContext.Session.Get<UsuarioViewModel>("usuario");
-            string id = "";
             if (usuarioVM == null)
             {
                 return RedirectToAction("Login", "Usuario");
             }
 
-            id = usuarioVM.Usuario;
-            //usuario = dameusuarioporoid (id)
+            string id = usuarioVM.Usuario;
             UsuarioEN usuario = usuCEN.DameUsuarioPorOID(id);
-            //usuario.damemiscanciones
+
+            //IList<CancionEN> listaENs = (IList<CancionEN>)cancionCEN.DameCancionesPorUsuario(id);
             IList<CancionEN> listaENs = (IList<CancionEN>)usuCEN.DameMisCanciones();
             //convertir las canciones en view model
             IEnumerable<CancionViewModel> listaCanciones = new CancionAssembler().ConvertirListENToListViewModel(listaENs);
 
-
-            //IList<CancionEN> listaENs = (IList<CancionEN>)usuario.DameMisCanciones();  //dame las canciones del usuario
-            //IEnumerable<CancionViewModel> listaCanciones = new CancionAssembler().ConvertirListENToListViewModel(listaENs);
-
             SessionClose();
-
             return View(listaCanciones);
         }
 
-        /*
-        public ActionResult Perfil2()
-        {
-            try
-            {
-                SessionInitialize();
-
-                UsuarioRepository usuRepo = new UsuarioRepository(session);
-                UsuarioCEN usuCEN = new UsuarioCEN(usuRepo);
-
-                // Obtener el usuario de la sesión
-                UsuarioViewModel usuarioVM = HttpContext.Session.Get<UsuarioViewModel>("usuario");
-                if (usuarioVM == null)
-                {
-                    return RedirectToAction("Login", "Usuario");
-                }
-
-                // Obtener los datos del usuario desde la base de datos
-                UsuarioEN usuario = usuCEN.DameUsuarioPorOID(usuarioVM.Usuario);
-                IList<CancionEN> listaENs = usuario.DameMisCanciones();
-
-                // Convertir a ViewModel
-                IEnumerable<CancionViewModel> listaCanciones = new CancionAssembler().ConvertirListENToListViewModel(listaENs);
-
-
-                return View(listaCanciones);
-            }
-            finally
-            {
-                SessionClose();
-            }
-        }
-        */
+        
 
 
 

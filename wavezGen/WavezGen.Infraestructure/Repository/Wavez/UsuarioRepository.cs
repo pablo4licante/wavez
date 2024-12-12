@@ -534,17 +534,17 @@ public void DesasignarPlaylist (string p_Usuario_OID, System.Collections.Generic
                 SessionClose ();
         }
 }
-public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisCanciones ()
-{
-        System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> result;
-        try
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> DameMisCanciones ()   /*******************/
+        {
+        System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> result;   /*******************/
+            try
         {
                 SessionInitializeTransaction ();
                 //String sql = @"FROM UsuarioNH self where SELECT cancion FROM UsuarioNH as usuario inner join usuario.PublicaCancion as cancion WHERE cancion.Autor = usuario.Usuario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioNHdameMisCancionesHQL");
 
-                result = query.List<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN>();
+                result = query.List<WavezGen.ApplicationCore.EN.Wavez.CancionEN>();   /*******************/
                 SessionCommit ();
         }
 
