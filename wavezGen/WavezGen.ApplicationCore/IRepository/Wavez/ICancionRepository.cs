@@ -38,5 +38,8 @@ System.Collections.Generic.IList<CancionEN> DameTodasLasCanciones (int first, in
 
 
 System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> DameCancionesPorNombre (string nombre);
+
+System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> DameCancionesPorUsuario(string cancion_autor);
+
 }
 }
