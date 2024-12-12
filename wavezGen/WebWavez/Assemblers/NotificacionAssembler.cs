@@ -10,7 +10,7 @@ namespace WebWavez.Assemblers
             NotificacionViewModel nvm = new NotificacionViewModel();
             nvm.UsuarioPublicador = notificacion.UsuarioPublicador.Usuario;
 
-            nvm.Fecha = (DateTime)notificacion.Fecha;
+            nvm.Fecha = notificacion.Fecha ?? DateTime.MinValue;
             nvm.Id = notificacion.Id;
             nvm.Mensaje = notificacion.Mensaje;
             nvm.TipoContenido = notificacion.TipoContenido;

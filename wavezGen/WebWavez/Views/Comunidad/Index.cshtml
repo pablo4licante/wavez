@@ -36,7 +36,7 @@
             <tr>
                 <th> Comunidad de @item.Genero</th>
                 <td>
-                    <button> @Html.ActionLink("Ver", "Details", new { /* id=item.PrimaryKey */ }) </button>
+                    <a asp-action="detalle" asp-route-id="@(Convert.ToInt32(item.Genero))">Ver Detalles</a>
                 </td>
             </tr>
         }
