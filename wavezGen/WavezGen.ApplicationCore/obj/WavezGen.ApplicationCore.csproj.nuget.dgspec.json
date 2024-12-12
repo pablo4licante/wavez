@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\saran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
+        "projectName": "WavezGen.ApplicationCore",
+        "projectPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
+        "packagesPath": "C:\\Users\\leyre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.ApplicationCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\leyre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 59f937c69f78a77ae569bd6670e5e11e32026cc2
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,7 +7,7 @@
 <h1>Comunidades</h1>
 
 <!--barra de busqueda por genero-->
-<form asp-action="ResultadoBusqueda" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+<form asp-action="Index" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
     <div>
         <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
             <option value="">Seleccione un género</option>
@@ -29,13 +29,16 @@
             </th>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <th> Comunidad de @item.Genero</th>
-            <td>
+        <div class="resultados">
+        <!-- Mostrar comunidades -->          
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th> Comunidad de @item.Genero</th>
+                <td>
                     <button> @Html.ActionLink("Ver", "Details", new { /* id=item.PrimaryKey */ }) </button>
-            </td>
-        </tr>
-}
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

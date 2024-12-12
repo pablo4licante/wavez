@@ -37,6 +37,7 @@ C:\onedrive\OneDrive - UNIVERSIDAD ALICANTE\DSM\2024\Practicas\Workspace\wavez-1
 C:\onedrive\OneDrive - UNIVERSIDAD ALICANTE\DSM\2024\Practicas\Workspace\wavez-1\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\refint\WavezGen.ApplicationCore.dll
 C:\onedrive\OneDrive - UNIVERSIDAD ALICANTE\DSM\2024\Practicas\Workspace\wavez-1\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.pdb
 C:\onedrive\OneDrive - UNIVERSIDAD ALICANTE\DSM\2024\Practicas\Workspace\wavez-1\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\ref\WavezGen.ApplicationCore.dll
+<<<<<<< HEAD
 C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.ApplicationCore\bin\Debug\net7.0\WavezGen.ApplicationCore.deps.json
 C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.ApplicationCore\bin\Debug\net7.0\WavezGen.ApplicationCore.dll
 C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.ApplicationCore\bin\Debug\net7.0\WavezGen.ApplicationCore.pdb
@@ -50,3 +51,18 @@ C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\ne
 C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\refint\WavezGen.ApplicationCore.dll
 C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.pdb
 C:\Users\saran\source\repos\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\ref\WavezGen.ApplicationCore.dll
+=======
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\bin\Debug\net7.0\WavezGen.ApplicationCore.deps.json
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\bin\Debug\net7.0\WavezGen.ApplicationCore.dll
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\bin\Debug\net7.0\WavezGen.ApplicationCore.pdb
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.AssemblyInfo.cs
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.sourcelink.json
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.dll
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\refint\WavezGen.ApplicationCore.dll
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\WavezGen.ApplicationCore.pdb
+C:\Users\leyre\Desktop\ua 2024-2025\DSM (Diseño de Sistemas Multimedia)\wavez\wavezGen\WavezGen.ApplicationCore\obj\Debug\net7.0\ref\WavezGen.ApplicationCore.dll
+>>>>>>> 59f937c69f78a77ae569bd6670e5e11e32026cc2

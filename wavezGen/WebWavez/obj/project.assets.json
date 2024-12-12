@@ -10792,11 +10792,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\saran\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\leyre\\.nuget\\packages\\": {}
+>>>>>>> 59f937c69f78a77ae569bd6670e5e11e32026cc2
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj",
       "projectName": "WebWavez",
       "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj",
@@ -10805,6 +10810,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\saran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj",
+      "projectName": "WebWavez",
+      "projectPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WebWavez\\WebWavez.csproj",
+      "packagesPath": "C:\\Users\\leyre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WebWavez\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\leyre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 59f937c69f78a77ae569bd6670e5e11e32026cc2
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10819,11 +10834,19 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
               "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj"
             },
             "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj": {
               "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj"
+=======
+            "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
+              "projectPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj"
+            },
+            "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj": {
+              "projectPath": "C:\\Users\\leyre\\Desktop\\ua 2024-2025\\DSM (Diseño de Sistemas Multimedia)\\wavez\\wavezGen\\WavezGen.Infraestructure\\WavezGen.Infraestructure.csproj"
+>>>>>>> 59f937c69f78a77ae569bd6670e5e11e32026cc2
             }
           }
         }
@@ -10871,7 +10894,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

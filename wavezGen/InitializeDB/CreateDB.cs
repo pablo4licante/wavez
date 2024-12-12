@@ -14,6 +14,7 @@ using WavezGen.ApplicationCore.Exceptions;
 using WavezGen.ApplicationCore.CP.Wavez;
 using WavezGen.Infraestructure.Repository;
 using NHibernate;
+using WavezGen.ApplicationCore.Enumerated.Wavez;
 
 /*PROTECTED REGION END*/
 namespace InitializeDB
@@ -109,6 +110,7 @@ namespace InitializeDB
                 ColaReprodRepository colaReprodRepository = new ColaReprodRepository();
                 CancionRepository cancionRepository = new CancionRepository();
                 NotificacionRepository notificacionRepository = new NotificacionRepository();
+                ComunidadRepository comunidadRepository = new ComunidadRepository();
 
                 // Create CENs
                 UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
@@ -116,6 +118,7 @@ namespace InitializeDB
                 ColaReprodCEN colaReprodCEN = new ColaReprodCEN(colaReprodRepository);
                 CancionCEN cancionCEN = new CancionCEN(cancionRepository);
                 NotificacionCEN notificacionCEN = new NotificacionCEN(notificacionRepository);
+                ComunidadCEN comunidadCEN = new ComunidadCEN(comunidadRepository);
 
                 // Create users
                 string user1 = usuarioCEN.Nuevo("user1", "User One", "password1", "user1@example.com", "foto1");
@@ -136,6 +139,17 @@ namespace InitializeDB
                 int cancion1 = cancionCEN.Nuevo("Cancion One", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Rock, DateTime.Now, "https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid", user1, 0, "https://voluntariosacd.infinityfreeapp.com/audio.mp3");
                 int cancion2 = cancionCEN.Nuevo("Cancion Two", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Pop, DateTime.Now, "https://images.pexels.com/photos/2746823/pexels-photo-2746823.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", user2, 0, "https://voluntariosacd.infinityfreeapp.com/audio.mp3");
                 Console.WriteLine("Canciones created: " + cancion1 + ", " + cancion2);
+
+                // Create comunidades
+                Enum comunidad1 = comunidadCEN.Nuevo(GenerosEnum.Soul);
+                Enum comunidad2 = comunidadCEN.Nuevo(GenerosEnum.Funk);
+                Enum comunidad3 = comunidadCEN.Nuevo(GenerosEnum.Latino);
+                Enum comunidad4 = comunidadCEN.Nuevo(GenerosEnum.Metal);
+                Enum comunidad5 = comunidadCEN.Nuevo(GenerosEnum.Pop);
+                Enum comunidad6 = comunidadCEN.Nuevo(GenerosEnum.KPop);
+                Enum comunidad7 = comunidadCEN.Nuevo(GenerosEnum.HipHop);
+                Enum comunidad8 = comunidadCEN.Nuevo(GenerosEnum.Alternativo);
+                Console.WriteLine("Comunidades created: " + comunidad1 + ", " + comunidad2 + ", " + comunidad3 + ", " + comunidad4 + ", " + comunidad5 + ", " + comunidad6 + ", " + comunidad7 + ", " + comunidad8);
 
                 // Add canciones to playlists
                 playlistCEN.AddCancion(playlist1, new List<int> { cancion1 });
