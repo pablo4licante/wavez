@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {}
+    "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {}
   },
   "projects": {
-    "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
+    "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
+        "projectUniqueName": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
         "projectName": "WavezGen.ApplicationCore",
-        "projectPath": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
-        "packagesPath": "C:\\Users\\Noeli\\.nuget\\packages\\",
-        "outputPath": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WavezGen.ApplicationCore\\obj\\",
+        "projectPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\WavezGen.ApplicationCore.csproj",
+        "packagesPath": "C:\\Users\\saran\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\saran\\source\\repos\\wavez\\wavezGen\\WavezGen.ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Noeli\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\saran\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
