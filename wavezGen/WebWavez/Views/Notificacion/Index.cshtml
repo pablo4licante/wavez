@@ -1,0 +1,84 @@
+﻿@model IEnumerable<WebWavez.Models.NotificacionViewModel>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Notificaciones</h1>
+
+<p>
+    <a asp-action="Create">Crear nueva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mensaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comunidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoContenido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CancionCompartida);
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaylistCompartida);
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioPublicador);
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuariosReceptores);
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mensaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comunidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoContenido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CancionCompartida)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlaylistCompartida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuarioPublicador)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuariosReceptores)
+                </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
