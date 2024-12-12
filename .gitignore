@@ -1,9 +1,0 @@
-/.github
-/WavezGen/.vs/WavezGen
-/WavezGen/InitializeDB
-/WavezGen/WavezGen.ApplicationCore/bin
-/WavezGen/WavezGen.ApplicationCore/obj
-/WavezGen/WavezGen.Infraestructure/bin
-/WavezGen/WavezGen.Infraestructure/obj
-/WavezGen/WebWavez/bin
-/WavezGen/WebWavez/obj
