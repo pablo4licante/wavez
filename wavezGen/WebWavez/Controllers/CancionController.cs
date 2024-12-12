@@ -58,6 +58,16 @@ namespace WebWavez.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult AumentarReproducciones(int id)
+        {
+            CancionRepository cancionRepository = new CancionRepository();
+            CancionCEN cancionCEN = new CancionCEN(cancionRepository);
+            cancionCEN.ReproducirCancion(id);
+
+            // You can return some result if needed
+            return Json(new { success = true });
+        }
 
         // POST: CancionController/Edit/5
         [HttpPost]

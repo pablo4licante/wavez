@@ -24,7 +24,7 @@
                 @foreach (var item in Model.Canciones)
                 {
                     <div class="card" style="margin: 10px; display: inline-block;">
-                        <img class="card-img-top" src="@Url.Content("~/images/" + item.FotoPortada)" style="width:200px; height:200px" alt="Card image cap">
+                        <img class="card-img-top" src="@Url.Content(item.FotoPortada)" style="width:200px; height:200px" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
                             <p class="card-text"><strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>

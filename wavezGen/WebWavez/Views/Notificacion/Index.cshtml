@@ -82,3 +82,32 @@
 }
     </tbody>
 </table>
+
+
+@section Scripts {
+        <script>
+
+            window.addEventListener('load', async function () {
+                const songUrl = sessionStorage.getItem('currentSong');
+                const currentTime = sessionStorage.getItem('currentTime');
+                
+                const songImage = sessionStorage.getItem('currentSongImage');
+                const audioSource = document.getElementById('audioSource');
+                const musicPlayer = document.getElementById('musicPlayer');
+                    audioSource.src = songUrl;
+                    await musicPlayer.load();
+                    musicPlayer.currentTime = currentTime;
+                    musicPlayer.play();
+
+
+            });
+
+            window.addEventListener('beforeunload', function () {
+                const musicPlayer = document.getElementById('musicPlayer');
+                if (musicPlayer) {
+                    const currentTime = musicPlayer.currentTime;
+                    sessionStorage.setItem('currentTime', currentTime);
+                }
+            });
+        </script>
+}
