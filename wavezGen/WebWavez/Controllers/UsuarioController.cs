@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Humanizer.Localisation;
 
 namespace WebWavez.Controllers
 {
@@ -89,7 +90,6 @@ namespace WebWavez.Controllers
         //*********************************************  PERFIL  **************************************************
 
         // GET: UsuarioController/Perfil
-
         public ActionResult Perfil()
         {
             SessionInitialize();
@@ -100,23 +100,42 @@ namespace WebWavez.Controllers
             CancionRepository cancionRepo = new CancionRepository(session);
             CancionCEN cancionCEN = new CancionCEN(cancionRepo);
 
+            PlaylistRepository playlistRepo = new PlaylistRepository(session);
+            PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepo);
+
             //coger el usuario de la session
             UsuarioViewModel usuarioVM = HttpContext.Session.Get<UsuarioViewModel>("usuario");
             if (usuarioVM == null)
             {
                 return RedirectToAction("Login", "Usuario");
             }
-
+            //coger el usuario de la session
             string id = usuarioVM.Usuario;
             UsuarioEN usuario = usuCEN.DameUsuarioPorOID(id);
 
-            //IList<CancionEN> listaENs = (IList<CancionEN>)cancionCEN.DameCancionesPorUsuario(id);
-            IList<CancionEN> listaENs = (IList<CancionEN>)usuCEN.DameMisCanciones();
+
+
+            //se cogen las canciones del usuario
+            IList<CancionEN> cancionesUsuario = cancionCEN.DameTodasLasCanciones(0, -1).Where(c => c.Autor == usuario).ToList();
+            //se cogen las playlist del usuario
+            IList<PlaylistEN> playlistUsuario = playlistCEN.DameTodasLasPlaylist(0, -1).Where(p => p.UsuarioCreador == usuario).ToList();
+
+
             //convertir las canciones en view model
-            IEnumerable<CancionViewModel> listaCanciones = new CancionAssembler().ConvertirListENToListViewModel(listaENs);
+            IEnumerable<CancionViewModel> listaCancionesVM = new CancionAssembler().ConvertirListENToListViewModel(cancionesUsuario);
+            //convertir las playlist en view model
+            IEnumerable<PlaylistViewModel> listaPlaylistVM = new PlaylistAssembler().ConvertirListENToListViewModel(playlistUsuario);
 
             SessionClose();
-            return View(listaCanciones);
+
+            var perfilVM = new PerfilViewModel
+            {
+                Canciones = listaCancionesVM,
+                Playlists = listaPlaylistVM
+            };
+
+            return View(perfilVM);
+
         }
 
         
