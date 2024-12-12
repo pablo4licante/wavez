@@ -6,9 +6,9 @@ builder.Services.AddDistributedMemoryCache(); // Necesario para sesiones en memo
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".Ejemplo.Session";
-    options.IdleTimeout = TimeSpan.FromSeconds(1000); // Tiempo de inactividad antes de que la sesiï¿½n expire
+    options.IdleTimeout = TimeSpan.FromSeconds(1000); // Tiempo de inactividad antes de que la sesión expire
     options.Cookie.HttpOnly = true; // Asegura que solo se pueda acceder a la cookie desde el servidor
-    options.Cookie.IsEssential = true; // Asegura que la cookie estï¿½ disponible para el cumplimiento de GDPR
+    options.Cookie.IsEssential = true; // Asegura que la cookie esté disponible para el cumplimiento de GDPR
 });
 
 
@@ -36,6 +36,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Usuario}/{action=Login}/{id?}");
-    
+
 app.Run();
 

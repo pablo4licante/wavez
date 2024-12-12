@@ -63,11 +63,3 @@ body {
   gap: 20px;
   justify-content:center;
 }
-
-.estanteria-comunidades {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
-}

@@ -22,12 +22,6 @@ namespace WebWavez.Models
 
     }
 
-    public class PerfilViewModel
-    {
-        public IEnumerable<CancionViewModel> Canciones { get; set; }
-        public IEnumerable<PlaylistViewModel> Playlists { get; set; }
-    }
-
     public class LoginUsuarioViewModel
     {
         [Display(Prompt = "Introduce el nombre de usuario", Description = "Nombre de usuario de Usuario", Name = "Usuario *")]

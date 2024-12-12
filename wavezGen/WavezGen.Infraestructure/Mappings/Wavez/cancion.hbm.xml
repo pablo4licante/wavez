@@ -128,7 +128,7 @@
 		 </class>	
 		  
 		  <query name="CancionNHReadAllHQL">from CancionNH</query>
-		  <query name="CancionNHdameCancionesPorNombreHQL"><![CDATA[SELECT cancion FROM CancionNH as cancion WHERE cancion.Titulo LIKE :nombre]]></query>
-		  <query name="CancionNHdameCancionesPorUsuarioHQL"><![CDATA[SELECT cancion FROM CancionNH as cancion inner join cancion.Autor as usuario WHERE cancion.Autor = usuario.Usuario]]></query>
+		  <query name="CancionNHdameCancionesPorNombreHQL"><![CDATA[SELECT cancion FROM CancionNH as cancion WHERE cancion.Titulo LIKE :nombre
+]]></query>
 		</hibernate-mapping>
 	

@@ -53,7 +53,7 @@ void AsignarPlaylist (string p_Usuario_OID, System.Collections.Generic.IList<int
 
 void DesasignarPlaylist (string p_Usuario_OID, System.Collections.Generic.IList<int> p_playlistGuardada_OIDs);
 
-System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> DameMisCanciones (); /*******************/
+System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisCanciones ();
 
 
 System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisPlaylists ();
