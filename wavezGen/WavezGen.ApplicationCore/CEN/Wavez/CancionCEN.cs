@@ -107,5 +107,10 @@ public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.Cancio
 {
         return _ICancionRepository.DameCancionesPorNombre (nombre);
 }
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> DameCancionesPorUsuario(string cancion_autor)
+{
+    return _ICancionRepository.DameCancionesPorUsuario(cancion_autor);
+}
+
 }
 }

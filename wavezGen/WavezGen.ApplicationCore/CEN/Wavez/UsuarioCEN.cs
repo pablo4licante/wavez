@@ -143,8 +143,8 @@ public void DesasignarPlaylist (string p_Usuario_OID, System.Collections.Generic
 
         _IUsuarioRepository.DesasignarPlaylist (p_Usuario_OID, p_playlistGuardada_OIDs);
 }
-public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisCanciones ()
-{
+public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> DameMisCanciones ()    /*******************/
+        {
         return _IUsuarioRepository.DameMisCanciones ();
 }
 public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameMisPlaylists ()
