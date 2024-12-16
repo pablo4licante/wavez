@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Humanizer.Localisation;
+using System.Diagnostics;
+using WavezGen.ApplicationCore.Utils;
 
 namespace WebWavez.Controllers
 {
@@ -46,6 +48,16 @@ namespace WebWavez.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+        public ActionResult Logout()
+        {
+            // Limpiar los datos de sesión
+            HttpContext.Session.Remove("usuario");
+
+            // Redirigir al usuario a la página de inicio de sesión u otra página
+            return RedirectToAction("Login", "Usuario");
+        }
+
 
 
         //*********************************************  REGISTRO  **************************************************
@@ -90,55 +102,137 @@ namespace WebWavez.Controllers
         //*********************************************  PERFIL  **************************************************
 
         // GET: UsuarioController/Perfil
-        public ActionResult Perfil()
+        public ActionResult Perfil(string id)
         {
             SessionInitialize();
 
             UsuarioRepository usuRepo = new UsuarioRepository(session);
             UsuarioCEN usuCEN = new UsuarioCEN(usuRepo);
-
             CancionRepository cancionRepo = new CancionRepository(session);
             CancionCEN cancionCEN = new CancionCEN(cancionRepo);
-
             PlaylistRepository playlistRepo = new PlaylistRepository(session);
             PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepo);
 
             //coger el usuario de la session
             UsuarioViewModel usuarioVM = HttpContext.Session.Get<UsuarioViewModel>("usuario");
-            if (usuarioVM == null)
+            if (usuarioVM == null){ return RedirectToAction("Login", "Usuario"); }
+
+            //el usuario que queremos mostrar es el nuestro si le pasamos me
+            if (id == "me")
             {
-                return RedirectToAction("Login", "Usuario");
+                id = usuarioVM.Usuario;
             }
-            //coger el usuario de la session
-            string id = usuarioVM.Usuario;
+            var esPerfilPropio = (usuarioVM.Usuario == id);
+            //se coge el usuario que se tiene que mostrar
             UsuarioEN usuario = usuCEN.DameUsuarioPorOID(id);
+            if (usuario == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
-
-
+            //seguidos del usuario
+            IList<UsuarioEN> seguidosUsuario = usuario.UsuarioSeguidos;
+            //seguidores del usuario
+            IList<UsuarioEN> usuarios = usuCEN.DameTodosLosUsuarios(0, -1);
+            IList<UsuarioEN> seguidoresUsuario = new List<UsuarioEN>();
+            foreach (var item in usuarios)  //para cada usuario
+            {
+                if (item.UsuarioSeguidos.Any(u => u.Usuario == usuario.Usuario))  //si un usuario sigue al actual
+                {
+                    seguidoresUsuario.Add(item);  //se añade a lista de seguidores de usuario
+                }
+            }
             //se cogen las canciones del usuario
             IList<CancionEN> cancionesUsuario = cancionCEN.DameTodasLasCanciones(0, -1).Where(c => c.Autor == usuario).ToList();
             //se cogen las playlist del usuario
             IList<PlaylistEN> playlistUsuario = playlistCEN.DameTodasLasPlaylist(0, -1).Where(p => p.UsuarioCreador == usuario).ToList();
+
+            //si es la pagina de otro ******************************************************************
+            UsuarioEN usuarioSesion = usuCEN.DameUsuarioPorOID(usuarioVM.Usuario); //cogemos el usuario de la sesion
+            IList<UsuarioEN> seguidosUsuarioSesion = usuarioSesion.UsuarioSeguidos; //sus seguidos
+            bool esSeguido = seguidosUsuarioSesion.Any(u => u.Usuario == usuario.Usuario); //está este en sus seguidos??
+            Debug.WriteLine($"El usuario {usuario.Usuario} es seguido:  {esSeguido} por {usuarioSesion.Usuario}");
+            //convertir el usuario en view model *******************************************
+            UsuarioViewModel usuarioPerfilVM = new UsuarioAssembler().ConvertirENToViewModel(usuario);
+            usuarioPerfilVM.EsSeguidoPorUsuarioActual = esSeguido;
 
 
             //convertir las canciones en view model
             IEnumerable<CancionViewModel> listaCancionesVM = new CancionAssembler().ConvertirListENToListViewModel(cancionesUsuario);
             //convertir las playlist en view model
             IEnumerable<PlaylistViewModel> listaPlaylistVM = new PlaylistAssembler().ConvertirListENToListViewModel(playlistUsuario);
+            //convertir los seguidores en view model
+            IEnumerable<UsuarioViewModel> listaSeguidoresVM = new UsuarioAssembler().ConvertirListENToListViewModel(seguidoresUsuario);
+            //convertir los seguidos en view model
+            IEnumerable<UsuarioViewModel> listaSeguidosVM = new UsuarioAssembler().ConvertirListENToListViewModel(seguidosUsuario);
 
             SessionClose();
 
             var perfilVM = new PerfilViewModel
             {
+                Usuario = usuarioPerfilVM, 
                 Canciones = listaCancionesVM,
-                Playlists = listaPlaylistVM
+                Playlists = listaPlaylistVM,
+                Seguidores = listaSeguidoresVM,
+                Seguidos = listaSeguidosVM,
+                EsPerfilPropio = esPerfilPropio
             };
 
             return View(perfilVM);
-
         }
 
-        
+
+        [HttpPost]
+        public JsonResult Seguir(string id)
+        {
+            SessionInitialize();
+            try
+            {
+                // Obtener el usuario autenticado de la sesión
+                var usuarioSesion = HttpContext.Session.Get<UsuarioViewModel>("usuario");
+                if (usuarioSesion == null)
+                {
+                    SessionClose();
+                    return Json(new { success = false, message = "Usuario no autenticado." });
+                }
+
+                UsuarioRepository usuRepo = new UsuarioRepository(session);
+                UsuarioCEN usuarioCEN = new UsuarioCEN(usuRepo);
+
+                // Comprobar si el usuario ya está siguiendo al otro usuario
+                var seguidos = usuarioCEN.DameUsuarioPorOID(usuarioSesion.Usuario).UsuarioSeguidos;
+                bool yaSeguido = seguidos.Any(u => u.Usuario == id);
+
+
+                var idsSeguidos = new List<string> { id };  //el usuario al que se va a seguir se tiene que pasar a lista 
+
+                if (yaSeguido)
+                {
+                    // Dejar de seguir
+                    UsuarioRepository usuariorepository = new UsuarioRepository();
+                    UsuarioCEN usuariocen = new UsuarioCEN(usuariorepository);
+                    usuariocen.DejarDeSeguir(usuarioSesion.Usuario, idsSeguidos);
+
+                    SessionClose();
+                    return Json(new { success = true, action = "unfollow", message = "Has dejado de seguir a este usuario." });
+                }
+                else
+                {
+                    // Seguir
+                    UsuarioRepository usuariorepository = new UsuarioRepository();
+                    UsuarioCEN usuariocen = new UsuarioCEN(usuariorepository);
+                    usuariocen.Seguir(usuarioSesion.Usuario, idsSeguidos);
+
+                    SessionClose();
+                    return Json(new { success = true, action = "follow", message = "Estás siguiendo a este usuario." });
+                }
+            }
+            catch (Exception ex)
+            {
+                SessionClose();
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
 
 
 
@@ -192,17 +286,43 @@ namespace WebWavez.Controllers
         // GET: UsuarioController/Edit/5
         public ActionResult Edit(string id)
         {
-            return View();
+
+            SessionInitialize();
+
+            UsuarioRepository usuRepo = new UsuarioRepository(session);
+            UsuarioCEN usuCEN = new UsuarioCEN(usuRepo);
+
+            UsuarioEN usuEN = usuCEN.DameUsuarioPorOID(id);
+            UsuarioViewModel usuVM = new UsuarioAssembler().ConvertirENToViewModel(usuEN);  
+
+            SessionClose(); 
+            return View(usuVM);
         }
 
         // POST: UsuarioController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(string id, IFormCollection collection)
+        public ActionResult Edit(string id,UsuarioViewModel usu)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                UsuarioRepository usuRepo = new UsuarioRepository();
+                UsuarioCEN usuCEN = new UsuarioCEN(usuRepo);
+
+                // Obtener el usuario actual desde la base de datos
+                UsuarioEN usuarioActual = usuCEN.DameUsuarioPorOID(id);
+                if (usuarioActual == null)
+                {
+                    return View();
+                }
+
+                // Si la contraseña en el formulario está vacía, mantener la contraseña actual
+                string nuevaContrasenya = string.IsNullOrEmpty(usu.Password)
+                    ? usuarioActual.Contrasenya  // Mantener la existente
+                    : usu.Password;  // Encriptar la nueva contraseña
+
+                usuCEN.Modificar(id, usu.Nombre, usu.Password, usu.Email, usu.FotoPerfil);
+                return RedirectToAction(nameof(Perfil));
             }
             catch
             {
@@ -223,7 +343,7 @@ namespace WebWavez.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Perfil));
             }
             catch
             {

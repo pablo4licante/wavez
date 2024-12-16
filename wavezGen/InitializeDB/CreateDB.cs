@@ -124,8 +124,8 @@ namespace InitializeDB
                 Console.WriteLine("Users created: " + user1 + ", " + user2);
 
                 // Create playlists
-                int playlist1 = playlistCEN.Nuevo("Playlist One", "portada1", user1);
-                int playlist2 = playlistCEN.Nuevo("Playlist Two", "portada2", user2);
+                int playlist1 = playlistCEN.Nuevo("Playlist One", "https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid", user1);
+                int playlist2 = playlistCEN.Nuevo("Playlist Two", "https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid", user2);
                 Console.WriteLine("Playlists created: " + playlist1 + ", " + playlist2);
 
                 // Create colaReprod
@@ -149,6 +149,10 @@ namespace InitializeDB
                 colaReprodCEN.AgregarCancion(colaReprod1, new List<int> { cancion1 });
                 colaReprodCEN.AgregarCancion(colaReprod2, new List<int> { cancion2 });
                 Console.WriteLine("Canciones added to colaReprod");
+
+                //********************************************************************
+                //var idsSeguidos = new List<string> { "user2" };
+                //usuarioCEN.Seguir("user1", idsSeguidos);
 
                 // Create comunidades
                 Enum comunidad1 = comunidadCEN.Nuevo(GenerosEnum.Soul);

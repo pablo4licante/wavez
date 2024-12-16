@@ -19,13 +19,18 @@ namespace WebWavez.Models
         public string Email { get; set; }
 
         public string FotoPerfil { get; set; }
+        public bool EsSeguidoPorUsuarioActual { get; set; }
 
     }
 
     public class PerfilViewModel
     {
+        public UsuarioViewModel Usuario { get; set; }  
         public IEnumerable<CancionViewModel> Canciones { get; set; }
         public IEnumerable<PlaylistViewModel> Playlists { get; set; }
+        public IEnumerable<UsuarioViewModel> Seguidores { get; set; }
+        public IEnumerable<UsuarioViewModel> Seguidos { get; set; }
+        public bool EsPerfilPropio { get; set; }
     }
 
     public class LoginUsuarioViewModel
@@ -71,4 +76,5 @@ namespace WebWavez.Models
         public string FotoPerfil { get; set; }
 
     }
+
 }

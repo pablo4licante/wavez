@@ -3,13 +3,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache(); // Necesario para sesiones en memoria
+
 builder.Services.AddSession(options =>
 {
-    options.Cookie.Name = ".Ejemplo.Session";
     options.IdleTimeout = TimeSpan.FromSeconds(1000); // Tiempo de inactividad antes de que la sesión expire
     options.Cookie.HttpOnly = true; // Asegura que solo se pueda acceder a la cookie desde el servidor
     options.Cookie.IsEssential = true; // Asegura que la cookie esté disponible para el cumplimiento de GDPR
 });
+
 
 
 
@@ -38,4 +39,3 @@ app.MapControllerRoute(
     pattern: "{controller=Usuario}/{action=Login}/{id?}");
 
 app.Run();
-

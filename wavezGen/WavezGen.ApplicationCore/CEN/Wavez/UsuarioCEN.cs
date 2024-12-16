@@ -85,8 +85,21 @@ public void Modificar (string p_Usuario_OID, string p_nombre, String p_contrasen
         usuarioEN = new UsuarioEN ();
         usuarioEN.Usuario = p_Usuario_OID;
         usuarioEN.Nombre = p_nombre;
-        usuarioEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
-        usuarioEN.Email = p_email;
+
+
+        //usuarioEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
+        // Si la contraseña ya está codificada (ejemplo, longitud de un hash MD5 es 32 caracteres hexadecimales), no la codifiques de nuevo
+        if (!string.IsNullOrEmpty(p_contrasenya) && p_contrasenya.Length != 32)
+        {
+            usuarioEN.Contrasenya = Utils.Util.GetEncondeMD5(p_contrasenya);
+        }
+        else
+        {
+            usuarioEN.Contrasenya = p_contrasenya; // Mantener la contraseña tal cual si ya está codificada
+        }
+
+
+            usuarioEN.Email = p_email;
         usuarioEN.FotoPerfil = p_fotoPerfil;
         //Call to UsuarioRepository
 

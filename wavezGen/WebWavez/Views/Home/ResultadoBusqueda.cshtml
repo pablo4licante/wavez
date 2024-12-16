@@ -94,11 +94,13 @@
                 {
                     @foreach (var item in Model.Usuarios)
                     {
-                        <div class="card" style="margin: 10px; display: inline-block;">
-                            <div class="card-body">
-                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil" asp-route-id="@item.Usuario">
+                            <div class="card" style="margin: 10px; display: inline-block;">
+                                <div class="card-body">
+                                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                                </div>
                             </div>
-                        </div>
+                        </a> 
                     }
                 }
             </div>

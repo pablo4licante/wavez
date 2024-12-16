@@ -11,6 +11,8 @@ using WavezGen.ApplicationCore.Exceptions;
 using WavezGen.ApplicationCore.IRepository.Wavez;
 using WavezGen.ApplicationCore.CP.Wavez;
 using WavezGen.Infraestructure.EN.Wavez;
+using System.Diagnostics;
+using System.Linq;
 
 
 /*
@@ -158,7 +160,9 @@ public void Seguir (string p_Usuario_OID, System.Collections.Generic.IList<strin
 
 
                 session.Update (usuarioEN);
-                SessionCommit ();
+                //Debug.WriteLine($"Usuario {usuarioEN.Usuario} ahora sigue a {string.Join(", ", usuarioEN.UsuarioSeguidos.Select(u => u.Usuario))}");
+
+                SessionCommit();
         }
 
         catch (Exception ex) {
