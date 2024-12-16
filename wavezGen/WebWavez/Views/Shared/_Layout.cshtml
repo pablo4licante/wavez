@@ -21,13 +21,19 @@
     <link rel="stylesheet" href="~/WebWavez.styles.css" asp-append-version="true" />
 
     
-    @* @if ( usuario == null )  //no funciona porque login usa el mismo layout
-    {
-        <script type="text/javascript">
-            var url = "@Url.Action("Login", "Usuario")";
-            location.href = url; 
-        </script>
-    } *@
+   @{
+       var currentController = ViewContext.RouteData.Values["Controller"]?.ToString();
+       var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
+   }
+
+   @if ((currentController != "Usuario" || (currentAction != "Login" && currentAction != "Registro")) && usuario == null)
+   {
+       <script type="text/javascript">
+           var url = "@Url.Action("Login", "Usuario")";
+           location.href = url; 
+       </script>
+   }
+   
 
 </head>
 <body>
@@ -79,7 +85,7 @@
             <!-- REPRODUCTOR DE MUSICA -->
             <div class="container reproductor">
 
-                <audio id="musicPlayer" controls autoplay>
+                <audio id="musicPlayer" controls>
                     <source id="audioSource" src="" type="audio/mpeg" />
                     Tu navegador no soporta la reproducción de audio.
                 </audio>
@@ -107,14 +113,11 @@
             const currentTime = sessionStorage.getItem('currentTime');
             const songImage = sessionStorage.getItem('currentSongImage');
 
-            console.log("bomboclaat", songUrl, currentTime);
-
             const audioSource = document.getElementById('audioSource');
             const musicPlayer = document.getElementById('musicPlayer');
                 audioSource.src = songUrl;
                 await musicPlayer.load();
                 musicPlayer.currentTime = currentTime
-                musicPlayer.play();
 
         });
 

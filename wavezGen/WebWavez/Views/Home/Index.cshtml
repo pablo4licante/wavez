@@ -4,22 +4,19 @@
 }
 
 <div class="text-center">
+    <h1 class="display-4">Wavez</h1>
     <form asp-action="ResultadoBusqueda" method="get">
         <input type="text" name="query" placeholder="Buscar..." />
         <button type="submit">Buscar</button>
     </form>
-    <h1 class="display-4">Wavez</h1>
-    <div class="estanteria-canciones">
+    <div class="grid-canciones">
         @foreach (var item in Model)
         {
             <div class="card">
                 <img class="card-img-top" data-song-image="@item.FotoPortada" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-                    <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
-                    <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
-                    <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
-                    <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
                     <button class="btn btn-primary play-button" data-song-url="@item.Url">Play</button>
                     <button onclick="addtoPlaylist(event)">Add To Playlist</button>
                     <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
@@ -84,7 +81,7 @@
             audioSource.src = songUrl;
             await musicPlayer.load();
             musicPlayer.currentTime = currentTime;
-            musicPlayer.play();
+            
 
             if (songUrl) {
                 document.querySelectorAll('.card').forEach(card => {
@@ -132,7 +129,7 @@ async function addtoPlaylist(event) {
         submitButton.addEventListener('click', async function () {
             const playlistId = playlistSelector.value;
            console.log(songId, playlistId);
-            const addResponse = await fetch('/Playlist/agregarCancionAPlaylist', {
+            const addResponse = await fetch('/Playlist/AgregarCancionAPlaylist', {
                 method: 'POST',
                 body: new URLSearchParams({ 'cancionOID': songId, 'playlistOID': playlistId })
             });

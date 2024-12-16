@@ -18,5 +18,7 @@ namespace WebWavez.Models
         public string FotoPortada { get; set; }
 
         public UsuarioEN UsuarioCreador { get; set; }
+
+        public IFormFile FicheroFotoPortada { get; set; }
     }
 }

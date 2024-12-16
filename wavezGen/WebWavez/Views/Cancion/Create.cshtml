@@ -1,7 +1,10 @@
 ﻿@model WebWavez.Models.CancionViewModel
 
 @{
+
     ViewData["Title"] = "Wavez | Crear cancion";
+    var genres = ViewBag.GenerosEnumDictionary as Dictionary<int, string>;
+
 }
 
 <h1>Crear Cancion</h1>
@@ -10,7 +13,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
@@ -19,40 +22,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Genero" class="control-label"></label>
-                <input asp-for="Genero" class="form-control" />
+                <select asp-for="Genero" class="form-control" asp-items="@(new SelectList(genres, "Key", "Value"))"></select>
                 <span asp-validation-for="Genero" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FotoPortada" class="control-label"></label>
-                <input asp-for="FotoPortada" class="form-control" />
-                <span asp-validation-for="FotoPortada" class="text-danger"></span>
+                <label asp-for="FicheroFotoPortada" class="control-label"></label>
+                <input asp-for="FicheroFotoPortada" class="form-control" type="file"/>
             </div>
+            
             <div class="form-group">
-                <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" class="form-control" />
-                <span asp-validation-for="Fecha" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="numReproducciones" class="control-label"></label>
-                <input asp-for="numReproducciones" class="form-control" />
-                <span asp-validation-for="numReproducciones" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Autor" class="control-label"></label>
-                <input asp-for="Autor" class="form-control" />
-                <span asp-validation-for="Autor" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Autor" class="control-label"></label>
-                <input asp-for="Autor" class="form-control" />
-                <span asp-validation-for="Autor" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Url" class="control-label"></label>
-                <input asp-for="Url" class="form-control" />
-                <span asp-validation-for="Url" class="text-danger"></span>
+                <label asp-for="FicheroCancion" class="control-label"></label>
+                <input asp-for="FicheroCancion" class="form-control" type="file"/>
             </div>
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-primary" />

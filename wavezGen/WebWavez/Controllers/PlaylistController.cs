@@ -13,6 +13,14 @@ namespace WebWavez.Controllers
 {
     public class PlaylistController : BasicController
     {
+
+        private readonly Microsoft.AspNetCore.Hosting.IWebHostEnvironment _webHost;
+
+        public PlaylistController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment webHost)
+        {
+            _webHost = webHost;
+        }
+
         // GET: PlaylistController
         public ActionResult Index()
         {
@@ -39,12 +47,12 @@ namespace WebWavez.Controllers
             Console.WriteLine("Cancion: " + cancionOID.ToString());
             Console.WriteLine("Playlist " + playlistOID.ToString());
 
-            SessionInitialize();
-            var playlistRepository = new PlaylistRepository(session);
+            var playlistRepository = new PlaylistRepository();
             var playlistCEN = new PlaylistCEN(playlistRepository);
             playlistCEN.AddCancion(playlistOID, new List<int> { cancionOID });
-            SessionClose();
+        
         }
+
 
         public IList<PlaylistEN> dameMisPlaylists()
         {
@@ -67,13 +75,14 @@ namespace WebWavez.Controllers
             return misPlaylists;
         }
         
-        public string dameMisPlaylistJSON() // Lol JSON a mano
+public string dameMisPlaylistJSON() // Lol JSON a mano
         {
             IList<PlaylistEN> misPlaylists = dameMisPlaylists();
             string texto = "{ ";
             texto += "\"playlists\":[";
-            foreach(PlaylistEN playlist in misPlaylists)
+            for (int i = 0; i < misPlaylists.Count; i++)
             {
+                PlaylistEN playlist = misPlaylists[i];
                 texto += "{ ";
                 texto += "\"Id\":\"";
                 texto += playlist.Id;
@@ -85,6 +94,10 @@ namespace WebWavez.Controllers
                 texto += "\"";
                 texto += "}";
 
+                if (i < misPlaylists.Count - 1)
+                {
+                    texto += ",";
+                }
             }
             texto += "]}";
 
@@ -127,13 +140,38 @@ namespace WebWavez.Controllers
         // POST: PlaylistController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PlaylistViewModel pvm)
+        public async Task<ActionResult> CreateAsync(PlaylistViewModel pvm)
         {
+
+            string FotoFileName = "", FotoPath = "";
+            if (pvm.FicheroFotoPortada != null && pvm.FicheroFotoPortada.Length > 0)
+            {
+                string timestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+                FotoFileName = timestamp + Path.GetExtension(pvm.FicheroFotoPortada.FileName);
+
+                string fotoDirectory = _webHost.WebRootPath + "/Imagenes";
+                
+                string fotoPath = Path.Combine((fotoDirectory), FotoFileName);
+
+                if (!Directory.Exists(fotoDirectory))
+                {
+                    Directory.CreateDirectory(fotoDirectory);
+                }
+
+
+                using (var fileStream = new FileStream(fotoPath, FileMode.Create))
+                {
+                    await pvm.FicheroFotoPortada.CopyToAsync(fileStream);
+                }
+            }
             try
             {
+                UsuarioViewModel usuario = HttpContext.Session.Get<UsuarioViewModel>("usuario");
+
+                FotoFileName = "/Imagenes/" + FotoFileName;
                 PlaylistRepository playlistRepository = new PlaylistRepository();
                 PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepository);
-                playlistCEN.Nuevo(pvm.Titulo, pvm.FotoPortada, pvm.UsuarioCreador.Usuario);
+                playlistCEN.Nuevo(pvm.Titulo, FotoFileName, usuario.Usuario);
                 return RedirectToAction(nameof(Index));
             }
             catch

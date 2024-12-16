@@ -36,11 +36,18 @@ public void QuitarCancion (int p_Playlist_OID, System.Collections.Generic.IList<
 
         _IPlaylistRepository.QuitarCancion (p_Playlist_OID, p_cancion_OIDs);
 }
-public void AddCancion (int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
+public void AddCancion(int p_Playlist_OID, System.Collections.Generic.IList<int> p_cancion_OIDs)
 {
-        //Call to PlaylistRepository
-
-        _IPlaylistRepository.AddCancion (p_Playlist_OID, p_cancion_OIDs);
+    //Call to PlaylistRepository
+    try
+    {
+        _IPlaylistRepository.AddCancion(p_Playlist_OID, p_cancion_OIDs);
+        Console.WriteLine("Canciones añadidas: " + p_cancion_OIDs + " en la playlist: " + p_Playlist_OID);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error al añadir canciones: " + ex.Message);
+    }
 }
 public int Nuevo (string p_titulo, string p_portada, string p_usuarioCreador)
 {
