@@ -29,8 +29,15 @@ namespace WebWavez.Controllers
             UsuarioRepository usuarioRepository = new UsuarioRepository(session);
             UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
             UsuarioEN yo = usuarioCEN.DameUsuarioPorOID(usuario.Usuario);
+
+            ComunidadRepository comunidadRepository = new ComunidadRepository(session);
+            ComunidadCEN comunidadCEN = new ComunidadCEN(comunidadRepository);
+
+
             IList<UsuarioEN> todosLosUsuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
             List<UsuarioEN> seguidos = todosLosUsuarios.Where(u => yo.UsuarioSeguidos.Contains(u)).ToList();
+            IList<ComunidadEN> todas_comunidades = comunidadCEN.DameTodasLasComunidades(0, -1);
+            List<ComunidadEN> comunidades_suscritas = todas_comunidades.Where(c => yo.Comunidad.Contains(c)).ToList();
 
             // Print seguidos
             foreach (var seguido in seguidos)
@@ -38,14 +45,21 @@ namespace WebWavez.Controllers
                 Console.WriteLine($"Seguido: {seguido.Nombre}");
             }
 
-            listaNotificaciones = listaNotificaciones.Where(n => seguidos.Contains(usuarioCEN.DameUsuarioPorOID(n.UsuarioPublicador)));
+            // Print comunidades seguidas
+            foreach (var comunidad in comunidades_suscritas)
+            {
+                Console.WriteLine($"Seguido: {comunidad.Genero}");
+            }
 
-            // Print listaNotificaciones
 
+            listaNotificaciones = listaNotificaciones
+                .Where(n => seguidos.Any(u => u.Usuario == n.UsuarioPublicador)) // TODO meter notificaciones de comunidades suscritas (no funcionaba)
+                .OrderByDescending(n => n.Fecha)
+                .ToList();
 
             foreach (var notificacion in listaNotificaciones)
             {
-                Console.WriteLine($"Notificacion: {notificacion.Id} {notificacion.UsuarioPublicador}");
+                Console.WriteLine($"Notificacion: {notificacion.Id} {notificacion.UsuarioPublicador} {notificacion.Comunidad}");
             }
             return View(listaNotificaciones);
 

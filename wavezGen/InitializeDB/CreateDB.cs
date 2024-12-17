@@ -157,15 +157,13 @@ namespace InitializeDB
                 //usuarioCEN.Seguir("user1", idsSeguidos);
 
                 // Create comunidades
-                Enum comunidad1 = comunidadCEN.Nuevo(GenerosEnum.Soul);
-                Enum comunidad2 = comunidadCEN.Nuevo(GenerosEnum.Funk);
-                Enum comunidad3 = comunidadCEN.Nuevo(GenerosEnum.Latino);
-                Enum comunidad4 = comunidadCEN.Nuevo(GenerosEnum.Metal);
-                Enum comunidad5 = comunidadCEN.Nuevo(GenerosEnum.Pop);
-                Enum comunidad6 = comunidadCEN.Nuevo(GenerosEnum.KPop);
-                Enum comunidad7 = comunidadCEN.Nuevo(GenerosEnum.HipHop);
-                Enum comunidad8 = comunidadCEN.Nuevo(GenerosEnum.Rock);
-                Console.WriteLine("Comunidades created: " + comunidad1 + ", " + comunidad2 + ", " + comunidad3 + ", " + comunidad4 + ", " + comunidad5 + ", " + comunidad6 + ", " + comunidad7 + ", " + comunidad8);
+                foreach (GenerosEnum genero in Enum.GetValues(typeof(GenerosEnum)))
+                {
+                    comunidadCEN.Nuevo(genero);
+                    Console.WriteLine("Comunidad created: " + genero);
+                    usuarioCEN.AsignarComunidad("user1", new List<GenerosEnum> { genero });  
+                }
+
 
                 // Create notificaciones
 
@@ -180,6 +178,7 @@ namespace InitializeDB
 
                 CancionEN cancion_para_noti = cancionCEN.DameCancionPorOID(cancion1);
                 UsuarioEN usuario_para_noti = usuarioCEN.DameUsuarioPorOID(user1);
+
 
                 UsuarioEN usuario2 = usuarioCEN.DameUsuarioPorOID(user2);
                 IList<UsuarioEN> lista_usuarios = new List<UsuarioEN> { usuario2 };

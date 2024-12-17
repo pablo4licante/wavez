@@ -133,13 +133,15 @@ namespace WebWavez.Controllers
                     cancionEN_publicada, 
                     null);
 
-                notificacionCEN.NuevoConComunidad(FotoFileName,
+                int notificacion_comunidad = notificacionCEN.NuevoConComunidad(FotoFileName,
                     $"Hay una nueva cancion para la comunidad {cvm.Genero.ToString()}!",
                     DateTime.Now, "cancion",
                     comunidad,
                     seguidores,
                     cancionEN_publicada,
                     null);
+
+                Console.WriteLine($"Notificacion Comunidad: {notificacionCEN.DameNotificacionPorOID(notificacion_comunidad).Mensaje}");
 
                 return RedirectToAction(nameof(Index));
             }
