@@ -134,14 +134,16 @@ namespace InitializeDB
                 Console.WriteLine("ColaReprod created: " + colaReprod1 + ", " + colaReprod2);
 
                 // Create canciones
-                DateTime fechaCancion3 = new DateTime(2023, 10, 15);
-                int cancion1 = cancionCEN.Nuevo("Cancion One", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Rock, DateTime.Now, "https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid", user1, 0, "https://voluntariosacd.infinityfreeapp.com/audio.mp3");
-                int cancion2 = cancionCEN.Nuevo("Cancion Two", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Pop, DateTime.Now, "https://images.pexels.com/photos/2746823/pexels-photo-2746823.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", user2, 5, "https://voluntariosacd.infinityfreeapp.com/audio.mp3");
-                int cancion3 = cancionCEN.Nuevo("Cancion Tres", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Pop, fechaCancion3, "https://images.pexels.com/photos/2746823/pexels-photo-2746823.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", user2, 3, "https://voluntariosacd.infinityfreeapp.com/audio.mp3");
+                int cancion1 = cancionCEN.Nuevo("Pyro", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.HipHop, DateTime.Now, "https://i1.sndcdn.com/artworks-W5ch6X1lPVjC-0-t500x500.jpg", user1, 0, "https://dl.dropboxusercontent.com/scl/fi/wxprquds46jf8l8won1ng/Denzel-Curry-Kenny-Beats-Pyro-leak-2019-Official-Audio.mp3?rlkey=exfm806fj94q6f47ofeizuqn6&st=vt92r8rg&dl=0");
+                int cancion2 = cancionCEN.Nuevo("Piano", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Pop, DateTime.Now, "https://i.scdn.co/image/ab6761610000e5ebf908f10f0f14b0d92aeb929f", user2, 0, "https://dl.dropboxusercontent.com/s/eyb9txkepv0azqx/Beethoven%20-%20Variations%20on%20Ein%20M%C3%A4dchen%20oder%20Weibchen.mp3?dl=0");
+                int cancion3 = cancionCEN.Nuevo("Fly With Me", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Electronica, DateTime.Now, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPJj7fOsIPEFk8iI_G5jTM8dcq8hQGbaaWUA&s", user1, 0, "https://dl.dropbox.com/scl/fi/tku7hzgrhflinlxi6mhwg/Sub-Zero-Project-Fly-With-Me-Sub-Eng-Esp.mp3?rlkey=9moa89t9avn0xjh8xfiaw2ezd&st=rvkiqqzw&dl=0");
+                int cancion4 = cancionCEN.Nuevo("Release Yourself", WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum.Electronica, DateTime.Now, "https://i1.sndcdn.com/artworks-yhfu5bjmXo9qAIyc-UNdWvw-t500x500.jpg", user1, 0, "https://dl.dropbox.com/scl/fi/f0v4ofub8xsst49cawvrv/BY-RN-Release-Yourself.mp3?rlkey=llrir0ysdvks6co5lc1mextfp&st=0rvlbm0q&dl=0");
+              
                 Console.WriteLine("Canciones created: " + cancion1 + ", " + cancion2);
 
                 // Add canciones to playlists
                 playlistCEN.AddCancion(playlist1, new List<int> { cancion1 });
+                playlistCEN.AddCancion(playlist1, new List<int> { cancion2 });
                 playlistCEN.AddCancion(playlist2, new List<int> { cancion2 });
                 Console.WriteLine("Canciones added to playlists");
 

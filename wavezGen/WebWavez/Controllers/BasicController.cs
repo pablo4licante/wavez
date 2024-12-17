@@ -32,6 +32,7 @@ namespace WebWavez.Controllers
         }
 
 
+
         protected void SessionClose()
         {
             if (session != null && sessionInside.IsOpen)
@@ -41,6 +42,7 @@ namespace WebWavez.Controllers
                 session = null;
             }
         }
+
     }
 }
 

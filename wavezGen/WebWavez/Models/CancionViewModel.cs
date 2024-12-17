@@ -21,6 +21,8 @@ namespace WebWavez.Models
 
         public string FotoPortada { get; set; }
 
+        public IFormFile FicheroFotoPortada { get; set; }
+
         public DateTime Fecha { get; set; }
 
         public int numReproducciones { get; set; }
@@ -29,6 +31,9 @@ namespace WebWavez.Models
 
         [Required(ErrorMessage = "Debe indicar un nombre para la cancion")]
         public string Url { get; set; }
+
+        public IFormFile FicheroCancion { get; set; }
+
         public IEnumerable<string> Generos { get; set; }
     }
 }

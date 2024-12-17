@@ -21,16 +21,21 @@
     <link rel="stylesheet" href="~/WebWavez.styles.css" asp-append-version="true" />
 
     
-    @* @if ( usuario == null )  //no funciona porque login usa el mismo layout
-    {
-        <script type="text/javascript">
-            var url = "@Url.Action("Login", "Usuario")";
-            location.href = url; 
-        </script>
-    } *@
+   @{
+       var currentController = ViewContext.RouteData.Values["Controller"]?.ToString();
+       var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
+   }
+
+   @if ((currentController != "Usuario" || (currentAction != "Login" && currentAction != "Registro")) && usuario == null)
+   {
+       <script type="text/javascript">
+           var url = "@Url.Action("Login", "Usuario")";
+           location.href = url; 
+       </script>
+   }
+   
 
 </head>
-
 <body>
     <header>
         <h1>Bienvenido @nombre</h1>
@@ -67,6 +72,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil" asp-route-id="me">Perfil</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Playlist" asp-action="Index">Playlist</a>
+                        </li>
 
                     </ul>
                 </div>
@@ -76,6 +84,15 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+
+            <!-- REPRODUCTOR DE MUSICA -->
+            <div class="container reproductor">
+
+                <audio id="musicPlayer" controls>
+                    <source id="audioSource" src="" type="audio/mpeg" />
+                    Tu navegador no soporta la reproducción de audio.
+                </audio>
+            </div>
         </main>
     </div>
 
@@ -90,3 +107,29 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+@section Scripts {
+    <script>
+
+        window.addEventListener('load', async function () {
+            const songUrl = sessionStorage.getItem('currentSong');
+            const currentTime = sessionStorage.getItem('currentTime');
+            const songImage = sessionStorage.getItem('currentSongImage');
+
+            const audioSource = document.getElementById('audioSource');
+            const musicPlayer = document.getElementById('musicPlayer');
+                audioSource.src = songUrl;
+                await musicPlayer.load();
+                musicPlayer.currentTime = currentTime
+
+        });
+
+        window.addEventListener('beforeunload', function () {
+            const musicPlayer = document.getElementById('musicPlayer');
+            if (musicPlayer) {
+                const currentTime = musicPlayer.currentTime;
+                sessionStorage.setItem('currentTime', currentTime);
+            }
+        });
+    </script>
+}
