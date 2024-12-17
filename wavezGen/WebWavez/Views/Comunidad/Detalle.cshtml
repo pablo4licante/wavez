@@ -1,0 +1,41 @@
+@model ComunidadDetailsViewModel
+
+@{
+    ViewData["Title"] = "Detalles de la Comunidad";
+}
+
+<h1>@Model.Comunidad.Genero</h1>
+
+<h2>Notificaciones</h2>
+@if (!Model.Notificaciones.Any())
+{
+    <p>No hay notificaciones para esta comunidad.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Mensaje</th>
+                <th>Fecha</th>
+                <th>Tipo de Contenido</th>
+                <th>Usuario Publicador</th>
+                <th>Usuarios Receptores</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var notificacion in Model.Notificaciones)
+            {
+                <tr>
+                    <td><img src="@notificacion.Foto" alt="Foto" style="width:50px;height:50px;" /></td>
+                    <td>@notificacion.Mensaje</td>
+                    <td>@(notificacion.Fecha != null ? notificacion.Fecha.ToString("dd/MM/yyyy") : "N/A")</td>
+                    <td>@notificacion.TipoContenido</td>
+                    <td>@notificacion.UsuarioPublicador</td>
+                    <td>@string.Join(", ", notificacion.UsuariosReceptores)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

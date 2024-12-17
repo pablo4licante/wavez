@@ -1,70 +1,203 @@
-﻿@model IEnumerable<WebWavez.Models.CancionViewModel>
+﻿
+@model PerfilViewModel
 
 @{
-    ViewData["Title"] = "Perfil";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Wavez | Perfil de usuario";
 }
 
-@{
-    UsuarioViewModel usuario = Context.Session.Get<UsuarioViewModel>("usuario");
-    string nombre = "";
-    if (usuario != null)
-    {
-        nombre = usuario.Usuario;
-    }
-}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<h1>Perfil @nombre</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FotoPortada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.numReproducciones)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Autor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FotoPortada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.numReproducciones)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Autor)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) 
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '.seguir-btn', function () {
+            var boton = $(this);
+            var usuarioId = boton.data('id');
+
+            $.ajax({
+                url: '@Url.Action("Seguir", "Usuario")',
+                type: 'POST',
+                data: { id: usuarioId },
+                success: function (response) {
+                    if (response.success) {
+                        if (response.action === "follow") {
+                            boton.text("Dejar de Seguir").removeClass("btn-primary").addClass("btn-secondary");
+                        } else if (response.action === "unfollow") {
+                            boton.text("Seguir").removeClass("btn-secondary").addClass("btn-primary");
+                        }
+                        alert(response.message);
+                    } else {
+                        alert("Error: " + response.message);
+                    }
+                },
+                error: function () {
+                    alert("Ha ocurrido un error. Por favor, intenta de nuevo.");
+                }
+            });
+        });
+    });
+
+
+</script>
+
+
+<div class="text-center">
+    <h1 class="display-4">Perfil</h1>
+
+    <!-- Mostrar datos del usuario -->
+    <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Usuario.FotoPerfil)</h5>
+    <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Usuario.Usuario)</h5>
+    <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Usuario.Nombre)</h5>
+    <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Usuario.Email)</h5> 
+
+    <div class="resultados">
+        @if (Model.EsPerfilPropio)
+        {
+            @* <form action="@Url.Action("Edit", "Usuario")" method="post">
+                <input type="hidden" name="id" value="@Model.Usuario.Usuario" />
+                <button type="submit" class="btn btn-primary">Editar perfil</button>
+            </form> *@
+
+            <form action="@Url.Action("Edit", "Usuario", new { id = Model.Usuario.Usuario })" method="get">
+                <button type="submit" class="btn btn-primary">Editar perfil</button>
+            </form>
+
+
+            <form action="@Url.Action("Logout", "Usuario")" method="post">
+                <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+            </form>
+        }
+    </div>
+
+    <div id="boton-seguir">
+        @if (!Model.EsPerfilPropio)
+        {
+            @if (Model.Usuario.EsSeguidoPorUsuarioActual)
+            {
+                <button class="seguir-btn btn btn-secondary" data-id="@Model.Usuario.Usuario">Dejar de Seguir</button>
+
+            }
+            else
+            {
+                <button class="seguir-btn btn btn-primary" data-id="@Model.Usuario.Usuario">Seguir</button>
+            }
+        }
+    </div>
+
+    
+
+
+
+    <div class="resultados">
+
+        <!-- Mostrar canciones -->
+        <h3>Canciones</h3>
+
+        @if (Model.EsPerfilPropio)
+        {
+            <form action="@Url.Action("Editar", "Usuario")" method="post">
+                <button type="submit" class="btn btn-primary">Añadir canción</button>
+            </form>
+        }
+
+        <div class="estanteria-canciones">
+            @if (!Model.Canciones.Any())
+            {
+                <p>Aún no has subido ninguna canción.</p>
+            }
+            else
+            {
+                @foreach (var item in Model.Canciones)
+                {
+                    <div class="card">
+                        <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                            <p class="card-text"><strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
+                            <p class="card-text"><strong>Autor:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
+                            <p class="card-text"><strong>Fecha de Lanzamiento:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                            <p class="card-text"><strong>Reproducciones:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <!-- Mostrar playlists -->
+        <h3>Playlists</h3>
+
+        @if (Model.EsPerfilPropio)
+        {
+            <form action="@Url.Action("Editar", "Usuario")" method="post">
+                <button type="submit" class="btn btn-primary">Añadir playlist</button>
+            </form>
+        }
+
+        <div class="estanteria-playlists">
+            @if (!Model.Playlists.Any())
+            {
+                <p>Aún no tienes ninguna playlist.</p>
+            }
+            else
+            {
+                @foreach (var item in Model.Playlists)
+                {
+                    <div class="card">
+                        <img class="card-img-top" src="@(!string.IsNullOrEmpty(item.FotoPortada) ? item.FotoPortada : Url.Content("https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid"))" style="width:200px; height:200px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <!-- Mostrar usuarios -->
+        <h3>Seguidores</h3>
+        <div class="estanteria-usuarios">
+            @if (!Model.Seguidores.Any())
+            {
+                <p>Aún no hay ningún seguidor.</p>
+            }
+            else
+            {
+                @foreach (var item in Model.Seguidores)
+                {
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil" asp-route-id="@item.Usuario">
+                        <div class="card" style="margin: 10px; display: inline-block;">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+
+        <h3>Seguidos</h3>
+        <div class="estanteria-usuarios">
+            @if (!Model.Seguidos.Any())
+            {
+                <p>Aún no hay ningún seguido.</p>
+            }
+            else
+            {
+                @foreach (var item in Model.Seguidos)
+                {
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil" asp-route-id="@item.Usuario">
+                        <div class="card" style="margin: 10px; display: inline-block;">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+
+        
+
+    </div>
+</div>
+
+

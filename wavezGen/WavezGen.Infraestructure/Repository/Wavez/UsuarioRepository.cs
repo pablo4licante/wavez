@@ -11,6 +11,8 @@ using WavezGen.ApplicationCore.Exceptions;
 using WavezGen.ApplicationCore.IRepository.Wavez;
 using WavezGen.ApplicationCore.CP.Wavez;
 using WavezGen.Infraestructure.EN.Wavez;
+using System.Diagnostics;
+using System.Linq;
 
 
 /*
@@ -158,7 +160,9 @@ public void Seguir (string p_Usuario_OID, System.Collections.Generic.IList<strin
 
 
                 session.Update (usuarioEN);
-                SessionCommit ();
+                //Debug.WriteLine($"Usuario {usuarioEN.Usuario} ahora sigue a {string.Join(", ", usuarioEN.UsuarioSeguidos.Select(u => u.Usuario))}");
+
+                SessionCommit();
         }
 
         catch (Exception ex) {
@@ -356,35 +360,29 @@ public System.Collections.Generic.IList<UsuarioEN> DameTodosLosUsuarios (int fir
         return result;
 }
 
-public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> DameUsuariosPorNombre (string nombre)
+public System.Collections.Generic.IList<UsuarioEN> DameUsuariosPorNombre(string nombre)
 {
-        System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN> result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM UsuarioNH self where SELECT usuario FROM UsuarioNH as usuario WHERE usuario.Nombre LIKE :nombre";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioNHdameUsuariosPorNombreHQL");
-                query.SetParameter ("nombre", nombre);
-
-                result = query.List<WavezGen.ApplicationCore.EN.Wavez.UsuarioEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
-                        throw;
-                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
+    System.Collections.Generic.IList<UsuarioEN> result;
+    try
+    {
+        SessionInitializeTransaction();
+        result = session.CreateCriteria(typeof(UsuarioNH))
+                        .Add(Restrictions.Like("Nombre", nombre, MatchMode.Anywhere))
+                        .List<UsuarioEN>();
+        SessionCommit();
+    }
+    catch (Exception ex)
+    {
+        SessionRollBack();
+        if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+            throw;
+        else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException("Error in UsuarioRepository.", ex);
+    }
+    finally
+    {
+        SessionClose();
+    }
+    return result;
 }
 public void AsignarComunidad (string p_Usuario_OID, System.Collections.Generic.IList<WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum> p_comunidad_OIDs)
 {

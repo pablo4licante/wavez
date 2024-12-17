@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebWavez.Models.ComunidadViewModel>
+
+@{
+    ViewData["Title"] = "Wavez | Comunidades";
+}
+
+<h1>Comunidades</h1>
+
+<!--barra de busqueda por genero-->
+<form asp-action="Index" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+    <div>
+        <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
+            <option value="">Seleccione un género</option>
+            @foreach (var genre in Model.Select(c => c.Genero).Distinct())
+            {
+                <option value="@genre">@genre</option>
+            }
+        </select>
+    </div>
+    <button type="submit">Buscar</button>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Lista de comunidades
+            </th>
+    </thead>
+    <tbody>
+        <div class="resultados">
+        <!-- Mostrar comunidades -->          
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th> Comunidad de @item.Genero</th>
+                <td>
+                    <a asp-action="detalle" asp-route-id="@(Convert.ToInt32(item.Genero))">Ver Detalles</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

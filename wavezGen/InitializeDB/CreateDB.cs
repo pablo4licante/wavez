@@ -14,6 +14,7 @@ using WavezGen.ApplicationCore.Exceptions;
 using WavezGen.ApplicationCore.CP.Wavez;
 using WavezGen.Infraestructure.Repository;
 using NHibernate;
+using WavezGen.ApplicationCore.Enumerated.Wavez;
 
 /*PROTECTED REGION END*/
 namespace InitializeDB
@@ -100,8 +101,6 @@ namespace InitializeDB
                 ComentarioRepository comentariorepository = new ComentarioRepository();
                 ComentarioCEN comentariocen = new ComentarioCEN(comentariorepository);
 
-
-
                 /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
                 // Create repositories
                 UsuarioRepository usuarioRepository = new UsuarioRepository();
@@ -109,6 +108,7 @@ namespace InitializeDB
                 ColaReprodRepository colaReprodRepository = new ColaReprodRepository();
                 CancionRepository cancionRepository = new CancionRepository();
                 NotificacionRepository notificacionRepository = new NotificacionRepository();
+                ComunidadRepository comunidadRepository = new ComunidadRepository();
 
                 // Create CENs
                 UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
@@ -116,6 +116,7 @@ namespace InitializeDB
                 ColaReprodCEN colaReprodCEN = new ColaReprodCEN(colaReprodRepository);
                 CancionCEN cancionCEN = new CancionCEN(cancionRepository);
                 NotificacionCEN notificacionCEN = new NotificacionCEN(notificacionRepository);
+                ComunidadCEN comunidadCEN = new ComunidadCEN(comunidadRepository);
 
                 // Create users
                 string user1 = usuarioCEN.Nuevo("user1", "User One", "password1", "user1@example.com", "foto1");
@@ -123,8 +124,8 @@ namespace InitializeDB
                 Console.WriteLine("Users created: " + user1 + ", " + user2);
 
                 // Create playlists
-                int playlist1 = playlistCEN.Nuevo("Playlist One", "portada1", user1);
-                int playlist2 = playlistCEN.Nuevo("Playlist Two", "portada2", user2);
+                int playlist1 = playlistCEN.Nuevo("Playlist One", "https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid", user1);
+                int playlist2 = playlistCEN.Nuevo("Playlist Two", "https://img.freepik.com/foto-gratis/disco-vinilo-aislado_469584-14.jpg?semt=ais_hybrid", user2);
                 Console.WriteLine("Playlists created: " + playlist1 + ", " + playlist2);
 
                 // Create colaReprod
@@ -151,6 +152,22 @@ namespace InitializeDB
                 colaReprodCEN.AgregarCancion(colaReprod2, new List<int> { cancion2 });
                 Console.WriteLine("Canciones added to colaReprod");
 
+                //********************************************************************
+                //var idsSeguidos = new List<string> { "user2" };
+                //usuarioCEN.Seguir("user1", idsSeguidos);
+
+                // Create comunidades
+                Enum comunidad1 = comunidadCEN.Nuevo(GenerosEnum.Soul);
+                Enum comunidad2 = comunidadCEN.Nuevo(GenerosEnum.Funk);
+                Enum comunidad3 = comunidadCEN.Nuevo(GenerosEnum.Latino);
+                Enum comunidad4 = comunidadCEN.Nuevo(GenerosEnum.Metal);
+                Enum comunidad5 = comunidadCEN.Nuevo(GenerosEnum.Pop);
+                Enum comunidad6 = comunidadCEN.Nuevo(GenerosEnum.KPop);
+                Enum comunidad7 = comunidadCEN.Nuevo(GenerosEnum.HipHop);
+                Enum comunidad8 = comunidadCEN.Nuevo(GenerosEnum.Rock);
+                Console.WriteLine("Comunidades created: " + comunidad1 + ", " + comunidad2 + ", " + comunidad3 + ", " + comunidad4 + ", " + comunidad5 + ", " + comunidad6 + ", " + comunidad7 + ", " + comunidad8);
+
+                // Create notificaciones
 
                 // Reproduce canciones
                 cancionCEN.ReproducirCancion(cancion1);

@@ -300,30 +300,31 @@ public partial class CancionRepository : BasicRepository, ICancionRepository
 
         public System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> DameCancionesPorNombre(string nombre)
         {
-            System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> result = null;
-            try
-            {
-                SessionInitializeTransaction();
-                IQuery query = session.GetNamedQuery("CancionNHdameCancionesPorNombreHQL");
-                query.SetParameter("nombre", nombre);
-                result = query.List<WavezGen.ApplicationCore.EN.Wavez.CancionEN>();
-                SessionCommit();
-            }
-            catch (Exception ex)
-            {
-                SessionRollBack();
-                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
-                    throw;
-                else
-                    throw new WavezGen.ApplicationCore.Exceptions.DataLayerException("Error in CancionRepository.", ex);
-            }
-            finally
-            {
-                SessionClose();
-            }
-            return result;
-        }
-				
+                System.Collections.Generic.IList<WavezGen.ApplicationCore.EN.Wavez.CancionEN> result;
+                try
+                {
+                        SessionInitializeTransaction();
+                        string hql = "FROM CancionNH as cancion WHERE cancion.Titulo LIKE :nombre";
+                        IQuery query = session.CreateQuery(hql);
+                        query.SetParameter("nombre", "%" + nombre + "%");
+
+                        result = query.List<WavezGen.ApplicationCore.EN.Wavez.CancionEN>();
+                        SessionCommit();
+                }
+                catch (Exception ex)
+                {
+                        SessionRollBack();
+                        if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                        throw;
+                        else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException("Error in CancionRepository.", ex);
+                }
+                finally
+                {
+                        SessionClose();
+                }
+
+        return result;
+        }	
 			
-		    }
-		}
+ }
+}

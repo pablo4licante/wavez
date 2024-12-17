@@ -1,6 +1,7 @@
 /.github
 /wavezGen/.vs/WavezGen
-/wavezGen/InitializeDB
+/wavezGen/InitializeDB/bin
+/wavezGen/InitializeDB/obj
 /wavezGen/WavezGen.ApplicationCore/bin
 /wavezGen/WavezGen.ApplicationCore/obj
 /wavezGen/WavezGen.Infraestructure/bin

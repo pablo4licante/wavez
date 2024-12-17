@@ -34,5 +34,6 @@ namespace WebWavez.Models
 
         public IFormFile FicheroCancion { get; set; }
 
+        public IEnumerable<string> Generos { get; set; }
     }
 }

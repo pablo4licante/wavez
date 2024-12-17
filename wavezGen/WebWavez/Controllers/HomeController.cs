@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WavezGen.ApplicationCore.CEN.Wavez;
 using WavezGen.ApplicationCore.EN.Wavez;
+using WavezGen.ApplicationCore.Enumerated.Wavez;
 using WavezGen.Infraestructure.Repository.Wavez;
 using WebWavez.Assemblers;
 using WebWavez.Models;
+using System.Linq;
 
 namespace WebWavez.Controllers
 {
@@ -27,11 +29,16 @@ namespace WebWavez.Controllers
             IEnumerable<CancionViewModel> listaCanciones = new CancionAssembler().ConvertirListENToListViewModel(listaENs);
             SessionClose();
 
+            var viewModel = new ResultadoBusquedaViewModel
+            {
+                Canciones = listaCanciones,
+                Generos = Enum.GetValues(typeof(GenerosEnum)).Cast<GenerosEnum>().Select(g => g.ToString())
+            };
 
             return View(listaCanciones);
         }
 
-        public IActionResult ResultadoBusqueda(string query)
+        public IActionResult ResultadoBusqueda(string query, string[] filter, GenerosEnum? genre)
         {
             SessionInitialize();
             CancionRepository cancionRepository = new CancionRepository(session);
@@ -47,34 +54,66 @@ namespace WebWavez.Controllers
             IList<PlaylistEN> listaPlaylists = new List<PlaylistEN>();
             IList<UsuarioEN> listaUsuarios = new List<UsuarioEN>();
 
-            if (!string.IsNullOrWhiteSpace(query))
+            if (genre.HasValue)
             {
-                listaCanciones = cancionCEN.DameCancionesPorNombre(query);
-                listaPlaylists = playlistCEN.DamePlaylistsPorNombre(query);
-                listaUsuarios = usuarioCEN.DameUsuariosPorNombre(query);
+                listaCanciones = cancionCEN.DameTodasLasCanciones(0, -1).Where(c => c.Genero == genre.Value).ToList();
+            }
+            else if (!string.IsNullOrWhiteSpace(query))
+            {
+                if (filter.Contains("canciones"))
+                {
+                    listaCanciones = cancionCEN.DameCancionesPorNombre(query);
+                }
+                if (filter.Contains("playlists"))
+                {
+                    listaPlaylists = playlistCEN.DamePlaylistsPorNombre(query);
+                }
+                if (filter.Contains("usuarios"))
+                {
+                    listaUsuarios = usuarioCEN.DameUsuariosPorNombre(query);
+                }
             }
             else
             {
-                listaCanciones = cancionCEN.DameTodasLasCanciones(0, -1);
-                listaPlaylists = playlistCEN.DameTodasLasPlaylist(0, -1);
-                listaUsuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
+                if (filter.Contains("canciones"))
+                {
+                    listaCanciones = cancionCEN.DameTodasLasCanciones(0, -1);
+                }
+                if (filter.Contains("playlists"))
+                {
+                    listaPlaylists = playlistCEN.DameTodasLasPlaylist(0, -1);
+                }
+                if (filter.Contains("usuarios"))
+                {
+                    listaUsuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
+                }
             }
-            if(listaCanciones == null || listaCanciones.Count == 0)
+
+            if (filter.Contains("canciones"))
             {
-                listaCanciones = new List<CancionEN>();
+                if(listaCanciones == null || listaCanciones.Count == 0)
+                {
+                    listaCanciones = new List<CancionEN>();
+                }
             }
-            if(listaPlaylists == null || listaPlaylists.Count == 0)
+            if (filter.Contains("playlists")) 
             {
-                listaPlaylists = new List<PlaylistEN>();
+                if(listaPlaylists == null || listaPlaylists.Count == 0)
+                {
+                    listaPlaylists = new List<PlaylistEN>();
+                }
             }
-            if(listaUsuarios == null || listaUsuarios.Count == 0)
+            if (filter.Contains("usuarios"))
             {
-                listaUsuarios = new List<UsuarioEN>();
+                if(listaUsuarios == null || listaUsuarios.Count == 0)
+                {
+                    listaUsuarios = new List<UsuarioEN>();
+                }
             }
 
             IEnumerable<CancionViewModel> listaCancionesViewModel = new CancionAssembler().ConvertirListENToListViewModel(listaCanciones);
-            IEnumerable<PlaylistViewModel> listaPlaylistsViewModel = new PlaylistAssembler().ConvertirListENToListViewModel(listaPlaylists); // Asumiendo que existe un PlaylistAssembler
-            IEnumerable<UsuarioViewModel> listaUsuariosViewModel = new UsuarioAssembler().ConvertirListENToListViewModel(listaUsuarios); // Asumiendo que existe un UsuarioAssembler
+            IEnumerable<PlaylistViewModel> listaPlaylistsViewModel = new PlaylistAssembler().ConvertirListENToListViewModel(listaPlaylists);
+            IEnumerable<UsuarioViewModel> listaUsuariosViewModel = new UsuarioAssembler().ConvertirListENToListViewModel(listaUsuarios);
 
             SessionClose();
 
@@ -82,7 +121,9 @@ namespace WebWavez.Controllers
             {
                 Canciones = listaCancionesViewModel,
                 Playlists = listaPlaylistsViewModel,
-                Usuarios = listaUsuariosViewModel
+                Usuarios = listaUsuariosViewModel,
+                Filtros = filter,
+                Generos = Enum.GetValues(typeof(GenerosEnum)).Cast<GenerosEnum>().Select(g => g.ToString())
             };
 
             return View(resultadoBusqueda);
