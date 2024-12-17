@@ -3,9 +3,8 @@
 @{
 
     ViewData["Title"] = "Wavez | Crear cancion";
-    var genres = ViewBag.GenerosEnumDictionary as Dictionary<int, string>;
-
-}
+        var genres = ViewBag.GenerosEnumDictionary as Dictionary<int, string> ?? new Dictionary<int, string>();
+ }
 
 <h1>Crear Cancion</h1>
 

@@ -5,6 +5,7 @@ using WavezGen.ApplicationCore.EN.Wavez;
 using WavezGen.Infraestructure.Repository.Wavez;
 using WebWavez.Assemblers;
 using WebWavez.Models;
+using NHibernate;
 
 namespace WebWavez.Controllers
 {
@@ -13,26 +14,53 @@ namespace WebWavez.Controllers
         // GET: NotificacionController
         public ActionResult Index()
         {
+
+            IEnumerable<NotificacionViewModel> listaNotificaciones;
+
             SessionInitialize();
             NotificacionRepository notificacionRepository = new NotificacionRepository(session);
             NotificacionCEN notificacionCEN = new NotificacionCEN(notificacionRepository);
 
             IList<NotificacionEN> listaENs = notificacionCEN.DameTodasLasNotificaciones(0, -1);
-            IEnumerable<NotificacionViewModel> listaNotificaciones = new NotificacionAssembler().ConvertirListENToListViewModel(listaENs);
-            
+            listaNotificaciones = new NotificacionAssembler().ConvertirListENToListViewModel(listaENs);
+
             var usuario = HttpContext.Session.Get<UsuarioViewModel>("usuario");
 
-            //listaNotificaciones = listaNotificaciones.Where(n => n.UsuariosReceptores.Contains(usuario.Usuario));
+            UsuarioRepository usuarioRepository = new UsuarioRepository(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
+            UsuarioEN yo = usuarioCEN.DameUsuarioPorOID(usuario.Usuario);
+            IList<UsuarioEN> todosLosUsuarios = usuarioCEN.DameTodosLosUsuarios(0, -1);
+            List<UsuarioEN> seguidos = todosLosUsuarios.Where(u => yo.UsuarioSeguidos.Contains(u)).ToList();
 
-            SessionClose();
+            // Print seguidos
+            foreach (var seguido in seguidos)
+            {
+                Console.WriteLine($"Seguido: {seguido.Nombre}");
+            }
 
+            listaNotificaciones = listaNotificaciones.Where(n => seguidos.Contains(usuarioCEN.DameUsuarioPorOID(n.UsuarioPublicador)));
+
+            // Print listaNotificaciones
+
+
+            foreach (var notificacion in listaNotificaciones)
+            {
+                Console.WriteLine($"Notificacion: {notificacion.Id} {notificacion.UsuarioPublicador}");
+            }
             return View(listaNotificaciones);
+
         }
 
         // GET: NotificacionController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SessionInitialize();
+            NotificacionRepository notificacionRepository = new NotificacionRepository(session);
+            NotificacionCEN notificacionCEN = new NotificacionCEN(notificacionRepository);
+            NotificacionEN notificacionEN = notificacionCEN.DameNotificacionPorOID(id);
+            NotificacionViewModel notificacionViewModel = new NotificacionAssembler().ConvertirENToViewModel(notificacionEN);
+            SessionClose();
+            return View(notificacionViewModel);
         }
 
         // GET: NotificacionController/Create

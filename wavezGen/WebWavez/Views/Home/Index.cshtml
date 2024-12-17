@@ -28,12 +28,14 @@
         @if (Model.Any())
         {
             var topItem = Model.OrderByDescending(c => c.numReproducciones).First();
+            <h2>No te pierdas...</h2>
             <div class="card highlight">
                 <img class="card-img-top" data-song-image="@topItem.FotoPortada" src="@topItem.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => topItem.Titulo)</strong></h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => topItem.Autor)</p>
                     <button class="btn btn-primary play-button" data-song-url="@topItem.Url">Play</button>
+                    <button class="btn btn-primary queue-button" data-song-url="@item.Url">Add to Queue</button>
                     <button onclick="addtoPlaylist(event)">Add To Playlist</button>
                     <p class="card-text" style="display:none;" data-song-id="@topItem.Id">@Html.DisplayFor(modelItem => topItem.Id)</p>
                 </div>
@@ -47,7 +49,7 @@
     <div class="categorias">
         <h2>Últimas novedades</h2>
         <div class="grid-canciones">
-            @foreach (var item in Model.OrderByDescending(c => c.Fecha).Take(5))
+            @foreach (var item in Model.OrderBy(c => c.Fecha).Take(5))
             {
                 <div class="card">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
@@ -55,6 +57,7 @@
                     <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
                     <button class="btn btn-primary play-button" data-song-url="@item.Url">Play</button>
+                    <button class="btn btn-primary queue-button" data-song-url="@item.Url">Add to Queue</button>
                     <button onclick="addtoPlaylist(event)">Add To Playlist</button>
                     <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
                 </div>
@@ -75,6 +78,7 @@
                     <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
                     <button class="btn btn-primary play-button" data-song-url="@item.Url">Play</button>
+                    <button class="btn btn-primary queue-button" data-song-url="@item.Url">Add to Queue</button>
                     <button onclick="addtoPlaylist(event)">Add To Playlist</button>
                     <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
                 </div>
@@ -87,82 +91,134 @@
 
 @section Scripts {
     <script>
-        document.querySelectorAll('.play-button').forEach(button => {
-            button.addEventListener('click', async function (e) {
-                e.preventDefault();
-                console.log('Playing song...', this.getAttribute('data-song-url'));
+                // Cola de canciones
+        let songQueue = [];
+        let isPlaying = false;
 
-                const songUrl = this.getAttribute('data-song-url');
-                const songImage = this.getAttribute('data-song-image');
-                const songId = this.parentElement.querySelector('[data-song-id]').getAttribute('data-song-id');
-                const audioSource = document.getElementById('audioSource');
-                const musicPlayer = document.getElementById('musicPlayer');
-
-                sessionStorage.setItem('currentSong', songUrl);
-
-                audioSource.src = songUrl;
-                musicPlayer.load();
-                musicPlayer.play();
-
-                if (songUrl) {
-                    document.querySelectorAll('.card').forEach(card => {
-                        const cardSongUrl = card.querySelector('.play-button').getAttribute('data-song-url');
-                        if (cardSongUrl === songUrl) {
-                            card.style.border = '2px solid green';
-                        } else {
-                            card.style.border = 'none';
-                        }
-                    });
-                }
-
-                const response = await fetch('/Cancion/AumentarReproducciones', {
-                    method: 'POST',
-                    body: new URLSearchParams({ 'id': songId })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    console.log("Reproducción aumentada exitosamente.");
-                } else {
-                    console.log("Error al aumentar las reproducciones.");
-                }
-            });
-        });
-
-        window.addEventListener('load', async function () {
-            const songUrl = sessionStorage.getItem('currentSong');
-            const currentTime = sessionStorage.getItem('currentTime');
-            const songImage = sessionStorage.getItem('currentSongImage');
-
+        // Función para reproducir una canción
+        async function playSong(songUrl, songId) {
             const audioSource = document.getElementById('audioSource');
             const musicPlayer = document.getElementById('musicPlayer');
+
+            sessionStorage.setItem('currentSong', songUrl);
+
             audioSource.src = songUrl;
-            await musicPlayer.load();
-            musicPlayer.currentTime = currentTime;
+            musicPlayer.load();
+            musicPlayer.play();
 
+            isPlaying = true;
+            console.log(`Reproduciendo canción: ${songUrl}`);
 
-            if (songUrl) {
-                document.querySelectorAll('.card').forEach(card => {
-                    const cardSongUrl = card.querySelector('.play-button').getAttribute('data-song-url');
-                    if (cardSongUrl === songUrl) {
-                        card.style.border = '2px solid green';
+            // Actualizar borde de la tarjeta
+            updateSongBorder(songUrl);
+
+            // Llamar a la API para aumentar reproducciones
+            if (songId) {
+                try {
+                    const response = await fetch('/Cancion/AumentarReproducciones', {
+                        method: 'POST',
+                        body: new URLSearchParams({ 'id': songId })
+                    });
+
+                    const data = await response.json();
+                    if (data.success) {
+                        console.log("Reproducción aumentada exitosamente.");
                     } else {
-                        card.style.border = 'none';
+                        console.log("Error al aumentar las reproducciones.");
                     }
-                });
+                } catch (error) {
+                    console.error("Error en la llamada a la API:", error);
+                }
+            }
+        }
+
+        // Actualizar borde de la tarjeta actual
+        function updateSongBorder(currentSongUrl) {
+            document.querySelectorAll('.card').forEach(card => {
+                const cardSongUrl = card.querySelector('.play-button').getAttribute('data-song-url');
+                if (cardSongUrl === currentSongUrl) {
+                    card.style.border = '2px solid green';
+                } else {
+                    card.style.border = 'none';
+                }
+            });
+        }
+
+        // Función para agregar una canción a la cola
+        function addToQueue(songUrl) {
+            songQueue.push(songUrl);
+            sessionStorage.setItem('songQueue', JSON.stringify(songQueue)); // Actualizar cola en SessionStorage
+            console.log('Canción agregada a la cola:', songUrl);
+        }
+
+        // Reproducir la siguiente canción de la cola
+        function playNextInQueue() {
+            if (songQueue.length > 0) {
+                const nextSongUrl = songQueue.shift();
+                sessionStorage.setItem('songQueue', JSON.stringify(songQueue)); // Actualizar cola en SessionStorage
+                playSong(nextSongUrl); // Reproduce la siguiente canción
+            } else {
+                console.log('La cola está vacía.');
+                isPlaying = false;
+            }
+        }
+
+        // Recuperar cola y canción actual al cargar la página
+        window.addEventListener('load', function () {
+            const storedQueue = sessionStorage.getItem('songQueue');
+            if (storedQueue) {
+                songQueue = JSON.parse(storedQueue);
+                console.log('Cola recuperada:', songQueue);
             }
 
+            const currentSongUrl = sessionStorage.getItem('currentSong');
+            if (currentSongUrl) {
+                playSong(currentSongUrl);
+            }
         });
 
+        // Guardar tiempo de la canción al salir de la página
         window.addEventListener('beforeunload', function () {
             const musicPlayer = document.getElementById('musicPlayer');
             if (musicPlayer) {
                 const currentTime = musicPlayer.currentTime;
                 sessionStorage.setItem('currentTime', currentTime);
-                sessionStorage.setItem('currentSongImage', songImage);
             }
         });
+
+        // Evento cuando una canción termina
+        document.getElementById('musicPlayer').addEventListener('ended', () => {
+            console.log('Canción terminada.');
+            playNextInQueue();
+        });
+
+        // Botón de Play: Limpiar la cola y reproducir una canción
+        document.querySelectorAll('.play-button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const songUrl = this.getAttribute('data-song-url');
+                const songId = this.parentElement.querySelector('[data-song-id]').getAttribute('data-song-id');
+
+                songQueue = []; // Limpiar la cola
+                sessionStorage.setItem('songQueue', JSON.stringify(songQueue)); // Actualizar cola en SessionStorage
+
+                playSong(songUrl, songId); // Reproducir la canción
+            });
+        });
+
+        // Botón de Agregar a la Cola
+        document.querySelectorAll('.queue-button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const songUrl = this.getAttribute('data-song-url');
+                addToQueue(songUrl);
+            });
+        });
+
+
+
+
+
         async function addtoPlaylist(event) {
             try {
                 const songId = event.target.parentElement.querySelector('[data-song-id]').getAttribute('data-song-id');

@@ -98,11 +98,54 @@ namespace WebWavez.Controllers
                 Console.WriteLine("Estamos aqui {Subiendo Cancion} -> " + CancionFileName + " " + FotoFileName);
                 CancionRepository cancionRepository = new CancionRepository();
                 CancionCEN cancionCEN = new CancionCEN(cancionRepository);
-                cancionCEN.Nuevo(cvm.Titulo, cvm.Genero, DateTime.Now, FotoFileName, usuario.Usuario, 1, CancionFileName);
+                int cancion_publicada = cancionCEN.Nuevo(cvm.Titulo, cvm.Genero, DateTime.Now, FotoFileName, usuario.Usuario, 1, CancionFileName);
+                CancionEN cancionEN_publicada = cancionCEN.DameCancionPorOID(cancion_publicada);
+
+                Console.WriteLine($"Cancion Publicada: {cancionEN_publicada.Titulo}");
+
+
+                SessionInitialize();
+                UsuarioRepository usuarioRepository = new UsuarioRepository(session);
+                UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
+
+                UsuarioEN publicador = usuarioCEN.DameUsuarioPorOID(usuario.Usuario);
+
+                Console.WriteLine($"Publicador: {publicador.Nombre}");
+                List<UsuarioEN> seguidores = usuarioCEN.DameTodosLosUsuarios(0, -1)
+                    .Where(u => u.UsuarioSeguidos.Contains(publicador))
+                    .ToList();
+                SessionClose();
+
+                Console.WriteLine($"FotoFileName: {FotoFileName}, Mensaje: {usuario.Nombre} ha subido una nueva cancion!, Fecha: {DateTime.Now}, TipoContenido: cancion, UsuarioPublicador: {publicador.Usuario}, UsuariosReceptores: {string.Join(", ", seguidores.Select(s => s.Usuario))}, CancionCompartida: {cancionEN_publicada}, PlaylistCompartida: new PlaylistEN()");
+
+                NotificacionRepository notificacionRepository = new NotificacionRepository();
+                NotificacionCEN notificacionCEN = new NotificacionCEN(notificacionRepository);
+
+                ComunidadRepository comunidadRepository = new ComunidadRepository();
+                ComunidadCEN comunidadCEN = new ComunidadCEN(comunidadRepository);
+                ComunidadEN comunidad = comunidadCEN.DameComunidadPorOID(cvm.Genero);
+
+                notificacionCEN.Nuevo(FotoFileName, 
+                    usuario.Nombre + " ha subido una nueva cancion!", 
+                    DateTime.Now, "cancion", 
+                    publicador,
+                    seguidores,
+                    cancionEN_publicada, 
+                    null);
+
+                notificacionCEN.NuevoConComunidad(FotoFileName,
+                    $"Hay una nueva cancion para la comunidad {cvm.Genero.ToString()}!",
+                    DateTime.Now, "cancion",
+                    comunidad,
+                    seguidores,
+                    cancionEN_publicada,
+                    null);
+
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return View();
             }
         }

@@ -64,6 +64,15 @@ body {
   justify-content:center;
 }
 
+.comunidades-container {
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 30px;
+    justify-content: center;
+}
+
 .filter-buttons {
     display: flex;
     gap: 10px;
@@ -94,7 +103,7 @@ body {
     display: flex;
     position:fixed;
     right: 0;
-    bottom: 0;
+    bottom: 4rem;
 
     width: min(400px, 80%);
     justify-content: center;
@@ -102,6 +111,19 @@ body {
     padding: 1rem;
     border-top: 1px solid #ddd;
 
+    z-index: 1000;
+}
+
+.navegacion {
+    display: flex;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
     z-index: 1000;
 }
 

@@ -34,7 +34,11 @@ namespace WebWavez.Controllers
             if (filterType == "mine")
                 //hacer bien la relacion para guardar las comunidades a las que pertenece el usuario logueado
             {
-                listaENs.Where(c => c.Usuario.Contains(usuarioCEN.DameUsuarioPorOID(usuario.Usuario)));
+                if (filterType == "mine")
+                {
+                    var usuarioEN = usuarioCEN.DameUsuarioPorOID(usuario.Usuario);
+                    listaENs = listaENs.Where(c => c.Usuario.Contains(usuarioEN)).ToList();
+                }
             }
 
 

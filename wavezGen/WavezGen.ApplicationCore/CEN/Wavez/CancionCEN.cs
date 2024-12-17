@@ -41,7 +41,7 @@ public int Nuevo (string p_titulo, WavezGen.ApplicationCore.Enumerated.Wavez.Gen
 
         cancionEN.Genero = p_genero;
 
-        cancionEN.Fecha = p_fecha;
+        cancionEN.Fecha = p_fecha ?? DateTime.Now;
 
         cancionEN.FotoPortada = p_fotoPortada;
 

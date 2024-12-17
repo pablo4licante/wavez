@@ -17,13 +17,18 @@ namespace WebWavez.Assemblers
             nvm.Foto = notificacion.Foto;
             nvm.UsuarioPublicador = notificacion.UsuarioPublicador.Usuario;
             
-            IList<string> usuarios_receptores = new List<string>();
+            IList<UsuarioEN> usuarios_receptores = notificacion.UsuariosReceptores;
+            
+            
+            IList<string> usuarios_receptores_string = new List<string>();
 
-            foreach (UsuarioEN usuario in notificacion.UsuariosReceptores)
+            foreach (UsuarioEN usuario in usuarios_receptores)
             {
-                usuarios_receptores.Add(usuario.Usuario);
+                Console.WriteLine("Usuario AGREGADO a notificacion: " + usuario.Usuario);
+                usuarios_receptores_string.Add(usuario.Usuario);
             }
-            nvm.UsuariosReceptores = usuarios_receptores;
+
+            nvm.UsuariosReceptores = usuarios_receptores_string;
             
             if(notificacion.TipoContenido == "cancion")
             {

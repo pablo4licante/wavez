@@ -87,14 +87,22 @@
 
             <!-- REPRODUCTOR DE MUSICA -->
             <div class="container reproductor">
-
+                <button onclick="playNextInQueue()">Next</button>
                 <audio id="musicPlayer" controls>
                     <source id="audioSource" src="" type="audio/mpeg" />
                     Tu navegador no soporta la reproducción de audio.
                 </audio>
             </div>
+
+            <div class="container navegacion">
+                <button onclick="location.href='@Url.Action("Index", "Home")'">Home</button>
+                <button onclick="location.href='@Url.Action("Perfil", "Usuario", new { id = "me" })'">Perfil</button>
+                <button onclick="location.href='@Url.Action("Index", "Comunidad")'">Comunidades</button>
+                <button onclick="location.href='@Url.Action("Index", "Notificacion")'">Notificaciones</button>
+            </div>
         </main>
     </div>
+
 
     <footer class="border-top footer text-muted">
         <div class="container">

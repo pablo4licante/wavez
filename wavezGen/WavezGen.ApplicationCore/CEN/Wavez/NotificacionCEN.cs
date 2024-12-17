@@ -32,33 +32,62 @@ public INotificacionRepository get_INotificacionRepository ()
 
 public int Nuevo (string p_foto, string p_mensaje, Nullable<DateTime> p_fecha, string p_tipoContenido, UsuarioEN usuarioPublicador, IList<UsuarioEN> usuariosReceptores, CancionEN cancionCompartida, PlaylistEN playlistCompartida)
 {
-        NotificacionEN notificacionEN = null;
         int oid;
 
         //Initialized NotificacionEN
-        notificacionEN = new NotificacionEN ();
+        NotificacionEN notificacionEN = new NotificacionEN();
         notificacionEN.Foto = p_foto;
         notificacionEN.Mensaje = p_mensaje;
         notificacionEN.Fecha = p_fecha;
         notificacionEN.TipoContenido = p_tipoContenido;
-        if(cancionCompartida != null)
-        {
-            notificacionEN.ContieneCancion = cancionCompartida;
-        } 
-        else if (playlistCompartida != null)
-        {
-            notificacionEN.ContienePlaylist = playlistCompartida;
-        }
+            if (cancionCompartida != null)
+            {
+                notificacionEN.ContieneCancion = cancionCompartida;
+            }
+
+            if (playlistCompartida != null)
+            {
+                notificacionEN.ContienePlaylist = playlistCompartida;
+            }
         notificacionEN.UsuarioPublicador = usuarioPublicador;
         notificacionEN.UsuariosReceptores = usuariosReceptores;
 
 
 
-            oid = _INotificacionRepository.Nuevo (notificacionEN);
+        oid = _INotificacionRepository.Nuevo (notificacionEN);
         return oid;
 }
 
-public void Modificar (int p_Notificacion_OID, string p_foto, string p_mensaje, Nullable<DateTime> p_fecha, string p_tipoContenido)
+public int NuevoConComunidad(string p_foto, string p_mensaje, Nullable<DateTime> p_fecha, string p_tipoContenido, ComunidadEN comunidad, IList<UsuarioEN> usuariosReceptores, CancionEN cancionCompartida, PlaylistEN playlistCompartida)
+
+        {
+            int oid;
+
+            //Initialized NotificacionEN
+            NotificacionEN notificacionEN = new NotificacionEN();
+            notificacionEN.Foto = p_foto;
+            notificacionEN.Mensaje = p_mensaje;
+            notificacionEN.Fecha = p_fecha;
+            notificacionEN.TipoContenido = p_tipoContenido;
+            if (cancionCompartida != null)
+            {
+                notificacionEN.ContieneCancion = cancionCompartida;
+            }
+
+            if (playlistCompartida != null)
+            {
+                notificacionEN.ContienePlaylist = playlistCompartida;
+            }
+            notificacionEN.Comunidad = comunidad;
+            notificacionEN.UsuariosReceptores = usuariosReceptores;
+
+
+
+            oid = _INotificacionRepository.Nuevo(notificacionEN);
+            return oid;
+        }
+
+        public void Modificar (int p_Notificacion_OID, string p_foto, string p_mensaje, Nullable<DateTime> p_fecha, string p_tipoContenido)
 {
         NotificacionEN notificacionEN = null;
 
