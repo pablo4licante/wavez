@@ -12,21 +12,32 @@ namespace WebWavez.Controllers
     public class ComunidadController : BasicController
     {
         // GET: ComunidadController
-        public ActionResult Index(GenerosEnum? genre)
+        public ActionResult Index(GenerosEnum? genre, string filterType)
         {
             SessionInitialize();
             ComunidadRepository comunidadRepository = new ComunidadRepository(session);
             ComunidadCEN comunidadCEN = new ComunidadCEN(comunidadRepository);
             IList<ComunidadEN> listaENs = new List<ComunidadEN>();
+            UsuarioRepository usuarioRepository = new UsuarioRepository(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
+            UsuarioViewModel usuario = HttpContext.Session.Get<UsuarioViewModel>("usuario");
+
+            listaENs = comunidadCEN.DameTodasLasComunidades(0, -1);
 
             if (genre.HasValue)
             {
                 listaENs = comunidadCEN.DameTodasLasComunidades(0, -1).Where(c => c.Genero == genre.Value).ToList();
             }
-            else
+
+            Console.WriteLine("Este es el segundo filtro" + filterType);
+            
+            if (filterType == "mine")
+                //hacer bien la relacion para guardar las comunidades a las que pertenece el usuario logueado
             {
-                listaENs = comunidadCEN.DameTodasLasComunidades(0, -1);
+                listaENs.Where(c => c.Usuario.Contains(usuarioCEN.DameUsuarioPorOID(usuario.Usuario)));
             }
+
+
 
             IEnumerable<ComunidadViewModel> listaFiltrada = new ComunidadAssembler().ConvertirListENToListViewModel(listaENs);
             ViewBag.Generos = Enum.GetValues(typeof(GenerosEnum)).Cast<GenerosEnum>().ToList();

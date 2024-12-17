@@ -172,6 +172,10 @@ namespace InitializeDB
                 cancionCEN.ReproducirCancion(cancion2);
                 Console.WriteLine("Canciones reproduced");
 
+                usuarioCEN.AsignarComunidad("user1", new List<GenerosEnum>{ GenerosEnum.Soul });
+                usuarioCEN.AsignarComunidad("user1", new List<GenerosEnum> { GenerosEnum.Latino });
+                usuarioCEN.AsignarComunidad("user1", new List<GenerosEnum> { GenerosEnum.Pop });
+
                 CancionEN cancion_para_noti = cancionCEN.DameCancionPorOID(cancion1);
                 UsuarioEN usuario_para_noti = usuarioCEN.DameUsuarioPorOID(user1);
 
