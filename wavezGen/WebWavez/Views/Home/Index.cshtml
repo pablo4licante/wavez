@@ -29,14 +29,14 @@
         {
             var topItem = Model.OrderByDescending(c => c.numReproducciones).First();
             <h2>No te pierdas...</h2>
-            <div class="card highlight">
+            <div class="card" style="width: 18rem;">
                 <img class="card-img-top" data-song-image="@topItem.FotoPortada" src="@topItem.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => topItem.Titulo)</strong></h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => topItem.Autor)</p>
                     <button class="btn btn-primary play-button" data-song-url="@topItem.Url">Play</button>
                     <button class="btn btn-primary queue-button" data-song-url="@topItem.Url">Add to Queue</button>
-                    <button onclick="addtoPlaylist(event)">Add To Playlist</button>
+                    <button class="btn btn-primary" onclick="addtoPlaylist(event)">Add To Playlist</button>
                     <p class="card-text" style="display:none;" data-song-id="@topItem.Id">@Html.DisplayFor(modelItem => topItem.Id)</p>
                 </div>
             </div>
@@ -49,7 +49,7 @@
     <div class="categorias">
         <h2>Últimas novedades</h2>
         <div class="grid-canciones">
-            @foreach (var item in Model.OrderBy(c => c.Fecha).Take(5))
+            @foreach (var item in Model.OrderByDescending(c => c.Fecha).Take(5))
             {
                 <div class="card">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
@@ -58,7 +58,7 @@
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
                     <button class="btn btn-primary play-button" data-song-url="@item.Url">Play</button>
                     <button class="btn btn-primary queue-button" data-song-url="@item.Url">Add to Queue</button>
-                    <button onclick="addtoPlaylist(event)">Add To Playlist</button>
+                    <button class="btn btn-primary" onclick="addtoPlaylist(event)">Add To Playlist</button>
                     <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
                 </div>
                 </div>
@@ -74,14 +74,14 @@
             {
                 <div class="card">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
-                    <button class="btn btn-primary play-button" data-song-url="@item.Url">Play</button>
-                    <button class="btn btn-primary queue-button" data-song-url="@item.Url">Add to Queue</button>
-                    <button onclick="addtoPlaylist(event)">Add To Playlist</button>
-                    <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
-                </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
+                        <button class="btn btn-primary play-button" data-song-url="@item.Url">Play</button>
+                        <button class="btn btn-primary queue-button" data-song-url="@item.Url">Add to Queue</button>
+                        <button class="btn btn-primary" onclick="addtoPlaylist(event)">Add To Playlist</button>
+                        <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
+                    </div>
                 </div>
             }
         </div>

@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 @using Microsoft.AspNetCore.Http
-
 @{
     UsuarioViewModel usuario = Context.Session.Get<UsuarioViewModel>("usuario");
     string nombre = "";
@@ -10,34 +9,22 @@
     {
         nombre = usuario.Usuario;
     }
+
 }
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Wavez</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebWavez.styles.css" asp-append-version="true" />
-
-    
-   @{
-       var currentController = ViewContext.RouteData.Values["Controller"]?.ToString();
-       var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
-   }
-
-   @if ((currentController != "Usuario" || (currentAction != "Login" && currentAction != "Registro")) && usuario == null)
-   {
-       <script type="text/javascript">
-           var url = "@Url.Action("Login", "Usuario")";
-           location.href = url; 
-       </script>
-   }
-   
 
 </head>
 <body>
     <header>
+        @if(usuario != null) {
         <h1>Bienvenido @nombre</h1>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -80,26 +67,30 @@
                 </div>
             </div>
         </nav>
+        }
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
 
-            <!-- REPRODUCTOR DE MUSICA -->
-            <div class="container reproductor">
-                <button onclick="playNextInQueue()">Next</button>
-                <audio id="musicPlayer" controls>
-                    <source id="audioSource" src="" type="audio/mpeg" />
-                    Tu navegador no soporta la reproducción de audio.
-                </audio>
-            </div>
+            @if (usuario != null)
+            {
+                <!-- REPRODUCTOR DE MUSICA -->
+                <div class="container reproductor">
+                    <button class="btn btn-primary" onclick="playNextInQueue()"><i class="bi bi-skip-end-fill"></i></button>
+                    <audio id="musicPlayer" controls>
+                        <source id="audioSource" src="" type="audio/mpeg" />
+                        Tu navegador no soporta la reproducción de audio.
+                    </audio>
+                </div>
 
-            <div class="container navegacion">
-                <button onclick="location.href='@Url.Action("Index", "Home")'">Home</button>
-                <button onclick="location.href='@Url.Action("Perfil", "Usuario", new { id = "me" })'">Perfil</button>
-                <button onclick="location.href='@Url.Action("Index", "Comunidad")'">Comunidades</button>
-                <button onclick="location.href='@Url.Action("Index", "Notificacion")'">Notificaciones</button>
+                <div class="navegacion">
+                <button class="nav-button" onclick="location.href='@Url.Action("Index", "Home")'"><i class="bi bi-house"></i>Incio</button>
+                <button class="nav-button" onclick="location.href='@Url.Action("Perfil", "Usuario", new { id = "me" })'"><i class="bi bi-person"></i>Perfil</button>
+                <button class="nav-button" onclick="location.href='@Url.Action("Index", "Comunidad")'"><i class="bi bi-people"></i>Comunidad</button>
+                <button class="nav-button" onclick="location.href='@Url.Action("Index", "Notificacion")'"><i class="bi bi-mailbox"></i>Notificacion</button>
             </div>
+            }
         </main>
     </div>
 
@@ -109,8 +100,7 @@
             &copy; 2024 - WebWavez - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

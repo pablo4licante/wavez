@@ -1,3 +1,30 @@
+/* Font face definitions */
+@font-face {
+    font-family: 'NyghtSerif';
+    src: url('/css/fonts/NyghtSerif-LightItalic.ttf') format('ttf');
+    font-style:italic;
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: 'LilGrotesk';
+    src: url('/css/fonts/LilGrotesk.ttf') format('ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+* {
+    font-family:'Lil Grotesk';
+}
+
+:root {
+    --negro: #060606;
+    --blanco: #ffffff;
+    --turquesa: #5f9ea0;
+    --turquesa-dark: #385d5e;
+    --gris: #777777;
+}
+
 html {
   font-size: 14px;
 }
@@ -8,38 +35,58 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.mt-2 {
+    margin-top: 2rem;
 }
 
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mb-4 {
+    margin-bottom: 4rem;
+}
+
+a {
+    color: var(--turquesa-dark);
+    text-decoration: underline;
+}
+
+.button:active {
+    color: var(--blanco) !important;
+    background-color: var(--turquesa) !important;
+    border: 2px solid var(--turquesa) !important;
+    transform: scale(1.1); /* Augment size on active */
+    transition: transform 0.2s ease-in-out; /* Smooth animation */
+}
+
+.button:hover {
+    color: var(--blanco);
+    background-color: var(--turquesa-dark);
+    border: 2px solid var(--turquesa-dark);
+}
+
+.button {
+    background-color: var(--negro);
+    border: 2px solid var(--turquesa);
+    color: var(--turquesa);
+    font-weight: bold;
+    font-family: 'Lil Grotesk'
+}
+
+/* Ensure html and body take full height */
 html {
   position: relative;
   min-height: 100%;
+  background-color: var(--negro);
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: var(--negro);
 }
 
-.card {
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    width: 20rem;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.card img {
-      width: 100%;
-      height: auto;
-      display: block;
-}
-
+/* Flexbox container for songs */
 .estanteria-canciones {
   margin-top: 2rem;
   display: flex;
@@ -48,6 +95,7 @@ body {
   justify-content:center;
 }
 
+/* Flexbox container for playlists */
 .estanteria-playlists {
   margin-top: 2rem;
   display: flex;
@@ -56,6 +104,7 @@ body {
   justify-content:center;
 }
 
+/* Flexbox container for users */
 .estanteria-usuarios {
   margin-top: 2rem;
   display: flex;
@@ -64,8 +113,8 @@ body {
   justify-content:center;
 }
 
+/* Grid container for communities */
 .comunidades-container {
-
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
@@ -73,6 +122,7 @@ body {
     justify-content: center;
 }
 
+/* Styles for filter buttons */
 .filter-buttons {
     display: flex;
     gap: 10px;
@@ -89,48 +139,131 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-    .filter-btn:hover {
-        background-color: #007bff;
-        color: #fff;
-    }
+.filter-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
 
-    .filter-btn.active {
-        background-color: #007bff;
-        color: #fff;
-        pointer-events: none; /* Desactiva el clic en el bot�n activo */
-    }
+.filter-btn.active {
+    background-color: #007bff;
+    color: #fff;
+    pointer-events: none; /* Disable click on active button */
+}
+
 .reproductor {
     display: flex;
     position:fixed;
     right: 0;
     bottom: 4rem;
-
     width: min(400px, 80%);
     justify-content: center;
     background-color: #f8f9fa;
     padding: 1rem;
     border-top: 1px solid #ddd;
-
     z-index: 1000;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .navegacion {
     display: flex;
     position: fixed;
+    left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
+    gap: 26px;
     justify-content: center;
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border-top: 1px solid #ddd;
+    background-color: var(--negro);
+    box-shadow: 1px -10px 20px -10px rgba(255,255,255,0.2);
     z-index: 1000;
+    padding: 0.3rem;
 }
 
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border: 0;
+    background-color: var(--negro);
+    > i {
+            font-size: 1.4rem;
+            margin-bottom: -0.5rem;
+    
+          }
+}
+
+.nav-button:hover {
+    color: var(--turquesa);
+}
+
+/* Grid container for songs */
 .grid-canciones {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     gap: 30px;
     justify-content: center;
+}
+
+/* Styles for the title */
+.wavez-title {  
+   font-family: 'NyghtSerif';  
+   font-size: 240px;  
+   font-style: italic;  
+   font-weight: lighter;  
+   margin: 0;  
+   color: var(--blanco);  
+   user-select: none; 
+}
+
+/* Styles for LilGrotesk font */
+.lgsk { 
+    font-family: 'Lil Grotesk';
+    font-weight: normal;
+    margin-top: 14rem;
+    margin-bottom: -4rem;
+    color: var(--blanco)
+}
+
+.button-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem;
+}
+
+/* Porfa asegurar que se ve bien hasta al menos 360 px */
+@media (max-width: 500px) {
+    .wavez-title {
+        font-size: 150px;
+    }
+
+    .button-row {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 1rem;
+    }
+
+    .lgsk {
+        margin-top: 4rem;
+    }
 }

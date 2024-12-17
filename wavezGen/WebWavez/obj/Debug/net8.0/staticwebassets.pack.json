@@ -273,6 +273,30 @@
       "PackagePath": "staticwebassets\\Imagenes\\tutoria17431940.png"
     },
     {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\LilGrotesk.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\LilGrotesk.ttf"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-LightItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-MediumItalic.otf",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-MediumItalic.otf"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-Regular.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-Regular.woff2",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-Regular.woff2"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-RegularItalic.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-RegularItalic.ttf"
+    },
+    {
       "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
