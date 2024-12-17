@@ -63,3 +63,26 @@ body {
   gap: 20px;
   justify-content:center;
 }
+
+.reproductor {
+    display: flex;
+    position:fixed;
+    right: 0;
+    bottom: 0;
+
+    width: min(400px, 80%);
+    justify-content: center;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+
+    z-index: 1000;
+}
+
+.grid-canciones {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 30px;
+    justify-content: center;
+}
