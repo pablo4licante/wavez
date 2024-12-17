@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\Canciones\\20241216213559868.mp3"
     },
     {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Canciones\\20241217112950964.mp3",
+      "PackagePath": "staticwebassets\\Canciones\\20241217112950964.mp3"
+    },
+    {
       "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Canciones\\BYØRN - Release Yourself.mp3",
       "PackagePath": "staticwebassets\\Canciones\\BYØRN - Release Yourself.mp3"
     },
@@ -51,6 +55,14 @@
     {
       "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\20241216213559868.jpg",
       "PackagePath": "staticwebassets\\Imagenes\\20241216213559868.jpg"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\20241216214531967.png",
+      "PackagePath": "staticwebassets\\Imagenes\\20241216214531967.png"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\20241217112950964.jpg",
+      "PackagePath": "staticwebassets\\Imagenes\\20241217112950964.jpg"
     },
     {
       "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\9a34328d07731f33f5f7f1d624e560d65193857a5d7f86d3e3f931a81998c864_200.ico",

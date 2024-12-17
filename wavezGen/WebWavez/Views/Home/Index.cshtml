@@ -5,15 +5,52 @@
 
 <div class="text-center">
     <h1 class="display-4">Wavez</h1>
-    <form asp-action="ResultadoBusqueda" method="get">
+    <form asp-action="ResultadoBusqueda" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
         <input type="text" name="query" placeholder="Buscar..." />
+        <div>
+            <input type="checkbox" name="filter" value="canciones" checked /> Canciones
+            <input type="checkbox" name="filter" value="playlists" checked /> Playlists
+            <input type="checkbox" name="filter" value="usuarios" checked /> Usuarios
+        </div>
+        <div>
+            <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
+                <option value="">Seleccione un género</option>
+                @foreach (var genre in Model.Select(c => c.Genero).Distinct())
+                {
+                    <option value="@genre">@genre</option>
+                }
+            </select>
+        </div>
         <button type="submit">Buscar</button>
     </form>
+    
     <div class="grid-canciones">
-        @foreach (var item in Model)
+        @if (Model.Any())
         {
-            <div class="card">
-                <img class="card-img-top" data-song-image="@item.FotoPortada" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+            var topItem = Model.OrderByDescending(c => c.numReproducciones).First();
+            <div class="card highlight">
+                <img class="card-img-top" data-song-image="@topItem.FotoPortada" src="@topItem.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => topItem.Titulo)</strong></h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => topItem.Autor)</p>
+                    <button class="btn btn-primary play-button" data-song-url="@topItem.Url">Play</button>
+                    <button onclick="addtoPlaylist(event)">Add To Playlist</button>
+                    <p class="card-text" style="display:none;" data-song-id="@topItem.Id">@Html.DisplayFor(modelItem => topItem.Id)</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+    
+    <div class="categorias">
+        <h2>Últimas novedades</h2>
+        <div class="grid-canciones">
+            @foreach (var item in Model.OrderByDescending(c => c.Fecha).Take(5))
+            {
+                <div class="card">
+                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
@@ -21,10 +58,32 @@
                     <button onclick="addtoPlaylist(event)">Add To Playlist</button>
                     <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
                 </div>
-            </div>
-        }
+                </div>
+            }
+        </div>
+
+        
+        </div>
+
+        <h2>Lo temas mas HOT del momento</h2>
+        <div class="grid-canciones">
+            @foreach (var item in Model.OrderByDescending(c => c.numReproducciones).Take(5))
+            {
+                <div class="card">
+                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
+                    <button class="btn btn-primary play-button" data-song-url="@item.Url">Play</button>
+                    <button onclick="addtoPlaylist(event)">Add To Playlist</button>
+                    <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
+                </div>
+                </div>
+            }
+        </div>
     </div>
 </div>
+
 
 @section Scripts {
     <script>
@@ -81,7 +140,7 @@
             audioSource.src = songUrl;
             await musicPlayer.load();
             musicPlayer.currentTime = currentTime;
-            
+
 
             if (songUrl) {
                 document.querySelectorAll('.card').forEach(card => {
@@ -104,133 +163,53 @@
                 sessionStorage.setItem('currentSongImage', songImage);
             }
         });
-async function addtoPlaylist(event) {
-    try {
-        const songId = event.target.parentElement.querySelector('[data-song-id]').getAttribute('data-song-id');
-        const response = await fetch('/Playlist/dameMisPlaylistJSON');
-        
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+        async function addtoPlaylist(event) {
+            try {
+                const songId = event.target.parentElement.querySelector('[data-song-id]').getAttribute('data-song-id');
+                const response = await fetch('/Playlist/dameMisPlaylistJSON');
 
-        let playlists = await response.json();
-        console.log(playlists, typeof(playlists));
-        playlists = playlists.playlists;
-
-        if (!Array.isArray(playlists)) {
-            throw new Error('Expected an array of playlists');
-        }
-
-        let playlistSelector = document.createElement('select');
-        playlistSelector.innerHTML = playlists.map(playlist => `<option value="${playlist.Id}">${playlist.Titulo}</option>`).join('');
-
-        let submitButton = document.createElement('button');
-        submitButton.textContent = 'Add to Playlist';
-        submitButton.addEventListener('click', async function () {
-            const playlistId = playlistSelector.value;
-           console.log(songId, playlistId);
-            const addResponse = await fetch('/Playlist/AgregarCancionAPlaylist', {
-                method: 'POST',
-                body: new URLSearchParams({ 'cancionOID': songId, 'playlistOID': playlistId })
-            });
-            
-
-
-            const addData = await addResponse.json();
-
-            if (addData.success) {
-                console.log("Canción agregada a la playlist exitosamente.");
-            } else {
-                console.log("Error al agregar la canción a la playlist.");
-            }
-        });
-
-        event.target.parentElement.appendChild(playlistSelector);
-        event.target.parentElement.appendChild(submitButton);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-</script>
-}
-
-
-    <form asp-action="ResultadoBusqueda" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-        <input type="text" name="query" placeholder="Buscar..." />
-        <div>
-            <input type="checkbox" name="filter" value="canciones" checked /> Canciones
-            <input type="checkbox" name="filter" value="playlists" checked /> Playlists
-            <input type="checkbox" name="filter" value="usuarios" checked /> Usuarios
-        </div>
-        <div>
-            <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
-                <option value="">Seleccione un género</option>
-                @foreach (var genre in Model.Select(c => c.Genero).Distinct())
-                {
-                    <option value="@genre">@genre</option>
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
-            </select>
-        </div>
-        <button type="submit">Buscar</button>
-    </form>
-    
-    <div class="categorias">
-        <h2>Últimas novedades</h2>
-        <div class="estanteria-canciones">
-            @foreach (var item in Model.OrderByDescending(c => c.Fecha))
-            {
-                <div class="card">
-                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-                        <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
-                        <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
-                        <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
-                        <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
-                    </div>
-                </div>
+
+                let playlists = await response.json();
+                console.log(playlists, typeof (playlists));
+                playlists = playlists.playlists;
+
+                if (!Array.isArray(playlists)) {
+                    throw new Error('Expected an array of playlists');
+                }
+
+                let playlistSelector = document.createElement('select');
+                playlistSelector.innerHTML = playlists.map(playlist => `<option value="${playlist.Id}">${playlist.Titulo}</option>`).join('');
+
+                let submitButton = document.createElement('button');
+                submitButton.textContent = 'Add to Playlist';
+                submitButton.addEventListener('click', async function () {
+                    const playlistId = playlistSelector.value;
+                    console.log(songId, playlistId);
+                    const addResponse = await fetch('/Playlist/AgregarCancionAPlaylist', {
+                        method: 'POST',
+                        body: new URLSearchParams({ 'cancionOID': songId, 'playlistOID': playlistId })
+                    });
+
+
+
+                    const addData = await addResponse.json();
+
+                    if (addData.success) {
+                        console.log("Canción agregada a la playlist exitosamente.");
+                    } else {
+                        console.log("Error al agregar la canción a la playlist.");
+                    }
+                });
+
+                event.target.parentElement.appendChild(playlistSelector);
+                event.target.parentElement.appendChild(submitButton);
+            } catch (error) {
+                console.error('Error:', error);
             }
-        </div>
-
-        <h2>Más populares</h2>
-        <div class="estanteria-canciones">
-            @foreach (var item in Model.OrderByDescending(c => c.numReproducciones))
-            {
-                <div class="card">
-                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-                        <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
-                        <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
-                        <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
-                        <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
-                    </div>
-                </div>
-            }
-        </div>
-
-        <h2>Tus favoritas</h2>
-        <div class="estanteria-canciones">
-            @foreach (var item in Model.OrderByDescending(c => c.numReproducciones))
-            {
-                <div class="card">
-                    <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-                        <p class="card-text"><strong>Genre:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
-                        <p class="card-text"><strong>Author:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
-                        <p class="card-text"><strong>Release Date:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
-                        <p class="card-text"><strong>Plays:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-</div>
-
-
-@section Scripts {
-    <script>
+        }
         function toggleFilters(select) {
             var filters = document.querySelectorAll('input[name="filter"]');
             if (select.value) {
