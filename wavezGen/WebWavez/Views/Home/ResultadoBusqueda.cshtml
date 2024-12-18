@@ -111,27 +111,6 @@
 
 @section Scripts {
     <script>
-
-        document.addEventListener("mousemove", (e) => {
-            const circle = document.getElementById("mouse-circle");
-            circle.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
-        });
-
-        function toggleFilters(select) {
-            var filters = document.querySelectorAll('input[name="filter"]');
-            if (select.value) {
-                filters.forEach(function(filter) {
-                    if (filter.value !== "canciones") {
-                        filter.checked = false;
-                        filter.disabled = true;
-                    }
-                });
-            } else {
-                filters.forEach(function(filter) {
-                    filter.disabled = false;
-                });
-            }
-        }
             let songQueue = [];
                 let isPlaying = false;
 
@@ -186,9 +165,11 @@
                     if (isPlaying) {
                         audioPlayer.pause();
                         playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'false');
                     } else {
                         audioPlayer.play();
                         playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'true');
                     }
                     isPlaying = !isPlaying;
                 });
@@ -221,6 +202,18 @@
                         const storedTime = sessionStorage.getItem('currentTime');
                         if (storedTime) {
                             audioPlayer.currentTime = parseFloat(storedTime);
+                        }
+
+                        // Restaurar estado de reproducción
+                        const storedIsPlaying = sessionStorage.getItem('isPlaying');
+                        if (storedIsPlaying === 'true') {
+                            audioPlayer.play();
+                            playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                            isPlaying = true;
+                        } else {
+                            audioPlayer.pause();
+                            playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                            isPlaying = false;
                         }
                     });
 
@@ -280,5 +273,9 @@
                     }
                 }
             }
+        document.addEventListener("mousemove", (e) => {
+            const circle = document.getElementById("mouse-circle");
+            circle.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
+        });
     </script>
 }

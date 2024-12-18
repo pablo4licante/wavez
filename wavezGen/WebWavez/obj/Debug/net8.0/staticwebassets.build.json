@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "u97auG6bxmJvO5RmmJ3R1Bu99pcAkzQ1NprN6amsb0g=",
+  "Hash": "RrUKKH2fAjRr69vXYThFkgNtGZZqLuff83bhVkemAQU=",
   "Source": "WebWavez",
   "BasePath": "_content/WebWavez",
   "Mode": "Default",
@@ -623,6 +623,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Canciones\\20241218113146984.webm"
+    },
+    {
+      "Identity": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WebWavez\\wwwroot\\Canciones\\20241218171657742.mp3",
+      "SourceId": "WebWavez",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WebWavez\\wwwroot\\",
+      "BasePath": "_content/WebWavez",
+      "RelativePath": "Canciones/20241218171657742.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Canciones\\20241218171657742.mp3"
     },
     {
       "Identity": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WebWavez\\wwwroot\\Canciones\\audio.webm",
@@ -1478,6 +1497,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagenes\\20241218113146984.ico"
+    },
+    {
+      "Identity": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\20241218171657742.jpg",
+      "SourceId": "WebWavez",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WebWavez\\wwwroot\\",
+      "BasePath": "_content/WebWavez",
+      "RelativePath": "Imagenes/20241218171657742.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagenes\\20241218171657742.jpg"
     },
     {
       "Identity": "C:\\onedrive\\OneDrive - UNIVERSIDAD ALICANTE\\DSM\\2024\\Practicas\\Workspace\\wavez-1\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\9a34328d07731f33f5f7f1d624e560d65193857a5d7f86d3e3f931a81998c864_200.ico",

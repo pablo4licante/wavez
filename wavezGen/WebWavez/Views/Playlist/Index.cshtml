@@ -143,9 +143,11 @@
                     if (isPlaying) {
                         audioPlayer.pause();
                         playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'false');
                     } else {
                         audioPlayer.play();
                         playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'true');
                     }
                     isPlaying = !isPlaying;
                 });
@@ -179,6 +181,19 @@
                         if (storedTime) {
                             audioPlayer.currentTime = parseFloat(storedTime);
                         }
+
+                        playPauseButton.addEventListener('click', () => {
+                            if (isPlaying) {
+                                audioPlayer.pause();
+                                playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                                sessionStorage.setItem('isPlaying', 'false');
+                            } else {
+                                audioPlayer.play();
+                                playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                                sessionStorage.setItem('isPlaying', 'true');
+                            }
+                            isPlaying = !isPlaying;
+                        });
                     });
 
                     // Guardar tiempo de la canción al salir de la página
