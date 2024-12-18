@@ -126,6 +126,8 @@ body {
     gap: 30px;
     justify-content: center;
     z-index: 3;
+    margin: 1rem;
+    margin-top: 2rem;
 }
 
 /* Styles for filter buttons */
@@ -262,6 +264,14 @@ margin-bottom: -0.5rem;
 
 .card:active a {
     color: var(--turquesa-dark);
+}
+
+.top-info-comunidad {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    width: 100%;  
 }
 
 /* Para el detalle de una cancion*/

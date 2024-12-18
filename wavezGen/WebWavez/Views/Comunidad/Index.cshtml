@@ -8,27 +8,16 @@
 
 <!--barra de busqueda por genero-->
 <form asp-action="Index" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-    <div>
-        <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
-            <option value="">Seleccione un género</option>
-            @foreach (var genre in Model.Select(c => c.Genero).Distinct())
-            {
-                <option value="@genre">@genre</option>
-            }
-        </select>
-    </div>
-
     <div class="filter-buttons">
         <button type="submit" name="filterType" value="all"
-                class="filter-btn @(ViewBag.FiltroActual == "all" ? "active" : "")">
+                class="btn button @(ViewBag.FiltroActual == "all" ? "active" : "")">
             Todas
         </button>
         <button type="submit" name="filterType" value="mine"
-                class="filter-btn @(ViewBag.FiltroActual == "mine" ? "active" : "")">
+                class="btn button @(ViewBag.FiltroActual == "mine" ? "active" : "")">
             Mis Comunidades
         </button>
     </div>
-    <button type="submit">Buscar</button>
 </form>
 
 
@@ -36,10 +25,10 @@
     @foreach (var item in Model)
     {
         <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">@item.Genero</h5>
+            <div class="card-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                <h5 class="card-title"><strong>@item.Genero</strong></h5>
                 <p class="card-text">Descubre más accediendo a la comunidad.</p>
-                <a asp-action="detalle" asp-route-id="@(Convert.ToInt32(item.Genero))" class="btn btn-primary">Ver Detalles</a>
+                <a asp-action="detalle" asp-route-id="@(Convert.ToInt32(item.Genero))" class="btn button">Ver Detalles</a>
             </div>
         </div>
     }
