@@ -61,6 +61,15 @@ namespace WebWavez.Controllers
             ComunidadCEN comunidadCEN = new ComunidadCEN(comunidadRepository);
             NotificacionRepository notificacionRepository = new NotificacionRepository(session);
             NotificacionCEN notificacionCEN = new NotificacionCEN(notificacionRepository);
+            UsuarioRepository usuarioRepository = new UsuarioRepository(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
+            UsuarioViewModel usuario = HttpContext.Session.Get<UsuarioViewModel>("usuario");
+
+            ComunidadEN comunidad = comunidadCEN.DameComunidadPorOID((GenerosEnum)id);
+            UsuarioEN usuarioEN = usuarioCEN.DameUsuarioPorOID(usuario.Usuario);
+
+            ViewBag.EsFavorito = comunidad.Usuario.Contains(usuarioEN);
+
 
             if (!Enum.IsDefined(typeof(WavezGen.ApplicationCore.Enumerated.Wavez.GenerosEnum), id))
             {
@@ -77,7 +86,6 @@ namespace WebWavez.Controllers
 
             IList<NotificacionEN> listaNotificacionesENs = comunidadEN.Notificacion;
             IEnumerable<NotificacionViewModel> listaNotificaciones = new NotificacionAssembler().ConvertirListENToListViewModel(listaNotificacionesENs);
-            SessionClose();
 
             var viewModel = new ComunidadDetailsViewModel
             {
@@ -86,6 +94,31 @@ namespace WebWavez.Controllers
             };
 
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult CambiarFavorito(int idComunidad)
+        {
+            SessionInitialize();
+
+            UsuarioViewModel usuario = HttpContext.Session.Get<UsuarioViewModel>("usuario");
+            ComunidadRepository comunidadRepository = new ComunidadRepository(session);
+            ComunidadCEN comunidadCEN = new ComunidadCEN(comunidadRepository);
+            UsuarioRepository usuarioRepository = new UsuarioRepository(session);
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
+
+            ComunidadEN comunidad = comunidadCEN.DameComunidadPorOID((GenerosEnum)idComunidad);
+            UsuarioEN usuarioEN = usuarioCEN.DameUsuarioPorOID(usuario.Usuario);
+
+            if (comunidad.Usuario.Contains(usuarioEN))
+            {
+                usuarioCEN.DesasignarComunidad(usuario.Usuario, new List<GenerosEnum> { (GenerosEnum)idComunidad });
+            } else
+            {
+                usuarioCEN.AsignarComunidad(usuario.Usuario, new List<GenerosEnum> { (GenerosEnum)idComunidad });
+            }
+
+            return View();
         }
     }
 }
