@@ -211,11 +211,11 @@ body {
     border: 0;
     z-index: 3;
     background: none;
-    > i {
-            font-size: 1.4rem;
-            margin-bottom: -0.5rem;
+}
+.nav-button i {
+font-size: 1.4rem;
+margin-bottom: -0.5rem;
     
-          }
 }
 
 .nav-button:hover {
@@ -240,30 +240,29 @@ body {
     backdrop-filter: blur(52px); /* Apply glassmorphism effect */
     background: rgba(6, 6, 6, 0.3); /* Semi-transparent background */
     transition: transform 0.2s ease-in-out; /* Smooth animation */
+}
 
-    > a {
-            color: var(--blanco);
-            text-decoration: none;
-        }
+.card a {
+    color: var(--blanco);
+    text-decoration: none;
 }
 
 .card:hover {
     transform: scale(1.05); /* Increment size by 0.1 */
-    > a {
-            color:var(--turquesa)
-        }
+}
+
+.card:hover a {
+    color: var(--turquesa);
 }
 
 .card:active {
     transition: transform 0.1s ease-in-out; /* Fast animation for active */
     transform: scale(1.02); /* Increment size by 0.1 */
-    > a
-
-            {
-                color: var(--turquesa-dark)
-            }
 }
 
+.card:active a {
+    color: var(--turquesa-dark);
+}
 
 
 .grid-canciones {
@@ -286,6 +285,7 @@ body {
     user-select: none;
     z-index: 3;
 }
+
 .wavez-topper {
     font-family: 'NyghtSerif';
     font-size: 60px;
@@ -321,12 +321,10 @@ body {
 /* Porfa asegurar que se ve bien hasta al menos 360 px */
 @media (max-width: 500px) {
 
-    .reproductor { 
-        >.track-info h4, p {
-    display: none;
-}
+    .reproductor .track-info h4, .reproductor .track-info p {
+        display: none;
     }
-                                       }
+
 
     .wavez-title {
         font-size: 150px;
