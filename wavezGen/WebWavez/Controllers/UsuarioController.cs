@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Humanizer.Localisation;
 using System.Diagnostics;
 using WavezGen.ApplicationCore.Utils;
+using WavezGen.ApplicationCore.Enumerated.Wavez;
 
 namespace WebWavez.Controllers
 {
@@ -348,6 +349,31 @@ namespace WebWavez.Controllers
             catch
             {
                 return View();
+            }
+        }
+
+
+        [HttpPost]
+        public void CambiarFavorito(int idComunidad)
+        {
+            SessionInitialize();
+
+            UsuarioViewModel usuario = HttpContext.Session.Get<UsuarioViewModel>("usuario");
+            ComunidadRepository comunidadRepository = new ComunidadRepository(session);
+            ComunidadCEN comunidadCEN = new ComunidadCEN(comunidadRepository);
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            UsuarioCEN usuarioCEN = new UsuarioCEN(usuarioRepository);
+
+            ComunidadEN comunidad = comunidadCEN.DameComunidadPorOID((GenerosEnum)idComunidad);
+            UsuarioEN usuarioEN = usuarioCEN.DameUsuarioPorOID(usuario.Usuario);
+
+            if (comunidad.Usuario.Contains(usuarioEN))
+            {
+                usuarioCEN.DesasignarComunidad(usuario.Usuario, new List<GenerosEnum> { (GenerosEnum)idComunidad });
+            }
+            else
+            {
+                usuarioCEN.AsignarComunidad(usuario.Usuario, new List<GenerosEnum> { (GenerosEnum)idComunidad });
             }
         }
     }

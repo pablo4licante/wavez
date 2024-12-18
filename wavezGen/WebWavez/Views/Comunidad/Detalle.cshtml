@@ -3,17 +3,21 @@
 @{
     ViewData["Title"] = "Detalles de la Comunidad";
     bool fav = ViewBag.EsFavorito;
+    int idcomunidad_fav = ViewBag.IdComunidad;
 }
 
 @section Scripts {
     <script>
-        async function toggleFav(event, id){
-            console.log(id);
-            event.preventDefault;
-            await fetch('/Comunidad/CambiarFavorito', {
+
+        async function toggleFav(event) {
+            event.preventDefault();
+
+            await fetch('/Usuario/CambiarFavorito', {
                 method: 'POST',
-                body: new URLSearchParams({ 'idComunidad': id })
+                body: new URLSearchParams({ 'idComunidad': @idcomunidad_fav })
             });
+
+            location.reload();
         }
     </script>
 }
@@ -21,13 +25,13 @@
 <h1>@Model.Comunidad.Genero</h1>
 
 <div>
-    @if (fav)
+    @if (fav)//Si es favorito
     {
-        <button onclick="toggleFav(event, @Model.Comunidad.Genero)">Favorito</button>
+        <a href="#" onclick="toggleFav(event)">Quitar de favoritos</a>
     }
     else
     {
-        <button onclick="toggleFav(event, @Model.Comunidad.Genero)">Agregar a favoritos</button>
+        <a href="#" onclick="toggleFav(event)">Agregar a favoritos</a>
     }
 </div>
 
