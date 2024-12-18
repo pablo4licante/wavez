@@ -12,7 +12,7 @@ namespace WebWavez.Controllers
     public class ComunidadController : BasicController
     {
         // GET: ComunidadController
-        public ActionResult Index(string filterType)
+        public ActionResult Index(GenerosEnum? genre, string filterType)
         {
             SessionInitialize();
             ComunidadRepository comunidadRepository = new ComunidadRepository(session);
@@ -23,6 +23,11 @@ namespace WebWavez.Controllers
             UsuarioViewModel usuario = HttpContext.Session.Get<UsuarioViewModel>("usuario");
 
             listaENs = comunidadCEN.DameTodasLasComunidades(0, -1);
+
+            if (genre.HasValue)
+            {
+                listaENs = comunidadCEN.DameTodasLasComunidades(0, -1).Where(c => c.Genero == genre.Value).ToList();
+            }
 
             Console.WriteLine("Este es el segundo filtro" + filterType);
             
@@ -36,7 +41,11 @@ namespace WebWavez.Controllers
                 }
             }
 
+
+
             IEnumerable<ComunidadViewModel> listaFiltrada = new ComunidadAssembler().ConvertirListENToListViewModel(listaENs);
+            ViewBag.Generos = Enum.GetValues(typeof(GenerosEnum)).Cast<GenerosEnum>().ToList();
+            ViewBag.FiltroActual = genre; // Opcional: para marcar el género seleccionado actualmente.
             SessionClose();
 
             return View(listaFiltrada);

@@ -28,7 +28,6 @@ namespace WebWavez.Models
 
         public int numReproducciones { get; set; }
 
-        public string AutorDisplay { get; set; }
         public string Autor { get; set; }
 
         [Required(ErrorMessage = "Debe indicar un nombre para la cancion")]

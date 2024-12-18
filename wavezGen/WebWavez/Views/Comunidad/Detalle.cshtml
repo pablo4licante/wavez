@@ -6,19 +6,17 @@
     int idcomunidad_fav = ViewBag.IdComunidad;
 }
 
-<div class="top-info-comunidad">
-    <h1><strong>@Model.Comunidad.Genero</strong></h1>
+<h1>@Model.Comunidad.Genero</h1>
 
-    <div id="boton-fav">
-        @if (fav)// si ya es favorito
-        {
-            <button class="btn button" href="#" onclick="toggleFav(event)"><i class="bi bi-star-fill"></i> Quitar de favoritos</button>
-        }
-        else // si no lo es
-        {
-            <button class="btn button" href="#" onclick="toggleFav(event)"><i class="bi bi-star"></i> Agregar a favoritos</button>
-        }
-    </div>
+<div>
+    @if (fav)//Si es favorito
+    {
+        <a href="#" onclick="toggleFav(event)">Quitar de favoritos</a>
+    }
+    else
+    {
+        <a href="#" onclick="toggleFav(event)">Agregar a favoritos</a>
+    }
 </div>
 
 <h2>Notificaciones</h2>
