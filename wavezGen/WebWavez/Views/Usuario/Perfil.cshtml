@@ -163,6 +163,7 @@
                         @if (Model.EsPerfilPropio)
                         {
                             <form action="@Url.Action("Delete", "Playlist", new { id = item.Id })" method="post">
+                                @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-primary">Eliminar</button>
                             </form>
                         }
