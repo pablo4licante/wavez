@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WavezGen.Infraestructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe6c716f841294865a70f99e89658ddd2d4b5634")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0fd1f6616d72b87bd6c5c2c6d9a558b38008e624")]
 [assembly: System.Reflection.AssemblyProductAttribute("WavezGen.Infraestructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WavezGen.Infraestructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

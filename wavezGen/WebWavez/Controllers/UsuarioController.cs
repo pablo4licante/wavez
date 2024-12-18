@@ -19,6 +19,14 @@ namespace WebWavez.Controllers
 {
     public class UsuarioController : BasicController
     {
+
+        private readonly Microsoft.AspNetCore.Hosting.IWebHostEnvironment _webHost;
+
+        public UsuarioController(Microsoft.AspNetCore.Hosting.IWebHostEnvironment webHost)
+        {
+            _webHost = webHost;
+        }
+
         //*********************************************  LOGIN  **************************************************
 
         // GET: UsuarioController/Login
@@ -71,10 +79,31 @@ namespace WebWavez.Controllers
 
         // POST: UsuarioController/Registro
         [HttpPost]
-        public ActionResult Registro(RegistroUsuarioViewModel registro)
+        public async Task<ActionResult> Registro(RegistroUsuarioViewModel registro)
         {
             UsuarioRepository usuRepo = new UsuarioRepository();
             UsuarioCEN usuCEN = new UsuarioCEN(usuRepo);
+
+            string FotoFileName = ""; 
+
+            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            FotoFileName = timestamp + Path.GetExtension(registro.FicheroFotoPortada.FileName);
+
+            string fotoDirectory = _webHost.WebRootPath + "/Imagenes";
+
+            string fotoPath = Path.Combine((fotoDirectory), FotoFileName);
+
+            if (!Directory.Exists(fotoDirectory))
+            {
+                Directory.CreateDirectory(fotoDirectory);
+            }
+
+            using (var fileStream = new FileStream(fotoPath, FileMode.Create))
+            {
+                await registro.FicheroFotoPortada.CopyToAsync(fileStream);
+            }
+
+
 
             //conprobar la confirmación de la password
             if (registro.Password == registro.ConfirmPassword)
@@ -82,13 +111,15 @@ namespace WebWavez.Controllers
                 //hacer el registro
                 try
                 {
+                    FotoFileName = "/Imagenes/" + FotoFileName;
+                    
                     //cancionCEN.Nuevo(cvm.Titulo, cvm.Genero, cvm.Fecha, cvm.FotoPortada, cvm.Autor, cvm.numReproducciones);
-                    usuCEN.Registro(registro.Usuario, registro.Nombre, registro.Password, registro.Email, registro.FotoPerfil);
-                    return RedirectToAction("Index", "Home");
+                    usuCEN.Nuevo(registro.Usuario, registro.Nombre, registro.Password, registro.Email, FotoFileName);
+                    return RedirectToAction("Login", "Usuario");
                 }
-                catch
+                catch (Exception e)
                 {
-                    ModelState.AddModelError("", "Error al introducir los datos del registro");
+                    ModelState.AddModelError("", "Error al introducir los datos del registro " + e);
                     return View();
                 }
             }

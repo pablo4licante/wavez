@@ -46,11 +46,11 @@
             <h2>porque sabemos lo que te gusta...</h2>
             <div class="card">
 
-                <a asp-controller="Cancion" asp-action="Detail" asp-route-id="@topItem.Id" data-id="@topItem.Id">
+                <a asp-controller="Cancion" asp-action="Details" asp-route-id="@topItem.Id" data-id="@topItem.Id">
                     <img class="card-img-top" src="@topItem.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                 </a>
                 <div class="card-body">
-                    <a asp-controller="Cancion" asp-action="Detail" asp-route-id="@topItem.Id" data-id="@topItem.Id">
+                    <a asp-controller="Cancion" asp-action="Details" asp-route-id="@topItem.Id" data-id="@topItem.Id">
                         <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => topItem.Titulo)</strong></h5>
                     </a>
                     <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@topItem.Autor" data-id="@topItem.Id">
@@ -81,11 +81,11 @@
         {
             <div class="card">
 
-                <a asp-controller="Cancion" asp-action="Detail" asp-route-id="@item.Id" data-id="@item.Id">
+                <a asp-controller="Cancion" asp-action="Details" asp-route-id="@item.Id" data-id="@item.Id">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                 </a>
                 <div class="card-body">
-                    <a asp-controller="Cancion" asp-action="Detail" asp-route-id="@item.Id" data-id="@item.Id">
+                    <a asp-controller="Cancion" asp-action="Details" asp-route-id="@item.Id" data-id="@item.Id">
                         <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
                     </a>
                     <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@item.Autor" data-id="@item.Id">
@@ -115,11 +115,11 @@
     {
         <div class="card">
 
-            <a asp-controller="Cancion" asp-action="Detail" asp-route-id="@item.Id" data-id="@item.Id">
+            <a asp-controller="Cancion" asp-action="Details" asp-route-id="@item.Id" data-id="@item.Id">
                 <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
             </a>
             <div class="card-body">
-                <a asp-controller="Cancion" asp-action="Detail" asp-route-id="@item.Id" data-id="@item.Id">
+                <a asp-controller="Cancion" asp-action="Details" asp-route-id="@item.Id" data-id="@item.Id">
                     <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
                 </a>
                 <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@item.Autor" data-id="@item.Id">

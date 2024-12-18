@@ -14,7 +14,7 @@
 <hr />
 <div class="center-container">
     <div class="">
-        <form asp-action="Registro">
+        <form asp-action="Registro" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Usuario" class="control-label"></label>
@@ -41,10 +41,11 @@
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
-                <label asp-for="FotoPerfil" class="control-label"></label>
-                <input asp-for="FotoPerfil" class="form-control" />
-                <span asp-validation-for="FotoPerfil" class="text-danger"></span>
+                <label asp-for="FicheroFotoPortada" class="control-label">Foto de Perfil</label>
+                <input asp-for="FicheroFotoPortada" type="file" class="form-control" />
+                <span asp-validation-for="FicheroFotoPortada" class="text-danger"></span>
             </div>
 
             <div class="form-group mt-2 mb-4 text-center">

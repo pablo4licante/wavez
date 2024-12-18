@@ -13,6 +13,7 @@ using WavezGen.ApplicationCore.CP.Wavez;
 using WavezGen.Infraestructure.EN.Wavez;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 
 
 /*
@@ -216,33 +217,39 @@ public void DejarDeSeguir (string p_Usuario_OID, System.Collections.Generic.ILis
                 SessionClose ();
         }
 }
-public string Nuevo (UsuarioEN usuario)
-{
-        UsuarioNH usuarioNH = new UsuarioNH (usuario);
-
-        try
+        public string Nuevo(UsuarioEN usuario)
         {
-                SessionInitializeTransaction ();
+            UsuarioNH usuarioNH = new UsuarioNH(usuario);
+           
+            try
+            {
+                SessionInitializeTransaction();
 
-                session.Save (usuarioNH);
-                SessionCommit ();
-        }
+                if (string.IsNullOrEmpty(usuarioNH.Usuario))
+                {
+                    throw new WavezGen.ApplicationCore.Exceptions.ModelException("The user ID must be assigned before calling save. " + usuario.Usuario);
+                }
 
-        catch (Exception ex) {
-                SessionRollBack ();
+                session.Save(usuarioNH);
+                SessionCommit();
+            }
+
+            catch (Exception ex)
+            {
+                SessionRollBack();
                 if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
-                        throw;
-                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in UsuarioRepository.", ex);
+                    throw;
+                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException("Error in UsuarioRepository.", ex);
+            }
+
+
+            finally
+            {
+                SessionClose();
+            }
+
+            return usuarioNH.Usuario;
         }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return usuarioNH.Usuario;
-}
 
 public void Modificar (UsuarioEN usuario)
 {

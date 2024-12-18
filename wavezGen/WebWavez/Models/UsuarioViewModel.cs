@@ -21,6 +21,7 @@ namespace WebWavez.Models
         public string FotoPerfil { get; set; }
         public bool EsSeguidoPorUsuarioActual { get; set; }
 
+
     }
 
     public class PerfilViewModel
@@ -75,6 +76,7 @@ namespace WebWavez.Models
         [Display(Prompt = "Introduce tu foto de perfil", Description = "Foto de perfil del Usuario", Name = "Foto *")]
         public string FotoPerfil { get; set; }
 
+        public IFormFile FicheroFotoPortada { get; set; }
     }
 
 }
