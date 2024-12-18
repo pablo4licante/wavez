@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Landing";
+}
+
+<div class="container">
+    <h3 class="lgsk text-center">welcome to</h3>
+    <h1 class="wavez-title text-center">wavez</h1>
+    <div class="button-row">
+        <a href="/Usuario/Login" class="btn button">Iniciar Sesion</a>
+        <a href="/Usuario/Registro" class="btn button">Registrarse</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+    document.addEventListener("mousemove", (e) => {
+        const circle = document.getElementById("mouse-circle");
+        circle.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
+    });
+    </script>
+}

@@ -21,6 +21,7 @@ namespace WebWavez.Controllers
 
         public IActionResult Index()
         {
+
             SessionInitialize();
             CancionRepository cancionRepository = new CancionRepository(session);
             CancionCEN cancionCEN = new CancionCEN(cancionRepository);
@@ -37,6 +38,12 @@ namespace WebWavez.Controllers
 
             return View(listaCanciones);
         }
+
+        public IActionResult Landing()
+        {
+            return View("Landing");
+        }
+
 
         public IActionResult ResultadoBusqueda(string query, string[] filter, GenerosEnum? genre)
         {

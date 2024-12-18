@@ -1,0 +1,20 @@
+﻿@model WebWavez.Models.CancionViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <a asp-action="Index">Volver a lista</a>
+</div>
+
+<div class="detalle-cancion">
+    <img class="card-img-top" src="@Model.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title"><strong>@Html.DisplayFor(model => model.Titulo)</strong></h5>
+        <p class="card-text">@Html.DisplayFor(model => model.Autor)</p>
+    </div>
+</div>
+

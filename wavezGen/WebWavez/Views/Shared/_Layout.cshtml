@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 @using Microsoft.AspNetCore.Http
-
 @{
     UsuarioViewModel usuario = Context.Session.Get<UsuarioViewModel>("usuario");
     string nombre = "";
@@ -10,35 +9,23 @@
     {
         nombre = usuario.Usuario;
     }
+
 }
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Wavez</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebWavez.styles.css" asp-append-version="true" />
-
-    
-   @{
-       var currentController = ViewContext.RouteData.Values["Controller"]?.ToString();
-       var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
-   }
-
-   @if ((currentController != "Usuario" || (currentAction != "Login" && currentAction != "Registro")) && usuario == null)
-   {
-       <script type="text/javascript">
-           var url = "@Url.Action("Login", "Usuario")";
-           location.href = url; 
-       </script>
-   }
-   
 
 </head>
 <body>
     <header>
-        <h1>Bienvenido @nombre</h1>
+        @if(usuario != null) {
+        <h1 class="wavez-topper text-center">wavez</h1>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Wavez</a>
@@ -80,26 +67,49 @@
                 </div>
             </div>
         </nav>
+        }
     </header>
+    <div id="mouse-circle"></div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
 
-            <!-- REPRODUCTOR DE MUSICA -->
-            <div class="container reproductor">
-                <button onclick="playNextInQueue()">Next</button>
-                <audio id="musicPlayer" controls>
-                    <source id="audioSource" src="" type="audio/mpeg" />
-                    Tu navegador no soporta la reproducción de audio.
-                </audio>
-            </div>
+            @if (usuario != null)
+            {
+                <!-- REPRODUCTOR DE MUSICA -->
+                <div class="reproductor">
+                    <div class="track-info">
+                            <img id="albumArt" src="https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2" alt="Album Art">
+                        <div>
+                            <h4 id="trackTitle">Título desconocido</h4>
+                            <p id="trackArtist">Artista desconocido</p>
+                        </div>
+                    </div>
 
-            <div class="container navegacion">
-                <button onclick="location.href='@Url.Action("Index", "Home")'">Home</button>
-                <button onclick="location.href='@Url.Action("Perfil", "Usuario", new { id = "me" })'">Perfil</button>
-                <button onclick="location.href='@Url.Action("Index", "Comunidad")'">Comunidades</button>
-                <button onclick="location.href='@Url.Action("Index", "Notificacion")'">Notificaciones</button>
-            </div>
+                    <div class="controls">
+                        <button id="playPauseButton"><i class="bi bi-play-fill"></i></button>
+                        <button id="nextButton" onclick="playNextInQueue()"><i class="bi bi-skip-end-fill"></i></button>
+                    </div>
+
+                    <div class="progress-bar">
+                        <span id="currentTime">0:00</span>
+                        <input type="range" id="progress" value="0" min="0" max="100">
+                        <span id="duration">0:00</span>
+                    </div>
+
+                    <audio id="audioPlayer" autoplay="false">
+                        <source src="" type="audio/mpeg">
+                    </audio>
+                </div>
+
+
+                <div class="navegacion">
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Home")'"><i class="bi bi-house"></i>Incio</button>
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Usuario" && ViewContext.RouteData.Values["action"].ToString() == "Perfil" ? "tq-text" : "")" onclick="location.href='@Url.Action("Perfil", "Usuario", new { id = "me" })'"><i class="bi bi-person"></i>Perfil</button>
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Comunidad" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Comunidad")'"><i class="bi bi-people"></i>Comunidad</button>
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Notificacion" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Notificacion")'"><i class="bi bi-mailbox"></i>Notificacion</button>
+                </div>
+            }
         </main>
     </div>
 
@@ -109,8 +119,7 @@
             &copy; 2024 - WebWavez - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
@@ -118,6 +127,11 @@
 
 @section Scripts {
     <script>
+        document.addEventListener("mousemove", (e) => {
+            const circle = document.getElementById("mouse-circle");
+            circle.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
+        });
+
 
         window.addEventListener('load', async function () {
             const songUrl = sessionStorage.getItem('currentSong');
@@ -139,5 +153,6 @@
                 sessionStorage.setItem('currentTime', currentTime);
             }
         });
+
     </script>
 }

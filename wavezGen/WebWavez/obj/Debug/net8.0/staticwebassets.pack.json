@@ -121,6 +121,10 @@
       "PackagePath": "staticwebassets\\Canciones\\20241217180910652.mp3"
     },
     {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Canciones\\20241218113146984.webm",
+      "PackagePath": "staticwebassets\\Canciones\\20241218113146984.webm"
+    },
+    {
       "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Canciones\\BYØRN - Release Yourself.mp3",
       "PackagePath": "staticwebassets\\Canciones\\BYØRN - Release Yourself.mp3"
     },
@@ -265,12 +269,40 @@
       "PackagePath": "staticwebassets\\Imagenes\\20241217180910652.png"
     },
     {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\20241218113146984.ico",
+      "PackagePath": "staticwebassets\\Imagenes\\20241218113146984.ico"
+    },
+    {
       "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\9a34328d07731f33f5f7f1d624e560d65193857a5d7f86d3e3f931a81998c864_200.ico",
       "PackagePath": "staticwebassets\\Imagenes\\9a34328d07731f33f5f7f1d624e560d65193857a5d7f86d3e3f931a81998c864_200.ico"
     },
     {
       "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\tutoria17431940.png",
       "PackagePath": "staticwebassets\\Imagenes\\tutoria17431940.png"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\LilGrotesk.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\LilGrotesk.ttf"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-LightItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-MediumItalic.otf",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-MediumItalic.otf"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-Regular.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-Regular.woff2",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-Regular.woff2"
+    },
+    {
+      "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\fonts\\NyghtSerif-RegularItalic.ttf",
+      "PackagePath": "staticwebassets\\css\\fonts\\NyghtSerif-RegularItalic.ttf"
     },
     {
       "Id": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\site.css",

@@ -44,3 +44,160 @@
         </div>
     }
 </div>
+
+@section Scripts {
+    <script>
+            let songQueue = [];
+                let isPlaying = false;
+
+                // Obtener elementos clave
+                const audioPlayer = document.getElementById('audioPlayer');
+                const albumArt = document.getElementById('albumArt');
+                const trackTitle = document.getElementById('trackTitle');
+                const trackArtist = document.getElementById('trackArtist');
+                const playPauseButton = document.getElementById('playPauseButton');
+                const progress = document.getElementById('progress');
+                const currentTimeEl = document.getElementById('currentTime');
+                const durationEl = document.getElementById('duration');
+
+                // Actualizar información del tiempo
+                function formatTime(seconds) {
+                    const minutes = Math.floor(seconds / 60);
+                    const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+                    return `${minutes}:${secs}`;
+                }
+
+                function updateProgress() {
+                    const currentTime = audioPlayer.currentTime;
+                    const duration = audioPlayer.duration;
+
+                    progress.value = (currentTime / duration) * 100 || 0;
+                    currentTimeEl.textContent = formatTime(currentTime);
+                    durationEl.textContent = formatTime(duration);
+
+                    const value = progress.value;
+                    const max = progress.max;
+                    const percentage = (value / max) * 100;
+                    progress.style.setProperty('--progress', `${percentage}%`);
+                }
+
+                audioPlayer.addEventListener('timeupdate', updateProgress);
+                audioPlayer.addEventListener('loadedmetadata', () => {
+
+                    const value = progress.value;
+                    const max = progress.max;
+                    const percentage = (value / max) * 100;
+                    progress.style.setProperty('--progress', `${percentage}%`);
+                    durationEl.textContent = formatTime(audioPlayer.duration);
+                });
+                // Cambiar el progreso manualmente
+                progress.addEventListener('input', () => {
+                    const seekTime = (progress.value / 100) * audioPlayer.duration;
+                    audioPlayer.currentTime = seekTime;
+                });
+
+                // Pausar/Reanudar reproducción
+                playPauseButton.addEventListener('click', () => {
+                    if (isPlaying) {
+                        audioPlayer.pause();
+                        playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                    } else {
+                        audioPlayer.play();
+                        playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                    }
+                    isPlaying = !isPlaying;
+                });
+
+                // Reproducir la siguiente canción de la cola
+                function playNextInQueue() {
+                    if (songQueue.length > 0) {
+                        const nextSong = songQueue.shift();
+                        sessionStorage.setItem('songQueue', JSON.stringify(songQueue)); // Actualizar cola en SessionStorage
+                        playSong(nextSong);
+                    } else {
+                        console.log('La cola está vacía.');
+                        isPlaying = false;
+                    }
+                }
+                    // Recuperar cola y canción actual al cargar la página
+                    window.addEventListener('load', () => {
+                        const storedQueue = sessionStorage.getItem('songQueue');
+                        if (storedQueue) {
+                            songQueue = JSON.parse(storedQueue);
+                            console.log('Cola recuperada:', songQueue);
+                        }
+
+                        const currentSong = sessionStorage.getItem('currentSong');
+                        if (currentSong) {
+                            playSong(JSON.parse(currentSong));
+                        }
+
+                        // Restaurar tiempo de la canción
+                        const storedTime = sessionStorage.getItem('currentTime');
+                        if (storedTime) {
+                            audioPlayer.currentTime = parseFloat(storedTime);
+                        }
+                    });
+
+                    // Guardar tiempo de la canción al salir de la página
+                    window.addEventListener('beforeunload', () => {
+                        const currentTime = audioPlayer.currentTime;
+                        sessionStorage.setItem('currentTime', currentTime);
+                    });
+
+                    // Evento cuando una canción termina
+                    audioPlayer.addEventListener('ended', () => {
+                        console.log('Canción terminada.');
+                        playNextInQueue();
+                    });
+
+                    // Función para reproducir una canción
+            async function playSong(song) {
+                console.log("Reproduciendo " + JSON.stringify(song))
+                if (!song || !song.url) return;
+                audioPlayer.src = song.url;
+                audioPlayer.load();
+                audioPlayer.play();
+                playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                isPlaying = true;
+
+
+                const value = progress.value;
+                const max = progress.max;
+                const percentage = (value / max) * 100;
+                progress.style.setProperty('--progress', `${percentage}%`);
+
+
+                // Actualizar información de la canción
+                albumArt.src = song.albumArt || 'https://via.placeholder.com/100';
+                trackTitle.textContent = song.title || 'Título desconocido';
+                trackArtist.textContent = song.artist || 'Artista desconocido';
+
+                sessionStorage.setItem('currentSong', JSON.stringify(song));
+                console.log(`Reproduciendo canción: ${song.title}`);
+
+                // Llamar a la API para aumentar reproducciones
+                if (song.id) {
+                    try {
+                        const response = await fetch('/Cancion/AumentarReproducciones', {
+                            method: 'POST',
+                            body: new URLSearchParams({ 'id': song.id })
+                        });
+
+                        const data = await response.json();
+                        if (data.success) {
+                            console.log("Reproducción aumentada exitosamente.");
+                        } else {
+                            console.log("Error al aumentar las reproducciones.");
+                        }
+                    } catch (error) {
+                        console.error("Error en la llamada a la API:", error);
+                    }
+                }
+            }
+        document.addEventListener("mousemove", (e) => {
+            const circle = document.getElementById("mouse-circle");
+            circle.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
+        });
+    </script>
+}

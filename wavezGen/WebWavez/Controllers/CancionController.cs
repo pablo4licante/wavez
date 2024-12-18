@@ -35,7 +35,13 @@ namespace WebWavez.Controllers
         // GET: CancionController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SessionInitialize();
+            CancionRepository cancionRepository = new CancionRepository(session);
+            CancionCEN cancionCEN = new CancionCEN(cancionRepository);
+            CancionEN cancionEN = cancionCEN.DameCancionPorOID(id);
+            CancionViewModel cancion = new CancionAssembler().CovertirENToViewModel(cancionEN);
+
+            return View(cancion);
         }
 
         // GET: CancionController/Create
