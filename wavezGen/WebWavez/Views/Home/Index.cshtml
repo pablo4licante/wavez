@@ -13,7 +13,7 @@
     string cancionesJson = JsonConvert.SerializeObject(Model);
 }
 
-<div class="text-center">
+<div>
     <h2 class="text-start">Bienvenido de nuevo @nombre</h2>
     <form asp-action="ResultadoBusqueda" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
         <input type="text" name="query" placeholder="Buscar..." />
@@ -39,14 +39,18 @@
         {
             var topItem = Model.OrderByDescending(c => c.numReproducciones).First();
             <h2>No te pierdas...</h2>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" data-song-image="@topItem.FotoPortada" src="@topItem.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+            <div class="card">
+                <a href="#" class="play-button" data-id="@topItem.Id">
+                    <img class="card-img-top" src="@topItem.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => topItem.Titulo)</strong></h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => topItem.Autor)</p>
+                    </div>
+                </a>
                 <div class="card-body">
-                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => topItem.Titulo)</strong></h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => topItem.Autor)</p>
-                    <button class="btn btn-primary play-button" data-id="@topItem.Id">Play</button>
-                    <button class="btn btn-primary queue-button" data-id="@topItem.Id">Add to Queue</button>
-                    <button class="btn btn-primary" onclick="addtoPlaylist(event)">Add To Playlist</button>
+
+                    <button class="btn button queue-button" data-id="@topItem.Id">Add to Queue</button>
+                    <button class="btn button" onclick="addtoPlaylist(event)">Add To Playlist</button>
                     <p class="card-text" style="display:none;" data-song-id="@topItem.Id">@Html.DisplayFor(modelItem => topItem.Id)</p>
                 </div>
             </div>
@@ -61,17 +65,21 @@
         <div class="grid-canciones">
             @foreach (var item in Model.OrderByDescending(c => c.Fecha).Take(10))
             {
-                <div class="card">
+            <div class="card">
+                <a href="#" class="play-button" data-id="@item.Id">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
+                    </div>
+                </a>
                 <div class="card-body">
-                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
-                    <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
-                    <button class="btn btn-primary play-button" data-id="@item.Id">Play</button>
-                    <button class="btn btn-primary queue-button" data-id="@item.Id">Add to Queue</button>
-                    <button class="btn btn-primary" onclick="addtoPlaylist(event)">Add To Playlist</button>
+
+                    <button class="btn button queue-button" data-id="@item.Id">Add to Queue</button>
+                    <button class="btn button" onclick="addtoPlaylist(event)">Add To Playlist</button>
                     <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
                 </div>
-                </div>
+            </div>
             }
         </div>
 
@@ -82,17 +90,21 @@
         <div class="grid-canciones">
             @foreach (var item in Model.OrderByDescending(c => c.numReproducciones).Take(10))
             {
-                <div class="card">
+        <div class="card">
+            <a href="#" class="play-button" data-id="@item.Id">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
-                <button class="btn btn-primary play-button" data-id="@item.Id">Play</button>
-                <button class="btn btn-primary queue-button" data-id="@item.Id">Add to Queue</button>
-                        <button class="btn btn-primary" onclick="addtoPlaylist(event)">Add To Playlist</button>
-                        <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
                     </div>
+                </a>
+                    <div class="card-body">
+
+                        <button class="btn button queue-button" data-id="@item.Id">Add to Queue</button>
+                        <button class="btn button" onclick="addtoPlaylist(event)">Add To Playlist</button>
+                        <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
                 </div>
+                    </div>
             }
         </div>
     </div>
@@ -273,26 +285,25 @@
 
             console.log("Canciones disponibles:", canciones);
         });
-
-        document.querySelectorAll('.play-button').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                console.log("Play Button Clicked!")
-                const songId = button.getAttribute('data-id');
-                const song = canciones.find(c => c.Id == songId);
-                if (song) {
-                    playSong({
-                        id: song.Id,
-                        url: song.Url,
-                        albumArt: song.FotoPortada,
-                        title: song.Titulo,
-                        artist: song.Autor,
-                    });
-                } else {
-                    console.error(`No se encontró la canción con ID ${songId}`);
-                }
+            document.querySelectorAll('.play-button').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    console.log("Play Button Clicked!")
+                    const songId = a.getAttribute('data-id');
+                    const song = canciones.find(c => c.Id == songId);
+                    if (song) {
+                        playSong({
+                            id: song.Id,
+                            url: song.Url,
+                            albumArt: song.FotoPortada,
+                            title: song.Titulo,
+                            artist: song.Autor,
+                        });
+                    } else {
+                        console.error(`No se encontró la canción con ID ${songId}`);
+                    }
+                });
             });
-        });
 
         document.querySelectorAll('.queue-button').forEach(button => {
             button.addEventListener('click', (e) => {
@@ -313,6 +324,8 @@
                 }
             });
         });
+
+
 
 
 

@@ -232,10 +232,39 @@ body {
         padding: 10px;
         z-index: 3;
 
-        > .card {
-                    min-width: 200px;
+}
+
+.card {
+    min-width: 200px;
+    max-width: 200px;
+    backdrop-filter: blur(52px); /* Apply glassmorphism effect */
+    background: rgba(6, 6, 6, 0.3); /* Semi-transparent background */
+    transition: transform 0.2s ease-in-out; /* Smooth animation */
+
+    > a {
+            color: var(--blanco);
+            text-decoration: none;
         }
 }
+
+.card:hover {
+    transform: scale(1.05); /* Increment size by 0.1 */
+    > a {
+            color:var(--turquesa)
+        }
+}
+
+.card:active {
+    transition: transform 0.1s ease-in-out; /* Fast animation for active */
+    transform: scale(1.02); /* Increment size by 0.1 */
+    > a
+
+            {
+                color: var(--turquesa-dark)
+            }
+}
+
+
 
 .grid-canciones {
     -ms-overflow-style: none; /* IE and Edge */
@@ -292,9 +321,12 @@ body {
 /* Porfa asegurar que se ve bien hasta al menos 360 px */
 @media (max-width: 500px) {
 
-    .track-info h4, p {
-        display:none;
+    .reproductor { 
+        >.track-info h4, p {
+    display: none;
+}
     }
+                                       }
 
     .wavez-title {
         font-size: 150px;
