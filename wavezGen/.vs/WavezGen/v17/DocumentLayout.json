@@ -7,16 +7,76 @@
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\usuario\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\usuario\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\usuario\\perfil.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\usuario\\perfil.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\usuario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\usuario\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\playlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\playlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\playlist\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\playlist\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\playlist\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\playlist\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\notificacion\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\notificacion\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\notificacion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\home\\resultadobusqueda.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\home\\resultadobusqueda.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\home\\landing.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\home\\landing.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\comunidad\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\comunidad\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\comunidad\\detalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\comunidad\\detalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\cancion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\cancion\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\cancion\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\cancion\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|c:\\users\\alicante\\desktop\\wavez\\wavezgen\\webwavez\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27B1684C-EF77-4381-AB3A-AD2A66B94AC0}|WebWavez\\WebWavez.csproj|solutionrelative:webwavez\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,16 +90,17 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "WebWavez\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "WebWavez\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEcAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAgwF8AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-17T20:14:59.479Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -49,7 +110,7 @@
               "RelativeDocumentMoniker": "WebWavez\\wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\css\\site.css",
               "RelativeToolTip": "WebWavez\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAALQAAAAAAAAAAAAAAMQAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABYBAAAAAAAAAAAAAC0BAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-12-17T19:57:41.251Z",
               "IsPinned": true,
@@ -61,27 +122,207 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Playlist\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Playlist\\Create.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Playlist\\Create.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Playlist\\Create.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACcAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:54:43.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Playlist\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Playlist\\Details.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Playlist\\Details.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Playlist\\Details.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADQAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:54:50.352Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Playlist\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Playlist\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Playlist\\Index.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Playlist\\Index.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFkAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:55:04.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Usuario\\Edit.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Usuario\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Usuario\\Edit.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Usuario\\Edit.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADQAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:55:20.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Usuario\\Login.cshtml",
               "RelativeDocumentMoniker": "WebWavez\\Views\\Usuario\\Login.cshtml",
               "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Usuario\\Login.cshtml",
               "RelativeToolTip": "WebWavez\\Views\\Usuario\\Login.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAC0AAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-17T20:48:39.809Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Perfil.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Usuario\\Perfil.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Usuario\\Perfil.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Usuario\\Perfil.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Usuario\\Perfil.cshtml",
+              "ViewState": "AgIAAMMAAAAAAAAAAAAAAM8AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:55:32.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Registro.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Usuario\\Registro.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Usuario\\Registro.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Usuario\\Registro.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Usuario\\Registro.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAD4AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:55:48.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Notificacion\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Notificacion\\Details.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Notificacion\\Details.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Notificacion\\Details.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEcAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:54:16.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Notificacion\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Notificacion\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Notificacion\\Index.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Notificacion\\Index.cshtml",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAHIAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:54:33.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ResultadoBusqueda.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\ResultadoBusqueda.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Home\\ResultadoBusqueda.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\ResultadoBusqueda.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Home\\ResultadoBusqueda.cshtml",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAHQAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:54:06.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Landing.cshtml",
               "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\Landing.cshtml",
               "RelativeDocumentMoniker": "WebWavez\\Views\\Home\\Landing.cshtml",
               "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\Landing.cshtml",
               "RelativeToolTip": "WebWavez\\Views\\Home\\Landing.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-17T19:01:28.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAAAB4BAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:53:50.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Comunidad\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Comunidad\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Comunidad\\Index.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Comunidad\\Index.cshtml",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAADQAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:53:35.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Detalle.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Comunidad\\Detalle.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Comunidad\\Detalle.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Comunidad\\Detalle.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Comunidad\\Detalle.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAC8AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:53:20.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Cancion\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Cancion\\Index.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Cancion\\Index.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Cancion\\Index.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGsAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:53:13.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Cancion\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Cancion\\Create.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Cancion\\Create.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Cancion\\Create.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADMAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:53:06.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "WebWavez\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "WebWavez\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T07:54:05.526Z"
             }
           ]
         },

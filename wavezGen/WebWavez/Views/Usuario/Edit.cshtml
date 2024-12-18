@@ -44,5 +44,13 @@
 </div>
 
 @section Scripts {
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+    document.addEventListener("mousemove", (e) => {
+            const circle = document.getElementById("mouse-circle");
+            circle.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
+        });
+    </script>
 }

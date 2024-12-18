@@ -69,6 +69,7 @@
         </nav>
         }
     </header>
+    <div id="mouse-circle"></div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -85,11 +86,11 @@
                 </div>
 
                 <div class="navegacion">
-                <button class="nav-button" onclick="location.href='@Url.Action("Index", "Home")'"><i class="bi bi-house"></i>Incio</button>
-                <button class="nav-button" onclick="location.href='@Url.Action("Perfil", "Usuario", new { id = "me" })'"><i class="bi bi-person"></i>Perfil</button>
-                <button class="nav-button" onclick="location.href='@Url.Action("Index", "Comunidad")'"><i class="bi bi-people"></i>Comunidad</button>
-                <button class="nav-button" onclick="location.href='@Url.Action("Index", "Notificacion")'"><i class="bi bi-mailbox"></i>Notificacion</button>
-            </div>
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Home")'"><i class="bi bi-house"></i>Incio</button>
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Usuario" && ViewContext.RouteData.Values["action"].ToString() == "Perfil" ? "tq-text" : "")" onclick="location.href='@Url.Action("Perfil", "Usuario", new { id = "me" })'"><i class="bi bi-person"></i>Perfil</button>
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Comunidad" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Comunidad")'"><i class="bi bi-people"></i>Comunidad</button>
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Notificacion" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Notificacion")'"><i class="bi bi-mailbox"></i>Notificacion</button>
+                </div>
             }
         </main>
     </div>
@@ -108,6 +109,11 @@
 
 @section Scripts {
     <script>
+        document.addEventListener("mousemove", (e) => {
+            const circle = document.getElementById("mouse-circle");
+            circle.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
+        });
+
 
         window.addEventListener('load', async function () {
             const songUrl = sessionStorage.getItem('currentSong');
@@ -129,5 +135,6 @@
                 sessionStorage.setItem('currentTime', currentTime);
             }
         });
+
     </script>
 }
