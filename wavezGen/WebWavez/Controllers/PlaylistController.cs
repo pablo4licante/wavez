@@ -215,17 +215,10 @@ public string dameMisPlaylistJSON() // Lol JSON a mano
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            try
-            {
-                PlaylistRepository playlistRepository = new PlaylistRepository();
-                PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepository);
-                playlistCEN.Eliminar(id);
-                return RedirectToAction("Perfil", "Usuario", new { id = "me" });
-            }
-            catch
-            {
-                return View();
-            }
+            PlaylistRepository playlistRepository = new PlaylistRepository();
+            PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepository);
+            playlistCEN.Eliminar(id);
+            return RedirectToAction("Perfil", "Usuario", new { id = "me" });
         }
     }
 }

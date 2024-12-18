@@ -268,29 +268,7 @@ public void Modificar (PlaylistEN playlist)
                 SessionClose ();
         }
 }
-public void Eliminar2 (int id)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                PlaylistNH playlistNH = (PlaylistNH)session.Load (typeof(PlaylistNH), id);
-                session.Delete (playlistNH);
-                SessionCommit ();
-        }
 
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
-                        throw;
-                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in PlaylistRepository.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
 
         public void Eliminar(int id)
         {
@@ -306,6 +284,7 @@ public void Eliminar2 (int id)
                         foreach (var cancion in cancionesRelacionadas)
                         {
                         playlistNH.Cancion.Remove(cancion); // Eliminar la relación
+                        cancion.Playlist.Remove(playlistNH); // Eliminar la relación inversa
                         }
                         session.Update(playlistNH); // Sincronizar cambios en la tabla intermedia
 
