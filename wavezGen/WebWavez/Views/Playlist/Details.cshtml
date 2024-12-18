@@ -24,6 +24,7 @@
     </table>
 </div>
 <button onclick="playlistPlay(event)"><i class="bi bi-play-fill"></i></button>
+<button onclick="playlistShufflePlay(event)"><i class="bi bi-shuffle"></i></button>
 <div>
     <h4>Songs</h4>
     <hr />
@@ -99,6 +100,22 @@
             playNextInQueue();
         }
 
+        function playlistShufflePlay(event) {
+            event.preventDefault();
+            songQueue = [];
+            const shuffledSongs = canciones.sort(() => Math.random() - 0.5);
+            for (const song of shuffledSongs) {
+                addToQueue({
+                    id: song.Id,
+                    url: song.Url,
+                    albumArt: song.FotoPortada,
+                    title: song.Titulo,
+                });
+            }
+            sessionStorage.setItem('songQueue', JSON.stringify(songQueue));
+            playNextInQueue();
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             // Asegurarnos de que las canciones estén disponibles
             if (!Array.isArray(canciones)) {
@@ -163,9 +180,11 @@
             if (isPlaying) {
                 audioPlayer.pause();
                 playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                sessionStorage.setItem('isPlaying', 'false');
             } else {
                 audioPlayer.play();
                 playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                sessionStorage.setItem('isPlaying', 'true');
             }
             isPlaying = !isPlaying;
         });
@@ -198,6 +217,18 @@
             const storedTime = sessionStorage.getItem('currentTime');
             if (storedTime) {
                 audioPlayer.currentTime = parseFloat(storedTime);
+            }
+
+            // Restaurar estado de reproducción
+            const storedIsPlaying = sessionStorage.getItem('isPlaying');
+            if (storedIsPlaying === 'true') {
+                audioPlayer.play();
+                playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                isPlaying = true;
+            } else {
+                audioPlayer.pause();
+                playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                isPlaying = false;
             }
         });
 

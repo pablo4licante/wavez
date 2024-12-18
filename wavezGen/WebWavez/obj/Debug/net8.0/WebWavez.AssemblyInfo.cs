@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebWavez")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+903c3ccca26262c935637bf8513c06e56bd97ca4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ab9dc3e2832f28fdcb2f1d443803c3695638c85")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebWavez")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebWavez")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
