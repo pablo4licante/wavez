@@ -84,7 +84,7 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
+    margin-bottom: 160px;
     background: linear-gradient(96deg, var(--negro), var(--negro2));
 }
 
@@ -224,12 +224,26 @@ body {
 
 /* Grid container for songs */
 .grid-canciones {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
-    gap: 30px;
-    justify-content: center;
-    z-index: 3;
+        width: 100%;
+        display: flex;
+        overflow-x: scroll;
+        scroll-behavior:smooth;
+        gap: 30px;
+        padding: 10px;
+        z-index: 3;
+
+        > .card {
+                    min-width: 200px;
+        }
+}
+
+.grid-canciones {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.grid-canciones::-webkit-scrollbar {
+    display: none;
 }
 
 /* Styles for the title */
@@ -277,6 +291,11 @@ body {
 
 /* Porfa asegurar que se ve bien hasta al menos 360 px */
 @media (max-width: 500px) {
+
+    .track-info h4, p {
+        display:none;
+    }
+
     .wavez-title {
         font-size: 150px;
     }
@@ -348,6 +367,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin-right: 4px;
 }
 
     .controls button {

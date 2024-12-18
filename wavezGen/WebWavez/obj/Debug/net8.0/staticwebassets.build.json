@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+phyeYnb24KUuSI9tmllaY8loqrYf3aVmq9o2GA1j/0=",
+  "Hash": "Gnlav+Z/rOPAfSfnYm3Yzvmh0X9hDv0fK4seauqQZRY=",
   "Source": "WebWavez",
   "BasePath": "_content/WebWavez",
   "Mode": "Default",
@@ -604,6 +604,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Canciones\\20241217180910652.mp3"
+    },
+    {
+      "Identity": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Canciones\\20241218113146984.webm",
+      "SourceId": "WebWavez",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\",
+      "BasePath": "_content/WebWavez",
+      "RelativePath": "Canciones/20241218113146984.webm",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Canciones\\20241218113146984.webm"
     },
     {
       "Identity": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Canciones\\audio.webm",
@@ -1440,6 +1459,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagenes\\20241217180910652.png"
+    },
+    {
+      "Identity": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\20241218113146984.ico",
+      "SourceId": "WebWavez",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\",
+      "BasePath": "_content/WebWavez",
+      "RelativePath": "Imagenes/20241218113146984.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagenes\\20241218113146984.ico"
     },
     {
       "Identity": "C:\\Users\\alicante\\Desktop\\wavez\\wavezGen\\WebWavez\\wwwroot\\Imagenes\\9a34328d07731f33f5f7f1d624e560d65193857a5d7f86d3e3f931a81998c864_200.ico",

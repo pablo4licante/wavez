@@ -59,7 +59,7 @@
     <div class="categorias">
         <h2>Últimas novedades</h2>
         <div class="grid-canciones">
-            @foreach (var item in Model.OrderByDescending(c => c.Fecha).Take(5))
+            @foreach (var item in Model.OrderByDescending(c => c.Fecha).Take(10))
             {
                 <div class="card">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
@@ -80,7 +80,7 @@
 
         <h2>Lo temas mas HOT del momento</h2>
         <div class="grid-canciones">
-            @foreach (var item in Model.OrderByDescending(c => c.numReproducciones).Take(5))
+            @foreach (var item in Model.OrderByDescending(c => c.numReproducciones).Take(10))
             {
                 <div class="card">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
