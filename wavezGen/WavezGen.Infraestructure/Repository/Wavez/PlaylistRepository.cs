@@ -11,6 +11,7 @@ using WavezGen.ApplicationCore.Exceptions;
 using WavezGen.ApplicationCore.IRepository.Wavez;
 using WavezGen.ApplicationCore.CP.Wavez;
 using WavezGen.Infraestructure.EN.Wavez;
+using System.Linq;
 
 
 /*
@@ -267,8 +268,7 @@ public void Modificar (PlaylistEN playlist)
                 SessionClose ();
         }
 }
-public void Eliminar (int id
-                      )
+public void Eliminar2 (int id)
 {
         try
         {
@@ -292,9 +292,51 @@ public void Eliminar (int id
         }
 }
 
-//Sin e: DamePlaylistPorOID
-//Con e: PlaylistEN
-public PlaylistEN DamePlaylistPorOID (int id
+        public void Eliminar(int id)
+        {
+            try
+            {
+                SessionInitializeTransaction();
+
+                // Cargar la playlist
+                PlaylistNH playlistNH = (PlaylistNH)session.Load(typeof(PlaylistNH), id);
+
+                // Eliminar explícitamente las relaciones de la tabla intermedia
+                var cancionesRelacionadas = playlistNH.Cancion.ToList(); // Crear una copia
+                foreach (var cancion in cancionesRelacionadas)
+                {
+                    playlistNH.Cancion.Remove(cancion); // Eliminar la relación
+                }
+                session.Update(playlistNH); // Sincronizar cambios en la tabla intermedia
+
+                // Ahora eliminar la playlist
+                session.Delete(playlistNH);
+
+                SessionCommit();
+            }
+            catch (Exception ex)
+            {
+                SessionRollBack();
+                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+                    throw;
+                else
+                    throw new WavezGen.ApplicationCore.Exceptions.DataLayerException("Error in PlaylistRepository.", ex);
+            }
+            finally
+            {
+                SessionClose();
+            }
+        }
+
+
+
+
+
+
+
+        //Sin e: DamePlaylistPorOID
+        //Con e: PlaylistEN
+        public PlaylistEN DamePlaylistPorOID (int id
                                       )
 {
         PlaylistEN playlistEN = null;
