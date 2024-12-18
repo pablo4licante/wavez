@@ -7,8 +7,9 @@
 <div class="detalle-cancion">
     <img class="card-img-top" src="@Model.FotoPortada" style="width:280px; height:280px" alt="Card image cap">
     <h4><strong>@Html.DisplayFor(model => model.Titulo)</strong></h4>
-    <a href="@Url.Action("Perfil", "Usuario", new { autor = Model.Autor })">@Html.DisplayFor(model => model.Autor)</a>
+    <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@Model.Autor" data-id="@Model.Id">
+        <p class="card-text">@Html.DisplayFor(modelItem => modelItem.AutorDisplay)</p>
+    </a>
     <p>@Html.DisplayFor(model => model.Fecha)</p>
     <p>Genero: @Html.DisplayFor(model => model.Genero)</p>
 </div>
-
