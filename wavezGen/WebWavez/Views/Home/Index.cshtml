@@ -14,39 +14,40 @@
 }
 
 <div>
-    <h2 class="text-start">Bienvenido de nuevo @nombre</h2>
-    <form asp-action="ResultadoBusqueda" method="get" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+    <h2 class="bienvenido" style="margin-top:2rem;">Bienvenido de nuevo <strong>@nombre</strong></h2>
+    <form asp-action="ResultadoBusqueda" method="get" class="search-bar">
         <input type="text" name="query" placeholder="Buscar..." />
-        <div>
-            <input type="checkbox" name="filter" value="canciones" checked /> Canciones
-            <input type="checkbox" name="filter" value="playlists" checked /> Playlists
-            <input type="checkbox" name="filter" value="usuarios" checked /> Usuarios
+        <a href="#" class="toggle-buscar-avanzado" >Filtros</a>
+        <div class="buscar-avanzado" style="display: none;">
+            <div>
+                <input type="checkbox" name="filter" value="canciones" checked /> Canciones
+                <input type="checkbox" name="filter" value="playlists" checked /> Playlists
+                <input type="checkbox" name="filter" value="usuarios" checked /> Usuarios
+            </div>
+            <div>
+                <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
+                    <option value="">Seleccione un género</option>
+                    @foreach (var genre in Model.Select(c => c.Genero).Distinct())
+                    {
+                        <option value="@genre">@genre</option>
+                    }
+                </select>
+            </div>
         </div>
-        <div>
-            <select name="genre" id="genre-selector" onchange="toggleFilters(this)">
-                <option value="">Seleccione un género</option>
-                @foreach (var genre in Model.Select(c => c.Genero).Distinct())
-                {
-                    <option value="@genre">@genre</option>
-                }
-            </select>
-        </div>
-        <button type="submit">Buscar</button>
+        <button class="button" type="submit">Buscar</button>
     </form>
-    
-    <div class="grid-canciones">
+
+
+    <div class="banner-destacado">
+        <div class="borde"></div>
         @if (Model.Any())
         {
             var topItem = Model.OrderByDescending(c => c.numReproducciones).First();
-            <h2>No te pierdas...</h2>
+            <h2>porque sabemos lo que te gusta...</h2>
             <div class="card">
 
                 <a asp-controller="Cancion" asp-action="Details" asp-route-id="@topItem.Id" data-id="@topItem.Id">
                     <img class="card-img-top" src="@topItem.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => topItem.Titulo)</strong></h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => topItem.Autor)</p>
-                    </div>
                 </a>
                 <div class="card-body">
                     <a asp-controller="Cancion" asp-action="Details" asp-route-id="@topItem.Id" data-id="@topItem.Id">
@@ -54,8 +55,16 @@
                     </a>
                     <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@topItem.Autor" data-id="@topItem.Id">
 
-                    <button class="btn button queue-button" data-id="@topItem.Id">Add to Queue</button>
-                    <button class="btn button" onclick="addtoPlaylist(event)">Add To Playlist</button>
+                        <p class="card-text">@Html.DisplayFor(modelItem => topItem.AutorDisplay)</p>
+                    </a>
+                </div>
+                <a href="#" class="play-button" data-id="@topItem.Id">
+                    <i class="bi bi-play-fill"></i>
+                </a>
+                <button class="menu-desplegable"><i class="bi bi-three-dots-vertical"></i></button>
+                <div class="desplegado">
+                    <a class="btn queue-button" data-id="@topItem.Id">Agregar a Cola</a>
+                    <a class="btn" onclick="addtoPlaylist(event)">Agregar a Playlist</a>
                     <p class="card-text" style="display:none;" data-song-id="@topItem.Id">@Html.DisplayFor(modelItem => topItem.Id)</p>
                 </div>
             </div>
@@ -64,20 +73,16 @@
 </div>
 
 
-    
-    <div class="categorias">
-        <h2>Últimas novedades</h2>
-        <div class="grid-canciones">
-            @foreach (var item in Model.OrderByDescending(c => c.Fecha).Take(10))
-            {
+
+<div class="categorias">
+    <h2 style="margin-top: 1rem;">Últimas novedades</h2>
+    <div class="grid-canciones">
+        @foreach (var item in Model.OrderByDescending(c => c.Fecha).Take(10))
+        {
             <div class="card">
 
                 <a asp-controller="Cancion" asp-action="Details" asp-route-id="@item.Id" data-id="@item.Id">
                     <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.Autor)</p>
-                    </div>
                 </a>
                 <div class="card-body">
                     <a asp-controller="Cancion" asp-action="Details" asp-route-id="@item.Id" data-id="@item.Id">
@@ -85,8 +90,16 @@
                     </a>
                     <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@item.Autor" data-id="@item.Id">
 
-                    <button class="btn button queue-button" data-id="@item.Id">Add to Queue</button>
-                    <button class="btn button" onclick="addtoPlaylist(event)">Add To Playlist</button>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.AutorDisplay)</p>
+                    </a>
+                </div>
+                <a href="#" class="play-button" data-id="@item.Id">
+                    <i class="bi bi-play-fill"></i>
+                </a>
+                <button class="menu-desplegable"><i class="bi bi-three-dots-vertical"></i></button>
+                <div class="desplegado">
+                    <a class="btn queue-button" data-id="@item.Id">Agregar a Cola</a>
+                    <a class="btn" onclick="addtoPlaylist(event)">Agregar a Playlist</a>
                     <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
                 </div>
             </div>
@@ -124,12 +137,26 @@
                 <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
             </div>
         </div>
+    }
+</div>
     </div>
 </div>
 
 
 @section Scripts {
     <script>
+
+        document.querySelectorAll('.menu-desplegable').forEach(button => {
+            button.addEventListener('click', () => {
+                const desplegado = button.nextElementSibling;
+                desplegado.style.display = desplegado.style.display === 'flex' ? 'none' : 'flex';
+            });
+        });
+        document.querySelector('.toggle-buscar-avanzado').addEventListener('click', function (e) {
+            e.preventDefault();
+            const buscarAvanzado = document.querySelector('.buscar-avanzado');
+            buscarAvanzado.style.display = buscarAvanzado.style.display === 'none' || buscarAvanzado.style.display === '' ? 'flex' : 'none';
+        });
 
         const canciones = @Html.Raw(cancionesJson);
         // Cola de canciones
@@ -314,25 +341,25 @@
 
             console.log("Canciones disponibles:", canciones);
         });
-            document.querySelectorAll('.play-button').forEach(a => {
-                a.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    console.log("Play Button Clicked!")
-                    const songId = a.getAttribute('data-id');
-                    const song = canciones.find(c => c.Id == songId);
-                    if (song) {
-                        playSong({
-                            id: song.Id,
-                            url: song.Url,
-                            albumArt: song.FotoPortada,
-                            title: song.Titulo,
-                            artist: song.Autor,
-                        });
-                    } else {
-                        console.error(`No se encontró la canción con ID ${songId}`);
-                    }
-                });
+        document.querySelectorAll('.play-button').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log("Play Button Clicked!")
+                const songId = a.getAttribute('data-id');
+                const song = canciones.find(c => c.Id == songId);
+                if (song) {
+                    playSong({
+                        id: song.Id,
+                        url: song.Url,
+                        albumArt: song.FotoPortada,
+                        title: song.Titulo,
+                        artist: song.AutorDisplay,
+                    });
+                } else {
+                    console.error(`No se encontró la canción con ID ${songId}`);
+                }
             });
+        });
 
         document.querySelectorAll('.queue-button').forEach(button => {
             button.addEventListener('click', (e) => {
@@ -346,7 +373,7 @@
                         url: song.Url,
                         albumArt: song.FotoPortada,
                         title: song.Titulo,
-                        artist: song.Autor,
+                        artist: song.AutorDisplay,
                     });
                 } else {
                     console.error(`No se encontró la canción con ID ${songId}`);
@@ -381,7 +408,8 @@
                 playlistSelector.innerHTML = playlists.map(playlist => `<option value="${playlist.Id}">${playlist.Titulo}</option>`).join('');
 
                 let submitButton = document.createElement('button');
-                submitButton.textContent = 'Add to Playlist';
+                submitButton.className = "button";
+                submitButton.textContent = 'Agregar';
                 submitButton.addEventListener('click', async function () {
                     const playlistId = playlistSelector.value;
                     console.log(songId, playlistId);
@@ -391,18 +419,14 @@
                     });
 
 
-
-                    const addData = await addResponse.json();
-
-                    if (addData.success) {
                         console.log("Canción agregada a la playlist exitosamente.");
-                    } else {
-                        console.log("Error al agregar la canción a la playlist.");
-                    }
+                        submitButton.remove();
+                        playlistSelector.remove();
+                        desplegado.style.display = 'none';
                 });
-
-                event.target.parentElement.appendChild(playlistSelector);
-                event.target.parentElement.appendChild(submitButton);
+            event.target.parentElement.querySelectorAll('select, button').forEach(el => el.remove());
+            event.target.parentElement.appendChild(playlistSelector);
+            event.target.parentElement.appendChild(submitButton);
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -410,14 +434,14 @@
         function toggleFilters(select) {
             var filters = document.querySelectorAll('input[name="filter"]');
             if (select.value) {
-                filters.forEach(function(filter) {
+                filters.forEach(function (filter) {
                     if (filter.value !== "canciones") {
                         filter.checked = false;
                         filter.disabled = true;
                     }
                 });
             } else {
-                filters.forEach(function(filter) {
+                filters.forEach(function (filter) {
                     filter.disabled = false;
                 });
             }
