@@ -19,6 +19,7 @@
 
 :root {
     --negro: #060606;
+    --negro2: #121212;
     --blanco: #ffffff;
     --turquesa: #5f9ea0;
     --turquesa-dark: #385d5e;
@@ -77,14 +78,14 @@ a {
 
 /* Ensure html and body take full height */
 html {
-  position: relative;
-  min-height: 100%;
-  background-color: var(--negro);
+    position: relative;
+    min-height: 100%;
+    background: linear-gradient(96deg, var(--negro), var(--negro2));
 }
 
 body {
     margin-bottom: 60px;
-    background-color: var(--negro);
+    background: linear-gradient(96deg, var(--negro), var(--negro2));
 }
 
 /* Flexbox container for songs */
@@ -159,14 +160,18 @@ body {
 
 .reproductor {
     display: flex;
-    position:fixed;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    position: fixed;
     right: 0;
     bottom: 4rem;
-    width: min(400px, 80%);
-    justify-content: center;
-    background-color: #f8f9fa;
+    width: 100%;
+    padding: 0.4rem;
+    background: linear-gradient(145deg, var(--negro), var(--negro2));
     padding: 1rem;
-    border-top: 1px solid #ddd;
+    box-shadow: 1px -2px 20px -10px rgba(128,128,128,0.2);
     z-index: 1000;
 }
 
@@ -190,8 +195,8 @@ body {
     width: 100%;
     gap: 26px;
     justify-content: center;
-    background-color: var(--negro);
-    box-shadow: 1px -10px 20px -10px rgba(255,255,255,0.2);
+    background: linear-gradient(145deg, var(--negro), var(--negro2));
+    box-shadow: 1px -2px 20px -10px rgba(128,128,128,0.2);
     z-index: 1000;
     padding: 0.3rem;
 }
@@ -205,7 +210,7 @@ body {
     height: 4rem;
     border: 0;
     z-index: 3;
-    background-color: var(--negro);
+    background: none;
     > i {
             font-size: 1.4rem;
             margin-bottom: -0.5rem;
@@ -231,6 +236,16 @@ body {
 .wavez-title {
     font-family: 'NyghtSerif';
     font-size: 240px;
+    font-style: italic;
+    font-weight: lighter;
+    margin: 0;
+    color: var(--blanco);
+    user-select: none;
+    z-index: 3;
+}
+.wavez-topper {
+    font-family: 'NyghtSerif';
+    font-size: 60px;
     font-style: italic;
     font-weight: lighter;
     margin: 0;
@@ -301,3 +316,103 @@ body {
 .tq-text {
     color:var(--turquesa)
 }
+
+
+/* COSAS DEL REPRODUCTOR DE MUSICA */
+.track-info {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    gap: 15px;
+}
+
+    .track-info img {
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    .track-info h4 {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .track-info p {
+        margin: 0;
+        font-size: 14px;
+        color: #b3b3b3;
+    }
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+    .controls button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+        .controls button:hover {
+            transform: scale(1.2);
+        }
+
+.progress-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+input[type="range"] {
+    -webkit-appearance: none; /* Eliminate default styling */
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: var(--gris); /* Gray color for untraveled part */
+    outline: none;
+    margin: 10px 0;
+}
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Elimina el estilo predeterminado del thumb */
+        appearance: none;
+        width: 14px; /* O estableces un valor en 0 para ocultarlo */
+        height: 14px;
+        background: var(--blanco); /* Hace que no se vea */
+        border: none;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        width: 14px; /* Oculta el thumb en Firefox */
+        height: 14px;
+        background: var(--blanco);
+        border: none;
+    }
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, var(--turquesa) 0%, var(--turquesa-dark) var(--progress), var(--gris) var(--progress), var(--gris) 100%);
+    height: 8px;
+    border-radius: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+    background: linear-gradient(to right, var(--turquesa) 0%, var(--turquesa-dark) var(--progress), var(--gris) var(--progress), var(--gris) 100%);
+    height: 8px;
+    border-radius: 5px;
+}
+
+.progress-bar span {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+        font-size: 12px;
+        color: #b3b3b3;
+    }
+

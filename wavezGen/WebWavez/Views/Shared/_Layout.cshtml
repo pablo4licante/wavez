@@ -25,7 +25,7 @@
 <body>
     <header>
         @if(usuario != null) {
-        <h1>Bienvenido @nombre</h1>
+        <h1 class="wavez-topper text-center">wavez</h1>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Wavez</a>
@@ -77,13 +77,31 @@
             @if (usuario != null)
             {
                 <!-- REPRODUCTOR DE MUSICA -->
-                <div class="container reproductor">
-                    <button class="btn btn-primary" onclick="playNextInQueue()"><i class="bi bi-skip-end-fill"></i></button>
-                    <audio id="musicPlayer" controls>
-                        <source id="audioSource" src="" type="audio/mpeg" />
-                        Tu navegador no soporta la reproducción de audio.
+                <div class="reproductor">
+                    <div class="track-info">
+                        <img id="albumArt" src="https://via.placeholder.com/100" alt="Album Art">
+                        <div>
+                            <h4 id="trackTitle">Título desconocido</h4>
+                            <p id="trackArtist">Artista desconocido</p>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button id="playPauseButton"><i class="bi bi-play-fill"></i></button>
+                        <button id="nextButton" onclick="playNextInQueue()"><i class="bi bi-skip-end-fill"></i></button>
+                    </div>
+
+                    <div class="progress-bar">
+                        <span id="currentTime">0:00</span>
+                        <input type="range" id="progress" value="0" min="0" max="100">
+                        <span id="duration">0:00</span>
+                    </div>
+
+                    <audio id="audioPlayer">
+                        <source src="" type="audio/mpeg">
                     </audio>
                 </div>
+
 
                 <div class="navegacion">
                     <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Home")'"><i class="bi bi-house"></i>Incio</button>
