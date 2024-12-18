@@ -23,6 +23,7 @@ namespace WebWavez.Models
 
         public IFormFile FicheroFotoPortada { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Fecha { get; set; }
 
         public int numReproducciones { get; set; }
