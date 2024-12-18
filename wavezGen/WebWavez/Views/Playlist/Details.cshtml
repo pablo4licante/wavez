@@ -24,6 +24,7 @@
     </table>
 </div>
 <button onclick="playlistPlay(event)"><i class="bi bi-play-fill"></i></button>
+<button onclick="playlistShufflePlay(event)"><i class="bi bi-shuffle"></i></button>
 <div>
     <h4>Songs</h4>
     <hr />
@@ -88,6 +89,22 @@
             event.preventDefault();
             songQueue = [];
             for (const song of canciones) {
+                addToQueue({
+                    id: song.Id,
+                    url: song.Url,
+                    albumArt: song.FotoPortada,
+                    title: song.Titulo,
+                });
+            }
+            sessionStorage.setItem('songQueue', JSON.stringify(songQueue));
+            playNextInQueue();
+        }
+
+        function playlistShufflePlay(event) {
+            event.preventDefault();
+            songQueue = [];
+            const shuffledSongs = canciones.sort(() => Math.random() - 0.5);
+            for (const song of shuffledSongs) {
                 addToQueue({
                     id: song.Id,
                     url: song.Url,
