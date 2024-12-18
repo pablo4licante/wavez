@@ -18,7 +18,8 @@ namespace WebWavez.Assemblers
                 cvm.Fecha = (DateTime)cancion.Fecha;
             }
             cvm.numReproducciones = cancion.NumReproducciones;
-            cvm.Autor = cancion.Autor.Nombre;
+            cvm.Autor = cancion.Autor.Usuario;
+            cvm.AutorDisplay = cancion.Autor.Nombre;
             cvm.Url = cancion.Url;
             return cvm;
         }
