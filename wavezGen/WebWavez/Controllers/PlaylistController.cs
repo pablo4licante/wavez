@@ -204,7 +204,10 @@ public string dameMisPlaylistJSON() // Lol JSON a mano
         // GET: PlaylistController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            PlaylistRepository playlistRepository = new PlaylistRepository();
+            PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepository);
+            playlistCEN.Eliminar(id);
+            return RedirectToAction("Perfil", "Usuario", new { id = "me" });
         }
 
         // POST: PlaylistController/Delete/5
@@ -214,7 +217,10 @@ public string dameMisPlaylistJSON() // Lol JSON a mano
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                PlaylistRepository playlistRepository = new PlaylistRepository();
+                PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepository);
+                playlistCEN.Eliminar(id);
+                return RedirectToAction("Perfil", "Usuario", new { id = "me" });
             }
             catch
             {

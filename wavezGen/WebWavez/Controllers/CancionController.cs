@@ -192,7 +192,10 @@ namespace WebWavez.Controllers
         // GET: CancionController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            CancionRepository cancionRepository = new CancionRepository();
+            CancionCEN cancionCEN = new CancionCEN(cancionRepository);
+            cancionCEN.Eliminar(id);
+            return RedirectToAction("Perfil", "Usuario", new { id = "me" });
         }
 
         // POST: CancionController/Delete/5

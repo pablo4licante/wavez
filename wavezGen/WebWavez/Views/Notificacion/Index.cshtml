@@ -74,9 +74,7 @@
                 </td>
 
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                @Html.ActionLink("Details", "Details", new { id=item.Id })
             </td>
         </tr>
 }
@@ -137,15 +135,17 @@
 
             // Pausar/Reanudar reproducción
             playPauseButton.addEventListener('click', () => {
-                if (isPlaying) {
-                    audioPlayer.pause();
-                    playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
-                } else {
-                    audioPlayer.play();
-                    playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
-                }
-                isPlaying = !isPlaying;
-            });
+                    if (isPlaying) {
+                        audioPlayer.pause();
+                        playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'false');
+                    } else {
+                        audioPlayer.play();
+                        playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'true');
+                    }
+                    isPlaying = !isPlaying;
+                });
 
             // Reproducir la siguiente canción de la cola
             function playNextInQueue() {
@@ -176,6 +176,18 @@
                     if (storedTime) {
                         audioPlayer.currentTime = parseFloat(storedTime);
                     }
+
+                    // Restaurar estado de reproducción
+                        const storedIsPlaying = sessionStorage.getItem('isPlaying');
+                        if (storedIsPlaying === 'true') {
+                            audioPlayer.play();
+                            playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                            isPlaying = true;
+                        } else {
+                            audioPlayer.pause();
+                            playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                            isPlaying = false;
+                        }
                 });
 
                 // Guardar tiempo de la canción al salir de la página

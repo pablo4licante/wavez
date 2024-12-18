@@ -5,12 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Bienvenido/a a Wavez</h1>
+<div class="container">
+    <h3 class="lgsk text-center">welcome to</h3>
+    <h1 class="wavez-title text-center">wavez</h1>
+</div>
 
-<h4>Por favor, regístrese</h4>
+<h4 class="text-center">Registro</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="center-container">
+    <div class="">
         <form asp-action="Registro">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -43,14 +46,15 @@
                 <input asp-for="FotoPerfil" class="form-control" />
                 <span asp-validation-for="FotoPerfil" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Enviar" class="btn btn-primary" />
+
+            <div class="form-group mt-2 mb-4 text-center">
+                <input type="submit" value="Enviar" class="btn button" />
             </div>
         </form>
 
-        <div class="container">
-            <p>¿Aún no tienes cuenta?</p>
-            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Login">Inicia sesión</a>
+        <div class="text-center">
+            <p class="text-center">¿Ya tienes una cuenta?</p>
+            <a class="text-center" asp-area="" asp-controller="Usuario" asp-action="Login">Inicia sesión</a>
         </div>
     </div>
 </div>

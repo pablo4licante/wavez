@@ -128,6 +128,8 @@ body {
     gap: 30px;
     justify-content: center;
     z-index: 3;
+    margin: 1rem;
+    margin-top: 2rem;
 }
 
 /* Styles for filter buttons */
@@ -254,7 +256,7 @@ margin-bottom: -0.5rem;
     text-decoration: none;
 }
 
-.card:hover {
+.card:hover, .detalle-cancion {
     transform: scale(1.05); /* Increment size by 0.1 */
 }
     
@@ -270,6 +272,63 @@ margin-bottom: -0.5rem;
 
 .card a:active {
     color: var(--turquesa-dark);
+}
+
+.top-info-comunidad {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    width: 100%;  
+}
+
+/* Para el detalle de una cancion*/
+.detalle-cancion {
+    width: 90%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem auto; /* Centra el elemento horizontalmente */
+    padding: 1.5rem; /* Añade espacio interno para mejor presentación */
+    backdrop-filter: blur(20px); /* Ajusta el desenfoque para un efecto más suave */
+    background: rgba(63,63,63,0.2);
+    border-radius: 12px; /* Redondea bordes para un mejor diseño */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Añade sombra para destacar */
+
+}
+
+.detalle-cancion h4 {
+    font-size: 1.2rem; /* Ajusta tamaño relativo */
+    margin-top: 1rem;
+    color: var(--blanco);
+    text-align: center; /* Centra el texto */
+    word-wrap: break-word; /* Asegura que no se desborde */
+}
+
+.detalle-cancion a {
+    margin-top: 0.5rem;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1rem;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.detalle-cancion p {
+    margin: 0;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1rem;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.detalle-cancion:hover a {
+    color: var(--turquesa);
+    cursor: pointer;
+    transform: scale(1.02); /* Increment size by 0.1 */
 }
 
 

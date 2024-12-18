@@ -38,6 +38,7 @@
     });
 
 
+
 </script>
 
 
@@ -88,6 +89,7 @@
 
 
 
+
     <div class="resultados">
 
         <!-- Mostrar canciones -->
@@ -113,12 +115,21 @@
                         <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Id)</h5>
                             <p class="card-text"><strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
                             <p class="card-text"><strong>Autor:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
                             <p class="card-text"><strong>Fecha de Lanzamiento:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
                             <p class="card-text"><strong>Reproducciones:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
                         </div>
+                        @if (Model.EsPerfilPropio)
+                        {
+                            <form action="@Url.Action("Delete", "Cancion", new { id = item.Id })" method="get">
+                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                            </form>
+                        }
                     </div>
+
+              
                 }
             }
         </div>
@@ -143,12 +154,18 @@
                 @foreach (var item in Model.Playlists)
                 {
                     <div class="card">
-                    <a asp-controller="Playlist" asp-action="Details" asp-route-id="@item.Id">
-                        <img class="card-img-top" src="@(!string.IsNullOrEmpty(item.FotoPortada) ? item.FotoPortada : Url.Content("https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2"))" style="width:200px; height:200px" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
-                        </div>
+                        <a asp-controller="Playlist" asp-action="Details" asp-route-id="@item.Id">
+                            <img class="card-img-top" src="@(!string.IsNullOrEmpty(item.FotoPortada) ? item.FotoPortada : Url.Content("https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2"))" style="width:200px; height:200px" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                            </div>
                         </a>
+                        @if (Model.EsPerfilPropio)
+                        {
+                            <form action="@Url.Action("Delete", "Playlist", new { id = item.Id })" method="post">
+                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                            </form>
+                        }
                     </div>
                 }
             }
@@ -259,9 +276,11 @@
                     if (isPlaying) {
                         audioPlayer.pause();
                         playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'false');
                     } else {
                         audioPlayer.play();
                         playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'true');
                     }
                     isPlaying = !isPlaying;
                 });
@@ -294,6 +313,18 @@
                         const storedTime = sessionStorage.getItem('currentTime');
                         if (storedTime) {
                             audioPlayer.currentTime = parseFloat(storedTime);
+                        }
+
+                        // Restaurar estado de reproducción
+                        const storedIsPlaying = sessionStorage.getItem('isPlaying');
+                        if (storedIsPlaying === 'true') {
+                            audioPlayer.play();
+                            playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                            isPlaying = true;
+                        } else {
+                            audioPlayer.pause();
+                            playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                            isPlaying = false;
                         }
                     });
 

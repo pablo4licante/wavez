@@ -6,17 +6,19 @@
     int idcomunidad_fav = ViewBag.IdComunidad;
 }
 
-<h1>@Model.Comunidad.Genero</h1>
+<div class="top-info-comunidad">
+    <h1><strong>@Model.Comunidad.Genero</strong></h1>
 
-<div>
-    @if (fav)//Si es favorito
-    {
-        <a href="#" onclick="toggleFav(event)">Quitar de favoritos</a>
-    }
-    else
-    {
-        <a href="#" onclick="toggleFav(event)">Agregar a favoritos</a>
-    }
+    <div id="boton-fav">
+        @if (fav)// si ya es favorito
+        {
+            <button class="btn button" href="#" onclick="toggleFav(event)"><i class="bi bi-star-fill"></i> Quitar de favoritos</button>
+        }
+        else // si no lo es
+        {
+            <button class="btn button" href="#" onclick="toggleFav(event)"><i class="bi bi-star"></i> Agregar a favoritos</button>
+        }
+    </div>
 </div>
 
 <h2>Notificaciones</h2>
@@ -121,9 +123,11 @@ else
                 if (isPlaying) {
                     audioPlayer.pause();
                     playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                    sessionStorage.setItem('isPlaying', 'false');
                 } else {
                     audioPlayer.play();
                     playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                    sessionStorage.setItem('isPlaying', 'true');
                 }
                 isPlaying = !isPlaying;
             });
@@ -156,6 +160,18 @@ else
                     const storedTime = sessionStorage.getItem('currentTime');
                     if (storedTime) {
                         audioPlayer.currentTime = parseFloat(storedTime);
+                    }
+
+                    // Restaurar estado de reproducción
+                    const storedIsPlaying = sessionStorage.getItem('isPlaying');
+                    if (storedIsPlaying === 'true') {
+                        audioPlayer.play();
+                        playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                        isPlaying = true;
+                    } else {
+                        audioPlayer.pause();
+                        playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                        isPlaying = false;
                     }
                 });
 
