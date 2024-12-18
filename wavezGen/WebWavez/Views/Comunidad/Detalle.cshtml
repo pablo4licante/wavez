@@ -6,22 +6,6 @@
     int idcomunidad_fav = ViewBag.IdComunidad;
 }
 
-@section Scripts {
-    <script>
-
-        async function toggleFav(event) {
-            event.preventDefault();
-
-            await fetch('/Usuario/CambiarFavorito', {
-                method: 'POST',
-                body: new URLSearchParams({ 'idComunidad': @idcomunidad_fav })
-            });
-
-            location.reload();
-        }
-    </script>
-}
-
 <h1>@Model.Comunidad.Genero</h1>
 
 <div>
@@ -85,11 +69,22 @@ else
             const currentTimeEl = document.getElementById('currentTime');
             const durationEl = document.getElementById('duration');
 
-            // Actualizar información del tiempo
+            // Actualizar informaciï¿½n del tiempo
             function formatTime(seconds) {
                 const minutes = Math.floor(seconds / 60);
                 const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
                 return `${minutes}:${secs}`;
+            }
+
+            async function toggleFav(event) {
+                event.preventDefault();
+
+                await fetch('/Usuario/CambiarFavorito', {
+                    method: 'POST',
+                    body: new URLSearchParams({ 'idComunidad': @idcomunidad_fav })
+                });
+
+                location.reload();
             }
 
             function updateProgress() {
@@ -121,7 +116,7 @@ else
                 audioPlayer.currentTime = seekTime;
             });
 
-            // Pausar/Reanudar reproducción
+            // Pausar/Reanudar reproducciï¿½n
             playPauseButton.addEventListener('click', () => {
                 if (isPlaying) {
                     audioPlayer.pause();
@@ -133,18 +128,18 @@ else
                 isPlaying = !isPlaying;
             });
 
-            // Reproducir la siguiente canción de la cola
+            // Reproducir la siguiente canciï¿½n de la cola
             function playNextInQueue() {
                 if (songQueue.length > 0) {
                     const nextSong = songQueue.shift();
                     sessionStorage.setItem('songQueue', JSON.stringify(songQueue)); // Actualizar cola en SessionStorage
                     playSong(nextSong);
                 } else {
-                    console.log('La cola está vacía.');
+                    console.log('La cola estï¿½ vacï¿½a.');
                     isPlaying = false;
                 }
             }
-                // Recuperar cola y canción actual al cargar la página
+                // Recuperar cola y canciï¿½n actual al cargar la pï¿½gina
                 window.addEventListener('load', () => {
                     const storedQueue = sessionStorage.getItem('songQueue');
                     if (storedQueue) {
@@ -157,26 +152,26 @@ else
                         playSong(JSON.parse(currentSong));
                     }
 
-                    // Restaurar tiempo de la canción
+                    // Restaurar tiempo de la canciï¿½n
                     const storedTime = sessionStorage.getItem('currentTime');
                     if (storedTime) {
                         audioPlayer.currentTime = parseFloat(storedTime);
                     }
                 });
 
-                // Guardar tiempo de la canción al salir de la página
+                // Guardar tiempo de la canciï¿½n al salir de la pï¿½gina
                 window.addEventListener('beforeunload', () => {
                     const currentTime = audioPlayer.currentTime;
                     sessionStorage.setItem('currentTime', currentTime);
                 });
 
-                // Evento cuando una canción termina
+                // Evento cuando una canciï¿½n termina
                 audioPlayer.addEventListener('ended', () => {
-                    console.log('Canción terminada.');
+                    console.log('Canciï¿½n terminada.');
                     playNextInQueue();
                 });
 
-                // Función para reproducir una canción
+                // Funciï¿½n para reproducir una canciï¿½n
         async function playSong(song) {
             console.log("Reproduciendo " + JSON.stringify(song))
             if (!song || !song.url) return;
@@ -193,13 +188,13 @@ else
             progress.style.setProperty('--progress', `${percentage}%`);
 
 
-            // Actualizar información de la canción
+            // Actualizar informaciï¿½n de la canciï¿½n
             albumArt.src = song.albumArt || 'https://via.placeholder.com/100';
-            trackTitle.textContent = song.title || 'Título desconocido';
+            trackTitle.textContent = song.title || 'Tï¿½tulo desconocido';
             trackArtist.textContent = song.artist || 'Artista desconocido';
 
             sessionStorage.setItem('currentSong', JSON.stringify(song));
-            console.log(`Reproduciendo canción: ${song.title}`);
+            console.log(`Reproduciendo canciï¿½n: ${song.title}`);
 
             // Llamar a la API para aumentar reproducciones
             if (song.id) {
@@ -211,7 +206,7 @@ else
 
                     const data = await response.json();
                     if (data.success) {
-                        console.log("Reproducción aumentada exitosamente.");
+                        console.log("Reproducciï¿½n aumentada exitosamente.");
                     } else {
                         console.log("Error al aumentar las reproducciones.");
                     }
