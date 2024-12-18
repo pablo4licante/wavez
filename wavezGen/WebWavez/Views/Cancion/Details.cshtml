@@ -1,15 +1,329 @@
 ﻿@model WebWavez.Models.CancionViewModel
+@using Newtonsoft.Json
 
 @{
     ViewData["Title"] = "Details";
+
+    string cancionJson = JsonConvert.SerializeObject(Model);
 }
 
-<div class="detalle-cancion">
-    <img class="card-img-top" src="@Model.FotoPortada" style="width:280px; height:280px" alt="Card image cap">
-    <h4><strong>@Html.DisplayFor(model => model.Titulo)</strong></h4>
-    <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@Model.Autor" data-id="@Model.Id">
-        <p class="card-text">@Html.DisplayFor(modelItem => modelItem.AutorDisplay)</p>
-    </a>
-    <p>@Html.DisplayFor(model => model.Fecha)</p>
-    <p>Genero: @Html.DisplayFor(model => model.Genero)</p>
+<div class="cc">
+    <div class="card">
+        <a asp-controller="Cancion" asp-action="Details" asp-route-id="@Model.Id" data-id="@Model.Id">
+            <img class="card-img-top" src="@Model.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
+        </a>
+        <div class="card-body">
+            <a asp-controller="Cancion" asp-action="Details" asp-route-id="@Model.Id" data-id="@Model.Id">
+                <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => Model.Titulo)</strong></h5>
+            </a>
+            <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@Model.Autor" data-id="@Model.Id">
+
+                <p class="card-text">@Html.DisplayFor(modelItem => Model.AutorDisplay)</p>
+            </a>
+            <p class="card-text">@Html.DisplayFor(modelItem => Model.Fecha)</p>
+        </div>
+        <a href="#" class="play-button" data-id="@Model.Id">
+            <i class="bi bi-play-fill"></i>
+        </a>
+        <button class="menu-desplegable"><i class="bi bi-three-dots-vertical"></i></button>
+        <div class="desplegado">
+            <a class="btn queue-button" data-id="@Model.Id">Agregar a Cola</a>
+            <a class="btn" onclick="addtoPlaylist(event)">Agregar a Playlist</a>
+            <p class="card-text" style="display:none;" data-song-id="@Model.Id">@Html.DisplayFor(modelItem => Model.Id)</p>
+        </div>
+    </div>
+    <div class="comentarios-cancion">
+
+    </div>
 </div>
+
+@section Scripts {
+    <script>
+
+        document.querySelectorAll('.menu-desplegable').forEach(button => {
+            button.addEventListener('click', () => {
+                const desplegado = button.nextElementSibling;
+                desplegado.style.display = desplegado.style.display === 'flex' ? 'none' : 'flex';
+            });
+        });
+
+        const canciones = @Html.Raw(cancionJson);
+        // Cola de canciones
+        let songQueue = [];
+        let isPlaying = false;
+
+        // Obtener elementos clave
+        const audioPlayer = document.getElementById('audioPlayer');
+        const albumArt = document.getElementById('albumArt');
+        const trackTitle = document.getElementById('trackTitle');
+        const trackArtist = document.getElementById('trackArtist');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const progress = document.getElementById('progress');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+
+        // Actualizar información del tiempo
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+            return `${minutes}:${secs}`;
+        }
+
+        function updateProgress() {
+            const currentTime = audioPlayer.currentTime;
+            const duration = audioPlayer.duration;
+
+            progress.value = (currentTime / duration) * 100 || 0;
+            currentTimeEl.textContent = formatTime(currentTime);
+            durationEl.textContent = formatTime(duration);
+
+            const value = progress.value;
+            const max = progress.max;
+            const percentage = (value / max) * 100;
+            progress.style.setProperty('--progress', `${percentage}%`);
+        }
+
+        audioPlayer.addEventListener('timeupdate', updateProgress);
+        audioPlayer.addEventListener('loadedmetadata', () => {
+            const value = progress.value;
+            const max = progress.max;
+            const percentage = (value / max) * 100;
+            progress.style.setProperty('--progress', `${percentage}%`);
+            durationEl.textContent = formatTime(audioPlayer.duration);
+        });
+
+        // Función para reproducir una canción
+        async function playSong(song) {
+            console.log("Reproduciendo " + JSON.stringify(song))
+            if (!song || !song.url) return;
+            audioPlayer.src = song.url;
+            audioPlayer.load();
+            audioPlayer.play();
+            playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+            isPlaying = true;
+
+            const value = progress.value;
+            const max = progress.max;
+            const percentage = (value / max) * 100;
+            progress.style.setProperty('--progress', `${percentage}%`);
+
+
+            // Actualizar información de la canción
+            albumArt.src = song.albumArt || 'https://via.placeholder.com/100';
+            trackTitle.textContent = song.title || 'Título desconocido';
+            trackArtist.textContent = song.artist || 'Artista desconocido';
+
+            sessionStorage.setItem('currentSong', JSON.stringify(song));
+            console.log(`Reproduciendo canción: ${song.title}`);
+
+            // Llamar a la API para aumentar reproducciones
+            if (song.id) {
+                try {
+                    const response = await fetch('/Cancion/AumentarReproducciones', {
+                        method: 'POST',
+                        body: new URLSearchParams({ 'id': song.id })
+                    });
+
+                    const data = await response.json();
+                    if (data.success) {
+                        console.log("Reproducción aumentada exitosamente.");
+                    } else {
+                        console.log("Error al aumentar las reproducciones.");
+                    }
+                } catch (error) {
+                    console.error("Error en la llamada a la API:", error);
+                }
+            }
+        }
+
+        // Cambiar el progreso manualmente
+        progress.addEventListener('input', () => {
+            const seekTime = (progress.value / 100) * audioPlayer.duration;
+            audioPlayer.currentTime = seekTime;
+        });
+
+        // Pausar/Reanudar reproducción
+        playPauseButton.addEventListener('click', () => {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                sessionStorage.setItem('isPlaying', 'false');
+            } else {
+                audioPlayer.play();
+                playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                sessionStorage.setItem('isPlaying', 'true');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Reproducir la siguiente canción de la cola
+        function playNextInQueue() {
+            if (songQueue.length > 0) {
+                const nextSong = songQueue.shift();
+                sessionStorage.setItem('songQueue', JSON.stringify(songQueue)); // Actualizar cola en SessionStorage
+                playSong(nextSong);
+            } else {
+                console.log('La cola está vacía.');
+                isPlaying = false;
+            }
+        }
+
+        // Función para agregar una canción a la cola
+        function addToQueue(song) {
+            songQueue.push(song);
+            sessionStorage.setItem('songQueue', JSON.stringify(songQueue));
+            console.log('Canción agregada a la cola:', song.title);
+        }
+
+        // Recuperar cola y canción actual al cargar la página
+        window.addEventListener('load', () => {
+            const storedQueue = sessionStorage.getItem('songQueue');
+            if (storedQueue) {
+                songQueue = JSON.parse(storedQueue);
+                console.log('Cola recuperada:', songQueue);
+            }
+
+            const currentSong = sessionStorage.getItem('currentSong');
+            if (currentSong) {
+                playSong(JSON.parse(currentSong));
+            }
+
+            // Restaurar tiempo de la canción
+            const storedTime = sessionStorage.getItem('currentTime');
+            if (storedTime) {
+                audioPlayer.currentTime = parseFloat(storedTime);
+            }
+
+            // Restaurar estado de reproducción
+            const storedIsPlaying = sessionStorage.getItem('isPlaying');
+            if (storedIsPlaying === 'true') {
+                audioPlayer.play();
+                playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                isPlaying = true;
+            } else {
+                audioPlayer.pause();
+                playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                isPlaying = false;
+            }
+        });
+
+        // Guardar tiempo de la canción al salir de la página
+        window.addEventListener('beforeunload', () => {
+            const currentTime = audioPlayer.currentTime;
+            sessionStorage.setItem('currentTime', currentTime);
+        });
+
+        // Evento cuando una canción termina
+        audioPlayer.addEventListener('ended', () => {
+            console.log('Canción terminada.');
+            playNextInQueue();
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Asegurarnos de que las canciones estén disponibles
+            if (!Array.isArray(canciones)) {
+                console.error("No se encontraron canciones.");
+                return;
+            }
+
+            console.log("Canciones disponibles:", canciones);
+        });
+        document.querySelectorAll('.play-button').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log("Play Button Clicked!")
+                const songId = a.getAttribute('data-id');
+                const song = canciones.find(c => c.Id == songId);
+                if (song) {
+                    playSong({
+                        id: song.Id,
+                        url: song.Url,
+                        albumArt: song.FotoPortada,
+                        title: song.Titulo,
+                        artist: song.AutorDisplay,
+                    });
+                } else {
+                    console.error(`No se encontró la canción con ID ${songId}`);
+                }
+            });
+        });
+
+        document.querySelectorAll('.queue-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log("Queue Button Clicked!")
+                const songId = button.getAttribute('data-id');
+                const song = canciones.find(c => c.Id == songId);
+                if (song) {
+                    addToQueue({
+                        id: song.Id,
+                        url: song.Url,
+                        albumArt: song.FotoPortada,
+                        title: song.Titulo,
+                        artist: song.AutorDisplay,
+                    });
+                } else {
+                    console.error(`No se encontró la canción con ID ${songId}`);
+                }
+            });
+        });
+
+
+
+
+
+
+
+        async function addtoPlaylist(event) {
+            try {
+                const songId = event.target.parentElement.querySelector('[data-song-id]').getAttribute('data-song-id');
+                const response = await fetch('/Playlist/dameMisPlaylistJSON');
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                let playlists = await response.json();
+                console.log(playlists, typeof (playlists));
+                playlists = playlists.playlists;
+
+                if (!Array.isArray(playlists)) {
+                    throw new Error('Expected an array of playlists');
+                }
+
+                let playlistSelector = document.createElement('select');
+                playlistSelector.innerHTML = playlists.map(playlist => `<option value="${playlist.Id}">${playlist.Titulo}</option>`).join('');
+
+                let submitButton = document.createElement('button');
+                submitButton.className = "button";
+                submitButton.textContent = 'Agregar';
+                submitButton.addEventListener('click', async function () {
+                    const playlistId = playlistSelector.value;
+                    console.log(songId, playlistId);
+                    const addResponse = await fetch('/Playlist/AgregarCancionAPlaylist', {
+                        method: 'POST',
+                        body: new URLSearchParams({ 'cancionOID': songId, 'playlistOID': playlistId })
+                    });
+
+
+                        console.log("Canción agregada a la playlist exitosamente.");
+                        submitButton.remove();
+                        playlistSelector.remove();
+                        desplegado.style.display = 'none';
+                });
+            event.target.parentElement.querySelectorAll('select, button').forEach(el => el.remove());
+            event.target.parentElement.appendChild(playlistSelector);
+            event.target.parentElement.appendChild(submitButton);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        document.addEventListener("mousemove", (e) => {
+            const circle = document.getElementById("mouse-circle");
+            circle.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
+        });
+    </script>
+}
