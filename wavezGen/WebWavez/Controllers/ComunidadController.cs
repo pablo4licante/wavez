@@ -88,5 +88,19 @@ namespace WebWavez.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+        public void CrearTodasLasComunidades()
+        {
+            ComunidadRepository comunidadRepository = new ComunidadRepository();
+            ComunidadCEN comunidadCEN = new ComunidadCEN(comunidadRepository);
+            foreach (GenerosEnum genero in Enum.GetValues(typeof(GenerosEnum)))
+            {
+                if(genero != GenerosEnum.Pop)
+                {
+                    comunidadCEN.Nuevo(genero);
+                }
+            }
+        }
+
     }
 }

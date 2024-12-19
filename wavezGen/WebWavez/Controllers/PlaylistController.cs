@@ -172,7 +172,7 @@ public string dameMisPlaylistJSON() // Lol JSON a mano
                 PlaylistRepository playlistRepository = new PlaylistRepository();
                 PlaylistCEN playlistCEN = new PlaylistCEN(playlistRepository);
                 playlistCEN.Nuevo(pvm.Titulo, FotoFileName, usuario.Usuario);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Perfil", "Usuario", new { id = "me" });
             }
             catch
             {
