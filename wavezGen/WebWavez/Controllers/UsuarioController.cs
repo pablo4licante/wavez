@@ -60,10 +60,10 @@ namespace WebWavez.Controllers
 
         public ActionResult Logout()
         {
-            // Limpiar los datos de sesión
+            // Limpiar los datos de sesi?n
             HttpContext.Session.Remove("usuario");
 
-            // Redirigir al usuario a la página de inicio de sesión u otra página
+            // Redirigir al usuario a la p?gina de inicio de sesi?n u otra p?gina
             return RedirectToAction("Login", "Usuario");
         }
 
@@ -84,7 +84,7 @@ namespace WebWavez.Controllers
             UsuarioRepository usuRepo = new UsuarioRepository();
             UsuarioCEN usuCEN = new UsuarioCEN(usuRepo);
 
-            string FotoFileName = ""; 
+            string FotoFileName = "";
 
             string timestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
             FotoFileName = timestamp + Path.GetExtension(registro.FicheroFotoPortada.FileName);
@@ -105,14 +105,14 @@ namespace WebWavez.Controllers
 
 
 
-            //conprobar la confirmación de la password
+            //conprobar la confirmaci?n de la password
             if (registro.Password == registro.ConfirmPassword)
             {
                 //hacer el registro
                 try
                 {
                     FotoFileName = "/Imagenes/" + FotoFileName;
-                    
+
                     //cancionCEN.Nuevo(cvm.Titulo, cvm.Genero, cvm.Fecha, cvm.FotoPortada, cvm.Autor, cvm.numReproducciones);
                     usuCEN.Nuevo(registro.Usuario, registro.Nombre, registro.Password, registro.Email, FotoFileName);
                     return RedirectToAction("Login", "Usuario");
@@ -125,7 +125,7 @@ namespace WebWavez.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Las contraseñas no coinciden");
+                ModelState.AddModelError("", "Las contrase?as no coinciden");
                 return View();
             }
         }
@@ -147,7 +147,7 @@ namespace WebWavez.Controllers
 
             //coger el usuario de la session
             UsuarioViewModel usuarioVM = HttpContext.Session.Get<UsuarioViewModel>("usuario");
-            if (usuarioVM == null){ return RedirectToAction("Login", "Usuario"); }
+            if (usuarioVM == null) { return RedirectToAction("Login", "Usuario"); }
 
             //el usuario que queremos mostrar es el nuestro si le pasamos me
             if (id == "me")
@@ -171,9 +171,12 @@ namespace WebWavez.Controllers
             {
                 if (item.UsuarioSeguidos.Any(u => u.Usuario == usuario.Usuario))  //si un usuario sigue al actual
                 {
-                    seguidoresUsuario.Add(item);  //se añade a lista de seguidores de usuario
+                    seguidoresUsuario.Add(item);  //se a?ade a lista de seguidores de usuario
                 }
             }
+            // Calcular totales
+            int totalSeguidores = seguidoresUsuario.Count;
+            int totalSeguidos = seguidosUsuario.Count;
             //se cogen las canciones del usuario
             IList<CancionEN> cancionesUsuario = cancionCEN.DameTodasLasCanciones(0, -1).Where(c => c.Autor == usuario).ToList();
             //se cogen las playlist del usuario
@@ -182,7 +185,7 @@ namespace WebWavez.Controllers
             //si es la pagina de otro ******************************************************************
             UsuarioEN usuarioSesion = usuCEN.DameUsuarioPorOID(usuarioVM.Usuario); //cogemos el usuario de la sesion
             IList<UsuarioEN> seguidosUsuarioSesion = usuarioSesion.UsuarioSeguidos; //sus seguidos
-            bool esSeguido = seguidosUsuarioSesion.Any(u => u.Usuario == usuario.Usuario); //está este en sus seguidos??
+            bool esSeguido = seguidosUsuarioSesion.Any(u => u.Usuario == usuario.Usuario); //est? este en sus seguidos??
             Debug.WriteLine($"El usuario {usuario.Usuario} es seguido:  {esSeguido} por {usuarioSesion.Usuario}");
             //convertir el usuario en view model *******************************************
             UsuarioViewModel usuarioPerfilVM = new UsuarioAssembler().ConvertirENToViewModel(usuario);
@@ -202,12 +205,14 @@ namespace WebWavez.Controllers
 
             var perfilVM = new PerfilViewModel
             {
-                Usuario = usuarioPerfilVM, 
+                Usuario = usuarioPerfilVM,
                 Canciones = listaCancionesVM,
                 Playlists = listaPlaylistVM,
                 Seguidores = listaSeguidoresVM,
                 Seguidos = listaSeguidosVM,
-                EsPerfilPropio = esPerfilPropio
+                EsPerfilPropio = esPerfilPropio,
+                TotalSeguidores = totalSeguidores,
+                TotalSeguidos = totalSeguidos
             };
 
             return View(perfilVM);
@@ -220,7 +225,7 @@ namespace WebWavez.Controllers
             SessionInitialize();
             try
             {
-                // Obtener el usuario autenticado de la sesión
+                // Obtener el usuario autenticado de la sesi?n
                 var usuarioSesion = HttpContext.Session.Get<UsuarioViewModel>("usuario");
                 if (usuarioSesion == null)
                 {
@@ -231,7 +236,7 @@ namespace WebWavez.Controllers
                 UsuarioRepository usuRepo = new UsuarioRepository(session);
                 UsuarioCEN usuarioCEN = new UsuarioCEN(usuRepo);
 
-                // Comprobar si el usuario ya está siguiendo al otro usuario
+                // Comprobar si el usuario ya est? siguiendo al otro usuario
                 var seguidos = usuarioCEN.DameUsuarioPorOID(usuarioSesion.Usuario).UsuarioSeguidos;
                 bool yaSeguido = seguidos.Any(u => u.Usuario == id);
 
@@ -256,7 +261,7 @@ namespace WebWavez.Controllers
                     usuariocen.Seguir(usuarioSesion.Usuario, idsSeguidos);
 
                     SessionClose();
-                    return Json(new { success = true, action = "follow", message = "Estás siguiendo a este usuario." });
+                    return Json(new { success = true, action = "follow", message = "Est?s siguiendo a este usuario." });
                 }
             }
             catch (Exception ex)
@@ -325,16 +330,16 @@ namespace WebWavez.Controllers
             UsuarioCEN usuCEN = new UsuarioCEN(usuRepo);
 
             UsuarioEN usuEN = usuCEN.DameUsuarioPorOID(id);
-            UsuarioViewModel usuVM = new UsuarioAssembler().ConvertirENToViewModel(usuEN);  
+            UsuarioViewModel usuVM = new UsuarioAssembler().ConvertirENToViewModel(usuEN);
 
-            SessionClose(); 
+            SessionClose();
             return View(usuVM);
         }
 
         // POST: UsuarioController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(string id,UsuarioViewModel usu)
+        public ActionResult Edit(string id, UsuarioViewModel usu)
         {
             try
             {
@@ -348,10 +353,10 @@ namespace WebWavez.Controllers
                     return View();
                 }
 
-                // Si la contraseña en el formulario está vacía, mantener la contraseña actual
+                // Si la contrase?a en el formulario est? vac?a, mantener la contrase?a actual
                 string nuevaContrasenya = string.IsNullOrEmpty(usu.Password)
                     ? usuarioActual.Contrasenya  // Mantener la existente
-                    : usu.Password;  // Encriptar la nueva contraseña
+                    : usu.Password;  // Encriptar la nueva contrase?a
 
                 usuCEN.Modificar(id, usu.Nombre, usu.Password, usu.Email, usu.FotoPerfil);
                 return RedirectToAction(nameof(Perfil));

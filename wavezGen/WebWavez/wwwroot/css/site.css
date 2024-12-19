@@ -78,6 +78,10 @@ a {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth animation */
 }
 
+h3 {
+    margin-top: .8rem;
+}
+
 /* Ensure html and body take full height */
 html {
     position: relative;
