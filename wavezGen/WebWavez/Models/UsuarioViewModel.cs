@@ -21,19 +21,19 @@ namespace WebWavez.Models
         public string FotoPerfil { get; set; }
         public bool EsSeguidoPorUsuarioActual { get; set; }
 
+        public IFormFile FicheroFotoPortada { get; set; }
+
 
     }
 
     public class PerfilViewModel
     {
-        public UsuarioViewModel Usuario { get; set; }
+        public UsuarioViewModel Usuario { get; set; }  
         public IEnumerable<CancionViewModel> Canciones { get; set; }
         public IEnumerable<PlaylistViewModel> Playlists { get; set; }
         public IEnumerable<UsuarioViewModel> Seguidores { get; set; }
         public IEnumerable<UsuarioViewModel> Seguidos { get; set; }
         public bool EsPerfilPropio { get; set; }
-        public int TotalSeguidores { get; set; }
-        public int TotalSeguidos { get; set; }
     }
 
     public class LoginUsuarioViewModel

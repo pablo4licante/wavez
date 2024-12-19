@@ -100,7 +100,7 @@ namespace InitializeDB
                 PlaylistCEN playlistcen = new PlaylistCEN(playlistrepository);
                 ComentarioRepository comentariorepository = new ComentarioRepository();
                 ComentarioCEN comentariocen = new ComentarioCEN(comentariorepository);
-
+                    
                 /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
                 // Create repositories
                 UsuarioRepository usuarioRepository = new UsuarioRepository();
@@ -184,7 +184,7 @@ namespace InitializeDB
                 IList<UsuarioEN> lista_usuarios = new List<UsuarioEN> { usuario2 };
                 Console.WriteLine("Lista usuarios : " + lista_usuarios[0].Usuario);
                 int notificacion1 = notificacionCEN.Nuevo(cancion_para_noti.FotoPortada, "DE LA DB", DateTime.Now, "cancion", usuario_para_noti, lista_usuarios, cancion_para_noti, null);
-
+                int comentario1 = comentariocen.Nuevo("Me encanta esta cancion", cancion1, user1);
                 /*PROTECTED REGION END*/
 
             }

@@ -5,10 +5,10 @@
     ViewData["Title"] = "Details";
 
     string cancionJson = JsonConvert.SerializeObject(Model);
+    List<ComentarioViewModel> comentarios = ViewBag.Comentarios;
 }
 
-<div class="cc">
-    <div class="card">
+    <div id="card-detalle-cancion" class="card">
         <a asp-controller="Cancion" asp-action="Details" asp-route-id="@Model.Id" data-id="@Model.Id">
             <img class="card-img-top" src="@Model.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
         </a>
@@ -33,12 +33,45 @@
         </div>
     </div>
     <div class="comentarios-cancion">
+        <h2>Comentarios</h2>
+        <div class="comentarios">
+            <ul>
+                @foreach (ComentarioViewModel comentario in comentarios)
+                {
+                    <li>
+                        <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@comentario.UsuarioOID" data-id="@comentario.UsuarioOID">
+                            <img class="card-img-top" src="@comentario.FotoUrl" alt="Card image cap">
+                        </a>
 
+                        <div class="comentario-body">
+                            <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@comentario.UsuarioOID" data-id="@comentario.UsuarioOID">
+                                <p>@Html.DisplayFor(modelItem => comentario.UsuarioDisplay)</p>
+                            </a>
+                            <p>@Html.DisplayFor(modelItem => comentario.Mensaje)</p>
+                        </div>
+                    </li>
+                }
+                <li id="comentario-form">
+                    <h5>Agregar Comentario</h5>
+                        <form asp-controller="Comentario" asp-action="NuevoComentario" method="post">
+                            <input type="hidden" name="idCancion" value="@Model.Id" />
+                            <div class="form-group">
+                                <textarea rows="1" name="mensaje" class="form-control" placeholder="Escribe tu comentario aquí..." required></textarea>
+                            </div>
+                            <button type="submit" class="button">Enviar</button>
+                        </form>
+       
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+
 
 @section Scripts {
     <script>
+
+        
+           
 
         document.querySelectorAll('.menu-desplegable').forEach(button => {
             button.addEventListener('click', () => {
@@ -47,7 +80,7 @@
             });
         });
 
-        const cancion = @Html.Raw(cancionJson);
+        const canciones = @Html.Raw(cancionJson);
         // Cola de canciones
         let songQueue = [];
         let isPlaying = false;
@@ -235,7 +268,7 @@
                 e.preventDefault();
                 console.log("Play Button Clicked!")
                 const songId = a.getAttribute('data-id');
-                const song = cancion;
+                const song = canciones.find(c => c.Id == songId);
                 if (song) {
                     playSong({
                         id: song.Id,
@@ -255,7 +288,7 @@
                 e.preventDefault();
                 console.log("Queue Button Clicked!")
                 const songId = button.getAttribute('data-id');
-                const song = cancion;
+                const song = canciones.find(c => c.Id == songId);
                 if (song) {
                     addToQueue({
                         id: song.Id,
@@ -308,14 +341,14 @@
                     });
 
 
-                        console.log("Canción agregada a la playlist exitosamente.");
-                        submitButton.remove();
-                        playlistSelector.remove();
-                        desplegado.style.display = 'none';
+                console.log("Canción agregada a la playlist exitosamente.");
+                submitButton.remove();
+                playlistSelector.remove();
+                desplegado.style.display = 'none';
                 });
-            event.target.parentElement.querySelectorAll('select, button').forEach(el => el.remove());
-            event.target.parentElement.appendChild(playlistSelector);
-            event.target.parentElement.appendChild(submitButton);
+                    event.target.parentElement.querySelectorAll('select, button').forEach(el => el.remove());
+                    event.target.parentElement.appendChild(playlistSelector);
+                    event.target.parentElement.appendChild(submitButton);
             } catch (error) {
                 console.error('Error:', error);
             }

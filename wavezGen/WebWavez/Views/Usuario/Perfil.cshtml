@@ -21,9 +21,9 @@
                 success: function (response) {
                     if (response.success) {
                         if (response.action === "follow") {
-                            boton.text("Dejar de Seguir").removeClass("btn button").addClass("btn button");
+                            boton.text("Dejar de Seguir").removeClass("btn-primary").addClass("btn-secondary");
                         } else if (response.action === "unfollow") {
-                            boton.text("Seguir").removeClass("btn button").addClass("btn button");
+                            boton.text("Seguir").removeClass("btn-secondary").addClass("btn-primary");
                         }
                         alert(response.message);
                     } else {
@@ -43,47 +43,46 @@
 
 
 <div class="text-center">
+    <h1 class="display-4">Perfil</h1>
 
-    <div class="row align-items-center">
-        <!-- Imagen a la izquierda -->
-        <div class="col-12 col-md-4 text-center">
-            <img class="img-fluid rounded-circle" src="@Html.DisplayFor(modelItem => Model.Usuario.FotoPerfil)" style="width: 200px; height: 200px;" alt="Foto de perfil del usuario">
-        </div>
-        <!-- Información a la derecha -->
-        <div class="col-12 col-md-8">
-            <h5 class="text-center">@Html.DisplayFor(modelItem => Model.Usuario.Usuario)</h5>
-            <h5 class="text-center">@Html.DisplayFor(modelItem => Model.Usuario.Nombre)</h5>
-            <h5 class="text-center">@Html.DisplayFor(modelItem => Model.Usuario.Email)</h5> 
-        </div>
-    </div>
+    <!-- Mostrar datos del usuario -->
+    <!-- Mostrar datos del usuario -->
+    <img src="@Model.Usuario.FotoPerfil" alt="Foto de perfil" class="card-img-top" />
+    <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Usuario.FotoPerfil)</h5>
+    <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Usuario.Usuario)</h5>
+    <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Usuario.Nombre)</h5>
+    <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Usuario.Email)</h5> 
 
-    <div class="container">
+    <div class="resultados">
         @if (Model.EsPerfilPropio)
         {
-            <div class="button-row">
-                <form action="@Url.Action("Edit", "Usuario", new { id = Model.Usuario.Usuario })" method="get">
-                    <button type="submit" class="btn button">Editar perfil</button>
-                </form>
+            @* <form action="@Url.Action("Edit", "Usuario")" method="post">
+                <input type="hidden" name="id" value="@Model.Usuario.Usuario" />
+                <button type="submit" class="btn btn-primary">Editar perfil</button>
+            </form> *@
+
+            <form action="@Url.Action("Edit", "Usuario", new { id = Model.Usuario.Usuario })" method="get">
+                <button type="submit" class="btn btn-primary">Editar perfil</button>
+            </form>
 
 
-                <form action="@Url.Action("Logout", "Usuario")" method="post">
-                    <button type="submit" class="btn button">Cerrar sesión</button>
-                </form>
-            </div>
+            <form action="@Url.Action("Logout", "Usuario")" method="post">
+                <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+            </form>
         }
     </div>
 
-    <div id="boton-seguir" class="container">
+    <div id="boton-seguir">
         @if (!Model.EsPerfilPropio)
         {
             @if (Model.Usuario.EsSeguidoPorUsuarioActual)
             {
-                <button class="seguir-btn btn button" data-id="@Model.Usuario.Usuario">Dejar de Seguir</button>
+                <button class="seguir-btn btn btn-secondary" data-id="@Model.Usuario.Usuario">Dejar de Seguir</button>
 
             }
             else
             {
-                <button class="seguir-btn btn button" data-id="@Model.Usuario.Usuario">Seguir</button>
+                <button class="seguir-btn btn btn-primary" data-id="@Model.Usuario.Usuario">Seguir</button>
             }
         }
     </div>
@@ -93,16 +92,15 @@
 
 
 
-    <div class="categorias">
+    <div class="resultados">
 
         <!-- Mostrar canciones -->
         <h3>Canciones</h3>
 
         @if (Model.EsPerfilPropio)
-
         {
             <form action="@Url.Action("Create", "Cancion")" method="get">
-                <button type="submit" class="btn button">Añadir canción</button>
+                <button type="submit" class="btn btn-primary">Añadir canción</button>
             </form>
         }
 
@@ -116,32 +114,24 @@
                 @foreach (var item in Model.Canciones)
                 {
                     <div class="card">
-
-                        <a asp-controller="Cancion" asp-action="Details" asp-route-id="@item.Id" data-id="@item.Id">
-                            <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
-                        </a>
+                        <img class="card-img-top" src="@item.FotoPortada" style="width:200px; height:200px" alt="Card image cap">
                         <div class="card-body">
-                            <a asp-controller="Cancion" asp-action="Details" asp-route-id="@item.Id" data-id="@item.Id">
-                                <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titulo)</strong></h5>
-                            </a>
-                            <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@item.Autor" data-id="@item.Id">
-
-                                <p class="card-text">@Html.DisplayFor(modelItem => item.AutorDisplay)</p>
-                            </a>
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Id)</h5>
+                            <p class="card-text"><strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
+                            <p class="card-text"><strong>Autor:</strong> @Html.DisplayFor(modelItem => item.Autor)</p>
+                            <p class="card-text"><strong>Fecha de Lanzamiento:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
+                            <p class="card-text"><strong>Reproducciones:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
                         </div>
-                        <a href="#" class="play-button" data-id="@item.Id">
-                            <i class="bi bi-play-fill"></i>
-                        </a>
-                        <button class="menu-desplegable"><i class="bi bi-three-dots-vertical"></i></button>
-                        <div class="desplegado">
-                            <a class="btn queue-button" data-id="@item.Id">Agregar a Cola</a>
-                            <a class="btn" onclick="addtoPlaylist(event)">Agregar a Playlist</a>
-                            <p class="card-text" style="display:none;" data-song-id="@item.Id">@Html.DisplayFor(modelItem => item.Id)</p>
-                        </div>
+                        @if (Model.EsPerfilPropio)
+                        {
+                            <form action="@Url.Action("Delete", "Cancion", new { id = item.Id })" method="get">
+                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                            </form>
+                        }
                     </div>
 
-
-
+              
                 }
             }
         </div>
@@ -152,11 +142,11 @@
         @if (Model.EsPerfilPropio)
         {
             <form action="@Url.Action("Editar", "Usuario")" method="post">
-                <button type="submit" class="btn button">Añadir playlist</button>
+                <button type="submit" class="btn btn-primary">Añadir playlist</button>
             </form>
         }
 
-        <div class="grid-canciones">
+        <div class="estanteria-playlists">
             @if (!Model.Playlists.Any())
             {
                 <p>Aún no tienes ninguna playlist.</p>
@@ -175,8 +165,7 @@
                         @if (Model.EsPerfilPropio)
                         {
                             <form action="@Url.Action("Delete", "Playlist", new { id = item.Id })" method="post">
-                                @Html.AntiForgeryToken()
-                                <button type="submit" class="btn button">Eliminar</button>
+                                <button type="submit" class="btn btn-primary">Eliminar</button>
                             </form>
                         }
                     </div>
@@ -184,10 +173,9 @@
             }
         </div>
 
-
         <!-- Mostrar usuarios -->
-        <h3>@Model.TotalSeguidores Seguidores</h3>
-        <div class="grid-canciones">
+        <h3>Seguidores</h3>
+        <div class="estanteria-usuarios">
             @if (!Model.Seguidores.Any())
             {
                 <p>Aún no hay ningún seguidor.</p>
@@ -207,8 +195,8 @@
             }
         </div>
 
-        <h3>@Model.TotalSeguidos Seguidos</h3>
-        <div class="grid-canciones">
+        <h3>Seguidos</h3>
+        <div class="estanteria-usuarios">
             @if (!Model.Seguidos.Any())
             {
                 <p>Aún no hay ningún seguido.</p>
@@ -228,7 +216,7 @@
             }
         </div>
 
-
+        
 
     </div>
 </div>
@@ -236,168 +224,168 @@
 
 @section Scripts {
     <script>
-        let songQueue = [];
-        let isPlaying = false;
+            let songQueue = [];
+                let isPlaying = false;
 
-        // Obtener elementos clave
-        const audioPlayer = document.getElementById('audioPlayer');
-        const albumArt = document.getElementById('albumArt');
-        const trackTitle = document.getElementById('trackTitle');
-        const trackArtist = document.getElementById('trackArtist');
-        const playPauseButton = document.getElementById('playPauseButton');
-        const progress = document.getElementById('progress');
-        const currentTimeEl = document.getElementById('currentTime');
-        const durationEl = document.getElementById('duration');
+                // Obtener elementos clave
+                const audioPlayer = document.getElementById('audioPlayer');
+                const albumArt = document.getElementById('albumArt');
+                const trackTitle = document.getElementById('trackTitle');
+                const trackArtist = document.getElementById('trackArtist');
+                const playPauseButton = document.getElementById('playPauseButton');
+                const progress = document.getElementById('progress');
+                const currentTimeEl = document.getElementById('currentTime');
+                const durationEl = document.getElementById('duration');
 
-        // Actualizar información del tiempo
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
-            return `${minutes}:${secs}`;
-        }
+                // Actualizar información del tiempo
+                function formatTime(seconds) {
+                    const minutes = Math.floor(seconds / 60);
+                    const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+                    return `${minutes}:${secs}`;
+                }
 
-        function updateProgress() {
-            const currentTime = audioPlayer.currentTime;
-            const duration = audioPlayer.duration;
+                function updateProgress() {
+                    const currentTime = audioPlayer.currentTime;
+                    const duration = audioPlayer.duration;
 
-            progress.value = (currentTime / duration) * 100 || 0;
-            currentTimeEl.textContent = formatTime(currentTime);
-            durationEl.textContent = formatTime(duration);
+                    progress.value = (currentTime / duration) * 100 || 0;
+                    currentTimeEl.textContent = formatTime(currentTime);
+                    durationEl.textContent = formatTime(duration);
 
-            const value = progress.value;
-            const max = progress.max;
-            const percentage = (value / max) * 100;
-            progress.style.setProperty('--progress', `${percentage}%`);
-        }
+                    const value = progress.value;
+                    const max = progress.max;
+                    const percentage = (value / max) * 100;
+                    progress.style.setProperty('--progress', `${percentage}%`);
+                }
 
-        audioPlayer.addEventListener('timeupdate', updateProgress);
-        audioPlayer.addEventListener('loadedmetadata', () => {
+                audioPlayer.addEventListener('timeupdate', updateProgress);
+                audioPlayer.addEventListener('loadedmetadata', () => {
 
-            const value = progress.value;
-            const max = progress.max;
-            const percentage = (value / max) * 100;
-            progress.style.setProperty('--progress', `${percentage}%`);
-            durationEl.textContent = formatTime(audioPlayer.duration);
-        });
-        // Cambiar el progreso manualmente
-        progress.addEventListener('input', () => {
-            const seekTime = (progress.value / 100) * audioPlayer.duration;
-            audioPlayer.currentTime = seekTime;
-        });
+                    const value = progress.value;
+                    const max = progress.max;
+                    const percentage = (value / max) * 100;
+                    progress.style.setProperty('--progress', `${percentage}%`);
+                    durationEl.textContent = formatTime(audioPlayer.duration);
+                });
+                // Cambiar el progreso manualmente
+                progress.addEventListener('input', () => {
+                    const seekTime = (progress.value / 100) * audioPlayer.duration;
+                    audioPlayer.currentTime = seekTime;
+                });
 
-        // Pausar/Reanudar reproducción
-        playPauseButton.addEventListener('click', () => {
-            if (isPlaying) {
-                audioPlayer.pause();
-                playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
-                sessionStorage.setItem('isPlaying', 'false');
-            } else {
-                audioPlayer.play();
-                playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
-                sessionStorage.setItem('isPlaying', 'true');
-            }
-            isPlaying = !isPlaying;
-        });
+                // Pausar/Reanudar reproducción
+                playPauseButton.addEventListener('click', () => {
+                    if (isPlaying) {
+                        audioPlayer.pause();
+                        playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'false');
+                    } else {
+                        audioPlayer.play();
+                        playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                        sessionStorage.setItem('isPlaying', 'true');
+                    }
+                    isPlaying = !isPlaying;
+                });
 
-        // Reproducir la siguiente canción de la cola
-        function playNextInQueue() {
-            if (songQueue.length > 0) {
-                const nextSong = songQueue.shift();
-                sessionStorage.setItem('songQueue', JSON.stringify(songQueue)); // Actualizar cola en SessionStorage
-                playSong(nextSong);
-            } else {
-                console.log('La cola está vacía.');
-                isPlaying = false;
-            }
-        }
-        // Recuperar cola y canción actual al cargar la página
-        window.addEventListener('load', () => {
-            const storedQueue = sessionStorage.getItem('songQueue');
-            if (storedQueue) {
-                songQueue = JSON.parse(storedQueue);
-                console.log('Cola recuperada:', songQueue);
-            }
+                // Reproducir la siguiente canción de la cola
+                function playNextInQueue() {
+                    if (songQueue.length > 0) {
+                        const nextSong = songQueue.shift();
+                        sessionStorage.setItem('songQueue', JSON.stringify(songQueue)); // Actualizar cola en SessionStorage
+                        playSong(nextSong);
+                    } else {
+                        console.log('La cola está vacía.');
+                        isPlaying = false;
+                    }
+                }
+                    // Recuperar cola y canción actual al cargar la página
+                    window.addEventListener('load', () => {
+                        const storedQueue = sessionStorage.getItem('songQueue');
+                        if (storedQueue) {
+                            songQueue = JSON.parse(storedQueue);
+                            console.log('Cola recuperada:', songQueue);
+                        }
 
-            const currentSong = sessionStorage.getItem('currentSong');
-            if (currentSong) {
-                playSong(JSON.parse(currentSong));
-            }
+                        const currentSong = sessionStorage.getItem('currentSong');
+                        if (currentSong) {
+                            playSong(JSON.parse(currentSong));
+                        }
 
-            // Restaurar tiempo de la canción
-            const storedTime = sessionStorage.getItem('currentTime');
-            if (storedTime) {
-                audioPlayer.currentTime = parseFloat(storedTime);
-            }
+                        // Restaurar tiempo de la canción
+                        const storedTime = sessionStorage.getItem('currentTime');
+                        if (storedTime) {
+                            audioPlayer.currentTime = parseFloat(storedTime);
+                        }
 
-            // Restaurar estado de reproducción
-            const storedIsPlaying = sessionStorage.getItem('isPlaying');
-            if (storedIsPlaying === 'true') {
+                        // Restaurar estado de reproducción
+                        const storedIsPlaying = sessionStorage.getItem('isPlaying');
+                        if (storedIsPlaying === 'true') {
+                            audioPlayer.play();
+                            playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+                            isPlaying = true;
+                        } else {
+                            audioPlayer.pause();
+                            playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+                            isPlaying = false;
+                        }
+                    });
+
+                    // Guardar tiempo de la canción al salir de la página
+                    window.addEventListener('beforeunload', () => {
+                        const currentTime = audioPlayer.currentTime;
+                        sessionStorage.setItem('currentTime', currentTime);
+                    });
+
+                    // Evento cuando una canción termina
+                    audioPlayer.addEventListener('ended', () => {
+                        console.log('Canción terminada.');
+                        playNextInQueue();
+                    });
+
+                    // Función para reproducir una canción
+            async function playSong(song) {
+                console.log("Reproduciendo " + JSON.stringify(song))
+                if (!song || !song.url) return;
+                audioPlayer.src = song.url;
+                audioPlayer.load();
                 audioPlayer.play();
                 playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
                 isPlaying = true;
-            } else {
-                audioPlayer.pause();
-                playPauseButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
-                isPlaying = false;
-            }
-        });
-
-        // Guardar tiempo de la canción al salir de la página
-        window.addEventListener('beforeunload', () => {
-            const currentTime = audioPlayer.currentTime;
-            sessionStorage.setItem('currentTime', currentTime);
-        });
-
-        // Evento cuando una canción termina
-        audioPlayer.addEventListener('ended', () => {
-            console.log('Canción terminada.');
-            playNextInQueue();
-        });
-
-        // Función para reproducir una canción
-        async function playSong(song) {
-            console.log("Reproduciendo " + JSON.stringify(song))
-            if (!song || !song.url) return;
-            audioPlayer.src = song.url;
-            audioPlayer.load();
-            audioPlayer.play();
-            playPauseButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
-            isPlaying = true;
 
 
-            const value = progress.value;
-            const max = progress.max;
-            const percentage = (value / max) * 100;
-            progress.style.setProperty('--progress', `${percentage}%`);
+                const value = progress.value;
+                const max = progress.max;
+                const percentage = (value / max) * 100;
+                progress.style.setProperty('--progress', `${percentage}%`);
 
 
-            // Actualizar información de la canción
-            albumArt.src = song.albumArt || 'https://via.placeholder.com/100';
-            trackTitle.textContent = song.title || 'Título desconocido';
-            trackArtist.textContent = song.artist || 'Artista desconocido';
+                // Actualizar información de la canción
+                albumArt.src = song.albumArt || 'https://via.placeholder.com/100';
+                trackTitle.textContent = song.title || 'Título desconocido';
+                trackArtist.textContent = song.artist || 'Artista desconocido';
 
-            sessionStorage.setItem('currentSong', JSON.stringify(song));
-            console.log(`Reproduciendo canción: ${song.title}`);
+                sessionStorage.setItem('currentSong', JSON.stringify(song));
+                console.log(`Reproduciendo canción: ${song.title}`);
 
-            // Llamar a la API para aumentar reproducciones
-            if (song.id) {
-                try {
-                    const response = await fetch('/Cancion/AumentarReproducciones', {
-                        method: 'POST',
-                        body: new URLSearchParams({ 'id': song.id })
-                    });
+                // Llamar a la API para aumentar reproducciones
+                if (song.id) {
+                    try {
+                        const response = await fetch('/Cancion/AumentarReproducciones', {
+                            method: 'POST',
+                            body: new URLSearchParams({ 'id': song.id })
+                        });
 
-                    const data = await response.json();
-                    if (data.success) {
-                        console.log("Reproducción aumentada exitosamente.");
-                    } else {
-                        console.log("Error al aumentar las reproducciones.");
+                        const data = await response.json();
+                        if (data.success) {
+                            console.log("Reproducción aumentada exitosamente.");
+                        } else {
+                            console.log("Error al aumentar las reproducciones.");
+                        }
+                    } catch (error) {
+                        console.error("Error en la llamada a la API:", error);
                     }
-                } catch (error) {
-                    console.error("Error en la llamada a la API:", error);
                 }
             }
-        }
         document.addEventListener("mousemove", (e) => {
             const circle = document.getElementById("mouse-circle");
             circle.style.transform = `translate(${e.pageX - 50}px, ${e.pageY - 50}px)`;
