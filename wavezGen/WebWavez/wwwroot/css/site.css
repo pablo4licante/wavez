@@ -78,6 +78,10 @@ a {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth animation */
 }
 
+h3 {
+    margin-top: .8rem;
+}
+
 /* Ensure html and body take full height */
 html {
     position: relative;
@@ -100,6 +104,21 @@ body {
     z-index: 3;
 }
 
+/* para el detalle de la cancion*/
+.cc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.comentarios-cancion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Flexbox container for playlists */
 .estanteria-playlists {
     margin-top: 2rem;
@@ -118,6 +137,38 @@ body {
     gap: 20px;
     justify-content: center;
     z-index: 3;
+}
+
+/* para las notificaciones de los usuarios*/
+.estanteria-notificaciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.notificacion {
+    display: flex;
+    flex-direction: row;
+    max-width: 700px;
+    margin: .6rem;
+    padding: 1rem;
+    backdrop-filter: blur(52px); /* Apply glassmorphism effect */
+    background: rgba(6, 6, 6, 0.3); /* Semi-transparent background */
+    border-radius: 6px;
+    box-shadow: 1px -2px 20px -10px rgba(128,128,128,0.2);
+}
+
+.info-notificacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 1.5rem;
+}
+
+#mensaje-noti {
+    font-size: large;
 }
 
 /* Grid container for communities */

@@ -268,65 +268,44 @@ public void Modificar (PlaylistEN playlist)
                 SessionClose ();
         }
 }
-public void Eliminar2 (int id)
+
+
+public void Eliminar(int id)
 {
-        try
+    try
+    {
+        SessionInitializeTransaction();
+
+        // Cargar la playlist
+        PlaylistNH playlistNH = (PlaylistNH)session.Load(typeof(PlaylistNH), id);
+
+        // Eliminar explícitamente las relaciones de la tabla intermedia
+        var cancionesRelacionadas = playlistNH.Cancion.ToList(); // Crear una copia
+        foreach (var cancion in cancionesRelacionadas)
         {
-                SessionInitializeTransaction ();
-                PlaylistNH playlistNH = (PlaylistNH)session.Load (typeof(PlaylistNH), id);
-                session.Delete (playlistNH);
-                SessionCommit ();
+            playlistNH.Cancion.Remove(cancion); // Eliminar la relación
+            cancion.Playlist.Remove(playlistNH); // Eliminar la relación inversa
         }
+        session.Update(playlistNH); // Sincronizar cambios en la tabla intermedia
 
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
-                        throw;
-                else throw new WavezGen.ApplicationCore.Exceptions.DataLayerException ("Error in PlaylistRepository.", ex);
-        }
+        // Ahora eliminar la playlist
+        session.Delete(playlistNH);
 
-
-        finally
-        {
-                SessionClose ();
-        }
+        SessionCommit();
+    }
+    catch (Exception ex)
+    {
+        SessionRollBack();
+        if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
+            throw;
+        else
+            throw new WavezGen.ApplicationCore.Exceptions.DataLayerException("Error in PlaylistRepository.", ex);
+    }
+    finally
+    {
+        SessionClose();
+    }
 }
-
-        public void Eliminar(int id)
-        {
-                try
-                {
-                        SessionInitializeTransaction();
-
-                        // Cargar la playlist
-                        PlaylistNH playlistNH = (PlaylistNH)session.Load(typeof(PlaylistNH), id);
-
-                        // Eliminar explícitamente las relaciones de la tabla intermedia
-                        var cancionesRelacionadas = playlistNH.Cancion.ToList(); // Crear una copia
-                        foreach (var cancion in cancionesRelacionadas)
-                        {
-                        playlistNH.Cancion.Remove(cancion); // Eliminar la relación
-                        }
-                        session.Update(playlistNH); // Sincronizar cambios en la tabla intermedia
-
-                        // Ahora eliminar la playlist
-                        session.Delete(playlistNH);
-
-                        SessionCommit();
-                }
-                catch (Exception ex)
-                {
-                        SessionRollBack();
-                        if (ex is WavezGen.ApplicationCore.Exceptions.ModelException)
-                        throw;
-                        else
-                        throw new WavezGen.ApplicationCore.Exceptions.DataLayerException("Error in PlaylistRepository.", ex);
-                }
-                finally
-                {
-                        SessionClose();
-                }
-        }
 
 
         //Sin e: DamePlaylistPorOID
