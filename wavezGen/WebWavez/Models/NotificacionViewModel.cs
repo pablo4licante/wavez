@@ -18,6 +18,7 @@ namespace WebWavez.Models
         public string Mensaje { get; set; }
 
         [Required(ErrorMessage = "La fecha es obligatoria.")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Fecha { get; set; }
 
         [Required(ErrorMessage = "El id del usuario publicador es obligatorio.")]

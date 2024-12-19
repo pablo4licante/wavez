@@ -47,7 +47,7 @@
             });
         });
 
-        const canciones = @Html.Raw(cancionJson);
+        const cancion = @Html.Raw(cancionJson);
         // Cola de canciones
         let songQueue = [];
         let isPlaying = false;
@@ -235,7 +235,7 @@
                 e.preventDefault();
                 console.log("Play Button Clicked!")
                 const songId = a.getAttribute('data-id');
-                const song = canciones.find(c => c.Id == songId);
+                const song = cancion;
                 if (song) {
                     playSong({
                         id: song.Id,
@@ -255,7 +255,7 @@
                 e.preventDefault();
                 console.log("Queue Button Clicked!")
                 const songId = button.getAttribute('data-id');
-                const song = canciones.find(c => c.Id == songId);
+                const song = cancion;
                 if (song) {
                     addToQueue({
                         id: song.Id,
