@@ -57,8 +57,6 @@
                                     <p class="card-text">@Html.DisplayFor(modelItem => item.AutorDisplay)</p>
                                 </a>
                                 <p class="card-text"><strong>Género:</strong> @Html.DisplayFor(modelItem => item.Genero)</p>
-                                <p class="card-text"><strong>Fecha de Lanzamiento:</strong> @Html.DisplayFor(modelItem => item.Fecha)</p>
-                                <p class="card-text"><strong>Reproducciones:</strong> @Html.DisplayFor(modelItem => item.numReproducciones)</p>
                             </div>
                             <a href="#" class="play-button" data-id="@item.Id">
                                 <i class="bi bi-play-fill"></i>
@@ -119,6 +117,7 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil" asp-route-id="@item.Usuario">
                             <div class="card" style="margin: 10px; display: inline-block;">
                                 <div class="card-body">
+                                    <img class="card-img-top" src="@item.FotoPerfil" style="width:200px; height:200px" alt="Card image cap">
                                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
                                 </div>
                             </div>
