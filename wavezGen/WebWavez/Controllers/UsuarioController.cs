@@ -174,6 +174,10 @@ namespace WebWavez.Controllers
                     seguidoresUsuario.Add(item);  //se añade a lista de seguidores de usuario
                 }
             }
+
+            int totalSeguidores = seguidoresUsuario.Count;
+            int totalSeguidos = seguidosUsuario.Count;
+
             //se cogen las canciones del usuario
             IList<CancionEN> cancionesUsuario = cancionCEN.DameTodasLasCanciones(0, -1).Where(c => c.Autor == usuario).ToList();
             //se cogen las playlist del usuario
@@ -202,12 +206,14 @@ namespace WebWavez.Controllers
 
             var perfilVM = new PerfilViewModel
             {
-                Usuario = usuarioPerfilVM, 
+                Usuario = usuarioPerfilVM,
                 Canciones = listaCancionesVM,
                 Playlists = listaPlaylistVM,
                 Seguidores = listaSeguidoresVM,
                 Seguidos = listaSeguidosVM,
-                EsPerfilPropio = esPerfilPropio
+                EsPerfilPropio = esPerfilPropio,
+                TotalSeguidores = totalSeguidores,
+                TotalSeguidos = totalSeguidos
             };
 
             return View(perfilVM);

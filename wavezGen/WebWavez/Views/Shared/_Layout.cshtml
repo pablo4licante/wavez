@@ -30,47 +30,6 @@
               <h1 class="wavez-topper text-center">wavez</h1>
                 </a>
           </div>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Wavez</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cancion" asp-action="Index">Canciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Notificacion" asp-action="Index">Notificaciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Comunidad" asp-action="Index">Comunidad</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Registro">Registro</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil" asp-route-id="me">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Playlist" asp-action="Index">Playlist</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
         }
     </header>
     <div id="mouse-circle"></div>
@@ -83,6 +42,7 @@
                 <!-- REPRODUCTOR DE MUSICA -->
                 <div class="reproductor">
                     <div class="track-info">
+
                             <img id="albumArt" src="https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2" alt="Album Art">
                         <div>
                             <h4 id="trackTitle">Título desconocido</h4>
@@ -108,10 +68,10 @@
 
 
                 <div class="navegacion">
-                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Home")'"><i class="bi bi-house"></i>Incio</button>
-                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Usuario" && ViewContext.RouteData.Values["action"].ToString() == "Perfil" ? "tq-text" : "")" onclick="location.href='@Url.Action("Perfil", "Usuario", new { id = "me" })'"><i class="bi bi-person"></i>Perfil</button>
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Home" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Home")'"><i class="bi bi-house"></i>Inicio</button>
                     <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Comunidad" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Comunidad")'"><i class="bi bi-people"></i>Comunidad</button>
                     <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Notificacion" ? "tq-text" : "")" onclick="location.href='@Url.Action("Index", "Notificacion")'"><i class="bi bi-mailbox"></i>Notificacion</button>
+                    <button class="nav-button @(ViewContext.RouteData.Values["controller"].ToString() == "Usuario" && ViewContext.RouteData.Values["action"].ToString() == "Perfil" ? "tq-text" : "")" onclick="location.href='@Url.Action("Perfil", "Usuario", new { id = "me" })'"><i class="bi bi-person"></i>Perfil</button>
                 </div>
             }
         </main>

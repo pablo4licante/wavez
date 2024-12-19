@@ -28,31 +28,21 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Foto</th>
-                <th>Mensaje</th>
-                <th>Fecha</th>
-                <th>Tipo de Contenido</th>
-                <th>Usuario Publicador</th>
-                <th>Usuarios Receptores</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var notificacion in Model.Notificaciones)
-            {
-                <tr>
-                    <td><img src="@notificacion.Foto" alt="Foto" style="width:50px;height:50px;" /></td>
-                    <td>@notificacion.Mensaje</td>
-                    <td>@(notificacion.Fecha != null ? notificacion.Fecha.ToString("dd/MM/yyyy") : "N/A")</td>
-                    <td>@notificacion.TipoContenido</td>
-                    <td>@notificacion.UsuarioPublicador</td>
-                    <td>@string.Join(", ", notificacion.UsuariosReceptores)</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    @foreach (var item in Model.Notificaciones)
+    {
+        <div class="estanteria-notificaciones">
+            <div class="notificacion">
+                <a asp-controller="Cancion" asp-action="Details" asp-route-id="@item.CancionCompartida" data-id="@item.CancionCompartida">
+                    <img src="@item.Foto" style="height: 120px; width: 120px; border-radius: 6px;" />
+                </a>
+                <div class="info-notificacion">
+                    <p id="mensaje-noti">@item.Mensaje</p>
+                    <p>Haz click en la imagen para descubrir más</p>
+                    <p>Publicado el @Html.DisplayFor(modelItem => item.Fecha)</p>
+                </div>
+            </div>
+        </div>
+    }
 }
 
 @section Scripts {

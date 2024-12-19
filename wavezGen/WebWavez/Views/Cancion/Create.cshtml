@@ -6,9 +6,8 @@
         var genres = ViewBag.GenerosEnumDictionary as Dictionary<int, string> ?? new Dictionary<int, string>();
  }
 
-<h1>Crear Cancion</h1>
+<h1>Subir una Cancion</h1>
 
-<h4>Detalles de la Cancion</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -34,7 +33,7 @@
                 <input asp-for="FicheroCancion" class="form-control" type="file"/>
             </div>
             <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn button" />
             </div>
         </form>
     </div>

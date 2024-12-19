@@ -156,7 +156,8 @@ namespace WebWavez.Controllers
 
                 Console.WriteLine($"Notificacion Comunidad: {notificacionCEN.DameNotificacionPorOID(notificacion_comunidad).Mensaje}");
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Perfil", "Usuario", new { id = "me" });
+                ;
             }
             catch (Exception e)
             {
