@@ -292,15 +292,15 @@ body {
     justify-content: center;
     align-items: center;
     margin: 2.5rem auto; /* Centra el elemento horizontalmente */
-    padding: 1.5rem; /* Añade espacio interno para mejor presentación */
-    backdrop-filter: blur(20px); /* Ajusta el desenfoque para un efecto más suave */
+    padding: 1.5rem; /* Aï¿½ade espacio interno para mejor presentaciï¿½n */
+    backdrop-filter: blur(20px); /* Ajusta el desenfoque para un efecto mï¿½s suave */
     background: rgba(63,63,63,0.2);
-    border-radius: 12px; /* Redondea bordes para un mejor diseño */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Añade sombra para destacar */
+    border-radius: 12px; /* Redondea bordes para un mejor diseï¿½o */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Aï¿½ade sombra para destacar */
 }
 
     .detalle-cancion h4 {
-        font-size: 1.2rem; /* Ajusta tamaño relativo */
+        font-size: 1.2rem; /* Ajusta tamaï¿½o relativo */
         margin-top: 1rem;
         color: var(--blanco);
         text-align: center; /* Centra el texto */
@@ -342,9 +342,14 @@ body {
     opacity: 1;
 }
 
+.centered-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .play-button {
-    display: flex; /* Mantenemos esto para el diseño interno */
+    display: flex; /* Mantenemos esto para el diseï¿½o interno */
     opacity: 0; /* Comienza oculto */
     font-size: 120px;
     position: absolute;
@@ -548,7 +553,7 @@ body {
         background: linear-gradient(135deg, var(--negro), var(--negro2));
     }
 
-/* Animación de movimiento */
+/* Animaciï¿½n de movimiento */
 @keyframes floating {
     0% {
         transform: translate(0, 0);
@@ -634,7 +639,7 @@ body {
         font-size: 1rem;
     }
 
-    /* Selector de género */
+    /* Selector de gï¿½nero */
     .search-bar select {
         padding: 0.6rem 1rem;
         border: 2px solid var(--turquesa-light);

@@ -104,7 +104,7 @@
             </form>
         }
 
-        <div class="estanteria-canciones">
+        <div class="estanteria-canciones centered-grid">
             @if (!Model.Canciones.Any())
             {
                 <p>Aún no has subido ninguna canción.</p>
@@ -154,7 +154,7 @@
             </form>
         }
 
-        <div class="grid-canciones">
+        <div class="grid-canciones centered-grid">
             @if (!Model.Playlists.Any())
             {
                 <p>Aún no tienes ninguna playlist.</p>
@@ -185,7 +185,7 @@
 
         <!-- Mostrar usuarios -->
         <h3 style="margin-top: 2rem">@Model.TotalSeguidores Seguidores</h3>
-        <div class="grid-canciones">
+        <div class="grid-canciones centered-grid">
             @if (!Model.Seguidores.Any())
             {
                 <p>Aún no hay ningún seguidor.</p>
@@ -208,7 +208,7 @@
         </div>
 
         <h3 style="margin-top: 2rem">@Model.TotalSeguidos Seguidos</h3>
-        <div class="grid-canciones">
+        <div class="grid-canciones centered-grid">
             @if (!Model.Seguidos.Any())
             {
                 <p>Aún no hay ningún seguido.</p>

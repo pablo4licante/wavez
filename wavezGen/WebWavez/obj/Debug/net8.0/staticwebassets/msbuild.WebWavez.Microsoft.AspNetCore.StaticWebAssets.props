@@ -528,6 +528,7 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Canciones\20241219030736949.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+<<<<<<< HEAD
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Canciones\20241219103357740.mp3))">
       <SourceType>Package</SourceType>
       <SourceId>WebWavez</SourceId>
@@ -688,6 +689,8 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Canciones\20241219104038426.mp3))</OriginalItemSpec>
     </StaticWebAsset>
+=======
+>>>>>>> 86b99ba15050c0efd233f9365aca642be42c26b0
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Canciones\audio.webm))">
       <SourceType>Package</SourceType>
       <SourceId>WebWavez</SourceId>
@@ -1824,6 +1827,7 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Imagenes\20241219030736949.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+<<<<<<< HEAD
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Imagenes\20241219103321512.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>WebWavez</SourceId>
@@ -2064,6 +2068,8 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Imagenes\20241219104431692.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+=======
+>>>>>>> 86b99ba15050c0efd233f9365aca642be42c26b0
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Imagenes\9a34328d07731f33f5f7f1d624e560d65193857a5d7f86d3e3f931a81998c864_200.ico))">
       <SourceType>Package</SourceType>
       <SourceId>WebWavez</SourceId>

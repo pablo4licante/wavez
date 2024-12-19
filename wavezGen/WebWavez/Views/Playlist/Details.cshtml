@@ -7,47 +7,39 @@
     string cancionesJson = JsonConvert.SerializeObject(Songs);
 }
 
-<h1>View</h1>
+<div class="card" id="card-detalle-cancion">
+    <a asp-controller="Playlist" asp-action="Details" asp-route-id="@Model.Id" data-id="@Model.Id">
+        <img class="card-img-top" style="text-align: center;" src="@Html.DisplayFor(model => model.FotoPortada)" style="height: 180px; width: 180px; border-radius: 6px;" alt="Card image cap" />
+    </a>
+    <div class="card-body">
+        <h3 class="card-title" style="text-align: center;"><strong>@Html.DisplayFor(model => model.Titulo)</strong></h3>
+    </div>
+</div>
+<div class="comentarios-cancion">
+    <div class="comentarios">
+        <div class="button-row" style="display: flex; flex-direction: row;">
+            <button class="btn button" onclick="playlistPlay(event)"><i class="bi bi-play-fill"></i></button>
+            <button class="btn button" onclick="playlistShufflePlay(event)"><i class="bi bi-shuffle"></i></button>
+        </div>
+    </div>
+        @foreach (var song in Songs)
+        {
+            <div class="notificacion" style="display: flex; flex-direction: row; justify-content: start; align-items: center;">
+                <a asp-controller="Cancion" asp-action="Details" asp-route-id="@song.Id">
+                    <img src="@song.FotoPortada" style="height: 120px; width: 120px; border-radius: 6px;" />
+                </a>
+                <div class="info-notificacion">
+                    <p style="font-size: 1.7rem;"><strong>@song.Titulo</strong></p>
+                    <a asp-controller="Usuario" asp-action="Perfil" asp-route-id="@song.Autor">
+                    <p>@song.AutorDisplay</p>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
-<div>
-    <h4>Playlist Details</h4>
-    <hr />
-    <table class="table">
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Titulo)</th>
-            <td>@Html.DisplayFor(model => model.Titulo)</td>
-        </tr>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.FotoPortada)</th>
-            <td>@Html.DisplayFor(model => model.FotoPortada)</td>
-        </tr>
-    </table>
-</div>
-<button onclick="playlistPlay(event)"><i class="bi bi-play-fill"></i></button>
-<button onclick="playlistShufflePlay(event)"><i class="bi bi-shuffle"></i></button>
-<div>
-    <h4>Songs</h4>
-    <hr />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Titulo</th>
-                <th>Autor</th>
-                <th>Fecha</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var song in Songs)
-            {
-                <tr>
-                    <td>@song.Titulo</td>
-                    <td>@song.Autor</td>
-                    <td>@song.Fecha</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+
 @section Scripts {
     <script>
 
