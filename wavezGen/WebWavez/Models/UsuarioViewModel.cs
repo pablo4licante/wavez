@@ -21,6 +21,8 @@ namespace WebWavez.Models
         public string FotoPerfil { get; set; }
         public bool EsSeguidoPorUsuarioActual { get; set; }
 
+        public IFormFile FicheroFotoPortada { get; set; }
+
 
     }
 

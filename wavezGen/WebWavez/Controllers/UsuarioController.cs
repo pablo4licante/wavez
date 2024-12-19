@@ -318,7 +318,6 @@ namespace WebWavez.Controllers
         // GET: UsuarioController/Edit/5
         public ActionResult Edit(string id)
         {
-
             SessionInitialize();
 
             UsuarioRepository usuRepo = new UsuarioRepository(session);
@@ -334,8 +333,28 @@ namespace WebWavez.Controllers
         // POST: UsuarioController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(string id,UsuarioViewModel usu)
+        public async Task<ActionResult> Edit(string id,UsuarioViewModel usu)
         {
+            string FotoFileName = "";
+
+            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            if (usu.FicheroFotoPortada != null) {
+                FotoFileName = timestamp + Path.GetExtension(usu.FicheroFotoPortada.FileName);
+                string fotoDirectory = _webHost.WebRootPath + "/Imagenes";
+
+                string fotoPath = Path.Combine((fotoDirectory), FotoFileName);
+
+                if (!Directory.Exists(fotoDirectory))
+                {
+                    Directory.CreateDirectory(fotoDirectory);
+                }
+
+                using (var fileStream = new FileStream(fotoPath, FileMode.Create))
+                {
+                    await usu.FicheroFotoPortada.CopyToAsync(fileStream);
+                }
+            }
+
             try
             {
                 UsuarioRepository usuRepo = new UsuarioRepository();
@@ -352,6 +371,14 @@ namespace WebWavez.Controllers
                 string nuevaContrasenya = string.IsNullOrEmpty(usu.Password)
                     ? usuarioActual.Contrasenya  // Mantener la existente
                     : usu.Password;  // Encriptar la nueva contraseña
+
+                if(FotoFileName != "")
+                {
+                    usu.FotoPerfil = "/Imagenes/" + FotoFileName;
+                } else
+                {
+                    usu.FotoPerfil = usuarioActual.FotoPerfil;
+                }
 
                 usuCEN.Modificar(id, usu.Nombre, usu.Password, usu.Email, usu.FotoPerfil);
                 return RedirectToAction(nameof(Perfil));

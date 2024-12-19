@@ -36,11 +36,18 @@ namespace WebWavez.Controllers
         public ActionResult Details(int id)
         {
             SessionInitialize();
+            Console.WriteLine("Estamos aqui {CancionController} -> " + id);
             CancionRepository cancionRepository = new CancionRepository(session);
             CancionCEN cancionCEN = new CancionCEN(cancionRepository);
             CancionEN cancionEN = cancionCEN.DameCancionPorOID(id);
             CancionViewModel cancion = new CancionAssembler().CovertirENToViewModel(cancionEN);
-
+          
+            ComentarioRepository comentarioRepository = new ComentarioRepository(session);
+            ComentarioCEN comentarioCEN = new ComentarioCEN(comentarioRepository);
+            IList<ComentarioEN> listaComentarios = comentarioCEN.DameTodosLosComentarios(0, -1);
+            listaComentarios = listaComentarios.Where(c => c.Cancion != null && c.Cancion.Id == id).ToList();
+            ViewBag.Comentarios = new ComentarioAssembler().ConvertirListENToListViewModel(listaComentarios);
+     
             return View(cancion);
         }
 

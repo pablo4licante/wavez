@@ -9,18 +9,21 @@ namespace WebWavez.Assemblers
         public CancionViewModel CovertirENToViewModel(CancionEN cancion)
         {
             CancionViewModel cvm = new CancionViewModel();
-            cvm.Id = cancion.Id;
-            cvm.Titulo = cancion.Titulo;
-            cvm.Genero = cancion.Genero;
-            cvm.FotoPortada = cancion.FotoPortada;
-            if(cancion.Fecha != null)
+            if (cancion != null)
             {
-                cvm.Fecha = (DateTime)cancion.Fecha;
+                cvm.Id = cancion.Id;
+                cvm.Titulo = cancion.Titulo;
+                cvm.Genero = cancion.Genero;
+                cvm.FotoPortada = cancion.FotoPortada;
+                if (cancion.Fecha != null)
+                {
+                    cvm.Fecha = (DateTime)cancion.Fecha;
+                }
+                cvm.numReproducciones = cancion.NumReproducciones;
+                cvm.Autor = cancion.Autor.Usuario;
+                cvm.AutorDisplay = cancion.Autor.Nombre;
+                cvm.Url = cancion.Url;
             }
-            cvm.numReproducciones = cancion.NumReproducciones;
-            cvm.Autor = cancion.Autor.Usuario;
-            cvm.AutorDisplay = cancion.Autor.Nombre;
-            cvm.Url = cancion.Url;
             return cvm;
         }
 
